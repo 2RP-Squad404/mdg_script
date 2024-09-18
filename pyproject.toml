@@ -16,6 +16,8 @@ pytest-cov = "^5.0.0"
 taskipy = "^1.13.0"
 pydantic-settings = "^2.5.2"
 requests = "^2.32.3"
+faker = "^28.4.1"
+google-cloud-pubsub = "^2.23.1"
 
 [tool.ruff]
 line-length = 79
