@@ -10,6 +10,8 @@ __pycache__/
 # C extensions
 *.so
 
+big-maxim-430019-g7-6fa6ca43c9b3.json
+
 # Distribution / packaging
 .Python
 build/
