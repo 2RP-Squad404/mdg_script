@@ -20,9 +20,9 @@ def generate_person():
         cpf=fake.cpf()
     )
 
-    person_dict = person.__dict__
+    # person_dict = person.__dict__
 
-    return person_dict
+    return person
 
 
 def generate_account():
