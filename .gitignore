@@ -11,6 +11,7 @@ __pycache__/
 *.so
 
 big-maxim-430019-g7-6fa6ca43c9b3.json
+.api_key.md
 
 # Distribution / packaging
 .Python
