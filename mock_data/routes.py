@@ -1,4 +1,4 @@
-from datagen import event_data_test
+from datagen import generate_event
 from fastapi import APIRouter
 
 router = APIRouter()
@@ -11,7 +11,7 @@ def entry_point():
 
 @router.post('/addevent')
 def post_event():
-    return event_data_test
+    return generate_event()
 
 
 @router.get('/event')
