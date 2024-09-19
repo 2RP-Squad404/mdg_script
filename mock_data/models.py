@@ -1,23 +1,26 @@
 from pydantic import BaseModel
 
+
 class Person(BaseModel):
-    person_id: int 
+    person_id: int
     name: str
-    email: str 
+    email: str
     gender: str
     birth_date: str
     address: str
     salary: float
     cpf: str
-    
+
+
 class Account(BaseModel):
     account_id: int
-    status_id: int 
+    status_id: int
     due_day: int
     person_id: int
     balance: float
-    available_balance: float 
-    
+    available_balance: float
+
+
 class Card(BaseModel):
     card_id: int
     card_number: str
@@ -25,11 +28,12 @@ class Card(BaseModel):
     status_id: int
     limit: float
     expiration_date: str
-    
-class BuyEvent():
-    person_id: int 
+
+
+class BuyEvent(BaseModel):
+    person_id: int
     name: str
-    email: str 
+    email: str
     address: str
     salary: float
     cpf: str
@@ -39,10 +43,3 @@ class BuyEvent():
     status_id: int
     limit: float
     expiration_date: str
-    
-
-    
-    
-    
-    
-    
