@@ -29,6 +29,6 @@ settings = Settings(
     API_PORT=8001,
     API_DESCRIPTION="Esta aplicação gera e dispara eventos com dados mockados para serem usados na pipeline analítica BigQuery/Dataform",
     PROJECT_ID='big-maxim-430019-g7',
-    DATASET_ID='big-maxim-430019-g7.mock_pfs_unificacao_pefisa',
-    TABLE_ID='big-maxim-430019-g7.mock_pfs_unificacao_pefisa.mock_cartao'
+    DATASET_ID='big-maxim-430019-g7.mockdatadataset',
+    TABLE_ID='big-maxim-430019-g7.mockdatadataset.account'
 )
