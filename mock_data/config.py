@@ -18,6 +18,8 @@ class Settings(BaseSettings):
     API_PORT: int
     API_DESCRIPTION: str
     PROJECT_ID: str
+    DATASET_ID: str
+    TABLE_ID: str
 
 
 settings = Settings(
@@ -26,5 +28,7 @@ settings = Settings(
     API_HOST="localhost",
     API_PORT=8001,
     API_DESCRIPTION="Esta aplicação gera e dispara eventos com dados mockados para serem usados na pipeline analítica BigQuery/Dataform",
-    PROJECT_ID='big-maxim-430019-g7'
+    PROJECT_ID='big-maxim-430019-g7',
+    DATASET_ID='big-maxim-430019-g7.mock_pfs_unificacao_pefisa',
+    TABLE_ID='big-maxim-430019-g7.mock_pfs_unificacao_pefisa.mock_cartao'
 )
