@@ -18,28 +18,15 @@
 ```mermaid
 graph LR
 
-    subgraph Publisher
-        o1[Mock-Data App]
-    end
+    o1[Mock-Data App]
 
-    o2[Topic]
-    o5[Subscriptions 1]
-    o6[Subscriptions 2]
-    o7(Schema)
-
-    subgraph Subscriber
+    subgraph Mock Tables
         o3[BigQuery]
         o4[Dataform]
     end
 
-    o1 --> o2
-    o2 --> o5
-    o2 --> o6
-
-    o5 --> o4
-    o5 --> o3
-    o6 --> o3
-    o2 <-.-> o7
+    o1 --> o3
+    o3 --> o4
 ```
 ****
 
