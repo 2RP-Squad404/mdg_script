@@ -19,8 +19,8 @@ class Account(BaseModel):
     status_id: int
     due_day: int
     person_id: int
-    balance: float
-    available_balance: float
+    balance: int
+    available_balance: int
 
 
 class Card(BaseModel):
