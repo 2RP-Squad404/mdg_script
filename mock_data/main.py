@@ -1,10 +1,34 @@
-import uvicorn
+
+## ESTE ARQUIVO É RESPONSÁVEL POR ENVIAR OS DADOS PARA AS TABELAS DO BIGQUERY 
 from config import settings
-from fastapi import FastAPI
-from routes import router
+from google.cloud import bigquery
+from datagen import generate_mock_data_test 
 
-app = FastAPI(title=settings.API_TITLE, description=settings.API_DESCRIPTION, version=settings.API_VERSION)
-app.include_router(router)
+def send(mock_data, dataset_id, table_id):
+    client = bigquery.Client()
+    
+    table_ref = client.dataset(dataset_id).table(table_id)
+    table = client.get_table(table_ref)
+    
+    line_mock_data = [mock_data]
+    errors = client.insert_rows_json(table, line_mock_data)
+    
+    if errors:
+        print(f"Erro ao enviar: {errors}")
+    else:
+        print("Dados enviados")
+        
+mock_data = []
 
-if __name__ == '__main__':
-    uvicorn.run(app, host=settings.API_HOST, port=settings.API_PORT)
+for i in range(10):
+    mock_data.append(generate_mock_data_test())
+
+# for j in range(10):
+#     print(mock_data[j])
+dataset_id = 'mock_pfs_unificacao_pefisa'
+table_id = 'mock_data'
+
+
+for k in range(10):
+    send(mock_data[k], dataset_id, table_id)
+    
