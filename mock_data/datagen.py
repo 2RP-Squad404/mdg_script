@@ -1,7 +1,10 @@
+import json
 import random
 from datetime import date
+
+import pytz
 from faker import Faker
-from models import Account, BuyEvent, Card, CardEvent, Person, Mock_test
+from models import Account, BuyEvent, Card, CardEvent, Mock_test, Person
 
 fake = Faker(['pt_BR'])
 
@@ -87,23 +90,23 @@ def generate_cardevent():
         num_bin=fake.credit_card_number()[:6],
         cod_loja_emis_cartao=str(random.randint(1000, 9999)),
         id_cliente_so=str(random.randint(10000000, 99999999)),
-        dth_emis_cartao=fake.uuid4(),
-        dth_embs_cartao=fake.uuid4(),
-        dth_valid_cartao=fake.uuid4(),
-        dth_desbloqueio=fake.uuid4(),
+        dth_emis_cartao=str(fake.date_time_between(start_date='-30d', end_date='now', tzinfo=pytz.UTC).strftime('%Y-%m-%d %H:%M:%S')),  # timestamp fied
+        dth_embs_cartao=str(fake.date_time_between(start_date='-30d', end_date='now', tzinfo=pytz.UTC).strftime('%Y-%m-%d %H:%M:%S')),  # timestamp fied
+        dth_valid_cartao=str(fake.date_time_between(start_date='-30d', end_date='now', tzinfo=pytz.UTC).strftime('%Y-%m-%d %H:%M:%S')),  # timestamp fied
+        dth_desbloqueio=str(fake.date_time_between(start_date='-30d', end_date='now', tzinfo=pytz.UTC).strftime('%Y-%m-%d %H:%M:%S')),  # timestamp field
         cod_sit_cartao=str(random.randint(1, 5)),
         des_sit_cartao=random.choice(["ATIVO", "BLOQUEADO", "CANCELADO"]),
-        dth_sit_cartao=fake.uuid4(),
+        dth_sit_cartao=str(fake.date_time_between(start_date='-30d', end_date='now', tzinfo=pytz.UTC).strftime('%Y-%m-%d %H:%M:%S')),  # timestamp field
         cod_estagio_cartao=str(random.randint(1, 5)),
         des_estagio_cartao=random.choice(["ENCAMINHADO", "FINALIZADO"]),
-        dth_estagio_cartao=fake.uuid4(),
+        dth_estagio_cartao=str(fake.date_time_between(start_date='-30d', end_date='now', tzinfo=pytz.UTC).strftime('%Y-%m-%d %H:%M:%S')),  # timestamp field
         flg_embs_loja=random.choice(["S", "N"]),
         flg_cartao_cancelado=random.choice(["S", "N"]),
         flg_cartao_provisorio=random.choice(["S", "N"]),
         flg_conta_cancelada=random.choice(["S", "N"]),
-        dth_ult_atu_so=fake.uuid4(),
+        dth_ult_atu_so=str(fake.date_time_between(start_date='-30d', end_date='now', tzinfo=pytz.UTC).strftime('%Y-%m-%d %H:%M:%S')),  # timestamp field
         num_seq_ult_alteracao=str(random.randint(1, 100)),
-        dth_inclusao_reg=fake.uuid4(),
+        dth_inclusao_reg=str(fake.date_time_between(start_date='-30d', end_date='now', tzinfo=pytz.UTC).strftime('%Y-%m-%d %H:%M:%S')),  # timestamp field
         pt_nomeplastico=fake.name(),
         ca_arquivolote=fake.lexify(text="CPEM??????"),
         ca_id_imagem=fake.uuid4(),
@@ -116,18 +119,22 @@ def generate_cardevent():
 
     return card_event_dict
 
+
+fake.unique.clear()
+
+
 def generate_mock_data_test():
     mock_test = Mock_test(
-        person_id = fake.unique.random_int(min=1, max=2002, step=1),
-        name = fake.name()
+        person_id=fake.unique.random_int(min=1, max=2002, step=1),
+        name=fake.name()
     )
-    
+
     mock_test_dict = mock_test.__dict__
-    
+
     return mock_test_dict
 
-mock_tests = [generate_mock_data_test() for i in range(10)]
-print(mock_tests)
+# mock_tests = [generate_mock_data_test() for i in range(10)]
+# print(mock_tests)
 
 
 # def generate_event():
@@ -143,3 +150,5 @@ print(mock_tests)
 #     return event_data
 
 # print(generate_cardevent())
+
+print(json.dumps(generate_cardevent()))
