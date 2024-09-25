@@ -1,3 +1,4 @@
+
 from pydantic import BaseModel
 
 
@@ -43,7 +44,8 @@ class BuyEvent(BaseModel):
     status_id: int
     limit: float
     expiration_date: str
-    
+
+
 class Mock_test(BaseModel):
     person_id: int
     name: str

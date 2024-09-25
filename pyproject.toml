@@ -6,7 +6,7 @@ authors = ["KauanIzidoro <cnttbussineskauan@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.10.12"
+python = "3.12.*"
 fastapi = {extras = ["standard"], version = "^0.114.1"}
 faker = "^29.0.0"
 
@@ -16,11 +16,8 @@ pytest = "^8.3.3"
 pytest-cov = "^5.0.0"
 taskipy = "^1.13.0"
 pydantic-settings = "^2.5.2"
-requests = "^2.32.3"
 pydantic = "^2.9.2"
 google-cloud-bigquery = "^3.25.0"
-pandas = "^2.2.3"
-pandas-gbq = "^0.23.2"
 faker = "^29.0.0"
 
 [tool.ruff]
@@ -43,6 +40,7 @@ addopts = '-p no:warnings'
 lint = 'ruff check . && ruff . --diff'
 format = 'ruff check . --fix && ruff format'
 run = 'python3 main.py'
+fake = 'python3 datagen.py'
 create_table = 'python3 bq_table.py'
 pre_test = 'task lint'
 test = 'pytest -s -x --cov=app_webhook -vv'
