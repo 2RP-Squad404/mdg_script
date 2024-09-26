@@ -1,11 +1,16 @@
+import time
 
 from config import settings
 from datagen import generate_cardevent
 from google.cloud import bigquery
 
+client = bigquery.Client()
+start = time.time()
+
+num_of_lines = input("Quantas linhas você deseja inserir na tabela Card? ")
+
 
 def send_to_card_table(card_mock_data, dataset_id, table_id):
-    client = bigquery.Client()
 
     table_ref = client.dataset(dataset_id).table(table_id)
     table = client.get_table(table_ref)
@@ -15,20 +20,21 @@ def send_to_card_table(card_mock_data, dataset_id, table_id):
 
     if errors:
         print(f"Erro ao enviar: {errors}")
-    else:
-        print("Dados enviados")
 
 
 card_mock_data = []
 
-for i in range(50):
+for i in range(int(num_of_lines)):
     card_mock_data.append(generate_cardevent())
 
-# for j in range(10):
-#     print(mock_data[j])
 dataset_id = settings.PFS_UNIFICACAO_PEFISA_DATASET_ID
 table_id = settings.MOCK_CARD_TABLE_ID
 
 
-for k in range(50):
+for k in range(int(num_of_lines)):
     send_to_card_table(card_mock_data[k], dataset_id, table_id)
+    print("Enviando dados..." + f"Restam {int(num_of_lines) - k} linhas.")
+
+end_code = time.time()
+
+print(f"Envio dos dados finalizado em {(end_code - start):.2f}ms")
