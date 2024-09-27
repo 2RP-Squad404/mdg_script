@@ -62,3 +62,4 @@ export GOOGLE_APPLICATION_CREDENTIALS="/caminho/da/chave/json"
 Após estes passos você poderá comunicar com os serviços `google.cloud.client`.
 
 **** 
+
