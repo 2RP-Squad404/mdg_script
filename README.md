@@ -34,4 +34,29 @@ graph LR
 
 ###### Mock-Data App:
 
-Esta aplicação gera dados mockados para alimentar as tabelas já existentes, seguindo o mesmo `schema`. O dados são gerados a partir da biblioteca `faker` que possui opções diversificadas para geração de dados conforme a necessidade da aplicação. 
+Esta aplicação gera dados mockados para popular as tabelas já existentes, seguindo o mesmo `schema`. Os dados são gerados a partir da biblioteca `faker` que possui opções diversificadas para geração de dados conforme a necessidade da aplicação. 
+
+****
+
+### Requisitos e Configurações para rodar esta aplicação 
+
+- Python versão 3.12.6 ou superior
+
+- Autenticação com [`google.cloud.client`](#autenticação)
+
+- Poetry versão 1.8.3 ou superior
+
+### Autenticação
+
+Para comunicar qualquer aplicação a algum serviço ou API `Google Cloud Platform` é necessário autenticar sua Conta de serviço.
+
+1. Quando estiver no console vá até `IAM e administrador` > `Conta de serviço` > Escolha qual conta serviço deseja autenticar > `Chaves` > `Adicionar Chave` > Criar nova Chave > Recomenda-se que use a chave em formato `JSON`.
+
+2. Após fazer o download do arquivo, mova-o até a pasta raiz do projeto e execute o seguinte comando no terminal integrado:
+
+```shell
+export GOOGLE_APPLICATION_CREDENTIALS="/caminho/da/chave/json"
+```
+Após estes passos você poderá comunicar com os serviços `google.cloud.client`.
+
+**** 
