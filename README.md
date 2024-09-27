@@ -46,6 +46,8 @@ Esta aplicação gera dados mockados para popular as tabelas já existentes, seg
 
 - Poetry versão 1.8.3 ou superior
 
+****
+
 ### Autenticação
 
 Para comunicar qualquer aplicação a algum serviço ou API `Google Cloud Platform` é necessário autenticar sua Conta de serviço.
