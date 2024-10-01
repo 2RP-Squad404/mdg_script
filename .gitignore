@@ -12,6 +12,7 @@ __pycache__/
 
 .python-version
 .api_key.txt
+poetry.lock
 
 # Distribution / packaging
 .Python
