@@ -1,11 +1,10 @@
 import os
 
-from google.cloud import bigquery
+from auth import client
 
-Table_client = bigquery.Client()
 schema_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'schemas.py')
 
-card_table_id = Table_client.get_table(str(input("Insira o ID do seu Dataset e de sua tabela no formato 'dataset_id.table_id' : ")))
+card_table_id = client.get_table(str(input("Insira o ID do seu Dataset e de sua tabela no formato 'dataset_id.table_id' : ")))
 
 unformat_card_table_schema = card_table_id.schema
 
