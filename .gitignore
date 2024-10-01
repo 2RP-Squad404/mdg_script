@@ -10,9 +10,6 @@ __pycache__/
 # C extensions
 *.so
 
-big-maxim-430019-g7-6fa6ca43c9b3.json
-big-maxim-430019-g7-758c391841b2.json
-backup_schemas.py
 .python-version
 .api_key.txt
 
