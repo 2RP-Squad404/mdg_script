@@ -45,6 +45,8 @@ create_table = 'python3 bq_table.py'
 pre_test = 'task lint'
 test = 'pytest -s -x --cov=app_webhook -vv'
 post_test = 'coverage html'
+auth = 'python3 auth.py'
+
 
 
 [build-system]
