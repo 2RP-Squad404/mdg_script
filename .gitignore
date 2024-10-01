@@ -13,6 +13,7 @@ __pycache__/
 .python-version
 .api_key.txt
 poetry.lock
+.big-maxim-430019-g7-8e5939fc7741
 
 # Distribution / packaging
 .Python
