@@ -46,19 +46,29 @@ Esta aplicação gera dados mockados para popular as tabelas já existentes, seg
 - Poetry versão 1.8.3 ou superior
 
 ****
+### Fluxo de eventos:
 
-### Autenticação
+```mermaid
+sequenceDiagram
+    participant Python Script
+    participant Secret Manager API
+    participant BigQuery API
+    participant Faker Library
+    participant BigQuery Tables
 
-Para comunicar qualquer aplicação a algum serviço ou API `Google Cloud Platform` é necessário autenticar sua Conta de serviço.
-
-1. Quando estiver no console vá até `IAM e administrador` > `Conta de serviço` > Escolha qual conta serviço deseja autenticar > `Chaves` > `Adicionar Chave` > Criar nova Chave > Recomenda-se que use a chave em formato `JSON`.
-
-2. Após fazer o download do arquivo, mova-o até a pasta raiz do projeto e execute o seguinte comando no terminal integrado:
-
-```shell
-export GOOGLE_APPLICATION_CREDENTIALS="/caminho/da/chave/json"
+    Python Script->>Secret Manager API: Request authentication token for service account
+    Secret Manager API-->>Python Script: Returns authentication token
+    
+    Python Script->>BigQuery API: Fetch table schemas using authentication token
+    BigQuery API-->>Python Script: Returns table schemas in JSON
+    
+    Python Script->>Python Script: Generate classes in models file from JSON schemas
+    
+    Python Script->>Faker Library: Request mock data generation based on models
+    Faker Library-->>Python Script: Returns mock data
+    
+    Python Script->>BigQuery Tables: Upload mock data to BigQuery tables
+    BigQuery Tables-->>Python Script: Confirm data upload
 ```
-Após estes passos você poderá comunicar com os serviços `google.cloud.client`.
-
 **** 
 
