@@ -10,10 +10,10 @@ __pycache__/
 # C extensions
 *.so
 
+big-maxim-430019-g7-f5443d48a9f4.json
 .python-version
 .api_key.txt
 poetry.lock
-.big-maxim-430019-g7-8e5939fc7741
 
 # Distribution / packaging
 .Python
