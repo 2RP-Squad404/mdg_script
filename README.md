@@ -7,7 +7,7 @@
 
 ![logo](/img/applogo.png)
 
-Esta aplicação gera e dispara eventos com dados 'mockados' para seram usados na pipeline analítica BigQuery/Dataform
+Esta aplicação gera e dispara eventos com dados 'mockados' para seram usados na pipeline analítica `BigQuery & Dataform`
 
 ****
 
