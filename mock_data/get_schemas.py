@@ -1,6 +1,7 @@
 import os
 
-from auth import client
+# from auth import client
+from main import client
 
 schema_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'schemas.py')
 
