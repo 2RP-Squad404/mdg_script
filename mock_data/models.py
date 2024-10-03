@@ -43,12 +43,12 @@ class CardEvent(BaseModel):
 # Teste de mock dados com relacionamento
 
 class Card(BaseModel):
-        card_id: int
-        card_number: str
-        account_id: int
-        status_id: int
-        limit: float
-        expiration_date: str
+    card_id: int
+    card_number: str
+    account_id: int
+    status_id: int
+    limit: float
+    expiration_date: str
 
 
 class Account(BaseModel):
