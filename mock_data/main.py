@@ -1,14 +1,16 @@
 import time
 
-# from auth import client
-from google.cloud import bigquery 
 from config import settings
 from datagen import generate_cardevent
+
+# from auth import client
+from google.cloud import bigquery
 
 start = time.time()
 client = bigquery.Client()
 
 num_of_lines = input("Quantas linhas você deseja inserir na tabela Card? ")
+
 
 def send_to_card_table(card_mock_data, dataset_id, table_id):
 
