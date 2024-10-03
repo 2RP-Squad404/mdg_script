@@ -15,7 +15,6 @@ Esta aplicação gera e dispara eventos com dados 'mockados' para seram usados n
 
 ```mermaid
 graph LR
-
     subgraph Mock-Data App 
         o0[Mapeamento dos schemas]
         o1[Geração de dados mock com Faker]
@@ -50,7 +49,7 @@ sequenceDiagram
     Mock-Data App->>BigQuery API: Importação dos schemas
     BigQuery API-->>Mock-Data App: Mapeamento dos schemas como JSON
     
-    Mock-Data App->>Mock-Data App: Geração automática das classes baseada nos schemas 
+    Mock-Data App->>Mock-Data App: Geração automática das classes baseada nos schemas
     
     Mock-Data App->>Script com Faker: Geração dos dados mock com faker
     Script com Faker-->>Mock-Data App: Dados mock simulando dados reais
