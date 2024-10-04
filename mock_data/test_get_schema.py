@@ -3,7 +3,7 @@ from google.cloud import bigquery
 import json 
 
 # Inicializa o cliente do BigQuery
-client = bigquery.Client()
+client = bigquery.Client(project='sapient-cycling-434419-u0')
 
 # Solicita o ID do dataset e tabela no formato correto
 card_table_id = client.get_table(str(input("Insira o ID do seu Dataset e de sua tabela no formato 'dataset_id.table_id' : ")))
