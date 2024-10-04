@@ -1,6 +1,7 @@
+import json
 import os
+
 from google.cloud import bigquery
-import json 
 
 # Inicializa o cliente do BigQuery
 client = bigquery.Client(project='sapient-cycling-434419-u0')
