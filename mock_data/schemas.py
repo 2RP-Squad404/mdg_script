@@ -99,4 +99,3 @@ bigquery_schema_card = [
     bigquery.SchemaField("ca_flaggeracartasenha", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("pt_id_imagem", "STRING", mode="NULLABLE"),
 ]
-card_schema = {'id_conta': 'STRING', 'num_conta': 'STRING', 'tipo_conta': 'STRING', 'status_conta': 'STRING', 'data_abertura': 'TIMESTAMP', 'data_encerramento': 'TIMESTAMP', 'saldo_conta': 'FLOAT', 'id_cliente': 'STRING', 'data_ultima_movimentacao': 'TIMESTAMP'}
