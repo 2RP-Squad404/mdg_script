@@ -37,7 +37,7 @@ def create_table(client, table_id, schema):
         client.create_table(table)
         print(f"Tabela {table_id} criada com sucesso.")
 
-# 
+
 create_table(client, table_person, bigquery_schema_person)
 create_table(client, table_account, bigquery_schema_account)
 create_table(client, table_card, bigquery_schema_card)
