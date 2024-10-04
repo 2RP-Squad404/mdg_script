@@ -11,3 +11,4 @@ Este script Python é responsável pela inserção de dados fictícios (mockados
 1. [Padrões de Commits](docs/commit-patterns.md)  
 2. [Gerenciamento de Branches](/docs/branch-management.md)
 3. [Ferramentas e Dependências](/docs/tools-and-dependencies.md)
+4. [Diagrama de Sequência](/docs/sequence-diagram.md)
