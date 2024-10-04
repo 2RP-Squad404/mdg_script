@@ -63,7 +63,7 @@ fake.unique.clear()
 
 def generate_card():
     account = random.sample(accounts, 1)[0]
-    
+
     card_event = CardEvent(
         id_cartao=fake.uuid4(),
         id_produto_cartao=fake.uuid4(),
@@ -103,6 +103,7 @@ def generate_card():
     card_event_dict = card_event.__dict__
 
     return card_event_dict
+
 
 cards = [generate_card() for _ in range(3500)]
 
