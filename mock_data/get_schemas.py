@@ -4,11 +4,12 @@ import os
 # from main import client
 from google.cloud import bigquery
 
-client = bigquery.Client()
+client = bigquery.Client(project='sapient-cycling-434419-u0')
 
 schema_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'schemas.py')
 
 card_table_id = client.get_table(str(input("Insira o ID do seu Dataset e de sua tabela no formato 'dataset_id.table_id' : ")))
+
 
 unformat_card_table_schema = card_table_id.schema
 
