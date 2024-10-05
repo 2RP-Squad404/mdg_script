@@ -2,7 +2,8 @@ import random
 from datetime import date
 
 from faker import Faker
-from models import Account, CardEvent, Person
+
+from mock_data.old_models import Account, CardEvent, Person
 
 fake = Faker(['pt_BR'])
 
