@@ -2,7 +2,8 @@ import random
 
 import pytz
 from faker import Faker
-from models import CardEvent
+
+from mock_data.old_models import CardEvent
 
 fake = Faker(['pt_BR'])
 
