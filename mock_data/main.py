@@ -1,7 +1,12 @@
 
-from google.cloud import bigquery
 import sys
-from utils import cli_start, main_menu, create_class_code, import_table_schema, write_class_to_file
+
+from google.cloud import bigquery
+from utils import (
+    cli_start,
+    import_table_schema,
+    main_menu,
+)
 
 # start = time.time()
 client = bigquery.Client()
@@ -15,7 +20,7 @@ while True:
             print("\nOpção 1 selecionada: Importar um schema do BigQuery\n")
             dataset = input("Insira o ID do dataset:\n")
             table = input("Insira o ID da tabela:\n")
-            import_table_schema(client=client,dataset_id=dataset,table_id=table)
+            import_table_schema(client=client, dataset_id=dataset, table_id=table)
             print("\n")
     elif choice == "2":
             print("\nOpção 2 selecionada: Exibir tabelas\n")
@@ -45,5 +50,3 @@ while True:
 #     print("Enviando dados..." + f"Restam {int(num_of_lines) - k} linhas.")
 # end_code = time.time()
 # print(f"Envio dos dados finalizado em {(end_code - start):.2f}ms")
-
-
