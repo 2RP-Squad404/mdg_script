@@ -86,7 +86,7 @@ def import_table_schema(client, dataset_id, table_id, output_dir='bq_schemas'):
             return
         with open(schema_file_path, 'w') as file:
             json.dump(formatted_schema, file, indent=2)
-            print(f"Schema exportado com sucesso para: {schema_file_path} em {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\n")
+            print(f"Schema importado com sucesso para: {schema_file_path} em {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\n")
 
         return schema_file_path
     except Exception as e:
@@ -156,16 +156,16 @@ def send_data_to_bigquery(client, dataset_id, table_id, data):
         print(f"Erro durante o envio para a tabela {table_id}: {e}")
 
 
-def loading_bar(duration=7.0, bar_length=30):
+def loading_bar(duration=5.0, bar_length=30):
     """
     Exibe uma barra de carregamento sofisticada com porcentagem e tempo estimado.
 
     Parâmetros:
-    - duration (float): Duração total da barra de carregamento em segundos.
-    - bar_length (int): Comprimento da barra de carregamento.
+        duration (float): Duração total da barra de carregamento em segundos.
+        bar_length (int): Comprimento da barra de carregamento.
     """
     start_time = time.time()
-    sys.stdout.write("Carregando: [")
+    sys.stdout.write("Loading: [")
     sys.stdout.flush()
     for i in range(bar_length):
         progress = (i + 1) / bar_length
@@ -191,9 +191,6 @@ def main_menu():
     print("2. Exibir tabelas")
     print("3. Enviar dados")
     print('S. Sair')
-    choice = input("\nEscolha uma opção (1-3): ")
-
-    return choice
 
 
 def cli_start(word="MDG Script", delay=0.3):
@@ -201,16 +198,30 @@ def cli_start(word="MDG Script", delay=0.3):
     Exibe uma barra de carregamento seguida pela palavra em ASCII Art com uma animação linha por linha.
 
     Parâmetros:
-    - word (str): A palavra que será exibida com letras grandes.
-    - delay (float): Tempo de atraso entre a exibição de cada linha (em segundos).
+        word (str): A palavra que será exibida com letras grandes.
+        delay (float): Tempo de atraso entre a exibição de cada linha (em segundos).
     """
     loading_bar(duration=5.0, bar_length=30)
     ascii_art = pyfiglet.figlet_format(word)
     ascii_lines = ascii_art.split("\n")
-    sys.stdout.write("\nIniciando...\n\n")
     sys.stdout.flush()
     for line in ascii_lines:
         sys.stdout.write(line + "\n")
         sys.stdout.flush()
         time.sleep(delay)
-    main_menu()
+
+def show_tables(dir='bq_schemas/'):
+    """
+    Exibe o c
+    schemas salvos na pasta 'bq_schemas'
+
+    Parâmetros:
+        dir (str): Diretório onde estão salvos os schemas das tabelas
+        já importadas.
+    """
+    # if (os.listdir(dir).count == 1):
+    #     print('Ainda não há tabelas salvas.')
+    #     sys.exit()
+    # else:
+    print("Estas são as tabelas salvas: \n")
+    print(os.listdir(dir))  
