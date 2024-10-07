@@ -6,16 +6,20 @@ from utils import (
     cli_start,
     import_table_schema,
     main_menu,
+    show_tables
 )
 
-# start = time.time()
 client = bigquery.Client()
 
 cli_start()
+main_menu()
 
 while True:
-    choice = main_menu()
-
+    choice = input("\nEscolha uma opção (1-3): \n" + "> ")
+    print("1. Importar schema do BigQuery")
+    print("2. Exibir tabelas")
+    print("3. Enviar dados")
+    print('S. Sair')
     if choice == "1":
             print("\nOpção 1 selecionada: Importar um schema do BigQuery\n")
             dataset = input("Insira o ID do dataset:\n")
@@ -24,6 +28,7 @@ while True:
             print("\n")
     elif choice == "2":
             print("\nOpção 2 selecionada: Exibir tabelas\n")
+            show_tables()
     elif choice == "3":
             print("\nOpção 3 selecionada: Enviar dados\n")
     elif choice == 'S' or choice == 's':
