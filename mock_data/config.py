@@ -24,7 +24,7 @@ class Settings(BaseSettings):
 
 
 settings = Settings(
-    PROJECT_ID='big-maxim-430019-g7',
-    PFS_UNIFICACAO_PEFISA_DATASET_ID='mock_pfs_unificacao_pefisa',
-    MOCK_CARD_TABLE_ID='mock_cartao'
+    PROJECT_ID='big-maxim-430019-g7', # Service Account usada para teste em desenvolvimento
+    PFS_UNIFICACAO_PEFISA_DATASET_ID='mock_pfs_unificacao_pefisa', # dataset usado para testes em desenvolvimento
+    MOCK_CARD_TABLE_ID='mock_cartao' # tabela usada para testes em desenvolvimento 
 )
