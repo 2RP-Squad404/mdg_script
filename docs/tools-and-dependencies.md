@@ -15,6 +15,7 @@ Bibliotecas:
 [![Pydantic Settings](https://img.shields.io/badge/Pydantic%20Settings-2.5.2-f5f5f5?logo=pydantic)](https://docs.pydantic.dev/latest/api/pydantic_settings/#pydantic_settings)
 [![Google Cloud BigQuery](https://img.shields.io/badge/Google%20Cloud%20BigQuery-3.25.0-4285f4?logo=googlecloud)](https://cloud.google.com/python/docs/reference/bigquery/latest)
 [![Faker](https://img.shields.io/badge/Faker-30.1.0-3776ab?logo=python)](https://faker.readthedocs.io/en/master/)
+[![Pyfiglet](https://img.shields.io/badge/Pyfiglet-1.0.2-3776ab?logo=python)](https://pypi.org/project/pyfiglet/)
 
 Ferramentas de Desenvolvimento:  
 [![Ruff](https://img.shields.io/badge/Ruff-0.6.5-d7ff64?logo=ruff)](https://docs.astral.sh/ruff/)

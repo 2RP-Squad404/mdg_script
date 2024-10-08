@@ -27,6 +27,7 @@ linkify-it-py==2.0.3
 markdown-it-py==3.0.0
 mdit-py-plugins==0.4.2
 mdurl==0.1.2
+mslex==1.2.0
 packaging==24.1
 pillow==10.4.0
 platformdirs==4.3.6
