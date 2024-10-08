@@ -210,6 +210,7 @@ def cli_start(word="MDG Script", delay=0.3):
         sys.stdout.flush()
         time.sleep(delay)
 
+
 def show_tables(dir='bq_schemas/'):
     """
     Exibe o c
@@ -224,4 +225,4 @@ def show_tables(dir='bq_schemas/'):
     #     sys.exit()
     # else:
     print("Estas são as tabelas salvas: \n")
-    print(os.listdir(dir))  
+    print(os.listdir(dir))

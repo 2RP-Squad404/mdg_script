@@ -2,12 +2,7 @@
 import sys
 
 from google.cloud import bigquery
-from utils import (
-    cli_start,
-    import_table_schema,
-    main_menu,
-    show_tables
-)
+from utils import cli_start, import_table_schema, main_menu, show_tables
 
 client = bigquery.Client()
 
