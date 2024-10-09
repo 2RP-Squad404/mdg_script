@@ -226,3 +226,25 @@ def show_tables(dir='bq_schemas/'):
     # else:
     print("Estas são as tabelas salvas: \n")
     print(os.listdir(dir))
+
+def get_tables(dataset_id):
+    """
+    A função pega os nomes das tabelas e armazena num array, sendo uma leitura
+    independente de quantas diver ou nome.
+
+    Parâmetros:
+        O nome do dataset que estão as tabelas
+
+    Returns:
+        Retorna os nomes em formato de array
+    """
+    client = bigquery.Client()
+    dataset_ref = client.dataset(dataset_id)
+
+    tables = client.list_tables(dataset_ref)
+
+    table_list = []
+    for table in tables:
+        table_list.append(table.table_id)
+
+    return table_list
