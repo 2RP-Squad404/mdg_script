@@ -7,8 +7,8 @@ Linguagem de Programação:
 [![Python](https://img.shields.io/badge/Python-3.12.6-3776ab?logo=python)](https://www.python.org/)
 
 Gerenciamento de Dependências:  
-[![Poetry](https://img.shields.io/badge/Poetry-1.8.3-60a5fa?logo=poetry)](https://python-poetry.org)
 [![Pipx](https://img.shields.io/badge/Pipx-1.7.1-2cffaa?logo=pipx)](https://pipx.pypa.io/stable/)
+[![Poetry](https://img.shields.io/badge/Poetry-1.8.3-60a5fa?logo=poetry)](https://python-poetry.org)
 
 Bibliotecas:  
 [![Pydantic](https://img.shields.io/badge/Pydantic-2.9.2-f5f5f5?logo=pydantic)](https://docs.pydantic.dev/dev/)
@@ -16,10 +16,10 @@ Bibliotecas:
 [![Google Cloud BigQuery](https://img.shields.io/badge/Google%20Cloud%20BigQuery-3.25.0-4285f4?logo=googlecloud)](https://cloud.google.com/python/docs/reference/bigquery/latest)
 [![Faker](https://img.shields.io/badge/Faker-30.1.0-3776ab?logo=python)](https://faker.readthedocs.io/en/master/)
 [![Pyfiglet](https://img.shields.io/badge/Pyfiglet-1.0.2-3776ab?logo=python)](https://pypi.org/project/pyfiglet/)
+[![Taskipy](https://img.shields.io/badge/Taskipy-1.13.0-3776ab?logo=python)](https://github.com/taskipy/taskipy)
 
 Ferramentas de Desenvolvimento:  
 [![Ruff](https://img.shields.io/badge/Ruff-0.6.5-d7ff64?logo=ruff)](https://docs.astral.sh/ruff/)
-[![Taskipy](https://img.shields.io/badge/Taskipy-1.13.0-3776ab?logo=python)](https://github.com/taskipy/taskipy)
 [![Ignr](https://img.shields.io/badge/Ignr-1.13.0-3776ab?logo=python)](https://github.com/Antrikshy/ignr.py)
 
 Ferramentas do Google Cloud Platform:  
