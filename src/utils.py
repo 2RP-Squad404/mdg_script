@@ -15,7 +15,9 @@ TYPE_MAPPING = {
     "TIMESTAMP": "datetime"
 }
 
-client = bigquery.Client()
+project_id = 'sapient-cycling-434419-u0'
+
+client = bigquery.Client(project = project_id)
 
 
 def create_table(client, table_id, schema):
@@ -88,7 +90,8 @@ def import_table_schema(client, dataset_id, table_id, output_dir='bq_schemas'):
             json.dump(formatted_schema, file, indent=2)
             print(f"Schema importado com sucesso para: {schema_file_path} em {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\n")
 
-        return schema_file_path
+        with open(schema_file_path, 'r') as file:
+          return json.load(file)
     except Exception as e:
         print(f"Erro ao exportar schema: {e}\n")
         raise
@@ -114,7 +117,7 @@ def create_class_code(schema: dict, class_name: str) -> str:
     return class_code
 
 
-def write_class_to_file(schema: dict, class_name: str, file_path: str):
+def write_class_to_file(schema: dict, class_name: str, file_path='src/models.py'):
     """
     Escreve o código gerado de uma classe Pydantic em um arquivo Python.
 
@@ -125,7 +128,7 @@ def write_class_to_file(schema: dict, class_name: str, file_path: str):
     """
     class_code = create_class_code(schema, class_name)
 
-    with open(file_path, "w") as file:
+    with open(file_path, "a") as file:
         file.write(class_code)
         print(f"Classe {class_name} gerada com sucesso no arquivo: {file_path}")
 
