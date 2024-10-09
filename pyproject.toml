@@ -16,6 +16,7 @@ google-cloud-bigquery = "^3.26.0"
 faker = "^30.3.0"
 pyfiglet = "^1.0.2"
 taskipy = "^1.13.0"
+google-auth = "^2.35.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.6.9"
