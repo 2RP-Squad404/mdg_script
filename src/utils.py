@@ -15,7 +15,10 @@ TYPE_MAPPING = {
     "TIMESTAMP": "datetime"
 }
 
-project_id = 'sapient-cycling-434419-u0'
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "just-lore.json"
+
+# project_id = 'sapient-cycling-434419-u0'
+project_id = 'just-lore-435816-v8'
 
 client = bigquery.Client(project = project_id)
 
@@ -193,8 +196,8 @@ def main_menu():
     print("1. Importar schema do BigQuery")
     print("2. Exibir tabelas")
     print("3. Enviar dados")
+    print("4. Criar tabelas via json")
     print('S. Sair')
-
 
 def cli_start(word="MDG Script", delay=0.3):
     """
@@ -251,3 +254,50 @@ def get_tables(dataset_id):
         table_list.append(table.table_id)
 
     return table_list
+
+def tranform_json_to_schema(file_path):
+    with open(file_path, 'r') as f:
+        data = json.load(f)
+    
+    schema_big_query = []
+
+    if 'schema' in data:
+        for column in data['schema']:
+            column_name = column['name']
+            column_type = column['type']
+            column_mode = column.get('mode', 'NULLABLE')
+            schema_big_query.append(bigquery.SchemaField(column_name, column_type, mode=column_mode))
+    return schema_big_query
+
+def get_all_schemas(directory):
+    schemas = []
+    
+    json_files = [f for f in os.listdir(directory) if f.endswith('.json')]
+    
+    for json_file in json_files:
+        file_path = os.path.join(directory, json_file)
+        schema = tranform_json_to_schema(file_path)
+        schemas.append({
+            'filename': json_file,
+            'schema': schema
+        })
+    
+    return schemas
+
+def create_tables_with_schemas(schemas, dataset_id):
+    client = bigquery.Client()
+
+    for schema_info in schemas:
+        table_id = f"{dataset_id}.{schema_info['filename'].replace('.json', '')}"
+        
+        table = bigquery.Table(table_id, schema=schema_info['schema'])
+        table = client.create_table(table)
+        print(f"Tabela {table_id} criada com sucesso.")
+
+def inspect_table_schema(dataset_id, table_id):
+    client = bigquery.Client()
+    table = client.get_table(f"{dataset_id}.{table_id}")  # Monta o identificador completo da tabela
+    
+    print(f"Schema da tabela {table_id}:")
+    for schema_field in table.schema:
+        print(f"Nome: {schema_field.name}, Tipo: {schema_field.field_type}")
