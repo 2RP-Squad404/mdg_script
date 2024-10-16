@@ -15,12 +15,7 @@ TYPE_MAPPING = {
     "TIMESTAMP": "datetime"
 }
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "just-lore.json"
-
-# project_id = 'sapient-cycling-434419-u0'
-project_id = 'just-lore-435816-v8'
-
-client = bigquery.Client(project = project_id)
+client = bigquery.Client()
 
 
 def create_table(client, table_id, schema):
@@ -52,8 +47,8 @@ def create_table(client, table_id, schema):
         try:
             table = bigquery.Table(table_id, schema=schema)
             table = client.create_table(table)
-            logging.info(f"Tabela {table.table_id} criada em {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}")
-            print(f"Tabela {table.table_id} criada em {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}")
+            logging.info(f"Tabela {table.table_id} criada em {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+            print(f"Tabela {table.table_id} criada em {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
             return table
         except Exception as e:
@@ -91,7 +86,7 @@ def import_table_schema(client, dataset_id, table_id, output_dir='bq_schemas'):
             return
         with open(schema_file_path, 'w') as file:
             json.dump(formatted_schema, file, indent=2)
-            print(f"Schema importado com sucesso para: {schema_file_path} em {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\n")
+            print(f"Schema importado com sucesso para: {schema_file_path} em {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
 
         with open(schema_file_path, 'r') as file:
           return json.load(file)
@@ -156,7 +151,7 @@ def send_data_to_bigquery(client, dataset_id, table_id, data):
         if errors:
             print(f"Erro ao enviar: {errors}")
         else:
-            print(f"{len(data)} linha(s) inserida(s) com sucesso para {table_id} em {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}.")
+            print(f"{len(data)} linha(s) inserida(s) com sucesso para {table_id} em {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}.")
 
     except Exception as e:
         print(f"Erro durante o envio para a tabela {table_id}: {e}")
@@ -310,3 +305,90 @@ def create_tables_with_schemas(schemas, dataset_id):
         table = bigquery.Table(table_id, schema=schema_info['schema'])
         table = client.create_table(table)
         print(f"Tabela {table_id} criada com sucesso.")
+
+
+def generate_bigquery_class(table_name, schema):
+    """
+    Gera uma definição de schema do BigQuery como uma string formatada.
+
+    Parâmetros:
+    table_name (str): O nome da tabela, usado para nomear o schema.
+    schema (list): Uma lista de dicionários que representam as colunas da tabela, onde cada dicionário contém informações
+                   sobre o nome, tipo e modo da coluna.
+
+    Retorno:
+    str: Retorna a representação formatada do schema da tabela em uma string.
+    """
+    class_definition = f"{table_name}_schema = [\n"
+    for field in schema:
+        class_definition += f"    bigquery.SchemaField('{field['name']}', '{field['type']}', '{field.get('mode', 'NULLABLE')}'),\n"
+    class_definition += "]\n"
+    return class_definition
+
+
+def process_folder(folder_path, folder_name, output_dir):
+    """
+    Processa uma pasta contendo arquivos JSON e gera um arquivo de schema para o BigQuery.
+
+    Parâmetros:
+    folder_path (str): O caminho da pasta que contém os arquivos JSON.
+    folder_name (str): O nome da pasta (dataset) a ser incluído nos comentários do arquivo de saída.
+    output_dir (str): O diretório onde o arquivo de saída será salvo.
+
+    Retorno:
+    None: Não retorna nada.
+    """
+    schemas = []
+    for filename in os.listdir(folder_path):
+        if filename.endswith(".json"):
+            filepath = os.path.join(folder_path, filename)
+            with open(filepath, 'r', encoding='utf-8') as json_file:
+                data = json.load(json_file)
+                table = data.get("table")
+                schema = data.get("schema")
+                
+                # Nomear o schema com base no nome do arquivo JSON (sem extensão)
+                schema_name = os.path.splitext(filename)[0]
+                
+                # Gerar a classe formatada para BigQuery
+                formatted_class = generate_bigquery_class(schema_name, schema)
+                
+                # Adicionar ao array de schemas formatados com comentário do dataset e tabela
+                schemas.append(f"# Dataset: {folder_name}, Table: {table}\n{formatted_class}")
+    
+    # Nomear o arquivo com o formato <dataset>_schemas.py
+    output_file_name = f"{folder_name}_schemas.py"
+    output_file_path = os.path.join(output_dir, output_file_name)
+    
+    # Escrever todas as classes no arquivo de saída
+    with open(output_file_path, 'w', encoding='utf-8') as output_file:
+        output_file.write("\n\n".join(schemas))
+
+
+def create_bigquery_schemas_for_datasets(directory):
+    """
+    Cria schemas do BigQuery para todos os datasets em um diretório especificado.
+
+    Parâmetros:
+    directory (str): O caminho da pasta principal onde estão localizadas as subpastas (datasets).
+
+    Retorno:
+    None: Não retorna nada.
+    """
+    # Criar a pasta py_schemas, se não existir
+    output_dir = "py_schemas"
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    
+    # Processar todas as subpastas (datasets)
+    for folder_name in os.listdir(directory):
+        folder_path = os.path.join(directory, folder_name)
+        if os.path.isdir(folder_path):
+            # Processar a pasta (dataset) e gerar o arquivo <dataset>_schemas.py
+            process_folder(folder_path, folder_name, output_dir)
+
+# Caminho da pasta principal onde estão as subpastas (datasets)
+directory_path = "./bq_schemas"
+
+# Chamar a função para gerar os schemas para todos os datasets
+create_bigquery_schemas_for_datasets(directory_path)
