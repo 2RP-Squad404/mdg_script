@@ -217,32 +217,15 @@ def cli_start(word="MDG Script", delay=0.3):
         time.sleep(delay)
 
 
-def show_tables(dir='bq_schemas/'):
-    """
-    Exibe o c
-    schemas salvos na pasta 'bq_schemas'
-
-    Parâmetros:
-        dir (str): Diretório onde estão salvos os schemas das tabelas
-        já importadas.
-    """
-    # if (os.listdir(dir).count == 1):
-    #     print('Ainda não há tabelas salvas.')
-    #     sys.exit()
-    # else:
-    print("Estas são as tabelas salvas: \n")
-    print(os.listdir(dir))
-
 def get_tables(dataset_id):
     """
-    A função pega os nomes das tabelas e armazena num array, sendo uma leitura
-    independente de quantas diver ou nome.
+    A função pega os nomes das tabelas e armazena em um array.
 
     Parâmetros:
-        O nome do dataset que estão as tabelas
+        dataset_id (str): O nome do dataset que estão as tabelas.
 
-    Returns:
-        Retorna os nomes em formato de array
+    Retorno:
+        list (str): Retorna os nomes em formato de lista.
     """
     client = bigquery.Client()
     dataset_ref = client.dataset(dataset_id)
@@ -256,6 +239,15 @@ def get_tables(dataset_id):
     return table_list
 
 def tranform_json_to_schema(file_path):
+    """
+    A função transforma o arquivo json em um schema do BigQuery.
+
+    Parâmetros:
+    file_path (str): O caminho do arquivo json que contém as tabelas.
+
+    Retorno:
+    list (str): Retorna os nomes em formato de lista.
+    """
     with open(file_path, 'r') as f:
         data = json.load(f)
     
@@ -269,7 +261,22 @@ def tranform_json_to_schema(file_path):
             schema_big_query.append(bigquery.SchemaField(column_name, column_type, mode=column_mode))
     return schema_big_query
 
+
+# função do Kelvin
+
+
+
 def get_all_schemas(directory):
+    """
+    A função pega todos os arquivos json no diretório e transforma em schema do Big
+    Query.
+    
+    Parâmetros:
+    directory (str): O caminho do diretório que contém os arquivos json.
+    Retorno:
+    list (str): Retorna os nomes em formato de lista.
+    """
+
     schemas = []
     
     json_files = [f for f in os.listdir(directory) if f.endswith('.json')]
@@ -285,6 +292,16 @@ def get_all_schemas(directory):
     return schemas
 
 def create_tables_with_schemas(schemas, dataset_id):
+    """
+    A função cria as tabelas no BigQuery com os schemas.
+
+    Parâmetros:
+    schemas (list): A lista de schemas.
+    dataset_id (str): O id do dataset no BigQuery.
+    Retorno:
+    None:  Não retorna nada.
+    """
+
     client = bigquery.Client()
 
     for schema_info in schemas:
@@ -293,11 +310,3 @@ def create_tables_with_schemas(schemas, dataset_id):
         table = bigquery.Table(table_id, schema=schema_info['schema'])
         table = client.create_table(table)
         print(f"Tabela {table_id} criada com sucesso.")
-
-def inspect_table_schema(dataset_id, table_id):
-    client = bigquery.Client()
-    table = client.get_table(f"{dataset_id}.{table_id}")  # Monta o identificador completo da tabela
-    
-    print(f"Schema da tabela {table_id}:")
-    for schema_field in table.schema:
-        print(f"Nome: {schema_field.name}, Tipo: {schema_field.field_type}")
