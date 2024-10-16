@@ -1,0 +1,496 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "evento_externo_compra_nao_processado",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_eventocompra",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_origem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_movimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_remessa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_dataremessa",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_lote",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_numeroestabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_dvnumeroestabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_cartao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_datacompra",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_codigoautorizacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_operacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valorcompra",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_numeroparcelas",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valorparcela",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_quantidademoeda",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_fatortotalajustado",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_fatorbancoajustado",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_fatortaxaadministracao",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_fatorcomissaogarantia",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_fatortotal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_datapagamentolojista",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_datafinanciamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_datamovimento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_datavencimentocomprainicial",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_datavencimentocomprafinal",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_flagselecionado",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_flagrefinanciamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_tipocompra",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_tipopagamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_tipocalculoprestacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_tipoliquidacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_credor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valorcomissao",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valorliquido",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valorcontrato",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valorencargostotais",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valorencargosbancarios",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valorgarantias",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valoragenciamento",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_tipoentrada",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_taxajuros",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valoriof",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valortac",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_autorizacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_dataentradacompra",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_primeiraparcela",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_origemresolucao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_datavencimentoreal",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_datavencimentopadrao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_dataprocessamentolojista",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_carencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_contaportador",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_numerocontrato",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_borderaux",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_dataprocessamentolojista2",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valorcomissao2",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_statuslojista",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_eventocompraorigem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_codigomoeda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_mcc",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_codigoacquiring",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_incoming",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_identificacaotransacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_estabelecimento_visa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_nome_estabelecimento_visa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_cicloconciliacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_codigomoedadestino",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valordestino",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valororigem",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valortaxasaque",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_eventoexternoredecompartilhada",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_emissorredecompartilhada",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_estabelecimento_externo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_cartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_pdv",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_databaixa",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_acquirereferencenumber",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_lifecicleauthorization",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_nivelseguranca",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_taxaembarque",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_valorentrada",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_descricaoitempedido",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_id_pedido",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_codautredecompartilhada",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_transactionuuid",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "een_cotacao",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        }
+    ]
+}

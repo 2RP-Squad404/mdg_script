@@ -1,0 +1,71 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "adesao_pacote_tarifa",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ac_id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_id_pacotetarifa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_descricaopacotetarifa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ac_valortarifa",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ac_dataativacao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ac_datadesativacao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ac_datafimciclo",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

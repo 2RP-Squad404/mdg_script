@@ -1,0 +1,111 @@
+{
+    "dataset": "pfs_unificacao_pefisa",
+    "table": "proposta_credito",
+    "schema": [
+        {
+            "name": "id_operacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_proposta",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_politica",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_versao_politica",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_resultado_analise",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_instante",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_sucesso",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_mensagem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_politica",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_titular",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_fase_politica",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estab_proposta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_consulta_bureau",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_origem_consulta_bureau",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_status_consulta_bureau",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_relz_consulta_bureau",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_bureau_consultado",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_modelo_score",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_score",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_registro",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_anomes_proposta_ccred",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        }
+    ]
+}
