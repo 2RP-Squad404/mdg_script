@@ -1,0 +1,666 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "fatura",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_id_historico",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_id_produto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_datavencimentoreal",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_datavencimentopadrao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_inicioperiodofaturado",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_terminoperiodofaturado",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_saldoextratoanterior",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_saldoextratoanteriorajustado",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_basemultacobrada",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_valorminimoextrato",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_financiavelextrato",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_naofinanciavelextrato",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_multaextrato",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_numerociclo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_internacionaisdolarextrato",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_internacionaisreaisextrato",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_debitosinternacionais",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_comprasinternacionaisdolar",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_saquesinternacionaisdolar",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_diversosinternacionaisdolar",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_despesasinternacionaisdolar",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_despesasinternacionaisreais",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_parcelasfinanciaveis",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_comprasnacionais",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_saquesnacionais",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_tarifasnacionais",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_debitosdiversosnacionais",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_multa",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_encargosfinanciamento",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_encargosatraso",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_acertospositivosdiversos",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_creditosnacionais",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_debitosnacionais",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_pagamentos",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_creditopagamentominimo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_correcaocreditominimo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_acertosnegativosdiversos",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_saldoanteriorfinal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_financiavelanteriorfinal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_naofinanciavelanteriorfinal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_saldoatualfinal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_financiavelatualfinal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_naofinanciavelatualfinal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_flagmulta",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_flagrefinanciamento",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_flaganuidade",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_flagemiteextrato",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_aniversarioanuidade1",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_aniversarioanuidade2",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_id_caracteristicaanuidade",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_vencimentorealanterior",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_vencimentopadraoanterior",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_qtdevencimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_vencimento1",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_vencimento2",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_vencimento3",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_datahoraatualizacao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_datacadastramento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_quantidadeportadores",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_flagpagamento",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_numerodocumento",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_parcelasnaofinanciaveis",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_id_endereco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_jurosmora",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_pontuacaototalciclo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_pontuacaousadaciclo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_datavencimentocobranca",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_principalparcelado",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_totalfuturo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_pontosconcedidos",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_pontosremanescentes",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_valorminimoextratoanterior",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_cetanual",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_cotacaodolar",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_saldoaplicacao",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_cotacaodolarcorte",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_datafechamentoproxfatura",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_limitetotalcreditoparcelado",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_limitetotalcreditoparcelaparcelado",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_limiteglobalcreditohist",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_id_sequencial_arquivo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_encargospagminimo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_flagoverlimit",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_flagfaturaporemail",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_statusenviofaturaporemail",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_flagsmsextratoincondicional",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_debitosopcionais",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_debitosrecorrentes",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_seguros",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_datapostagem",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_cetrotativoperiodo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_cetrotativoproxperiodo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_cetparceladoperiodo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_cetparceladoproxperiodo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_cetsaqueperiodo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_cetsaqueproxperiodo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_encargosrotativoperiodo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_encargosrotativoproxperiodo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_encargosparceladoperiodo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_encargosparceladoproxperiodo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_encargossaqueperiodo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_encargossaqueproxperiodo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_valor_parcelado_futuro",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_cet_cdc_mensal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_cet_cdc_anual",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_cet_emprestimo_mensal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_cet_emprestimo_anual",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_valor_cet_per_rotat",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_valor_cet_prox_per_rotat",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_valor_cet_per_parc",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_valor_cet_prox_per_parc",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_valor_cet_per_saque",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_valor_cet_prox_per_saque",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_valor_cet_anual_rotativo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_valor_cet_anual_parcelado",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_valor_cet_anual_saque",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_anoquitacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_datavencpadrao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_vencpadraoanterior",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_flagdiferenciado",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_limitemaximo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_limiteglobalcredito",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fa_limitesaquenacglobal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

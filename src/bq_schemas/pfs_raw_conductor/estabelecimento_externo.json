@@ -1,0 +1,46 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "estabelecimento_externo",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ee_id_estabelecimento_visa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ee_nome_estabelecimento_visa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}
