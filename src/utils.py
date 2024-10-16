@@ -259,8 +259,6 @@ def tranform_json_to_schema(file_path):
 
 # função do Kelvin
 
-
-
 def get_all_schemas(directory):
     """
     A função pega todos os arquivos json no diretório e transforma em schema do Big
@@ -362,6 +360,7 @@ def process_folder(folder_path, folder_name, output_dir):
     
     # Escrever todas as classes no arquivo de saída
     with open(output_file_path, 'w', encoding='utf-8') as output_file:
+        output_file.write("from google.cloud import bigquery\n\n")
         output_file.write("\n\n".join(schemas))
 
 
