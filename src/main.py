@@ -3,7 +3,6 @@ import sys
 
 from google.cloud import bigquery
 from utils import cli_start, import_table_schema, main_menu, show_tables,inspect_table_schema, write_class_to_file,get_all_schemas,create_tables_with_schemas
-# project_id = 'sapient-cycling-434419-u0'
 
 client = bigquery.Client(project="just-lore-435816-v8")
 dataset_id = 'just-lore-435816-v8.json_data'
