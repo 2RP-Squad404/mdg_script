@@ -1,0 +1,66 @@
+{
+    "dataset": "pfs_unificacao_cliente",
+    "table": "cliente_item_perfil",
+    "schema": [
+        {
+            "name": "id_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_primeiro_evento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ultimo_evento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_cli",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cliente_so",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_evento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_evento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_evento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_evento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_item_perfil",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        }
+    ]
+}
