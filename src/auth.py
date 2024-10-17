@@ -1,7 +1,10 @@
-from google.cloud import secretmanager, bigquery
-from google.oauth2 import service_account
 import json
+
+from google.cloud import bigquery, secretmanager
+from google.oauth2 import service_account
+
 from config import PROJECT_ID, SECRET_NAME
+
 
 def get_secret(secret_name, project_id):
     """
@@ -20,6 +23,7 @@ def get_secret(secret_name, project_id):
         print(f"Erro ao buscar o segredo do Secret Manager: {e}")
         return None
 
+
 def get_bigquery_client():
     """
     Autentica no BigQuery usando as credenciais armazenadas no Secret Manager.
@@ -32,10 +36,10 @@ def get_bigquery_client():
         credentials_info = get_secret(SECRET_NAME, PROJECT_ID)
         if credentials_info is None:
             raise Exception("Credenciais não encontradas no Secret Manager.")
-        
+
         # Gera as credenciais da conta de serviço com base no segredo obtido
         credentials = service_account.Credentials.from_service_account_info(credentials_info)
-        
+
         # Retorna o cliente do BigQuery autenticado com a conta de serviço
         print("Usando a conta de serviço para autenticar no BigQuery.")
         return bigquery.Client(credentials=credentials, project=PROJECT_ID)

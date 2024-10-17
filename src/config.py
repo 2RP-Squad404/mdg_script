@@ -15,6 +15,7 @@ from pydantic_settings import BaseSettings
         extra (str): Define que qualquer variável de ambiente adicional deve ser ignorada.
 """
 
+
 class Settings(BaseSettings):
     project_id: str
     secret_name: str
@@ -26,5 +27,5 @@ class Settings(BaseSettings):
 
 settings = Settings()
 
-PROJECT_ID=settings.project_id
-SECRET_NAME=settings.secret_name
+PROJECT_ID = settings.project_id
+SECRET_NAME = settings.secret_name

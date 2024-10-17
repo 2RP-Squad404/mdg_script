@@ -194,6 +194,7 @@ def main_menu():
     print("4. Criar tabelas via json")
     print('S. Sair')
 
+
 def cli_start(word="MDG Script", delay=0.3):
     """
     Exibe uma barra de carregamento seguida pela palavra em ASCII Art com uma animação linha por linha.
@@ -233,6 +234,7 @@ def get_tables(dataset_id):
 
     return table_list
 
+
 def tranform_json_to_schema(file_path):
     """
     A função transforma o arquivo json em um schema do BigQuery.
@@ -245,7 +247,7 @@ def tranform_json_to_schema(file_path):
     """
     with open(file_path, 'r') as f:
         data = json.load(f)
-    
+
     schema_big_query = []
 
     if 'schema' in data:
@@ -271,9 +273,9 @@ def get_all_schemas(directory):
     """
 
     schemas = []
-    
+
     json_files = [f for f in os.listdir(directory) if f.endswith('.json')]
-    
+
     for json_file in json_files:
         file_path = os.path.join(directory, json_file)
         schema = tranform_json_to_schema(file_path)
@@ -281,8 +283,9 @@ def get_all_schemas(directory):
             'filename': json_file,
             'schema': schema
         })
-    
+
     return schemas
+
 
 def create_tables_with_schemas(schemas, dataset_id):
     """
@@ -299,7 +302,7 @@ def create_tables_with_schemas(schemas, dataset_id):
 
     for schema_info in schemas:
         table_id = f"{dataset_id}.{schema_info['filename'].replace('.json', '')}"
-        
+
         table = bigquery.Table(table_id, schema=schema_info['schema'])
         table = client.create_table(table)
         print(f"Tabela {table_id} criada com sucesso.")
@@ -344,20 +347,20 @@ def process_folder(folder_path, folder_name, output_dir):
                 data = json.load(json_file)
                 table = data.get("table")
                 schema = data.get("schema")
-                
+
                 # Nomear o schema com base no nome do arquivo JSON (sem extensão)
                 schema_name = os.path.splitext(filename)[0]
-                
+
                 # Gerar a classe formatada para BigQuery
                 formatted_class = generate_bigquery_class(schema_name, schema)
-                
+
                 # Adicionar ao array de schemas formatados com comentário do dataset e tabela
                 schemas.append(f"# Dataset: {folder_name}, Table: {table}\n{formatted_class}")
-    
+
     # Nomear o arquivo com o formato <dataset>_schemas.py
     output_file_name = f"{folder_name}_schemas.py"
     output_file_path = os.path.join(output_dir, output_file_name)
-    
+
     # Escrever todas as classes no arquivo de saída
     with open(output_file_path, 'w', encoding='utf-8') as output_file:
         output_file.write("from google.cloud import bigquery\n\n")
@@ -378,13 +381,14 @@ def create_bigquery_schemas_for_datasets(directory):
     output_dir = "py_schemas"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-    
+
     # Processar todas as subpastas (datasets)
     for folder_name in os.listdir(directory):
         folder_path = os.path.join(directory, folder_name)
         if os.path.isdir(folder_path):
             # Processar a pasta (dataset) e gerar o arquivo <dataset>_schemas.py
             process_folder(folder_path, folder_name, output_dir)
+
 
 # Caminho da pasta principal onde estão as subpastas (datasets)
 directory_path = "./bq_schemas"
