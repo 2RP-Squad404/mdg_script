@@ -300,8 +300,7 @@ def create_tables_with_schemas(schemas, dataset_id):
     for schema_info in schemas:
         table_name = schema_info['filename'].replace('.json','')
 
-        table_id = f"{PROJECT_ID}.{dataset_id}
-        .{table_name}"
+        table_id = f"{PROJECT_ID}.{dataset_id}.{table_name}"
         
         table = bigquery.Table(table_id, schema=schema_info['schema'])
 
