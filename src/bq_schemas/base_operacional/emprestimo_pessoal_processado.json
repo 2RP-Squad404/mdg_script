@@ -1,0 +1,241 @@
+{
+    "dataset": "base_operacional",
+    "table": "emprestimo_pessoal_processado",
+    "schema": [
+        {
+            "name": "id_evento_ep",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cartao_credito_so",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cartao_credito",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_conta_cartao_credito",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_colab_proposta",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_chapa_colab_proposta",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_loja_ads_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cliente_so",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_tipo_operacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tipo_operacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_estab_so",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estab",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_status",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_trans",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_trans",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_parcela",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_parcela",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "per_taxa_juro",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_trans_origem",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_trans_destino",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_ori_resolucao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_ori_resolucao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_vencto_prim_par_ep",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_estimada_vencto_ult_par_ep",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_autorizacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_autorizacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_tac",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_iof",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_juro",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_financiado",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_taxa",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tipo_transacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_origem_informacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_seq_ult_alteracao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_cancelamento_ep",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_canal_aprovacao_ep",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_loja_ads_ep",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_modelo_score",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_sistema_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_anomes_ep",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}
