@@ -6,6 +6,7 @@ import sys
 import time
 from datetime import datetime
 
+from config import PROJECT_ID
 import pyfiglet
 from google.api_core.exceptions import NotFound
 from google.cloud import bigquery
@@ -15,7 +16,7 @@ TYPE_MAPPING = {
     "TIMESTAMP": "datetime"
 }
 
-client = bigquery.Client()
+client = bigquery.Client(PROJECT_ID)
 
 
 def create_table(client, table_id, schema):
@@ -294,16 +295,18 @@ def create_tables_with_schemas(schemas, dataset_id):
     Retorno:
     None:  Não retorna nada.
     """
-
-    client = bigquery.Client()
+    client = bigquery.Client(project=PROJECT_ID)
 
     for schema_info in schemas:
-        table_id = f"{dataset_id}.{schema_info['filename'].replace('.json', '')}"
+        table_name = schema_info['filename'].replace('.json','')
+
+        table_id = f"{PROJECT_ID}.{dataset_id}
+        .{table_name}"
         
         table = bigquery.Table(table_id, schema=schema_info['schema'])
-        table = client.create_table(table)
-        print(f"Tabela {table_id} criada com sucesso.")
 
+        client.create_table(table, exists_ok=True)
+        print(f"Tabela {table_id} criada com sucesso.")
 
 def generate_bigquery_class(table_name, schema):
     """
