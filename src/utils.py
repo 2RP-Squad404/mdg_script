@@ -2,6 +2,7 @@
 import json
 import logging
 import os
+from pathlib import Path
 import sys
 import time
 from datetime import datetime
@@ -17,8 +18,10 @@ TYPE_MAPPING = {
     "INTEGER": "int",
     "FLOAT": "float",
     "BOOLEAN": "bool",
-    "TIMESTAMP": "datetime",
     "DATE": "date",
+    "TIMESTAMP": "datetime",
+    "RECORD": "dict",  
+    "ANY": "Any",
 }
 
 
@@ -101,53 +104,6 @@ def import_table_schema(client, dataset_id, table_id, output_dir='bq_schemas'):
         print(f"Erro ao exportar schema: {e}\n")
         raise
 
-
-def create_class_code(schema: dict) -> str:
-    """
-    Gera o código de uma classe Pydantic baseada em um schema BigQuery fornecido.
-
-    Parâmetros:
-        schema (dict): Dicionário contendo o schema da tabela, incluindo o nome da tabela e seus campos.
-
-    Retorno:
-        str: Código Python gerado para a classe Pydantic.
-    """
-    class_name = schema['table'].capitalize()
-    class_code = f"class {class_name}(BaseModel):\n"
-
-    for field in schema['schema']:
-        field_name = field['name']
-        field_type = TYPE_MAPPING.get(field['type'], "Any")
-        class_code += f"    {field_name}: {field_type}\n"
-
-    class_code += "\n\n"
-    return class_code
-
-
-def process_and_write_classes(directory_path: str, output_file: str):
-    """
-    Percorre um diretório de schemas e gera classes Pydantic para cada arquivo JSON encontrado,
-    gravando o código gerado em um arquivo Python.
-
-    Parâmetros:
-        directory_path (str): Caminho do diretório contendo os arquivos de schema.
-        output_file (str): Caminho completo para salvar o arquivo Python contendo as classes.
-    """
-    directory = Path(directory_path)
-
-    with open(output_file, "a") as models_file:
-        for file_path in directory.iterdir():
-            if file_path.is_file() and file_path.suffix == '.json':
-                with open(file_path, 'r') as file:
-                    try:
-                        schema = json.load(file)
-                        class_code = create_class_code(schema)
-                        models_file.write(class_code)
-                        print(f"Classe gerada e gravada para o arquivo {file_path.name}")
-                    except json.JSONDecodeError:
-                        print(f"Erro ao decodificar o JSON no arquivo {file_path.name}")
-
-
 def send_data_to_bigquery(client, dataset_id, table_id, data):
     """
     Envia os dados mockados para tabelas no BigQuery.
@@ -172,62 +128,6 @@ def send_data_to_bigquery(client, dataset_id, table_id, data):
 
     except Exception as e:
         print(f"Erro durante o envio para a tabela {table_id}: {e}")
-
-
-def loading_bar(duration=5.0, bar_length=30):
-    """
-    Exibe uma barra de carregamento sofisticada com porcentagem e tempo estimado.
-
-    Parâmetros:
-        duration (float): Duração total da barra de carregamento em segundos.
-        bar_length (int): Comprimento da barra de carregamento.
-    """
-    start_time = time.time()
-    sys.stdout.write("Loading: [")
-    sys.stdout.flush()
-    for i in range(bar_length):
-        progress = (i + 1) / bar_length
-        percentage = int(progress * 100)
-        sys.stdout.write("ø")
-        sys.stdout.flush()
-        elapsed_time = time.time() - start_time
-        remaining_time = (1 - progress) * duration
-        sys.stdout.write(f"] {percentage}% | Tempo restante: {remaining_time:.1f}s")
-        sys.stdout.flush()
-        time.sleep(duration / bar_length)
-        sys.stdout.write("\rCarregando: [")
-    sys.stdout.write("." * bar_length + "] 100% | Carregamento concluído!\n")
-    sys.stdout.flush()
-
-
-def main_menu():
-    """
-    Exibe o menu principal com as opções disponíveis.
-    """
-    sys.stdout.flush()
-    print("1. Importar schema do BigQuery")
-    print("2. Exibir tabelas")
-    print("3. Enviar dados")
-    print("4. Criar tabelas via json")
-    print('S. Sair')
-
-
-def cli_start(word="MDG Script", delay=0.3):
-    """
-    Exibe uma barra de carregamento seguida pela palavra em ASCII Art com uma animação linha por linha.
-
-    Parâmetros:
-        word (str): A palavra que será exibida com letras grandes.
-        delay (float): Tempo de atraso entre a exibição de cada linha (em segundos).
-    """
-    loading_bar(duration=5.0, bar_length=30)
-    ascii_art = pyfiglet.figlet_format(word)
-    ascii_lines = ascii_art.split("\n")
-    sys.stdout.flush()
-    for line in ascii_lines:
-        sys.stdout.write(line + "\n")
-        sys.stdout.flush()
-        time.sleep(delay)
 
 
 def get_tables(dataset_id):
@@ -276,77 +176,45 @@ def tranform_json_to_schema(file_path):
     return schema_big_query
 
 
-# função do Kelvin
+# Geração de Bigquerry Schemas e Pydantic Models
 
-def get_all_schemas(directory='./bq_schemas'):
+def create_output_directory(output_dir):
     """
-    A função pega todos os arquivos json no diretório e transforma em schema do Big
-    Query.
-    
-    Parâmetros:
-    directory (str): O caminho do diretório que contém os arquivos json.
-    Retorno:
-    list (str): Retorna os nomes em formato de lista.
-    """
-
-    schemas = []
-
-    json_files = [f for f in os.listdir(directory) if f.endswith('.json')]
-
-    for json_file in json_files:
-        file_path = os.path.join(directory, json_file)
-        schema = tranform_json_to_schema(file_path)
-        schemas.append({
-            'filename': json_file,
-            'schema': schema
-        })
-
-    return schemas
-
-
-def create_tables_with_schemas(schemas, dataset_id):
-    """
-    A função cria as tabelas no BigQuery com os schemas.
+    Cria um diretório para a saída e garante que o arquivo __init__.py esteja presente.
 
     Parâmetros:
-    schemas (list): A lista de schemas.
-    dataset_id (str): O id do dataset no BigQuery.
+    output_dir (str): O diretório onde os arquivos serão salvos.
+
     Retorno:
-    None:  Não retorna nada.
+    None: Não retorna nada.
     """
-    client = bigquery.Client(project=PROJECT_ID)
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
 
-    for schema_info in schemas:
-        table_name = schema_info['filename'].replace('.json', '')
-
-        table_id = f"{PROJECT_ID}.{dataset_id}.{table_name}"
-
-        table = bigquery.Table(table_id, schema=schema_info['schema'])
-
-        client.create_table(table, exists_ok=True)
-        print(f"Tabela {table_id} criada com sucesso.")
-
+    # Criar arquivo __init__.py no diretório
+    init_file = os.path.join(output_dir, "__init__.py")
+    if not os.path.exists(init_file):
+        with open(init_file, 'w') as init_f:
+            init_f.write(f"# Auto-generated init file for {output_dir}")
 
 def generate_bigquery_class(table_name, schema):
-    """
-    Gera uma definição de schema do BigQuery como uma string formatada.
+    def process_field(field):
+        if field['type'] == 'RECORD' and 'fields' in field:
+            # Trata campos aninhados recursivamente
+            subfields = ", ".join(
+                [f"bigquery.SchemaField('{f['name']}', '{f['type']}', '{f.get('mode', 'NULLABLE')}')" for f in field['fields']]
+            )
+            return f"    bigquery.SchemaField('{field['name']}', 'RECORD', '{field.get('mode', 'NULLABLE')}', fields=[{subfields}]),\n"
+        else:
+            return f"    bigquery.SchemaField('{field['name']}', '{field['type']}', '{field.get('mode', 'NULLABLE')}'),\n"
 
-    Parâmetros:
-    table_name (str): O nome da tabela, usado para nomear o schema.
-    schema (list): Uma lista de dicionários que representam as colunas da tabela, onde cada dicionário contém informações
-                   sobre o nome, tipo e modo da coluna.
-
-    Retorno:
-    str: Retorna a representação formatada do schema da tabela em uma string.
-    """
     class_definition = f"{table_name}_schema = [\n"
     for field in schema:
-        class_definition += f"    bigquery.SchemaField('{field['name']}', '{field['type']}', '{field.get('mode', 'NULLABLE')}'),\n"
+        class_definition += process_field(field)
     class_definition += "]\n"
     return class_definition
 
-
-def process_folder(folder_path, folder_name, output_dir):
+def process_bigquery_folder(folder_path, folder_name, output_dir):
     """
     Processa uma pasta contendo arquivos JSON e gera um arquivo de schema para o BigQuery.
 
@@ -377,8 +245,7 @@ def process_folder(folder_path, folder_name, output_dir):
         output_file.write("from google.cloud import bigquery\n\n")
         output_file.write("\n\n".join(schemas))
 
-
-def create_bigquery_schemas_for_datasets(directory='./bq_schemas'):
+def create_bigquery_schemas(directory='./bq_schemas'):
     """
     Cria schemas do BigQuery para todos os datasets em um diretório especificado.
 
@@ -389,10 +256,92 @@ def create_bigquery_schemas_for_datasets(directory='./bq_schemas'):
     None: Não retorna nada.
     """
     output_dir = "py_schemas"
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+    create_output_directory(output_dir)
 
     for folder_name in os.listdir(directory):
         folder_path = os.path.join(directory, folder_name)
         if os.path.isdir(folder_path):
-            process_folder(folder_path, folder_name, output_dir)
+            process_bigquery_folder(folder_path, folder_name, output_dir)
+
+def create_class_code(schema: dict) -> str:
+    def process_field(field):
+        if field['type'] == 'RECORD' and 'fields' in field:
+            # Gera classe aninhada para o campo RECORD
+            class_name = field['name'].capitalize()
+            nested_class = f"class {class_name}(BaseModel):\n"
+            for subfield in field['fields']:
+                subfield_type = TYPE_MAPPING.get(subfield['type'], "Any")
+                nested_class += f"    {subfield['name']}: {subfield_type}\n"
+            # Usa forward reference para campos que referenciam classes aninhadas
+            return nested_class, f"{field['name']}: '{class_name}'"
+        else:
+            field_type = TYPE_MAPPING.get(field['type'], "Any")
+            return "", f"{field['name']}: {field_type}"
+
+    class_name = schema['table'].capitalize()
+    class_code = f"class {class_name}(BaseModel):\n"
+    nested_classes = []
+
+    for field in schema['schema']:
+        nested_class, field_declaration = process_field(field)
+        if nested_class:
+            nested_classes.append(nested_class)
+        class_code += f"    {field_declaration}\n"
+
+    # Adiciona classes aninhadas ao final
+    if nested_classes:
+        class_code += "\n\n" + "\n\n".join(nested_classes)
+
+    class_code += "\n\n"
+    return class_code
+
+
+def process_pydantic_folder(folder_path, folder_name, output_dir):
+    """
+    Processa uma pasta contendo arquivos JSON e gera um arquivo de models Pydantic.
+
+    Parâmetros:
+    folder_path (str): O caminho da pasta que contém os arquivos JSON.
+    folder_name (str): O nome da pasta (dataset) a ser incluído nos comentários do arquivo de saída.
+    output_dir (str): O diretório onde o arquivo de saída será salvo.
+
+    Retorno:
+    None: Não retorna nada.
+    """
+    models = []
+    for filename in os.listdir(folder_path):
+        if filename.endswith(".json"):
+            filepath = os.path.join(folder_path, filename)
+            with open(filepath, 'r', encoding='utf-8') as json_file:
+                data = json.load(json_file)
+                table = data.get("table")
+                schema = data.get("schema")
+                class_code = create_class_code({'table': table, 'schema': schema})
+                models.append(f"# Dataset: {folder_name}, Table: {table}\n{class_code}")
+
+    output_file_name = f"{folder_name}_models.py"
+    output_file_path = os.path.join(output_dir, output_file_name)
+
+    with open(output_file_path, 'w', encoding='utf-8') as output_file:
+        output_file.write("from pydantic import BaseModel\n")
+        output_file.write("from datetime import date, datetime\n")
+        output_file.write("\n\n")
+        output_file.write("\n\n".join(models))
+
+def create_pydantic_models(directory='./bq_schemas'):
+    """
+    Cria classes Pydantic para todos os datasets em um diretório especificado.
+
+    Parâmetros:
+    directory (str): O caminho da pasta principal onde estão localizadas as subpastas (datasets).
+
+    Retorno:
+    None: Não retorna nada.
+    """
+    output_dir = "py_models"
+    create_output_directory(output_dir)
+
+    for folder_name in os.listdir(directory):
+        folder_path = os.path.join(directory, folder_name)
+        if os.path.isdir(folder_path):
+            process_pydantic_folder(folder_path, folder_name, output_dir)

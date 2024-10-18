@@ -838,7 +838,7 @@ fatura_ccred_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: grade_produto
-grade_produto_schema = [
+GRADE_PRODUTO_schema = [
     bigquery.SchemaField('id_grade_produto', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('id_conta_cartao_credito', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
