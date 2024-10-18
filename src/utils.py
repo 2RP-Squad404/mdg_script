@@ -6,6 +6,7 @@ from pathlib import Path
 import sys
 import time
 from datetime import datetime
+import csv
 
 import pyfiglet
 from google.api_core.exceptions import NotFound
@@ -345,3 +346,25 @@ def create_pydantic_models(directory='./bq_schemas'):
         folder_path = os.path.join(directory, folder_name)
         if os.path.isdir(folder_path):
             process_pydantic_folder(folder_path, folder_name, output_dir)
+
+def output_to_csv(array):
+    csv_file = "dados.csv"
+
+    with open(csv_file,mode='w',newline='',encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerows(array)
+    print("Arquivo CSV salvo")
+
+def create_dataset(directory):
+    folders = [name for name in os.listdir(directory) if os.path.isdir(os.path.join(directory,name))]
+
+    client = bigquery.Client(PROJECT_ID)
+
+    for folder_name in folders:
+        dataset_id = f"{PROJECT_ID}.{folder_name}"
+        dataset = bigquery.Dataset(dataset_id)
+
+        dataset.location = "US"
+
+        dataset = client.create_dataset(dataset,exist_ok=True)
+        print(f"Dataset criado: {dataset_id}")
