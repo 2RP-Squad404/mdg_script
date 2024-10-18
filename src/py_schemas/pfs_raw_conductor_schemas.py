@@ -1422,7 +1422,7 @@ fatura_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: grade_produto
-grade_produto_schema = [
+GRADE_PRODUTO_schema = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('gp_id_gradeproduto', 'INTEGER', 'NULLABLE'),
