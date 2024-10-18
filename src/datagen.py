@@ -5,6 +5,8 @@ from faker import Faker
 
 fake = Faker(['pt_BR'])
 
+# Criação de dados usando Fake e GenIA
+
 
 def generate_cardevent():
     card_event = CardEvent(
