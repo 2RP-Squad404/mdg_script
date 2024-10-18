@@ -8,7 +8,7 @@ if client is not None:
         # Executa uma query simples para verificar a autenticação
         query = "SELECT current_date() as today"
         query_job = client.query(query)
-        
+
         # Verifica se a query foi executada com sucesso
         for row in query_job:
             print(f"Conexão bem-sucedida! Data de hoje: {row['today']}")
