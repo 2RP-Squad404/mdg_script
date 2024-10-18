@@ -6,15 +6,21 @@ import sys
 import time
 from datetime import datetime
 
-from config import PROJECT_ID
 import pyfiglet
 from google.api_core.exceptions import NotFound
 from google.cloud import bigquery
 
+from config import PROJECT_ID
+
 TYPE_MAPPING = {
     "STRING": "str",
-    "TIMESTAMP": "datetime"
+    "INTEGER": "int",
+    "FLOAT": "float",
+    "BOOLEAN": "bool",
+    "TIMESTAMP": "datetime",
+    "DATE": "date",
 }
+
 
 client = bigquery.Client(PROJECT_ID)
 
@@ -96,40 +102,50 @@ def import_table_schema(client, dataset_id, table_id, output_dir='bq_schemas'):
         raise
 
 
-def create_class_code(schema: dict, class_name: str) -> str:
+def create_class_code(schema: dict) -> str:
     """
-    Gera o código de uma classe Pydantic baseada em um schema fornecido.
+    Gera o código de uma classe Pydantic baseada em um schema BigQuery fornecido.
 
     Parâmetros:
-        schema (dict): Dicionário contendo os campos e seus tipos.
-        class_name (str): Nome da classe que será gerada.
+        schema (dict): Dicionário contendo o schema da tabela, incluindo o nome da tabela e seus campos.
 
     Retorno:
-        str: Código Python gerado para a classe.
+        str: Código Python gerado para a classe Pydantic.
     """
+    class_name = schema['table'].capitalize()
     class_code = f"class {class_name}(BaseModel):\n"
 
-    for field_name, field_type in schema.items():
-        python_type = TYPE_MAPPING.get(field_type, "Any")
-        class_code += f"    {field_name}: {python_type}\n"
+    for field in schema['schema']:
+        field_name = field['name']
+        field_type = TYPE_MAPPING.get(field['type'], "Any")
+        class_code += f"    {field_name}: {field_type}\n"
 
+    class_code += "\n\n"
     return class_code
 
 
-def write_class_to_file(schema: dict, class_name: str, file_path='src/models.py'):
+def process_and_write_classes(directory_path: str, output_file: str):
     """
-    Escreve o código gerado de uma classe Pydantic em um arquivo Python.
+    Percorre um diretório de schemas e gera classes Pydantic para cada arquivo JSON encontrado,
+    gravando o código gerado em um arquivo Python.
 
     Parâmetros:
-        schema (dict): Dicionário contendo os campos e seus tipos.
-        class_name (str): Nome da classe que será gerada.
-        file_path (str): Caminho completo para salvar o arquivo Python contendo a classe.
+        directory_path (str): Caminho do diretório contendo os arquivos de schema.
+        output_file (str): Caminho completo para salvar o arquivo Python contendo as classes.
     """
-    class_code = create_class_code(schema, class_name)
+    directory = Path(directory_path)
 
-    with open(file_path, "a") as file:
-        file.write(class_code)
-        print(f"Classe {class_name} gerada com sucesso no arquivo: {file_path}")
+    with open(output_file, "a") as models_file:
+        for file_path in directory.iterdir():
+            if file_path.is_file() and file_path.suffix == '.json':
+                with open(file_path, 'r') as file:
+                    try:
+                        schema = json.load(file)
+                        class_code = create_class_code(schema)
+                        models_file.write(class_code)
+                        print(f"Classe gerada e gravada para o arquivo {file_path.name}")
+                    except json.JSONDecodeError:
+                        print(f"Erro ao decodificar o JSON no arquivo {file_path.name}")
 
 
 def send_data_to_bigquery(client, dataset_id, table_id, data):
@@ -195,6 +211,7 @@ def main_menu():
     print("4. Criar tabelas via json")
     print('S. Sair')
 
+
 def cli_start(word="MDG Script", delay=0.3):
     """
     Exibe uma barra de carregamento seguida pela palavra em ASCII Art com uma animação linha por linha.
@@ -234,6 +251,7 @@ def get_tables(dataset_id):
 
     return table_list
 
+
 def tranform_json_to_schema(file_path):
     """
     A função transforma o arquivo json em um schema do BigQuery.
@@ -246,7 +264,7 @@ def tranform_json_to_schema(file_path):
     """
     with open(file_path, 'r') as f:
         data = json.load(f)
-    
+
     schema_big_query = []
 
     if 'schema' in data:
@@ -260,7 +278,7 @@ def tranform_json_to_schema(file_path):
 
 # função do Kelvin
 
-def get_all_schemas(directory):
+def get_all_schemas(directory='./bq_schemas'):
     """
     A função pega todos os arquivos json no diretório e transforma em schema do Big
     Query.
@@ -272,9 +290,9 @@ def get_all_schemas(directory):
     """
 
     schemas = []
-    
+
     json_files = [f for f in os.listdir(directory) if f.endswith('.json')]
-    
+
     for json_file in json_files:
         file_path = os.path.join(directory, json_file)
         schema = tranform_json_to_schema(file_path)
@@ -282,8 +300,9 @@ def get_all_schemas(directory):
             'filename': json_file,
             'schema': schema
         })
-    
+
     return schemas
+
 
 def create_tables_with_schemas(schemas, dataset_id):
     """
@@ -298,14 +317,15 @@ def create_tables_with_schemas(schemas, dataset_id):
     client = bigquery.Client(project=PROJECT_ID)
 
     for schema_info in schemas:
-        table_name = schema_info['filename'].replace('.json','')
+        table_name = schema_info['filename'].replace('.json', '')
 
         table_id = f"{PROJECT_ID}.{dataset_id}.{table_name}"
-        
+
         table = bigquery.Table(table_id, schema=schema_info['schema'])
 
         client.create_table(table, exists_ok=True)
         print(f"Tabela {table_id} criada com sucesso.")
+
 
 def generate_bigquery_class(table_name, schema):
     """
@@ -346,27 +366,19 @@ def process_folder(folder_path, folder_name, output_dir):
                 data = json.load(json_file)
                 table = data.get("table")
                 schema = data.get("schema")
-                
-                # Nomear o schema com base no nome do arquivo JSON (sem extensão)
                 schema_name = os.path.splitext(filename)[0]
-                
-                # Gerar a classe formatada para BigQuery
                 formatted_class = generate_bigquery_class(schema_name, schema)
-                
-                # Adicionar ao array de schemas formatados com comentário do dataset e tabela
                 schemas.append(f"# Dataset: {folder_name}, Table: {table}\n{formatted_class}")
-    
-    # Nomear o arquivo com o formato <dataset>_schemas.py
+
     output_file_name = f"{folder_name}_schemas.py"
     output_file_path = os.path.join(output_dir, output_file_name)
-    
-    # Escrever todas as classes no arquivo de saída
+
     with open(output_file_path, 'w', encoding='utf-8') as output_file:
         output_file.write("from google.cloud import bigquery\n\n")
         output_file.write("\n\n".join(schemas))
 
 
-def create_bigquery_schemas_for_datasets(directory):
+def create_bigquery_schemas_for_datasets(directory='./bq_schemas'):
     """
     Cria schemas do BigQuery para todos os datasets em um diretório especificado.
 
@@ -376,20 +388,11 @@ def create_bigquery_schemas_for_datasets(directory):
     Retorno:
     None: Não retorna nada.
     """
-    # Criar a pasta py_schemas, se não existir
     output_dir = "py_schemas"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-    
-    # Processar todas as subpastas (datasets)
+
     for folder_name in os.listdir(directory):
         folder_path = os.path.join(directory, folder_name)
         if os.path.isdir(folder_path):
-            # Processar a pasta (dataset) e gerar o arquivo <dataset>_schemas.py
             process_folder(folder_path, folder_name, output_dir)
-
-# Caminho da pasta principal onde estão as subpastas (datasets)
-directory_path = "./bq_schemas"
-
-# Chamar a função para gerar os schemas para todos os datasets
-create_bigquery_schemas_for_datasets(directory_path)
