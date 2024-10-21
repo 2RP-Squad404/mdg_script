@@ -21,6 +21,7 @@ google-auth = "^2.35.0"
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.6.9"
 ignr = "^2.2"
+google-cloud-aiplatform = "^1.70.0"
 
 [tool.ruff]
 line-length = 79
