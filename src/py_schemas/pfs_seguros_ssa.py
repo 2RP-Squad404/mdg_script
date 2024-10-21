@@ -1,7 +1,7 @@
 from google.cloud import bigquery
 
 # Dataset: pfs_seguros_ssa, Table: adesao_seguro_item
-adesao_seguro_item_schema = [
+adesao_seguro_item = [
     bigquery.SchemaField('id_AdesaoSeguroItem', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_AdesaoSeguro', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_Pessoa', 'INTEGER', 'NULLABLE'),
@@ -19,7 +19,7 @@ adesao_seguro_item_schema = [
 
 
 # Dataset: pfs_seguros_ssa, Table: endereco
-endereco_schema = [
+endereco = [
     bigquery.SchemaField('id_Endereco', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('nm_Logradouro', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('no_Logradouro', 'STRING', 'NULLABLE'),
@@ -34,7 +34,7 @@ endereco_schema = [
 
 
 # Dataset: pfs_seguros_ssa, Table: pessoa
-pessoa_schema = [
+pessoa = [
     bigquery.SchemaField('id_Pessoa', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('nm_Pessoa', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('no_CPF', 'STRING', 'NULLABLE'),
@@ -60,7 +60,7 @@ pessoa_schema = [
 
 
 # Dataset: pfs_seguros_ssa, Table: produto_seguro
-produto_seguro_schema = [
+produto_seguro = [
     bigquery.SchemaField('id_ProdutoSeguro', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_Emissor', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('cd_ProdutoSeguro', 'STRING', 'NULLABLE'),
@@ -115,7 +115,7 @@ produto_seguro_schema = [
 
 
 # Dataset: pfs_seguros_ssa, Table: seguradora
-seguradora_schema = [
+seguradora = [
     bigquery.SchemaField('id_Seguradora', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('nm_Seguradora', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('id_Endereco', 'INTEGER', 'NULLABLE'),

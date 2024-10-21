@@ -1,7 +1,7 @@
 from google.cloud import bigquery
 
 # Dataset: pfs_pfin_raw_dw, Table: dw_funcionario
-dw_funcionario_schema = [
+dw_funcionario = [
     bigquery.SchemaField('sk_funcionario', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_chapa_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('nom_funcionario', 'STRING', 'NULLABLE'),
