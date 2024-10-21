@@ -1,7 +1,7 @@
 from google.cloud import bigquery
 
 # Dataset: pfs_unificacao_pefisa, Table: adesao_deb_automatico
-adesao_deb_automatico_schema = [
+adesao_deb_automatico = [
     bigquery.SchemaField('id_adesao_deb_automatico', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('dth_data_adesao', 'TIMESTAMP', 'NULLABLE'),
     bigquery.SchemaField('id_conta_digital', 'INTEGER', 'NULLABLE'),
@@ -21,7 +21,7 @@ adesao_deb_automatico_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: adesao_pacote_tarifa_hist
-adesao_pacote_tarifa_hist_schema = [
+adesao_pacote_tarifa_hist = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_pacote_tarifa', 'INTEGER', 'NULLABLE'),
@@ -42,7 +42,7 @@ adesao_pacote_tarifa_hist_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: agpr_transacao_txn
-agpr_transacao_txn_schema = [
+agpr_transacao_txn = [
     bigquery.SchemaField('cod_tipo_transacao', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('des_tipo_transacao', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('flg_credito', 'STRING', 'NULLABLE'),
@@ -52,7 +52,7 @@ agpr_transacao_txn_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: ajuste_debito
-ajuste_debito_schema = [
+ajuste_debito = [
     bigquery.SchemaField('id_conta_debito_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_ajuste_debito', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('dth_inclusao_ajuste_debito', 'TIMESTAMP', 'NULLABLE'),
@@ -78,7 +78,7 @@ ajuste_debito_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: autorizacao_cartao_credito
-autorizacao_cartao_credito_schema = [
+autorizacao_cartao_credito = [
     bigquery.SchemaField('id_autorizacao_ccred', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('dth_autoriz_ccred', 'TIMESTAMP', 'NULLABLE'),
     bigquery.SchemaField('id_cartao_autoriz_ccred', 'INTEGER', 'NULLABLE'),
@@ -132,7 +132,7 @@ autorizacao_cartao_credito_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: autorizacao_cartao_credito_hist
-autorizacao_cartao_credito_hist_schema = [
+autorizacao_cartao_credito_hist = [
     bigquery.SchemaField('id_autorizacao_ccred', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('dth_autoriz_ccred', 'TIMESTAMP', 'NULLABLE'),
     bigquery.SchemaField('id_cartao_autoriz_ccred', 'INTEGER', 'NULLABLE'),
@@ -184,7 +184,7 @@ autorizacao_cartao_credito_hist_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: autorizacao_detalhes
-autorizacao_detalhes_schema = [
+autorizacao_detalhes = [
     bigquery.SchemaField('id_aut_detalhe_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_transacao_uuid', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('cod_estab_autoriz_ccred', 'INTEGER', 'NULLABLE'),
@@ -212,7 +212,7 @@ autorizacao_detalhes_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: cadastro_chave_pix
-cadastro_chave_pix_schema = [
+cadastro_chave_pix = [
     bigquery.SchemaField('num_cpf_cnpj_cliente', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_conta_corrente', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('dth_cad_conta', 'TIMESTAMP', 'NULLABLE'),
@@ -229,7 +229,7 @@ cadastro_chave_pix_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: cartao
-cartao_schema = [
+cartao = [
     bigquery.SchemaField('id_cartao', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cartao', 'STRING', 'NULLABLE'),
@@ -282,7 +282,7 @@ cartao_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: cartao_debito
-cartao_debito_schema = [
+cartao_debito = [
     bigquery.SchemaField('id_conta_debito_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_cartao_debito_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('dth_emissao', 'TIMESTAMP', 'NULLABLE'),
@@ -316,7 +316,7 @@ cartao_debito_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: conta
-conta_schema = [
+conta = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('tip_produto', 'STRING', 'NULLABLE'),
@@ -405,7 +405,7 @@ conta_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: conta_debito
-conta_debito_schema = [
+conta_debito = [
     bigquery.SchemaField('id_conta_multiplo', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
@@ -437,7 +437,7 @@ conta_debito_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: conta_hist
-conta_hist_schema = [
+conta_hist = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('tip_produto', 'STRING', 'NULLABLE'),
@@ -492,7 +492,7 @@ conta_hist_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: contestacoes
-contestacoes_schema = [
+contestacoes = [
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cartao', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
@@ -544,7 +544,7 @@ contestacoes_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: contrato_emprestimo
-contrato_emprestimo_schema = [
+contrato_emprestimo = [
     bigquery.SchemaField('id_contrato_so', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('num_contrato_so', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('id_cliente_so', 'STRING', 'NULLABLE'),
@@ -614,7 +614,7 @@ contrato_emprestimo_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: estabelecimento_externo
-estabelecimento_externo_schema = [
+estabelecimento_externo = [
     bigquery.SchemaField('id_estabelecimento_externo', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('nom_estabelecimento_externo', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE'),
@@ -625,7 +625,7 @@ estabelecimento_externo_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: evento_ajuste
-evento_ajuste_schema = [
+evento_ajuste = [
     bigquery.SchemaField('id_evento_ajuste', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_movimento_ajuste', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_tipo_ajuste', 'STRING', 'NULLABLE'),
@@ -669,7 +669,7 @@ evento_ajuste_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: evento_compra_saque
-evento_compra_saque_schema = [
+evento_compra_saque = [
     bigquery.SchemaField('id_evento_compra_saque', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_cartao_credito_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('des_funcao_cartao', 'STRING', 'NULLABLE'),
@@ -729,7 +729,7 @@ evento_compra_saque_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: evento_pagamento
-evento_pagamento_schema = [
+evento_pagamento = [
     bigquery.SchemaField('id_evento_pagamento', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_cartao_credito_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('des_funcao_cartao', 'STRING', 'NULLABLE'),
@@ -774,7 +774,7 @@ evento_pagamento_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: fatura_ccred
-fatura_ccred_schema = [
+fatura_ccred = [
     bigquery.SchemaField('id_fatura_hist', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE'),
@@ -838,7 +838,7 @@ fatura_ccred_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: grade_produto
-GRADE_PRODUTO_schema = [
+grade_produto = [
     bigquery.SchemaField('id_grade_produto', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('id_conta_cartao_credito', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
@@ -866,7 +866,7 @@ GRADE_PRODUTO_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: grade_produto_hist
-grade_produto_hist_schema = [
+grade_produto_hist = [
     bigquery.SchemaField('id_grade_produto', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('id_conta_cartao_credito', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
@@ -895,7 +895,7 @@ grade_produto_hist_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: limite_disponibilidade
-limite_disponibilidade_schema = [
+limite_disponibilidade = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
@@ -917,7 +917,7 @@ limite_disponibilidade_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: limite_disponibilidade_hist
-limite_disponibilidade_hist_schema = [
+limite_disponibilidade_hist = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
@@ -940,7 +940,7 @@ limite_disponibilidade_hist_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: meta_dia_pfin
-meta_dia_pfin_schema = [
+meta_dia_pfin = [
     bigquery.SchemaField('dat_dia', 'TIMESTAMP', 'NULLABLE'),
     bigquery.SchemaField('cod_estabelecimento', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('cod_produto_financeiro', 'INTEGER', 'NULLABLE'),
@@ -962,7 +962,7 @@ meta_dia_pfin_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: parcelamento_fatura_ccred
-parcelamento_fatura_ccred_schema = [
+parcelamento_fatura_ccred = [
     bigquery.SchemaField('id_parcelamento_fatura', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('dth_vencimento_fatura', 'TIMESTAMP', 'NULLABLE'),
@@ -998,7 +998,7 @@ parcelamento_fatura_ccred_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: produto_cartao
-produto_cartao_schema = [
+produto_cartao = [
     bigquery.SchemaField('nom_processadora', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('nom_parceiro', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE'),
@@ -1013,7 +1013,7 @@ produto_cartao_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: produto_financeiro
-produto_financeiro_schema = [
+produto_financeiro = [
     bigquery.SchemaField('id_produto_financeiro', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('cod_produto_financeiro_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('des_tip_origem', 'STRING', 'NULLABLE'),
@@ -1030,7 +1030,7 @@ produto_financeiro_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: refinanciamento_fatura_ccred
-refinanciamento_fatura_ccred_schema = [
+refinanciamento_fatura_ccred = [
     bigquery.SchemaField('id_refinanciamento_fatura', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cliente_titular', 'INTEGER', 'NULLABLE'),
@@ -1072,7 +1072,7 @@ refinanciamento_fatura_ccred_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: saldo_conta
-saldo_conta_schema = [
+saldo_conta = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
@@ -1088,7 +1088,7 @@ saldo_conta_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: saldo_conta_debito
-saldo_conta_debito_schema = [
+saldo_conta_debito = [
     bigquery.SchemaField('id_conta_debito_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('val_saldo_conta_debito', 'FLOAT', 'NULLABLE'),
     bigquery.SchemaField('id_conta_multiplo', 'INTEGER', 'NULLABLE'),
@@ -1105,7 +1105,7 @@ saldo_conta_debito_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: saldo_conta_hist
-saldo_conta_hist_schema = [
+saldo_conta_hist = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
@@ -1121,7 +1121,7 @@ saldo_conta_hist_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: seguradora
-seguradora_schema = [
+seguradora = [
     bigquery.SchemaField('id_seguradora', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('nom_seguradora', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('num_cnpj_seguradora', 'STRING', 'NULLABLE'),
@@ -1134,7 +1134,7 @@ seguradora_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: seguro_adesao
-seguro_adesao_schema = [
+seguro_adesao = [
     bigquery.SchemaField('id_adesao_seguro_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('des_tip_origem', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('dth_adesao', 'TIMESTAMP', 'NULLABLE'),
@@ -1190,7 +1190,7 @@ seguro_adesao_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: seguro_adesao_item
-seguro_adesao_item_schema = [
+seguro_adesao_item = [
     bigquery.SchemaField('id_adesao_seguro_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_adesao_seguro_item_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('dth_adesao_seguro_item', 'TIMESTAMP', 'NULLABLE'),
@@ -1216,7 +1216,7 @@ seguro_adesao_item_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: seguro_dependente
-seguro_dependente_schema = [
+seguro_dependente = [
     bigquery.SchemaField('id_pessoa_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cnpj', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('tip_pessoa', 'STRING', 'NULLABLE'),
@@ -1252,7 +1252,7 @@ seguro_dependente_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: seguro_parcela
-seguro_parcela_schema = [
+seguro_parcela = [
     bigquery.SchemaField('id_adesao_seguro', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_financeiro', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('nom_produto_financeiro', 'STRING', 'NULLABLE'),
@@ -1306,7 +1306,7 @@ seguro_parcela_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: transacao_contabilizada
-transacao_contabilizada_schema = [
+transacao_contabilizada = [
     bigquery.SchemaField('id_transacao', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_conta_ccred_transacao', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_ccred_transacao', 'INTEGER', 'NULLABLE'),
@@ -1356,7 +1356,7 @@ transacao_contabilizada_schema = [
 
 
 # Dataset: pfs_unificacao_pefisa, Table: transacao_debito
-transacao_debito_schema = [
+transacao_debito = [
     bigquery.SchemaField('id_conta_debito_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_cartao_debito_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_transacao_debito', 'INTEGER', 'NULLABLE'),

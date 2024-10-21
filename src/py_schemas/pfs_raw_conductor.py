@@ -1,7 +1,7 @@
 from google.cloud import bigquery
 
 # Dataset: pfs_raw_conductor, Table: adesao_debito_automatico
-adesao_debito_automatico_schema = [
+adesao_debito_automatico = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('id', 'INTEGER', 'NULLABLE'),
@@ -21,7 +21,7 @@ adesao_debito_automatico_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: adesao_pacote_tarifa
-adesao_pacote_tarifa_schema = [
+adesao_pacote_tarifa = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('ac_id_conta', 'INTEGER', 'NULLABLE'),
@@ -39,7 +39,7 @@ adesao_pacote_tarifa_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: autorizacao
-autorizacao_schema = [
+autorizacao = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('me_id_mensagem', 'INTEGER', 'NULLABLE'),
@@ -200,7 +200,7 @@ autorizacao_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: autorizacoes_detalhes
-autorizacoes_detalhes_schema = [
+autorizacoes_detalhes = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('id', 'INTEGER', 'NULLABLE'),
@@ -226,7 +226,7 @@ autorizacoes_detalhes_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: boleto_emitido
-boleto_emitido_schema = [
+boleto_emitido = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('be_id_boleto', 'INTEGER', 'NULLABLE'),
@@ -247,7 +247,7 @@ boleto_emitido_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: cliente
-cliente_schema = [
+cliente = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('pf_id_pessoafisica', 'INTEGER', 'NULLABLE'),
@@ -274,7 +274,7 @@ cliente_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: cliente_complemento
-cliente_complemento_schema = [
+cliente_complemento = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('pfc_id_pessoafisica', 'INTEGER', 'NULLABLE'),
@@ -491,7 +491,7 @@ cliente_complemento_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: compras_contestadas
-compras_contestadas_schema = [
+compras_contestadas = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('cc_id_compracontestada', 'INTEGER', 'NULLABLE'),
@@ -526,7 +526,7 @@ compras_contestadas_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: conta
-conta_schema = [
+conta = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('ct_id_conta', 'INTEGER', 'NULLABLE'),
@@ -703,7 +703,7 @@ conta_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: controle_vencimento
-controle_vencimento_schema = [
+controle_vencimento = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('cv_id_controlevencimentos', 'INTEGER', 'NULLABLE'),
@@ -723,7 +723,7 @@ controle_vencimento_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: dado_bancario_conta
-dado_bancario_conta_schema = [
+dado_bancario_conta = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('db_id_conta', 'INTEGER', 'NULLABLE'),
@@ -741,7 +741,7 @@ dado_bancario_conta_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: estabelecimento
-estabelecimento_schema = [
+estabelecimento = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('es_id_estabelecimento', 'INTEGER', 'NULLABLE'),
@@ -832,7 +832,7 @@ estabelecimento_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: estabelecimento_externo
-estabelecimento_externo_schema = [
+estabelecimento_externo = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('ee_id_estabelecimento_visa', 'INTEGER', 'NULLABLE'),
@@ -845,7 +845,7 @@ estabelecimento_externo_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: estado_conta
-estado_conta_schema = [
+estado_conta = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('ec_id_conta', 'INTEGER', 'NULLABLE'),
@@ -975,7 +975,7 @@ estado_conta_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: evento_externo_ajuste
-evento_externo_ajuste_schema = [
+evento_externo_ajuste = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('ea_id_eventoajuste', 'INTEGER', 'NULLABLE'),
@@ -1015,7 +1015,7 @@ evento_externo_ajuste_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: evento_externo_compra_nao_processado
-evento_externo_compra_nao_processado_schema = [
+evento_externo_compra_nao_processado = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('een_id_eventocompra', 'INTEGER', 'NULLABLE'),
@@ -1118,7 +1118,7 @@ evento_externo_compra_nao_processado_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: evento_externo_compra_processado
-evento_externo_compra_processado_schema = [
+evento_externo_compra_processado = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('ee_id_eventocompra', 'INTEGER', 'NULLABLE'),
@@ -1228,7 +1228,7 @@ evento_externo_compra_processado_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: evento_externo_pagamento
-evento_externo_pagamento_schema = [
+evento_externo_pagamento = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('ep_id_eventopagamento', 'INTEGER', 'NULLABLE'),
@@ -1285,7 +1285,7 @@ evento_externo_pagamento_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: fatura
-fatura_schema = [
+fatura = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('fa_id_historico', 'INTEGER', 'NULLABLE'),
@@ -1422,7 +1422,7 @@ fatura_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: grade_produto
-GRADE_PRODUTO_schema = [
+grade_produto = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('gp_id_gradeproduto', 'INTEGER', 'NULLABLE'),
@@ -1490,7 +1490,7 @@ GRADE_PRODUTO_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: integracao_grade
-integracao_grade_schema = [
+integracao_grade = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('ig_id_grade', 'INTEGER', 'NULLABLE'),
@@ -1535,7 +1535,7 @@ integracao_grade_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: limite_disponibilidade
-limite_disponibilidade_schema = [
+limite_disponibilidade = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('ld_id_conta', 'INTEGER', 'NULLABLE'),
@@ -1571,7 +1571,7 @@ limite_disponibilidade_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: limite_portador
-limite_portador_schema = [
+limite_portador = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('lp_id_limiteportador', 'INTEGER', 'NULLABLE'),
@@ -1588,7 +1588,7 @@ limite_portador_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: parcelamento_fatura
-parcelamento_fatura_schema = [
+parcelamento_fatura = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('pf_id_parcelamento', 'INTEGER', 'NULLABLE'),
@@ -1622,7 +1622,7 @@ parcelamento_fatura_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: produto
-produto_schema = [
+produto = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('pr_id_produto', 'INTEGER', 'NULLABLE'),
@@ -1700,7 +1700,7 @@ produto_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: refinanciamento
-refinanciamento_schema = [
+refinanciamento = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('rf_id_refinanciamento', 'INTEGER', 'NULLABLE'),
@@ -1734,7 +1734,7 @@ refinanciamento_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: seguro_adesao_item
-seguro_adesao_item_schema = [
+seguro_adesao_item = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('asi_id_adesaoseguroitem', 'INTEGER', 'NULLABLE'),
@@ -1755,7 +1755,7 @@ seguro_adesao_item_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: seguro_endereco
-seguro_endereco_schema = [
+seguro_endereco = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('id_endereco', 'INTEGER', 'NULLABLE'),
@@ -1774,7 +1774,7 @@ seguro_endereco_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: seguro_pessoa
-seguro_pessoa_schema = [
+seguro_pessoa = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('pes_id_pessoa', 'INTEGER', 'NULLABLE'),
@@ -1804,7 +1804,7 @@ seguro_pessoa_schema = [
 
 
 # Dataset: pfs_raw_conductor, Table: transacao_corrente
-transacao_corrente_schema = [
+transacao_corrente = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('tc_id_transacao', 'INTEGER', 'NULLABLE'),

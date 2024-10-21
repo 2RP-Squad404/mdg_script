@@ -1,7 +1,7 @@
 from google.cloud import bigquery
 
 # Dataset: base_operacional, Table: conta_cartao_cliente
-conta_cartao_cliente_schema = [
+conta_cartao_cliente = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_cartao_atual', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
@@ -89,7 +89,7 @@ conta_cartao_cliente_schema = [
 
 
 # Dataset: base_operacional, Table: emprestimo_pessoal_processado
-emprestimo_pessoal_processado_schema = [
+emprestimo_pessoal_processado = [
     bigquery.SchemaField('id_evento_ep', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('id_cartao_credito_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cartao_credito', 'STRING', 'NULLABLE'),
@@ -141,7 +141,7 @@ emprestimo_pessoal_processado_schema = [
 
 
 # Dataset: base_operacional, Table: faturamento_conta_digital
-faturamento_conta_digital_schema = [
+faturamento_conta_digital = [
     bigquery.SchemaField('id_conta_ccred_transacao', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_cliente', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
@@ -178,7 +178,7 @@ faturamento_conta_digital_schema = [
 
 
 # Dataset: base_operacional, Table: fatura_fechada
-fatura_fechada_schema = [
+fatura_fechada = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_cliente', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
@@ -212,7 +212,7 @@ fatura_fechada_schema = [
 
 
 # Dataset: base_operacional, Table: limite_disponibilidade_pos_mensal
-limite_disponibilidade_pos_mensal_schema = [
+limite_disponibilidade_pos_mensal = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
@@ -245,7 +245,7 @@ limite_disponibilidade_pos_mensal_schema = [
 
 
 # Dataset: base_operacional, Table: pagamento_consolidado
-pagamento_consolidado_schema = [
+pagamento_consolidado = [
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE'),

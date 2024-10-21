@@ -1,7 +1,7 @@
 from google.cloud import bigquery
 
 # Dataset: pfs_unificacao_cliente, Table: cliente_complemento
-cliente_complemento_schema = [
+cliente_complemento = [
     bigquery.SchemaField('id_cliente', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('tip_pessoa', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('num_cpf_cnpj_cliente', 'INTEGER', 'NULLABLE'),
@@ -36,7 +36,7 @@ cliente_complemento_schema = [
 
 
 # Dataset: pfs_unificacao_cliente, Table: cliente_item_perfil
-cliente_item_perfil_schema = [
+cliente_item_perfil = [
     bigquery.SchemaField('id_cliente', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('dth_primeiro_evento', 'TIMESTAMP', 'NULLABLE'),
     bigquery.SchemaField('dth_ultimo_evento', 'TIMESTAMP', 'NULLABLE'),
@@ -53,7 +53,7 @@ cliente_item_perfil_schema = [
 
 
 # Dataset: pfs_unificacao_cliente, Table: de_para_num_pfj_id_cdt_cpf
-de_para_num_pfj_id_cdt_cpf_schema = [
+de_para_num_pfj_id_cdt_cpf = [
     bigquery.SchemaField('num_pfj', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_cpf', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_pessoa_cdt', 'INTEGER', 'NULLABLE'),
