@@ -21,6 +21,7 @@ google-auth = "^2.35.0"
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.6.9"
 ignr = "^2.2"
+google-cloud-aiplatform = "^1.70.0"
 
 [tool.ruff]
 line-length = 79
@@ -41,7 +42,7 @@ addopts = '-p no:warnings'
 [tool.taskipy.tasks]
 lint = 'ruff check . && ruff . --diff'
 format = 'ruff check . --fix && ruff format'
-run = 'python src/main.py'
+run = 'python main.py'
 run3 = 'python3 src/main.py'
 
 [build-system]
