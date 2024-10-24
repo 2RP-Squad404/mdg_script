@@ -220,6 +220,30 @@ class Autorizacao_detalhes(BaseModel):
 
 
 
+# Dataset: pfs_unificacao_pefisa, Table: boleto
+class Boleto(BaseModel):
+    id_boleto: str
+    id_conta: int
+    id_produto_conta: int
+    id_tipo_boleto: int
+    des_tipo_boleto: str
+    nro_nosso_numero: int
+    dth_emissao: datetime
+    dth_vencimento: datetime
+    des_situacao_boleto: str
+    des_sts_boleto: str
+    val_boleto: float
+    num_cpf_cliente: int
+    id_cliente_so: int
+    dth_ult_atu_so: datetime
+    num_seq_ult_alteracao: int
+    dth_inclusao_reg: datetime
+    des_origem: str
+    num_anomes_emis_bol: date
+
+
+
+
 # Dataset: pfs_unificacao_pefisa, Table: cadastro_chave_pix
 class Cadastro_chave_pix(BaseModel):
     num_cpf_cnpj_cliente: int
