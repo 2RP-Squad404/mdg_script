@@ -1,0 +1,473 @@
+{
+    "dataset": "pfs_risco_raw_tivea",
+    "table": "cliente",
+    "schema": [
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "idExterno",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tipoPessoa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "situacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nome",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cic",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "codigo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sexo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dataNascimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dataConta",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "naturalidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "estadoCivil",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rg",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rating",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "lp",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "propensaoPagamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "historicoPagamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "numeroDiasMaiorAtraso",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dataMaiorAtraso",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rendaTitular",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rendaConjuge",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "outrasRendas",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "profissao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "categoriaProfissao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tipoResidencia",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "saldoAtraso",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "saldoAtual",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "saldoContabil",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "saldoProvisao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "diasAtraso",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dataHoraModificacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "emails",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "idExterno",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "email",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "principal",
+                    "type": "BOOLEAN",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "ranking",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataHoraModificacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "enderecos",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "idExterno",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "cep",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "codigoDne",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "complemento",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "logradouro",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "bairro",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "cidade",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "numero",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "tipo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "tipoLogradouro",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "uf",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "principal",
+                    "type": "BOOLEAN",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "ranking",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataHoraModificacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "telefones",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "idExterno",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "ddd",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "telefone",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "ramal",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "tipo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "observacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "principal",
+                    "type": "BOOLEAN",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "ranking",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataHoraModificacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "informacoesAdicionais",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+                {
+                    "name": "nome",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "linha",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "coluna",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valor",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "tipo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "tamanho",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "assessorias",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nome",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "situacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "cic",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "cep",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "complemento",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "logradouro",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "bairro",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "cidade",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "numero",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "uf",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "alterarInformacoesCadastrais",
+                    "type": "BOOLEAN",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "marcadores",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nome",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "cor",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}
