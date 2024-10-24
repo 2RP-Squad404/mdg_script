@@ -1,0 +1,168 @@
+{
+    "dataset": "raw_dock",
+    "table": "debit_person",
+    "schema": [
+        {
+            "name": "bank_account",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "bank_agency",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "bank_code",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "birth_date",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "birth_place",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "document_id",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "document_issuer",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "email",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "father",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gender",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "graduation_degree",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "mother",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "name",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nationality",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "occupation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "person_id",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "person_type",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "politically_exposed",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "properties",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "cmd_seq",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_capture",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_publish",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_sync",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_transaction",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_id",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_name",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "operation",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "salary",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "spouse_name",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "spouse_salary",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tax_identification_number",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}
