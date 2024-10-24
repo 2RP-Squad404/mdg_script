@@ -1,0 +1,96 @@
+{
+    "dataset": "pfs_unificacao_pefisa",
+    "table": "boleto",
+    "schema": [
+        {
+            "name": "id_boleto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_produto_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_tipo_boleto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tipo_boleto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nro_nosso_numero",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_emissao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_vencimento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_situacao_boleto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_sts_boleto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_boleto",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cliente_so",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_seq_ult_alteracao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_anomes_emis_bol",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}
