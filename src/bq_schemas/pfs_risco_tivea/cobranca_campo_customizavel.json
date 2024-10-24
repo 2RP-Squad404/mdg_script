@@ -1,0 +1,26 @@
+{
+    "dataset": "pfs_risco_tivea",
+    "table": "cobranca_campo_customizavel",
+    "schema": [
+        {
+            "name": "id_cliente_cobranca",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_campo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_campo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}
