@@ -17,6 +17,7 @@ faker = "^30.3.0"
 pyfiglet = "^1.0.2"
 taskipy = "^1.13.0"
 google-auth = "^2.35.0"
+google-cloud-secret-manager = "^2.20.2"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.6.9"
@@ -44,6 +45,8 @@ lint = 'ruff check . && ruff . --diff'
 format = 'ruff check . --fix && ruff format'
 run = 'python main.py'
 run3 = 'python3 src/main.py'
+test = 'python test_connection.py'
+generate = 'python generate_models.py'
 
 [build-system]
 requires = ["poetry-core"]
