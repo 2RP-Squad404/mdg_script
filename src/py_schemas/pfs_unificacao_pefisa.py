@@ -211,6 +211,29 @@ autorizacao_detalhes = [
 ]
 
 
+# Dataset: pfs_unificacao_pefisa, Table: boleto
+boleto = [
+    bigquery.SchemaField('id_boleto', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('id_produto_conta', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('id_tipo_boleto', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_tipo_boleto', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nro_nosso_numero', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('dth_emissao', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('dth_vencimento', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('des_situacao_boleto', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('des_sts_boleto', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('val_boleto', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('id_cliente_so', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('num_anomes_emis_bol', 'DATE', 'NULLABLE'),
+]
+
+
 # Dataset: pfs_unificacao_pefisa, Table: cadastro_chave_pix
 cadastro_chave_pix = [
     bigquery.SchemaField('num_cpf_cnpj_cliente', 'INTEGER', 'NULLABLE'),
