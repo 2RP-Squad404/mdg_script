@@ -279,10 +279,13 @@ def create_tables():
     """
     client = bigquery.Client(project=PROJECT_ID)
 
+    datasets = list(client.list_datasets())
+    datasets_created = [dataset.dataset_id for dataset in datasets]
+
     for dataset_folder in os.listdir('bq_schemas'):
         dataset_path = os.path.join('bq_schemas', dataset_folder) 
 
-        if os.path.isdir(dataset_path):
+        if os.path.isdir(dataset_path) and dataset_folder in datasets_created:
             dataset_id = f"{PROJECT_ID}.{dataset_folder}"
             schema_module = load_py_schema(dataset_folder)
 
@@ -300,3 +303,5 @@ def create_tables():
                         print(f"Schema não encontrado para a tabela {table_name} no dataset {dataset_folder}")
             else:
                 print(f"Arquivo de schema Python não encontrado para o dataset {dataset_folder}")
+        else:
+            print(f"Dataset {dataset_folder} não encontrado no BigQuery")
