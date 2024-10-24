@@ -26,43 +26,6 @@ TYPE_MAPPING = {
 
 client = bigquery.Client(PROJECT_ID)
 
-
-def create_tables(client, dataset_id,table_name,schema):
-    """
-    Cria uma tabela no BigQuery com base em um schema recebido.
-
-    Esta função tenta criar uma tabela no BigQuery. Se a tabela já existir, 
-    uma mensagem é exibida indicando que a tabela já está disponível. Caso 
-    contrário, a tabela será criada com base no schema fornecido.
-
-    Parâmetros:
-        client (bigquery.Client): O cliente do BigQuery usado para realizar operações.
-        table_id (str): O ID completo da tabela no formato 'project_id.dataset_id.table_id'.
-        schema (list[bigquery.SchemaField]): Uma lista de objetos SchemaField que define 
-            o esquema da tabela.
-
-    Exceções:
-        NotFound: Lançada se a tabela não for encontrada, o que aciona a criação de uma nova tabela.
-        google.api_core.exceptions.GoogleAPIError: Captura erros da API do Google BigQuery.
-    
-    Retorno:
-        bigquery.Table: A tabela criada ou uma mensagem informando que ela já existe e o tempo local.
-    """
-
-    full_table_id = f"{client.project}.{dataset_id}.{table_name}"
-    
-    try:
-        table = client.get_table(full_table_id)
-        logging.info(f"Tabela {full_table_id} já existe.")
-    except NotFound:
-        try:
-            table = bigquery.Table(full_table_id, schema=schema)
-            table = client.create_tables(table)
-            logging.info(f"Tabela {table.table_id} criada em {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-        except Exception as e:
-            logging.error(f"Erro ao criar a tabela {full_table_id}: {e}")
-            raise
-
 def load_py_schema(dataset_name):
     """
     Carrega o schema do dataset de um arquivo JSON que contém todas as tabelas.
@@ -304,12 +267,11 @@ def output_to_csv(array):
         writer.writerows(array)
     print("Arquivo CSV salvo")
 
-def create_dataset_and_tables():
+def create_tables():
     """
-    Cria datasets e tabelas no BigQuery para cada dataset e tabela no diretório.
+    Cria tabelas no BigQuery para cada dataset e tabela no diretório.
 
-    Esta função cria um dataset no BigQuery para cada subpasta no diretório especificado.
-    Em seguida, carrega os schemas correspondentes da outra pasta e cria as tabelas no dataset recém-criado.
+    Carrega os schemas correspondentes da outra pasta e cria as tabelas no dataset que já tem criado.
 
     Parâmetros:
         directory (str): O caminho do diretório onde estão as subpastas que representam datasets e tabelas.
@@ -317,23 +279,15 @@ def create_dataset_and_tables():
     """
     client = bigquery.Client(project=PROJECT_ID)
 
-    # Navegar pelas pastas dos datasets
     for dataset_folder in os.listdir('bq_schemas'):
         dataset_path = os.path.join('bq_schemas', dataset_folder) 
 
         if os.path.isdir(dataset_path):
-            # Criar o dataset no BigQuery
             dataset_id = f"{PROJECT_ID}.{dataset_folder}"
-            dataset = bigquery.Dataset(dataset_id)
-            dataset.location = "US"
-            client.create_dataset(dataset, exists_ok=True)
-            print(f"Dataset criado: {dataset_id}")
-
-            # Carregar o schema Python correspondente ao dataset
             schema_module = load_py_schema(dataset_folder)
 
             if schema_module:
-                # Navegar pelas tabelas dentro da pasta do dataset
+
                 for table_file in os.listdir(dataset_path):
                     table_name = table_file.replace('.json', '')
                     schema = getattr(schema_module, f"{table_name}", None)
