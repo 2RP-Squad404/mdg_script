@@ -1,8 +1,6 @@
 import json
-
 from google.cloud import bigquery, secretmanager
 from google.oauth2 import service_account
-
 from config import PROJECT_ID, SECRET_NAME
 
 
@@ -14,14 +12,21 @@ def get_secret(secret_name, project_id):
     try:
         # O cliente aqui vai usar as credenciais da conta de CLI autenticada
         print("Usando a conta autenticada via CLI para acessar o Secret Manager.")
-        client = secretmanager.SecretManagerServiceClient()
+        
+        # Adiciona o projeto de cota ao cliente autenticado via CLI
+        client = secretmanager.SecretManagerServiceClient(
+            client_options={"quota_project_id": project_id}  # Definindo explicitamente o projeto de cota
+        )
+        
         name = f"projects/{project_id}/secrets/{secret_name}/versions/latest"
         response = client.access_secret_version(request={"name": name})
         secret_string = response.payload.data.decode("UTF-8")
         return json.loads(secret_string)
+    
     except Exception as e:
         print(f"Erro ao buscar o segredo do Secret Manager: {e}")
         return None
+
 
 
 def get_bigquery_client():
