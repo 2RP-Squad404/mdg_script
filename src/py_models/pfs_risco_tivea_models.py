@@ -53,15 +53,15 @@ class Cobranca_acordo(BaseModel):
     dth_alteracao_origem: datetime
     dat_vencimento: date
     ind_situacao: str
-    val_taxa_operacao: Any
-    val_principal: Any
-    val_juros: Any
-    val_atributo: Any
-    val_total: Any
-    val_desconto: Any
-    val_saldo_principal: Any
-    val_saldo_total: Any
-    val_saldo_atual: Any
+    val_taxa_operacao: float
+    val_principal: float
+    val_juros: float
+    val_atributo: float
+    val_total: float
+    val_desconto: float
+    val_saldo_principal: float
+    val_saldo_total: float
+    val_saldo_atual: float
     qtd_dias_atraso: int
     dat_atraso_orig_acordo: date
     id_acordo_usuario: int
@@ -109,13 +109,13 @@ class Cobranca_cliente(BaseModel):
     des_marcador: str
     num_dias_maior_atraso: int
     dat_maior_atraso: datetime
-    val_saldo_atraso: Any
-    val_saldo_atual: Any
-    val_saldo_contabil: Any
-    val_saldo_provisao: Any
+    val_saldo_atraso: float
+    val_saldo_atual: float
+    val_saldo_contabil: float
+    val_saldo_provisao: float
     qtd_dias_atraso: int
-    val_saldo_total: Any
-    val_saldo_total_atraso: Any
+    val_saldo_total: float
+    val_saldo_total_atraso: float
     dth_modificacao: datetime
     num_ddd_cel: int
     num_tel_cel: int
@@ -162,12 +162,12 @@ class Cobranca_liquidacao_parc_acordo(BaseModel):
     id_liqd_parc_acordo: int
     id_parcela_acordo: int
     num_parcela_acordo: int
-    val_principal: Any
-    val_total: Any
-    val_juros: Any
-    val_encargos: Any
-    val_desconto: Any
-    val_distorcao: Any
+    val_principal: float
+    val_total: float
+    val_juros: float
+    val_encargos: float
+    val_desconto: float
+    val_distorcao: float
     ind_tipo_liqd: str
     id_pagto_acordo: int
     dat_referencia: date
@@ -186,20 +186,20 @@ class Cobranca_origem_acordo(BaseModel):
     dat_vencimento: datetime
     id_situacao: str
     qtd_dias_atr_cont: int
-    val_principal: Any
-    val_total: Any
-    val_permanencia: Any
-    val_multa: Any
-    val_juros: Any
-    val_tarifa: Any
-    val_adicionado: Any
-    val_atual: Any
-    val_desconto: Any
-    val_desc_principal: Any
-    val_desc_juros: Any
-    val_desc_multa: Any
-    val_desc_permanencia: Any
-    val_desconto_total: Any
+    val_principal: float
+    val_total: float
+    val_permanencia: float
+    val_multa: float
+    val_juros: float
+    val_tarifa: float
+    val_adicionado: float
+    val_atual: float
+    val_desconto: float
+    val_desc_principal: float
+    val_desc_juros: float
+    val_desc_multa: float
+    val_desc_permanencia: float
+    val_desconto_total: float
     dat_referencia: date
 
 
@@ -216,10 +216,10 @@ class Cobranca_pagamento_acordo(BaseModel):
     dat_operacao: datetime
     dth_horainclusao: datetime
     ind_forma_liquidacao: str
-    val_recebido: Any
-    val_desconto: Any
-    val_encargos: Any
-    val_distorcao: Any
+    val_recebido: float
+    val_desconto: float
+    val_encargos: float
+    val_distorcao: float
     ind_situacao: str
     ind_integracao: str
     dat_referencia: date
@@ -235,17 +235,17 @@ class Cobranca_parcela_acordo(BaseModel):
     dat_vencimento: datetime
     ind_situacao: str
     num_nossonumero: str
-    val_principal: Any
-    val_juros: Any
-    val_tarifa: Any
-    val_adicionado: Any
-    val_total: Any
-    val_tributo: Any
-    val_base_tributo: Any
-    val_permanencia: Any
-    val_saldo_principal: Any
-    val_saldo_total: Any
-    val_saldo_atual: Any
+    val_principal: float
+    val_juros: float
+    val_tarifa: float
+    val_adicionado: float
+    val_total: float
+    val_tributo: float
+    val_base_tributo: float
+    val_permanencia: float
+    val_saldo_principal: float
+    val_saldo_total: float
+    val_saldo_atual: float
     ind_registrado: str
     dat_referencia: date
 
@@ -297,12 +297,12 @@ class Cobr_cliente_atraso(BaseModel):
     nom_uf: str
     cod_rating: str
     des_marcador: str
-    val_saldo_atual: Any
-    val_saldo_atraso: Any
-    val_saldo_contabil: Any
-    val_saldo_provisao: Any
-    val_saldo_total: Any
-    val_saldo_total_atraso: Any
+    val_saldo_atual: float
+    val_saldo_atraso: float
+    val_saldo_contabil: float
+    val_saldo_provisao: float
+    val_saldo_total: float
+    val_saldo_total_atraso: float
     qtd_dias_atraso: int
     qtd_parcela_aberta: int
     dth_modificacao: datetime
