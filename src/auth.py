@@ -11,7 +11,7 @@ def get_secret(secret_name, project_id):
     usando a autenticação do CLI.
     """
     try:
-        logging("Acessando o Secret Manager")
+        logging.info("Acessando o Secret Manager")
         
         client = secretmanager.SecretManagerServiceClient(client_options={"quota_project_id": project_id})
         
@@ -21,7 +21,7 @@ def get_secret(secret_name, project_id):
         return json.loads(secret_string)
     
     except Exception as e:
-        logging(f"Ocorreu um erro: {e}")
+        logging.error(f"Ocorreu um erro: {e}")
         return None
 
 
@@ -39,8 +39,8 @@ def get_bigquery_client():
 
         credentials = service_account.Credentials.from_service_account_info(credentials_info)
 
-        logging("Conta de serviço autenticada.")
+        logging.info("Conta de serviço autenticada.")
         return bigquery.Client(credentials=credentials, project=PROJECT_ID)
     except Exception as e:
-        logging(f"Ocorreu um erro: {e}")
+        logging.error(f"Ocorreu um erro: {e}")
         return None
