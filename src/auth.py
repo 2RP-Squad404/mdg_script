@@ -1,4 +1,5 @@
 import json
+import logging
 from google.cloud import bigquery, secretmanager
 from google.oauth2 import service_account
 from config import PROJECT_ID, SECRET_NAME
@@ -10,13 +11,9 @@ def get_secret(secret_name, project_id):
     usando a autenticação do CLI.
     """
     try:
-        # O cliente aqui vai usar as credenciais da conta de CLI autenticada
-        print("Usando a conta autenticada via CLI para acessar o Secret Manager.")
+        logging("Acessando o Secret Manager")
         
-        # Adiciona o projeto de cota ao cliente autenticado via CLI
-        client = secretmanager.SecretManagerServiceClient(
-            client_options={"quota_project_id": project_id}  # Definindo explicitamente o projeto de cota
-        )
+        client = secretmanager.SecretManagerServiceClient(client_options={"quota_project_id": project_id})
         
         name = f"projects/{project_id}/secrets/{secret_name}/versions/latest"
         response = client.access_secret_version(request={"name": name})
@@ -24,9 +21,8 @@ def get_secret(secret_name, project_id):
         return json.loads(secret_string)
     
     except Exception as e:
-        print(f"Erro ao buscar o segredo do Secret Manager: {e}")
+        logging(f"Ocorreu um erro: {e}")
         return None
-
 
 
 def get_bigquery_client():
@@ -37,17 +33,14 @@ def get_bigquery_client():
     autenticado com essas credenciais.
     """
     try:
-        # Pega as credenciais do Secret Manager usando a conta do CLI
         credentials_info = get_secret(SECRET_NAME, PROJECT_ID)
         if credentials_info is None:
             raise Exception("Credenciais não encontradas no Secret Manager.")
 
-        # Gera as credenciais da conta de serviço com base no segredo obtido
         credentials = service_account.Credentials.from_service_account_info(credentials_info)
 
-        # Retorna o cliente do BigQuery autenticado com a conta de serviço
-        print("Usando a conta de serviço para autenticar no BigQuery.")
+        logging("Conta de serviço autenticada.")
         return bigquery.Client(credentials=credentials, project=PROJECT_ID)
     except Exception as e:
-        print(f"Erro ao autenticar no BigQuery: {e}")
+        logging(f"Ocorreu um erro: {e}")
         return None
