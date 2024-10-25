@@ -54,8 +54,60 @@ def criar_<nome_do_modelo>_faker():
         "nome_do_atributo": função_fake_correspondente,
     }
 Dado o seguinte modelo Pydantic, crie uma função Python que instancia um objeto estritamente deste modelo e preencha os atributos com valores gerados por funções adequadas da biblioteca Faker. A função deve retornar o objeto como um dicionário. Use as funções Faker que melhor correspondem a cada tipo de dado. Retorne apenas a função Python, sem explicações adicionais, importações de bibliotecas, tratamento de exceções, apenas a implementação da função.
+para criar a função para o model abaixo, utilize do mapping que estou enviando:
+{
+    negociacao: criar_negociacao(),
+    produto: criar_produto_acordo(),
+    tributo: criar_tributo(),
+    meioPagamento: criar_Meiopagamento(),
+    usuario: criar_usuario(),
+    assessoria: criar_Assessoria(),
+    parcelas: criar_Parcelas(),
+    pagamentos: criar_Pagamentos(),
+    origens: criar_origens(),
+    pendencias: criar_pendencias(),
+}
 utilize exatamente este modelo Pydantic:
-
+class Acordo(BaseModel):
+    source: str
+    id: str
+    cliente: str
+    cobrador: str
+    tipo: str
+    numeroAcordo: str
+    numeroParcelas: str
+    dataOperacao: str
+    dataEmissao: str
+    dataProcessamento: str
+    dataHoraInclusao: str
+    dataHoraModificacao: str
+    dataVencimento: str
+    situacao: str
+    taxaOperacao: str
+    valorPagoTributo: str
+    valorPrincipal: str
+    valorJuros: str
+    valorTarifa: str
+    valorTributo: str
+    valorAdicionado: str
+    valorTotal: str
+    saldoPrincipal: str
+    saldoTotal: str
+    saldoAtual: str
+    diasAtraso: str
+    motivoCancelamento: str
+    negociacao: 'Negociacao'
+    criterioTributo: str
+    produto: 'Produto'
+    tributo: 'Tributo'
+    meioPagamento: 'Meiopagamento'
+    usuario: 'Usuario'
+    assessoria: 'Assessoria'
+    parcelas: 'Parcelas'
+    pagamentos: 'Pagamentos'
+    origens: 'Origens'
+    pendencias: 'Pendencias'
+    production_date: date
 """
 code = generate_code(gemini_model, prompt)
 save_to_file('gemini_datagen.py', code)
