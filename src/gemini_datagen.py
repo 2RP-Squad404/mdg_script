@@ -5,7 +5,7 @@ fake = Faker('pt_BR')
 id_serial = itertools.count(start=0)
 
 # As funções abaixo são responsáveis por criar dados mock para o dataset pfs_risco_raw_tivea
-# observe que as funções correspondem a tabelas do dataset 
+# observe que as funções correspondem a tabelas presentes no dataset.
     
 def criar_produto_acordo_faker():
     return {
