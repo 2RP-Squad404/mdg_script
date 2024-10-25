@@ -49,6 +49,7 @@ test = 'python test_connection.py'
 generate = 'python generate_models.py'
 csv  = 'python3 csv_format.py'
 load  = 'python3 csv_load.py'
+ia = 'python3 gemini_interface.py'
 
 [build-system]
 requires = ["poetry-core"]
