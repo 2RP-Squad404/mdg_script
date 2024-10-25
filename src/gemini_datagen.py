@@ -38,7 +38,7 @@ def criar_tributo():
         "percentualFixo": fake.numerify("%0.2f"),
         "percentualMaximo": fake.numerify("%0.2f"),
         "arredondamento": fake.random_element(elements=["0", "1"]),
-        "dataCalculo": fake.date().strftime('%Y-%m-%d %H:%M:%S')
+        "dataCalculo": fake.date_time().strftime('%Y-%m-%d %H:%M:%S')
     }
 
 def criar_Meiopagamento():
@@ -338,3 +338,46 @@ def criar_parcelas():
         "tipoAcordo": fake.word()
     }
 
+
+def criar_Acordo():
+    return {
+        "source": fake.word(),
+        "id": fake.uuid4(),
+        "cliente": fake.name(),
+        "cobrador": fake.name(),
+        "tipo": fake.word(),
+        "numeroAcordo": fake.random_number(digits=8),
+        "numeroParcelas": fake.random_number(digits=2),
+        "dataOperacao": fake.date_time().strftime('%Y-%m-%d %H:%M:%S'),
+        "dataEmissao": fake.date_time().strftime('%Y-%m-%d %H:%M:%S'),
+        "dataProcessamento": fake.date_time().strftime('%Y-%m-%d %H:%M:%S'),
+        "dataHoraInclusao": fake.date_time().strftime('%Y-%m-%d %H:%M:%S'),
+        "dataHoraModificacao": fake.date_time().strftime('%Y-%m-%d %H:%M:%S'),
+        "dataVencimento": fake.date_time().strftime('%Y-%m-%d %H:%M:%S'),
+        "situacao": fake.word(),
+        "taxaOperacao": fake.random_number(digits=5),
+        "valorPagoTributo": fake.random_number(digits=8),
+        "valorPrincipal": fake.random_number(digits=8),
+        "valorJuros": fake.random_number(digits=8),
+        "valorTarifa": fake.random_number(digits=8),
+        "valorTributo": fake.random_number(digits=8),
+        "valorAdicionado": fake.random_number(digits=8),
+        "valorTotal": fake.random_number(digits=8),
+        "saldoPrincipal": fake.random_number(digits=8),
+        "saldoTotal": fake.random_number(digits=8),
+        "saldoAtual": fake.random_number(digits=8),
+        "diasAtraso": fake.random_number(digits=3),
+        "motivoCancelamento": fake.sentence(),
+        "negociacao": criar_negociacao(),
+        "criterioTributo": fake.word(),
+        "produto": criar_produto_acordo(),
+        "tributo": criar_tributo(),
+        "meioPagamento": criar_Meiopagamento(),
+        "usuario": criar_usuario(),
+        "assessoria": criar_Assessoria(),
+        "parcelas": criar_Parcelas(),
+        "pagamentos": criar_Pagamentos(),
+        "origens": criar_origens(),
+        "pendencias": criar_pendencias(),
+        "production_date": fake.date()
+    }
