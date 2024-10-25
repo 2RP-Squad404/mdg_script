@@ -7,7 +7,7 @@ id_serial = itertools.count(start=0)
 # As funções abaixo são responsáveis por criar dados mock para o dataset pfs_risco_raw_tivea
 # observe que as funções correspondem a tabelas presentes no dataset.
     
-def criar_produto_acordo_faker():
+def criar_produto_acordo():
     return {
         "id": next(id_serial),
         "idExterno": fake.ean8(),
@@ -15,7 +15,7 @@ def criar_produto_acordo_faker():
         "descricao": fake.paragraph()
     }
 
-def criar_negociacao_faker():
+def criar_negociacao():
     return {
         "id": next(id_serial),
         "nome": fake.company(),
@@ -30,7 +30,7 @@ def criar_negociacao_faker():
     }
 
 
-def criar_tributo_faker():
+def criar_tributo():
     return {
         "id": str(next(id_serial)),
         "nome": fake.word(),
@@ -41,7 +41,7 @@ def criar_tributo_faker():
         "dataCalculo": fake.date().strftime('%Y-%m-%d %H:%M:%S')
     }
 
-def criar_Meiopagamento_faker():
+def criar_Meiopagamento():
     return {
         "id": str(next(id_serial)),
         "tipo": fake.credit_card_provider(),
@@ -49,20 +49,20 @@ def criar_Meiopagamento_faker():
         "cobrador": {"nome": fake.name(), "cpf": fake.cpf()}
     }
 
-def criar_usuario_faker():
+def criar_usuario():
     return {
         "id": str(next(id_serial)),
         "nome": fake.name()
     }
 
-def criar_Assessoria_faker():
+def criar_Assessoria():
     return {
         "id": str(next(id_serial)),
         "nome": fake.company()
     }
 
 
-def criar_Parcelas_faker():
+def criar_Parcelas():
     return {
         "id": str(next(id_serial)),
         "acordo": fake.word(),
@@ -86,7 +86,7 @@ def criar_Parcelas_faker():
         "registrado": fake.boolean()
     }
 
-def criar_Pagamentos_faker():
+def criar_Pagamentos():
     return {
         "id": str(next(id_serial)),
         "dataProcessamento": fake.date_time().strftime('%Y-%m-%d %H:%M:%S'),
@@ -108,7 +108,7 @@ def criar_Pagamentos_faker():
         "liquidacoes": {}
     }
 
-def criar_origens_faker():
+def criar_origens():
     return {
         "id": next(id_serial),
         "valorContabil": fake.pystr(),
@@ -158,7 +158,7 @@ def criar_origens_faker():
     }
     
 
-def criar_pendencias_faker():
+def criar_pendencias():
     return {
         "id": str(next(id_serial)),
         "dataGeracao": fake.date_time().strftime('%Y-%m-%d %H:%M:%S'),
@@ -170,7 +170,7 @@ def criar_pendencias_faker():
         "pareceres": {"a": fake.word()}
     }
 
-def criar_Emails_faker():
+def criar_Emails():
     return {
         "id": str(next(id_serial)),
         "idExterno": fake.uuid4(),
@@ -181,7 +181,7 @@ def criar_Emails_faker():
     }
 
 
-def criar_Enderecos_faker():
+def criar_Enderecos():
     return {
         "id": str(next(id_serial)),
         "idExterno": fake.uuid4(),
@@ -201,7 +201,7 @@ def criar_Enderecos_faker():
     }
 
  
-def criar_Telefones_faker():
+def criar_Telefones():
     return {
         "id": str(next(id_serial)),
         "idExterno": fake.uuid4(),
@@ -216,7 +216,7 @@ def criar_Telefones_faker():
     }
 
 
-def criar_Informacoesadicionais_faker():
+def criar_Informacoesadicionais():
     return {
         "id": next(id_serial),
         "nome": fake.word(),
@@ -227,7 +227,7 @@ def criar_Informacoesadicionais_faker():
         "tamanho": fake.word(),
     }
 
-def criar_Assessorias_faker():
+def criar_Assessorias():
     return {
         "id": str(next(id_serial)),
         "nome": fake.company(),
@@ -243,7 +243,7 @@ def criar_Assessorias_faker():
         "alterarInformacoesCadastrais": fake.boolean()
     }
 
-def criar_marcadores_faker():
+def criar_marcadores():
     return {
         "id": str(next(id_serial)),
         "nome": fake .word(),
@@ -251,7 +251,7 @@ def criar_marcadores_faker():
     }
 
 
-def criar_ProdutoContrato_faker():
+def criar_ProdutoContrato():
     return {
         "id": next(id_serial),
         "nome": fake.word(),
@@ -260,7 +260,7 @@ def criar_ProdutoContrato_faker():
  
  
  
-def criar_cliente_faker():
+def criar_cliente():
     return {
         "id": str(next(id_serial)),
         "idExterno": fake.uuid4(),
@@ -296,7 +296,7 @@ def criar_cliente_faker():
 
     }
  
-def criar_parcelas_faker():
+def criar_parcelas():
     return {
         "id": str(next(id_serial)),
         "idExterno": fake.uuid4(),
