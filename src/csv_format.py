@@ -1,7 +1,8 @@
 import csv 
-import inspect 
+# import inspect 
 import os
-import gemini_datagen
+# import gemini_datagen
+from gemini_datagen import criar_Acordo
 
 NUM_LINES = 150
 OUTPUT_DIR = 'csv_mock'
@@ -32,6 +33,6 @@ def create_csv(faker_func, num_lines):
             datamock = faker_func()  
             escritor_csv.writerow(datamock)
 
-for func_name, obj in inspect.getmembers(gemini_datagen):
-    if inspect.isfunction(obj):
-        create_csv(obj, NUM_LINES)
+# for func_name, obj in inspect.getmembers(gemini_datagen):
+#     if inspect.isfunction(obj):
+create_csv(criar_Acordo, NUM_LINES)
