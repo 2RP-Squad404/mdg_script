@@ -1,28 +1,44 @@
 from google.cloud import aiplatform
 from vertexai.preview.generative_models import GenerativeModel
 
-# Inicialização do cliente da API em uma função para reaproveitamento
 def init_gemini(project_id: str, model_name: str):
+    """
+    Inicia a comunicação com Gemini API.
+    
+    Parâmetros:
+    project_id (str): Id do projeto GCP.
+    model_name (str): O nome do modelo do Vertex IA que será usado.
+    """
     aiplatform.init(project=project_id)
     return GenerativeModel(model_name)
 
-# Função para geração do código a partir de um prompt
 def generate_code(model, prompt: str):
+    """
+    Envia o prompt para o modelo e retorna o código de resposta.
+    
+    Parâmetros:
+    model (GenerativeModel): Modelo que será usado. 
+    prompt (str): Texto do prompt que será enviado ao modelo. 
+    """
     response = model.generate_content(prompt)
     return response.text
 
-# Função para gravar o código gerado em um arquivo
 def save_to_file(file_path: str, content: str):
+    """
+    Escreve a resposta obtida do modelo no arquivo 'gemini_datagen.py'.
+    
+    Parâmetros:
+    file_path (str): Caminho do arquivo para gravar a resposta do modelo.
+    content (str): O código obtido do modelo.
+    """
     with open(file_path, 'a') as file:
         file.write('\n')
         file.write(content)
 
-# Inicialização da API
 project_id = 'big-maxim-430019-g7'
 model_name = "gemini-1.5-flash-002"
 gemini_model = init_gemini(project_id, model_name)
 
-# Definição do prompt
 prompt = """Você é um assistente especializado em gerar código Python de alta qualidade e aderente às melhores práticas. Você segue as instruções com precisão, sem fornecer explicações ou informações extras além do código solicitado.
 
 Exemplo generico de como deve ser as funções que você irá gerar:
@@ -41,7 +57,5 @@ Dado o seguinte modelo Pydantic, crie uma função Python que instancia um objet
 utilize exatamente este modelo Pydantic:
 
 """
-
-# Geração e salvamento do código
 code = generate_code(gemini_model, prompt)
 save_to_file('gemini_datagen.py', code)
