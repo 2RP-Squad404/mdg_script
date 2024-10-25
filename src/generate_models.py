@@ -38,17 +38,18 @@ def create_output_directory(output_dir):
 def generate_bigquery_class(table_name, schema):
     def process_field(field):
         if field['type'] == 'RECORD' and 'fields' in field:
-            # Trata campos aninhados recursivamente
+            # Processa subcampos recursivamente para campos aninhados do tipo RECORD
             subfields = ", ".join(
-                [f"bigquery.SchemaField('{f['name']}', '{f['type']}', '{f.get('mode', 'NULLABLE')}')" for f in field['fields']]
+                [process_field(subfield) for subfield in field['fields']]
             )
-            return f"    bigquery.SchemaField('{field['name']}', 'RECORD', '{field.get('mode', 'NULLABLE')}', fields=[{subfields}]),\n"
+            return f"bigquery.SchemaField('{field['name']}', 'RECORD', '{field.get('mode', 'NULLABLE')}', fields=[{subfields}])"
         else:
-            return f"    bigquery.SchemaField('{field['name']}', '{field['type']}', '{field.get('mode', 'NULLABLE')}'),\n"
+            return f"bigquery.SchemaField('{field['name']}', '{field['type']}', '{field.get('mode', 'NULLABLE')}')"
 
+    # Monta a definição da classe como uma lista de campos BigQuery
     class_definition = f"{table_name} = [\n"
     for field in schema:
-        class_definition += process_field(field)
+        class_definition += f"    {process_field(field)},\n"
     class_definition += "]\n"
     return class_definition
 
