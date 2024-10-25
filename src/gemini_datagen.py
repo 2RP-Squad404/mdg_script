@@ -259,7 +259,6 @@ def criar_ProdutoContrato():
     }
  
  
- 
 def criar_cliente():
     return {
         "id": str(next(id_serial)),
@@ -293,7 +292,7 @@ def criar_cliente():
         "saldoProvisao": fake.numerify(text="R$#######.##"),
         "diasAtraso": fake.random_int(min=0, max=365),
         "dataHoraModificacao": fake.date_time_this_year().strftime('%Y-%m-%d %H:%M:%S')
-
+        
     }
  
 def criar_parcelas():
