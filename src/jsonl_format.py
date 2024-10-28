@@ -1,12 +1,36 @@
 import inspect 
 import os
-import gemini_datagen
 import json
 from decimal import Decimal
-from gemini_datagen import criar_Acordo
+from datetime import datetime, date
+from gemini_datagen import criar_Acordo_faker,  criar_Cliente_faker
 
-NUM_LINES = 1
+NUM_LINES = 100
 OUTPUT_DIR = 'jsonl_mock'
+
+# def serialize_dates_old(row):
+#     for key, value in row.items():
+#         if isinstance(value, datetime):
+#             row[key] = value.isoformat()  # Converte datetime para string
+#     return row
+
+def serialize_dates(data):
+    """
+    Converte todas as instâncias de datetime e date no dicionário para strings formatadas.
+    """
+    for key, value in data.items():
+        if isinstance(value, datetime):
+            data[key] = value.strftime('%Y-%m-%d %H:%M:%S')
+        elif isinstance(value, date):
+            data[key] = value.strftime('%Y-%m-%d')
+        elif isinstance(value, dict):
+            # Processa valores aninhados
+            data[key] = serialize_dates(value)
+        elif isinstance(value, list):
+            # Processa listas de valores, aplicando a função em cada item
+            data[key] = [serialize_dates(item) if isinstance(item, dict) else item for item in value]
+    return data
+
 
 def create_jsonL(faker_func, num_lines):
     """
@@ -31,6 +55,8 @@ def create_jsonL(faker_func, num_lines):
         for _ in range(num_lines):
             datamock = faker_func()  
             datamock = convert_decimals(datamock)
+            datamock = serialize_dates(datamock)
+            # print(datamock)
             arquivo_jsonl.write(json.dumps(datamock) + '\n')
 
 def convert_decimals(obj):
@@ -46,5 +72,8 @@ def convert_decimals(obj):
         return float(obj)
     return obj
 
-create_jsonL(criar_Acordo,NUM_LINES)
+create_jsonL(criar_Acordo_faker,NUM_LINES)
+create_jsonL(criar_Cliente_faker,NUM_LINES)
+
+
 
