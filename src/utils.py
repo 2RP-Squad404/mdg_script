@@ -1,10 +1,8 @@
 # Este arquivo possui a implementação de funções auxiliares da aplicação
-import json
 import logging
 import os
 from pathlib import Path
 from datetime import datetime
-import csv
 import importlib.util
 
 import pyfiglet
@@ -83,13 +81,28 @@ def get_tables(dataset_id):
     return table_list
 
 
-def output_to_csv(array):
-    csv_file = "dados.csv"
+def jsonl_to_bigquery():
+    """
+    A função abre um arquivo jasonl que contém os dados gerados e envia para o Big Query
+    """
+    jsonl_file_path = "jsonl_mock/Acordo.jsonl"
+    project_id = PROJECT_ID
+    dataset_id = "pfs_risco_raw_tivea"
+    table_id = "acordo"
+    
+    table_ref = f"{project_id}.{dataset_id}.{table_id}"
 
-    with open(csv_file,mode='w',newline='',encoding='utf-8') as file:
-        writer = csv.writer(file)
-        writer.writerows(array)
-    print("Arquivo CSV salvo")
+    job_config = bigquery.LoadJobConfig(
+        source_format=bigquery.SourceFormat.NEWLINE_DELIMITED_JSON,
+        write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE,
+        autodetect=False,
+        ignore_unknown_values=True
+    )
+
+    with open(jsonl_file_path, "rb") as jsonl_file:
+        load_job = client.load_table_from_file(jsonl_file, table_ref, job_config=job_config)
+
+    load_job.result()
 
 def create_tables():
     """

@@ -345,7 +345,7 @@ def criar_Acordo():
         "cliente": fake.name(),
         "cobrador": fake.name(),
         "tipo": fake.word(),
-        "numeroAcordo": fake.random_number(digits=8),
+        "numeroAcordo": str(fake.random_number(digits=8)),
         "numeroParcelas": fake.random_number(digits=2),
         "dataOperacao": fake.date_time().strftime('%Y-%m-%d %H:%M:%S'),
         "dataEmissao": fake.date_time().strftime('%Y-%m-%d %H:%M:%S'),
