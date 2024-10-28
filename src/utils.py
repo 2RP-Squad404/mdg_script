@@ -12,7 +12,7 @@ from google.cloud import bigquery
 from auth import get_bigquery_client
 from config import PROJECT_ID
 
-client = get_bigquery_client()
+client = bigquery.Client(PROJECT_ID)
 
 def load_py_schema(dataset_name):
     """
@@ -85,7 +85,7 @@ def jsonl_to_bigquery():
     """
     A função abre um arquivo jasonl que contém os dados gerados e envia para o Big Query
     """
-    jsonl_file_path = "jsonl_mock/Acordo.jsonl"
+    jsonl_file_path = "jsonl_mock/Acordo_faker.jsonl"
     project_id = PROJECT_ID
     dataset_id = "pfs_risco_raw_tivea"
     table_id = "acordo"
