@@ -85,10 +85,10 @@ def jsonl_to_bigquery():
     """
     A função abre um arquivo jasonl que contém os dados gerados e envia para o Big Query
     """
-    jsonl_file_path = "../jsonl_mock/Acordo_faker.jsonl"
+    jsonl_file_path = "jsonl_mock/Acordo_faker.jsonl"
     project_id = PROJECT_ID
     dataset_id = "pfs_risco_raw_tivea"
-    table_id = "acordo"
+    table_id = "cliente"
     
     table_ref = f"{project_id}.{dataset_id}.{table_id}"
 
