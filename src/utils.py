@@ -1,10 +1,8 @@
 # Este arquivo possui a implementação de funções auxiliares da aplicação
-import json
 import logging
 import os
 from pathlib import Path
 from datetime import datetime
-import csv
 import importlib.util
 
 import pyfiglet
