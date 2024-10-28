@@ -56,58 +56,55 @@ def criar_<nome_do_modelo>_faker():
 Dado o seguinte modelo Pydantic, crie uma função Python que instancia um objeto estritamente deste modelo e preencha os atributos com valores gerados por funções adequadas da biblioteca Faker. A função deve retornar o objeto como um dicionário. Use as funções Faker que melhor correspondem a cada tipo de dado. Retorne apenas a função Python, sem explicações adicionais, importações de bibliotecas, tratamento de exceções, apenas a implementação da função.
 para criar a função para o model abaixo, utilize do mapping que estou enviando:
 {
-    negociacao: criar_negociacao(),
-    produto: criar_produto_acordo(),
-    tributo: criar_tributo(),
-    meioPagamento: criar_Meiopagamento(),
-    usuario: criar_usuario(),
-    assessoria: criar_Assessoria(),
-    parcelas: criar_Parcelas(),
-    pagamentos: criar_Pagamentos(),
-    origens: criar_origens(),
-    pendencias: criar_pendencias(),
+    emails: criar_Emails(),
+    enderecos: criar_Enderecos(),
+    telefones: criar_Telefones(),
+    informacoesAdicionais: criar_Informacoesadicionais(),
+    assessorias: criar_Assessorias(),
+    marcadores: criar_marcadores()
 }
 utilize exatamente este modelo Pydantic:
-class Acordo(BaseModel):
+class Cliente(BaseModel):
     source: str
     id: str
-    cliente: str
-    cobrador: str
-    tipo: str
-    numeroAcordo: str
-    numeroParcelas: str
-    dataOperacao: str
-    dataEmissao: str
-    dataProcessamento: str
-    dataHoraInclusao: str
-    dataHoraModificacao: str
-    dataVencimento: str
+    idExterno: str
+    tipoPessoa: str
     situacao: str
-    taxaOperacao: str
-    valorPagoTributo: str
-    valorPrincipal: str
-    valorJuros: str
-    valorTarifa: str
-    valorTributo: str
-    valorAdicionado: str
-    valorTotal: str
-    saldoPrincipal: str
-    saldoTotal: str
+    nome: str
+    cic: str
+    codigo: str
+    sexo: str
+    dataNascimento: str
+    dataConta: str
+    naturalidade: str
+    estadoCivil: str
+    rg: str
+    rating: str
+    lp: str
+    propensaoPagamento: str
+    historicoPagamento: str
+    numeroDiasMaiorAtraso: str
+    dataMaiorAtraso: str
+    rendaTitular: str
+    rendaConjuge: str
+    outrasRendas: str
+    profissao: str
+    categoriaProfissao: str
+    tipoResidencia: str
+    saldoAtraso: str
     saldoAtual: str
+    saldoContabil: str
+    saldoProvisao: str
     diasAtraso: str
-    motivoCancelamento: str
-    negociacao: 'Negociacao'
-    criterioTributo: str
-    produto: 'Produto'
-    tributo: 'Tributo'
-    meioPagamento: 'Meiopagamento'
-    usuario: 'Usuario'
-    assessoria: 'Assessoria'
-    parcelas: 'Parcelas'
-    pagamentos: 'Pagamentos'
-    origens: 'Origens'
-    pendencias: 'Pendencias'
+    dataHoraModificacao: str
+    emails: 'Emails'
+    enderecos: 'Enderecos'
+    telefones: 'Telefones'
+    informacoesAdicionais: 'Informacoesadicionais'
+    assessorias: 'Assessorias'
+    marcadores: 'Marcadores'
     production_date: date
 """
+
 code = generate_code(gemini_model, prompt)
 save_to_file('gemini_datagen.py', code)
