@@ -82,6 +82,9 @@ def get_tables(dataset_id):
 
 
 def jsonl_to_bigquery():
+    """
+    A função abre um arquivo jasonl que contém os dados gerados e envia para o Big Query
+    """
     jsonl_file_path = "jsonl_mock/Acordo.jsonl"
     project_id = PROJECT_ID
     dataset_id = "pfs_risco_raw_tivea"
