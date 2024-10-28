@@ -85,7 +85,7 @@ def jsonl_to_bigquery():
     """
     A função abre um arquivo jasonl que contém os dados gerados e envia para o Big Query
     """
-    jsonl_file_path = "jsonl_mock/Acordo_faker.jsonl"
+    jsonl_file_path = "../jsonl_mock/Acordo_faker.jsonl"
     project_id = PROJECT_ID
     dataset_id = "pfs_risco_raw_tivea"
     table_id = "acordo"
@@ -108,34 +108,64 @@ def create_tables():
     """
     Cria tabelas no BigQuery para cada dataset e tabela no diretório.
 
-    Carrega os schemas correspondentes da outra pasta e cria as tabelas no dataset que já tem criado.
-
-    Parâmetros:
-        directory (str): O caminho do diretório onde estão as subpastas que representam datasets e tabelas.
-        schema_directory (str): O caminho do diretório onde estão os arquivos de schema.
+    Carrega os schemas correspondentes da outra pasta e cria as tabelas no dataset que já tem criado,
+    excluindo algumas tabelas de serem particionadas.
     """
     client = bigquery.Client(project=PROJECT_ID)
+
+    excluded_partition_tables = ["cobranca_telefone", "acordo", "cliente"]
 
     datasets = list(client.list_datasets())
     datasets_created = [dataset.dataset_id for dataset in datasets]
 
     for dataset_folder in os.listdir('bq_schemas'):
-        dataset_path = os.path.join('bq_schemas', dataset_folder) 
+        dataset_path = os.path.join('bq_schemas', dataset_folder)
 
         if os.path.isdir(dataset_path) and dataset_folder in datasets_created:
             dataset_id = f"{PROJECT_ID}.{dataset_folder}"
             schema_module = load_py_schema(dataset_folder)
 
             if schema_module:
-
                 for table_file in os.listdir(dataset_path):
                     table_name = table_file.replace('.json', '')
+                    
                     schema = getattr(schema_module, f"{table_name}", None)
                     
                     if schema:
                         table_id = f"{dataset_id}.{table_name}"
                         table = bigquery.Table(table_id, schema=schema)
+                        
+                        # Detectar o campo e o tipo de particionamento
+                        partition_field = None
+                        partition_type = None
+                        if table_name not in excluded_partition_tables:
+                            for field in schema:
+                                if field.name.startswith("num_anomes") or field.name.startswith("production_date"):
+                                    partition_field = field.name
+                                    partition_type = "MONTH"
+                                    break
+                                elif field.name.startswith("date_reference"):
+                                    partition_field = field.name
+                                    partition_type = "DAY"
+                                    break
+                            
+                            # Configurar particionamento se campo e tipo forem encontrados
+                            if partition_field and partition_type:
+                                field_names = [f.name for f in schema]
+                                if partition_field in field_names:
+                                    table.time_partitioning = bigquery.TimePartitioning(
+                                        type_=partition_type,
+                                        field=partition_field
+                                    )
+                                    print(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
+                                else:
+                                    print(f"A coluna {partition_field} não foi encontrada no esquema para a tabela {table_name}. Particionamento não configurado.")
+                            else:
+                                print(f"Tabela {table_name} sem campo de particionamento configurado.")
+                                
+                        # Criar tabela, seja particionada ou não
                         client.create_table(table, exists_ok=True)
+                        print(f"Tabela {table_name} criada no dataset {dataset_folder}")
                     else:
                         print(f"Schema não encontrado para a tabela {table_name} no dataset {dataset_folder}")
             else:
