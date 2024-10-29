@@ -5,10 +5,10 @@ from utils import create_tables,jsonl_to_bigquery
 # client = get_bigquery_client()
 directory = './bq_schemas'
 
-create_tables()
+# create_tables()
 # - Criar dataset e tabelas
 # ...
 # - Enviar dados via jsonl
-jsonl_to_bigquery()
+jsonl_to_bigquery(filename='Contrato_faker.jsonl',table_id='contrato')
 # ...
 
