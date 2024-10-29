@@ -50,3 +50,134 @@ def criar_cobranca_campo_customizavel_faker():
         "val_campo": faker.random_element(elements=['SERVICE_PREMIUM', 'TUDO JUSTO', 'SERASA', 'VALIDU', 'Portal Pefisa - PPN', 'DIGICOB TECNOLOGIA LTDA']),
         "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
     }
+def criar_cobr_cliente_atraso_faker():
+    return {
+        "num_cpf_cnpj_cliente": faker.random_int(min=10000000000, max=99999999999),
+        "id_conta": next(id_serial),
+        "id_cliente_so": next(id_serial),
+        "num_cartao": faker.credit_card_number(),
+        "id_produto_cartao": next(id_serial),
+        "nom_cliente": faker.name(),
+        "tip_pessoa": "FISICA",
+        "tip_situacao": faker.random_element(elements=["DEVEDOR", "COBRANCA", "ATIVO", "BLOQUEADO"]),
+        "nom_uf": faker.random_element(elements=["SP", "PR", "XX"]),
+        "cod_rating": faker.random_element(elements=["HH", "A", "C", "B", "G", "H", "D", "E", "F"]),
+        "des_marcador": None,
+        "val_saldo_atual": faker.random_number(digits=5, fix_len=False),
+        "val_saldo_atraso": faker.random_number(digits=5, fix_len=False),
+        "val_saldo_contabil": faker.random_number(digits=4, fix_len=False),
+        "val_saldo_provisao": None,
+        "val_saldo_total": faker.random_number(digits=4, fix_len=False),
+        "val_saldo_total_atraso": faker.random_number(digits=4, fix_len=False),
+        "qtd_dias_atraso": faker.random_int(min=-30, max=3650),
+        "qtd_parcela_aberta": faker.random_int(min=1, max=10),
+        "dth_modificacao": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
+        "nom_assessoria": faker.company(),
+        "num_ddd_cel": faker.random_int(min=11, max=99),
+        "num_tel_cel": re.sub(r'\D','',faker.phone_number()[-9:]),
+        "num_ddd_res": faker.random_int(min=11, max=99),
+        "num_tel_res": re.sub(r'\D', '', faker.phone_number()[-8:]),
+        "num_ddd_com": faker.random_int(min=11, max=99),
+        "num_tel_com": re.sub(r'\D', '', faker.phone_number()[-8:]),
+        "nom_email": faker.email(),
+        "cod_loja": faker.random_element(elements=["60", "72", "96", "98", "100", "6", "10", "12", "18", "26", "28", "32", "42", "46", "48", "52", "54", "56", "62", "64", "70", "74", "76", "78", "82", "84", "86", "88", "90", "94", "053", "102"]),
+        "cod_colmar": None,
+        "cod_colchao": faker.random_element(elements=["49", "15"]),
+        "cod_contr_orig": None,
+        "cod_dist_assessoria": None,
+        "cod_dist_assess_mar": None,
+        "cod_dist_escob": None,
+        "cod_estrategia1": faker.random_element(elements=["202", "696", "847", "743", "46", "120", "10", "20", "811", "19", "783", "290", "713", "168", "67,27", "90", "856", "771", "P", "571", "259", "269", "782", "84", "218", "857", "744", "800", "650", "667", "277", "2", "683", "109", "730", "276", "206", "618", "217", "827", "792", "248", "33", "739", "682", "537", "757", "786", "211", "604"]),
+        "cod_estrategia2": faker.random_element(elements=["13", "98", "10", "40", "20", "21", "808", "705", "43", "807", "435", "202", "430", "1220", "806", "122", "F", "701", "900", "121", "902", "801", "600", "706", "700", "800", "0", "802", "41", "6002", "901", "11", "910", "23", "911", "69", "903", "702", "20231", "1", "400", "402", "809", "6001", "703", "20232", "94", "81", "97", "49"]),
+        "cod_estrategia3": faker.random_element(elements=["1", "2780.54", "0", "3638.47", "4251.09", "601.84", "3502.27", "4645.34", "1743.77", "167.4", "1129.22", "1001.99", "2915.01", "427.47", "7439.47", "3481.55", "2549.49", "865.84", "5091.79", "1238.35", "2836.28", "4175.9", "2786.91", "487.37", "3013.51", "32.39", "1796.20", "551.17", "3038.16", "783.48", "414.98", "4865.44", "927.77", "325.51", "1483.08", "2324.45", "2184.37", "355.89", "2057.74", "11166.39", "1332.86", "530.25", "7114.39", "1369.88", "3414.39", "2428.68", "4700.22", "2005.53", "1870.09", "1627.49"]),
+        "cod_estrategia4": faker.random_element(elements=["1", "0", "2", "5", "C"]),
+        "cod_estrategia5": None,
+        "cod_fpd": faker.random_element(elements=["NAO", "sim", "SIM", "2", "1"]),
+        "cod_var_aux": faker.random_element(elements=["0", "1"]),
+        "cod_faixa_atraso_b": faker.random_element(elements=["1711 a 1800", "0901 a 0990", "Em dia", "Acima 1800", "0001 a 0006", "0007 a 0030", "0031 a 0060", "0061 a 0090", "0091 a 0120", "0121 a 0150", "0151 a 0180", "0181 a 0270", "0271 a 0360", "0361 a 0450", "0451 a 0540", "0541 a 0630", "0631 a 0720", "0721 a 0810", "0811 a 0900", "0991 a 1080", "1081 a 1170", "1171 a 1260", "1261 a 1350", "1351 a 1440", "1441 a 1530"]),
+        "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
+    }
+
+def criar_cobranca_acordo_faker():
+    return {
+        "id_acordo_cobranca": next(id_serial),
+        "id_cliente_externo": faker.random_int(min=10000000000, max=99999999999),
+        "num_cpf_cnpj_cliente": faker.random_number(digits=11),
+        "id_cobrador": faker.uuid4(),
+        "nom_cobrador": faker.company(),
+        "tip_modalidade_acordo": "Politica Padrao",
+        "num_acordo": faker.random_int(min=1000000, max=9999999),
+        "num_parcelas": faker.random_int(min=1, max=12),
+        "dat_operacao": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
+        "dat_emissao": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
+        "dth_processamento": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
+        "dth_inclusao_origem": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
+        "dth_alteracao_origem": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
+        "dat_vencimento": faker.date_this_year().strftime('%Y-%m-%d'),
+        "ind_situacao": random.choice(["LIQUIDADO", "RENEGOCIADO", "PARCIAL", "PENDENTE", "NAO_CUMPRIDO", "CANCELADO"]),
+        "val_taxa_operacao": faker.random_element([0.0, 2.0]),
+        "val_principal": faker.random_int(min=0, max=10000),
+        "val_juros": faker.random_int(min=0, max=10000),
+        "val_atributo": 0.0,
+        "val_total": faker.random_int(min=0, max=10000),
+        "val_desconto": faker.random_int(min=0, max=2000),
+        "val_saldo_principal": faker.random_int(min=0, max=10000),
+        "val_saldo_total": faker.random_int(min=0, max=10000),
+        "val_saldo_atual": faker.random_int(min=0, max=10000),
+        "qtd_dias_atraso": faker.random_int(min=-100, max=100),
+        "dat_atraso_orig_acordo": faker.date_this_year().strftime('%Y-%m-%d'),
+        "id_acordo_usuario": next(id_serial),
+        "nom_acordo_usuario": faker.name(),
+        "id_acordo_assessoria": next(id_serial),
+        "nom_acordo_assessoria": faker.company(),
+        "id_acordo_negociacao": next(id_serial),
+        "nom_acordo_negociacao": faker.job(),
+        "tip_acordo_meio_pagto": random.choice(["BOLETO_PIX", "BOLETO", "DINHEIRO"]),
+        "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
+    }
+
+def criar_cobranca_assessoria_faker():
+    return {
+        "id_assessoria": str(next(id_serial)),
+        "nom_assessoria": faker.company(),
+        "id_cliente_cobranca": str(next(id_serial)),
+        "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
+    }
+
+
+import itertools
+from faker import Faker
+
+fake = Faker('pt_BR')
+
+def criar_cobranca_cliente_faker():
+    return {
+        "id_cliente_cobranca": next(id_serial),
+        "id_cliente_externo": fake.random_number(digits=11, fix_len=True),
+        "tip_pessoa": fake.random_element(elements=['FISICA']),
+        "tip_situacao": fake.random_element(elements=['COBRANCA', 'DEVEDOR', 'ATIVO', 'BLOQUEADO']),
+        "nom_cliente": fake.name(),
+        "num_cpf_cnpj_cliente": fake.random_number(digits=11, fix_len=True),
+        "nom_uf": fake.random_element(elements=['GO', 'MG', 'SC']),
+        "cod_rating": fake.random_element(elements=['A', 'HH', 'B', 'F', 'G', 'D', 'H', 'C', 'E']),
+        "des_marcador": None,
+        "num_dias_maior_atraso": None,
+        "dat_maior_atraso": None,
+        "val_saldo_atraso": fake.random_number(digits=5, fix_len=False),
+        "val_saldo_atual": fake.random_number(digits=5, fix_len=False),
+        "val_saldo_contabil": fake.random_number(digits=5, fix_len=False),
+        "val_saldo_provisao": None,
+        "qtd_dias_atraso": fake.random_int(min=-1, max=2000),
+        "val_saldo_total": fake.random_number(digits=5, fix_len=False),
+        "val_saldo_total_atraso": fake.random_number(digits=5, fix_len=False),
+        "dth_modificacao": fake.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
+        "num_ddd_cel": fake.random_element(elements=[11]),
+        "num_tel_cel": fake.random_number(digits=9, fix_len=True),
+        "num_ddd_res": fake.random_element(elements=[62, 34, 47]),
+        "num_tel_res": fake.random_number(digits=8, fix_len=True),
+        "num_ddd_com": fake.random_element(elements=[34, 11, 13]),
+        "num_tel_com": fake.random_number(digits=8, fix_len=True),
+        "nom_email": fake.email(),
+        "dat_referencia": fake.date_this_year().strftime('%Y-%m-%d')
+    }
+
