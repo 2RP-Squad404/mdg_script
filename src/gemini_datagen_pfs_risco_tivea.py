@@ -2,6 +2,7 @@ from faker import Faker
 import itertools
 from datetime import date, datetime
 import random 
+import re
 
 faker = Faker('pt_BR')
 id_serial = itertools.count(start=0)
@@ -15,7 +16,7 @@ def criar_cartao_faker():
         "num_cartao": faker.credit_card_number(),
         "num_seq_via_cartao": faker.random_int(min=2, max=7),
         "id_conta": faker.random_int(min=1397165, max=24861863),
-        "num_cpf_cliente": faker.cpf(),
+        "num_cpf_cliente": re.sub(r'\D','',faker.cpf()),
         "cod_tip_portador": faker.random_int(min=1, max=4),
         "num_bin": faker.random_number(digits=6),
         "cod_loja_emis_cartao": faker.random_int(min=48, max=916),
@@ -41,3 +42,11 @@ def criar_cartao_faker():
     }
 
 
+
+def criar_cobranca_campo_customizavel_faker():
+    return {
+        "id_cliente_cobranca": str(next(id_serial)),
+        "nom_campo": faker.random_element(elements=['REACORDO','NOVO_LIMITE','ESTRATEGIA4']),
+        "val_campo": faker.random_element(elements=['SERVICE_PREMIUM', 'TUDO JUSTO', 'SERASA', 'VALIDU', 'Portal Pefisa - PPN', 'DIGICOB TECNOLOGIA LTDA']),
+        "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
+    }

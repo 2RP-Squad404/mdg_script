@@ -3,9 +3,9 @@ import os
 import json
 from decimal import Decimal
 from datetime import datetime, date
-from gemini_datagen_pfs_risco_tivea import criar_cartao_faker
+from gemini_datagen_pfs_risco_tivea import criar_cobranca_campo_customizavel_faker
 
-NUM_LINES = 10
+NUM_LINES = 1000
 OUTPUT_DIR = 'jsonl_mock'
 
 # def serialize_dates_old(row):
@@ -73,5 +73,5 @@ def convert_decimals(obj):
     return obj
 
 
-create_jsonL(faker_func=criar_cartao_faker,num_lines=NUM_LINES)
+create_jsonL(faker_func=criar_cobranca_campo_customizavel_faker,num_lines=NUM_LINES)
 
