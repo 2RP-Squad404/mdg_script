@@ -1,5 +1,6 @@
 from google.cloud import aiplatform
 from vertexai.preview.generative_models import GenerativeModel
+from py_models.pfs_risco_tivea_models import Cartao, Cobr_cliente_atraso, Cobranca_acordo, Cobranca_assessoria, Cobranca_cliente
 
 from config import PROJECT_ID
 
@@ -69,6 +70,7 @@ class Cobranca_campo_customizavel(BaseModel):
     nom_campo: str
     val_campo: str
     dat_referencia: date
+{{cobranca_cliente}}
 abaixo esta um exemplo de como deveria ser os dados que satisfazem cada coluna desta tabela: 
 {{
     "cobranca_campo_customizavel": {{
@@ -131,6 +133,131 @@ abaixo esta um exemplo de como deveria ser os dados que satisfazem cada coluna d
             "TUDO JUSTO, SERASA, Quite Ja, VALIDU, LIDERANCA",
             "6",
             "50"
+    "cobranca_cliente": {{
+        "id_cliente_cobranca": [
+            890494317912358912,
+            886865441852366848,
+            868202056548827137
+        ],
+        "id_cliente_externo": [
+            "20126140359",
+            "59743190600",
+            "46184120972"
+        ],
+        "tip_pessoa": [
+            "FISICA"
+        ],
+        "tip_situacao": [
+            "COBRANCA",
+            "DEVEDOR",
+            "ATIVO",
+            "BLOQUEADO"
+        ],
+        "nom_cliente": [
+            "IRACILDA S DOEDERLEIN",
+            "ANGELI DE OLIVEIRA PINTO",
+            "LEONIR CUNHA"
+        ],
+        "num_cpf_cnpj_cliente": [
+            20126140359,
+            59743190600,
+            46184120972
+        ],
+        "nom_uf": [
+            "GO",
+            "MG",
+            "SC"
+        ],
+        "cod_rating": [
+            "A",
+            "HH",
+            "B",
+            "F",
+            "G",
+            "D",
+            "H",
+            "C",
+            "E"
+        ],
+        "des_marcador": [],
+        "num_dias_maior_atraso": [],
+        "dat_maior_atraso": [],
+        "val_saldo_atraso": [
+            125.0,
+            215.0,
+            96.0,
+            0.0,
+            17547.0
+        ],
+        "val_saldo_atual": [
+            125.0,
+            215.0,
+            96.0,
+            70.0
+        ],
+        "val_saldo_contabil": [
+            0.0,
+            42.0,
+            7.0,
+            5191.0
+        ],
+        "val_saldo_provisao": [],
+        "qtd_dias_atraso": [
+            15,
+            756,
+            1904,
+            -1
+        ],
+        "val_saldo_total": [
+            125.0,
+            42.0,
+            7.0,
+            5191.0
+        ],
+        "val_saldo_total_atraso": [
+            125.0,
+            42.0,
+            7.0,
+            5191.0
+        ],
+        "dth_modificacao": [
+            "2024-09-20T03:42:51+00:00",
+            "2024-09-25T03:47:02+00:00",
+            "2024-01-31T20:16:04+00:00",
+            "2024-07-03T08:07:05+00:00"
+        ],
+        "num_ddd_cel": [
+            11
+        ],
+        "num_tel_cel": [
+            980504731,
+            953142051,
+            940317282
+        ],
+        "num_ddd_res": [
+            62,
+            34,
+            47
+        ],
+        "num_tel_res": [
+            984740711,
+            32422042,
+            92054311
+        ],
+        "num_ddd_com": [
+            34,
+            11,
+            13
+        ],
+        "num_tel_com": [
+            32410205,
+            38510962,
+            32023500
+        ],
+        "nom_email": [
+            "iracildapci@gmail.com",
+            "marianabozzo@gmail.com",
+            "mariaaparecidasantos2021ryan@gmail.com"
         ],
         "dat_referencia": [
             "2024-09-30"

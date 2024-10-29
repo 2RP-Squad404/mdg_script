@@ -3,7 +3,7 @@ import os
 import json
 from decimal import Decimal
 from datetime import datetime, date
-from gemini_datagen_pfs_risco_tivea import criar_cobranca_campo_customizavel_faker
+from gemini_datagen_pfs_risco_tivea import criar_cartao_faker, criar_cobr_cliente_atraso_faker, criar_cobranca_acordo_faker, criar_cobranca_assessoria_faker, criar_cobranca_cliente_faker
 
 NUM_LINES = 1000
 OUTPUT_DIR = 'jsonl_mock'
@@ -73,5 +73,5 @@ def convert_decimals(obj):
     return obj
 
 
-create_jsonL(faker_func=criar_cobranca_campo_customizavel_faker,num_lines=NUM_LINES)
+create_jsonL(faker_func=criar_cobranca_cliente_faker,num_lines=NUM_LINES)
 
