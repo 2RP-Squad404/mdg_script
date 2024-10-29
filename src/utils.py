@@ -135,35 +135,27 @@ def create_tables():
                         table_id = f"{dataset_id}.{table_name}"
                         table = bigquery.Table(table_id, schema=schema)
                         
-                        # Detectar o campo e o tipo de particionamento
                         partition_field = None
                         partition_type = None
                         if table_name not in excluded_partition_tables:
                             for field in schema:
-                                if field.name.startswith("num_anomes") or field.name.startswith("production_date"):
-                                    partition_field = field.name
-                                    partition_type = "MONTH"
-                                    break
-                                elif field.name.startswith("date_reference"):
-                                    partition_field = field.name
-                                    partition_type = "DAY"
-                                    break
+                                if field.name.startswith("num_anomes") or field.name.startswith("production_date") or field.name.startswith("dat_referencia"):
+                                    if field.field_type in ["TIMESTAMP", "DATE", "DATETIME"]:
+                                        partition_field = field.name
+                                        partition_type = "MONTH" if field.name.startswith("num_anomes") or field.name.startswith("production_date") else "DAY"
+                                        break
+                                    else:
+                                        print(f"O campo {field.name} na tabela {table_name} não é do tipo TIMESTAMP, DATE ou DATETIME. Particionamento ignorado.")
                             
-                            # Configurar particionamento se campo e tipo forem encontrados
                             if partition_field and partition_type:
-                                field_names = [f.name for f in schema]
-                                if partition_field in field_names:
-                                    table.time_partitioning = bigquery.TimePartitioning(
-                                        type_=partition_type,
-                                        field=partition_field
-                                    )
-                                    print(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
-                                else:
-                                    print(f"A coluna {partition_field} não foi encontrada no esquema para a tabela {table_name}. Particionamento não configurado.")
+                                table.time_partitioning = bigquery.TimePartitioning(
+                                    type_=partition_type,
+                                    field=partition_field
+                                )
+                                print(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
                             else:
                                 print(f"Tabela {table_name} sem campo de particionamento configurado.")
                                 
-                        # Criar tabela, seja particionada ou não
                         client.create_table(table, exists_ok=True)
                         print(f"Tabela {table_name} criada no dataset {dataset_folder}")
                     else:
