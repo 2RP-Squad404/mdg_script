@@ -1,6 +1,5 @@
 from google.cloud import aiplatform
 from vertexai.preview.generative_models import GenerativeModel
-from py_models.pfs_risco_tivea_models import Cartao
 
 from config import PROJECT_ID
 
@@ -56,7 +55,7 @@ Observação 3: Em nenhuma hipotese, use acentos em palavras, escreva sem o acen
 
 def criar_<nome_do_modelo>_faker():
     id_serial = itertools.count(start=0)
-    "return {{
+    return {{
         "id": next(id_serial),
         "nome_do_atributo": função_fake_correspondente,
     }}
@@ -65,216 +64,82 @@ para criar a função para o model abaixo, utilize do mapping que estou enviando
 
 
 utilize exatamente este modelo Pydantic:
-{{Cartao}}
+class Cobranca_campo_customizavel(BaseModel):
+    id_cliente_cobranca: int
+    nom_campo: str
+    val_campo: str
+    dat_referencia: date
 abaixo esta um exemplo de como deveria ser os dados que satisfazem cada coluna desta tabela: 
 {{
-    "cartao": {{
-        "id_cartao": [
-            42709909
+    "cobranca_campo_customizavel": {{
+        "id_cliente_cobranca": [
+            857208642106765314
         ],
-        "id_produto_cartao": [
-            5,
-            6,
-            7
+        "nom_campo": [
+            "REACORDO",
+            "NOVO_LIMITE",
+            "ESTRATEGIA4"
         ],
-        "num_cartao": [
-            "6505234656725505"
-        ],
-        "num_seq_via_cartao": [
-            2,
-            6,
-            7
-        ],
-        "id_conta": [
-            24861863,
-            1397165,
-            6562519
-        ],
-        "num_cpf_cliente": [
-            15685253893
-        ],
-        "cod_tip_portador": [
-            1,
-            2,
-            4,
-            3
-        ],
-        "num_bin": [
-            222989
-        ],
-        "cod_loja_emis_cartao": [
-            646,
-            106,
-            312,
-            529,
-            502,
-            595,
-            752,
-            134,
-            150,
-            122,
-            358,
-            310,
-            458,
-            878,
-            494,
-            48,
-            180,
-            248,
-            62,
-            531,
-            916,
-            558,
-            430,
-            468,
-            500,
-            712,
-            100,
-            730,
-            406,
-            382,
-            732,
-            130,
-            394,
-            70,
-            860,
-            448,
-            164,
-            578,
-            691,
-            152,
-            378,
-            98,
-            294,
-            536,
-            438,
-            418,
-            28,
-            218,
-            124,
-            204
-        ],
-        "id_cliente_so": [
-            17760834
-        ],
-        "dth_emis_cartao": [
-            "2023-10-02T12:28:37+00:00"
-        ],
-        "dth_embs_cartao": [
-            "2023-10-03T14:10:00+00:00"
-        ],
-        "dth_valid_cartao": [
-            "2026-10-02T15:19:00+00:00"
-        ],
-        "dth_desbloqueio": [
-            "2023-10-02T17:23:00+00:00"
-        ],
-        "cod_sit_cartao": [
-            1,
-            2,
-            3,
-            6,
-            33,
-            10,
-            68,
-            4,
-            61,
-            37,
-            11,
-            15,
-            54,
-            17,
-            55,
-            200,
-            30,
-            5,
-            32,
-            21,
-            34,
-            8,
-            50
-        ],
-        "des_sit_cartao": [
-            "NORMAL",
-            "BLOQUEADO",
-            "CANCELADO",
-            "CANCELADO CLIENTE",
-            "CANCELADO EMBOSSING LOJA",
-            "CANCELADO TARJA",
-            "CADASTRO ERRO EMISSOR",
-            "CANCELADO PERDA",
-            "ALERTA PREVENTIVO MESA",
-            "BLOQUEADO PREVENÇÃO",
-            "CANCELADO EMBOSSING",
-            "CANCELADO DESATIVADO",
-            "FALSIFICAÇÃO NAC",
-            "CANCELADO DEIXADO LOJA",
-            "FALSIFICAÇÃO EXT",
-            "BLOQUEIO PREVENTIVO FALCON",
-            "CANCELADO CVV/CVV2 NAO GERADO",
-            "CANCELADO ROUBO",
-            "SUSPEITA DE FRAUDE - PREVENTIVO",
-            "CANCELADO DEFINITIVO TARJA",
-            "CANCELADO REEMISSÃO PERSONALIZADO",
-            "CANCELADO EXTRAVIADO",
-            "EXTRAVIO MALOTE CORREIOS"
-        ],
-        "dth_sit_cartao": [
-            
-            "2023-10-02T13:51:00+00:00"
-        ],
-        "cod_estagio_cartao": [
-            6,
-            1,
-            16,
-            17,
-            22,
-            18,
-            0,
-            4,
-            19
-        ],
-        "des_estagio_cartao": [
-            "DESBLOQUEADO SEM CODIGO",
-            "CRIADO",
-            "ENCAMINHADO"
-        ],
-        "dth_estagio_cartao": [
-            "2023-10-02T16:25:00+00:00"
-        ],
-        "flg_embs_loja": [
-            "S",
-            "N"
-        ],
-        "flg_cartao_cancelado": [
+        "val_campo": [
+            "n",
+            "150",
+            "C",
+            "CCOB",
+            "21/07/2020",
+            "SMS",
+            "LIDERANCA_21_11_22",
+            "Cura",
+            "Atrasada",
+            "INATIVO",
+            "INSS",
+            "Personal_Desenrola",
+            "5",
+            "2002",
+            "19",
+            "28",
+            "2004",
             "N",
-            "S"
+            "VALIDU",
+            "05/07/2020",
+            "SERVICE_PREMIUM, TUDO JUSTO, SERASA, VALIDU, Portal Pefisa - PPN, DIGICOB TECNOLOGIA LTDA",
+            "Obito",
+            "Inconsistencia",
+            "27",
+            "25/07/2020",
+            "Eficaz_Desenrola",
+            "15/07/2020",
+            "colchao",
+            "7",
+            "Politica 20,00",
+            "Pgto Pix",
+            "SIM",
+            "2001",
+            "SERASA",
+            "11/07/2020",
+            "pefin",
+            "47",
+            "Disponivel",
+            "200",
+            "Colchao",
+            "EP",
+            "2003",
+            "15",
+            "49",
+            "48",
+            "Gomes_Desenrola",
+            "01/08/2020",
+            "TUDO JUSTO, SERASA, Quite Ja, VALIDU, LIDERANCA",
+            "6",
+            "50"
         ],
-        "flg_cartao_provisorio": [
-            "N",
-            "S"
-        ],
-        "flg_conta_cancelada": [
-            "N",
-            "S"
-        ],
-        "dth_ult_atu_so": [
-            "2023-10-03T17:09:25+00:00"
-        ],
-        "num_seq_ult_alteracao": [
-            2,
-            1,
-            4
-        ],
-        "dth_inclusao_reg": [
-            "2023-10-04T03:56:13+00:00"
-        ],
-        "num_anomes_emis_cartao": [
-            "2023-10-01"
+        "dat_referencia": [
+            "2024-09-30"
         ]
     }}
 }}
 """
+
+
 
 code = generate_code(gemini_model, prompt)
 save_to_file('gemini_datagen_pfs_risco_tivea.py', code)

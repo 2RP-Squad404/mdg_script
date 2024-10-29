@@ -220,7 +220,6 @@ def criar_Telefones():
 
 def criar_Informacoesadicionais():
     return {
-        "id": str(id_serial),
         "nome": faker.word(),
         "linha": faker.word(),
         "coluna": faker.word(),
@@ -384,11 +383,10 @@ def criar_Acordo():
     }
 
 def criar_Cliente_faker():
+    produto_acordo = criar_produto_acordo()
     return {
-        "SOURCE": f"https://pernambucanas.cobransaas.com.br/api/contratos?" \
-             f"selector=parcelas&mode=CONTINUABLE&size=2000&" \
-             f"situacao={random.choice(['ABERTO', 'PARCIAL', 'PENDENTE', 'CEDIDO', 'LIQUIDADO'])}",
-        "id": str(next(id_serial)),
+        "source": faker.word(),
+        "id": produto_acordo["id"],
         "idExterno": faker.uuid4(),
         "tipoPessoa": faker.random_element(elements=("Física", "Jurídica")),
         "situacao": faker.random_element(elements=("Ativo", "Inativo")),
