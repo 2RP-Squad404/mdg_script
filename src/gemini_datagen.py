@@ -1,6 +1,7 @@
 from faker import Faker
 import itertools
 from datetime import date, datetime
+import random 
 
 faker = Faker('pt_BR')
 id_serial = itertools.count(start=0)
@@ -426,10 +427,6 @@ def criar_Cliente_faker():
     }
 
 
-
-
-
-
 def criar_Acordo_faker():
     return {
         "source": faker.url(),
@@ -527,6 +524,86 @@ def criar_Acordo_faker():
         "pagamentos": [],
         "origens": [],
         "pendencias": [],
+        "production_date": faker.date_this_year()
+    }
+
+
+def criar_Contrato_faker():
+    return {
+        "SOURCE": f"https://pernambucanas.cobransaas.com.br/api/contratos?" \
+             f"selector=parcelas&mode=CONTINUABLE&size=2000&" \
+             f"situacao={random.choice(['ABERTO', 'PARCIAL', 'PENDENTE', 'CEDIDO', 'LIQUIDADO'])}",
+        "id": str(next(id_serial)),
+        "idExterno": faker.random_number(digits=5),
+        "numeroContrato": faker.bothify(text='?????????########'),
+        "numeroParcelas": faker.random_number(digits=1),
+        "dataEmissao": faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
+        "dataOperacao": faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
+        "situacao": faker.random_element(elements=['ABERTO', 'PARCIAL', 'PENDENTE', 'CEDIDO', 'LIQUIDADO']),
+        "tipo": faker.random_element(elements=['FATURA']),
+        "taxaOperacao": faker.numerify(text='0.########'),
+        "valorDevolucao": faker.numerify(text='#.##'),
+        "valorIof": faker.numerify(text='#.##'),
+        "valorLiquido": faker.numerify(text='#.##'),
+        "valorTarifa": faker.numerify(text='#.##'),
+        "produto": {"nome": faker.word(), "descricao": faker.sentence()},
+        "valorTotal": faker.numerify(text='#.##'),
+        "saldoAtual": faker.numerify(text='#.##'),
+        "saldoTotal": faker.numerify(text='#.##'),
+        "saldoContabil": faker.numerify(text='#.##'),
+        "saldoAtraso": faker.numerify(text='#.##'),
+        "gestao": faker.random_element(elements=['EXTERNO', 'INTERNO']),
+        "diasAtraso": faker.random_number(digits=2),
+        "dataVencimento": faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
+        "dataHoraModificacao": faker.date_time().strftime('%Y-%m-%dT%H:%M:%S'),
+        "lp": faker.boolean(),
+        "dataLp": faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
+        "siglaAtraso": faker.random_element(elements=['Perda', 'Creliq']),
+        "cliente": {"id": str(id_serial), "idExterno": faker.random_number(digits=10), "tipoPessoa": faker.random_element(elements=['FISICA', 'JURIDICA']), "situacao": "ATIVO", "nome": faker.name(), "cic": faker.random_number(digits=11), "codigo": faker.random_number(digits=5), "sexo": faker.random_element(elements=['MASCULINO', 'FEMININO']), "dataNascimento": faker.date_of_birth().strftime('%Y-%m-%d'), "dataConta": faker.date_time().strftime('%Y-%m-%d %H:%M:%S'), "naturalidade": None, "estadoCivil": faker.random_element(elements=['SOLTEIRO', 'CASADO', 'DIVORCIADO', 'VIUVO']), "rg": faker.bothify(text='########-##'), "rating": faker.random_element(elements=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']), "lp": None, "propensaoPagamento": None, "historicoPagamento": None, "numeroDiasMaiorAtraso": None, "dataMaiorAtraso": None, "rendaTitular": faker.numerify(text='###.##'), "rendaConjuge": faker.numerify(text='###.##'), "outrasRendas": faker.numerify(text='###.##'), "profissao": None, "categoriaProfissao": None, "tipoResidencia": None, "saldoAtraso": faker.numerify(text='#.##'), "saldoAtual": faker.numerify(text='#.##'), "saldoContabil": faker.numerify(text='#.##'), "saldoProvisao": None, "diasAtraso": None, "dataHoraModificacao": faker.date_time().strftime('%Y-%m-%dT%H:%M:%S')},
+        "parcelas": [
+            [
+                {
+                    "id": str(id_serial),
+                    "idExterno": faker.random_number(digits=1),
+                    "contrato": str(id_serial),
+                    "numeroContrato": faker.bothify(text='?????????########'),
+                    "numeroParcela": faker.random_number(digits=1),
+                    "dataVencimento": faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
+                    "diasAtraso": None,
+                    "saldoPrincipal": faker.numerify(text='#.##'),
+                    "saldoTotal": faker.numerify(text='#.##'),
+                    "saldoAtual": faker.numerify(text='#.##'),
+                    "saldoContabil": faker.numerify(text='#.##'),
+                    "valorPrincipal": faker.numerify(text='#.##'),
+                    "valorTotal": faker.numerify(text='#.##'),
+                    "valorMulta": faker.numerify(text='#.##'),
+                    "valorPermanencia": faker.numerify(text='#.##'),
+                    "valorMora": faker.numerify(text='#.##'),
+                    "valorOutros": faker.numerify(text='#.##'),
+                    "valorDesconto": faker.numerify(text='#.##'),
+                    "valorDespesa": None,
+                    "valorBoleto": None,
+                    "valorBaseTributo": None,
+                    "valorPrincipalAberto": faker.numerify(text='#.##'),
+                    "situacao": faker.random_element(elements=['ABERTO', 'PARCIAL', 'PENDENTE', 'CEDIDO', 'LIQUIDADO']),
+                    "agencia": None,
+                    "banco": None,
+                    "conta": None,
+                    "digito": None,
+                    "numeroNossoNumero": None,
+                    "nossoNumero": None,
+                    "digitoNossoNumero": None,
+                    "numeroDocumento": None,
+                    "notaFiscal": None,
+                    "cobrador": None,
+                    "cliente": None,
+                    "acordo": faker.boolean(),
+                    "bloqueio": faker.boolean(),
+                    "promessa": faker.boolean(),
+                    "tipoAcordo": None
+                }
+            ]
+        ],
         "production_date": faker.date_this_year()
     }
 

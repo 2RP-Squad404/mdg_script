@@ -3,7 +3,7 @@ import os
 import json
 from decimal import Decimal
 from datetime import datetime, date
-from gemini_datagen import criar_Acordo_faker,  criar_Cliente_faker
+from gemini_datagen import criar_Acordo_faker,  criar_Cliente_faker, criar_Contrato_faker
 
 NUM_LINES = 100
 OUTPUT_DIR = 'jsonl_mock'
@@ -72,8 +72,10 @@ def convert_decimals(obj):
         return float(obj)
     return obj
 
-create_jsonL(criar_Acordo_faker,NUM_LINES)
-create_jsonL(criar_Cliente_faker,NUM_LINES)
+# create_jsonL(criar_Acordo_faker,NUM_LINES)
+# create_jsonL(criar_Cliente_faker,NUM_LINES)
+
+create_jsonL(criar_Contrato_faker, NUM_LINES)
 
 
 

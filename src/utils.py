@@ -12,7 +12,7 @@ from google.cloud import bigquery
 from auth import get_bigquery_client
 from config import PROJECT_ID
 
-client = bigquery.Client(PROJECT_ID)
+client = get_bigquery_client()
 
 def load_py_schema(dataset_name):
     """
@@ -69,7 +69,6 @@ def get_tables(dataset_id):
     Retorno:
         list (str): Retorna os nomes em formato de lista.
     """
-    client = bigquery.Client()
     dataset_ref = client.dataset(dataset_id)
 
     tables = client.list_tables(dataset_ref)
@@ -114,7 +113,6 @@ def create_tables():
         directory (str): O caminho do diretório onde estão as subpastas que representam datasets e tabelas.
         schema_directory (str): O caminho do diretório onde estão os arquivos de schema.
     """
-    client = bigquery.Client(project=PROJECT_ID)
 
     datasets = list(client.list_datasets())
     datasets_created = [dataset.dataset_id for dataset in datasets]
