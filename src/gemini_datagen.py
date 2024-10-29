@@ -174,7 +174,7 @@ def criar_pendencias():
 
 def criar_Emails():
     return {
-        "id": str(next(id_serial)),
+        "id": str(id_serial),
         "idExterno": faker.uuid4(),
         "email": faker.email(),
         "principal": faker.boolean(),
@@ -185,7 +185,7 @@ def criar_Emails():
 
 def criar_Enderecos():
     return {
-        "id": str(next(id_serial)),
+        "id": str(id_serial),
         "idExterno": faker.uuid4(),
         "cep": faker.postcode(),
         "codigoDne": faker.ean8(),
@@ -205,7 +205,7 @@ def criar_Enderecos():
  
 def criar_Telefones():
     return {
-        "id": str(next(id_serial)),
+        "id": str(id_serial),
         "idExterno": faker.uuid4(),
         "ddd": faker.random_number(digits=2),
         "telefone": faker.numerify('#########'),
@@ -220,7 +220,7 @@ def criar_Telefones():
 
 def criar_Informacoesadicionais():
     return {
-        "id": next(id_serial),
+        "id": str(id_serial),
         "nome": faker.word(),
         "linha": faker.word(),
         "coluna": faker.word(),
@@ -231,7 +231,7 @@ def criar_Informacoesadicionais():
 
 def criar_Assessorias():
     return {
-        "id": str(next(id_serial)),
+        "id": str(id_serial),
         "nome": faker.company(),
         "situacao": faker.random_element(elements=('Ativo', 'Inativo')),
         "cic": faker.bothify(text='CIC-??-#######'),
@@ -247,7 +247,7 @@ def criar_Assessorias():
 
 def criar_marcadores():
     return {
-        "id": str(next(id_serial)),
+        "id": str(id_serial),
         "nome": faker .word(),
         "cor": faker .color_name()
     }
@@ -385,7 +385,9 @@ def criar_Acordo():
 
 def criar_Cliente_faker():
     return {
-        "source": faker.word(),
+        "SOURCE": f"https://pernambucanas.cobransaas.com.br/api/contratos?" \
+             f"selector=parcelas&mode=CONTINUABLE&size=2000&" \
+             f"situacao={random.choice(['ABERTO', 'PARCIAL', 'PENDENTE', 'CEDIDO', 'LIQUIDADO'])}",
         "id": str(next(id_serial)),
         "idExterno": faker.uuid4(),
         "tipoPessoa": faker.random_element(elements=("Física", "Jurídica")),
@@ -423,13 +425,14 @@ def criar_Cliente_faker():
         "informacoesAdicionais": criar_Informacoesadicionais(),
         "assessorias": criar_Assessorias(),
         "marcadores": criar_marcadores(),
-        "production_date": faker.date_time().strftime('%Y-%m-%d %H:%M:%S')
+        "production_date": faker.date_this_year()
     }
-
 
 def criar_Acordo_faker():
     return {
-        "source": faker.url(),
+        "SOURCE": f"https://pernambucanas.cobransaas.com.br/api/contratos?" \
+             f"selector=parcelas&mode=CONTINUABLE&size=2000&" \
+             f"situacao={random.choice(['ABERTO', 'PARCIAL', 'PENDENTE', 'CEDIDO', 'LIQUIDADO'])}",
         "id": str(next(id_serial)),
         "cliente": faker.random_number(digits=11),
         "cobrador": faker.random_number(digits=16),
@@ -560,7 +563,7 @@ def criar_Contrato_faker():
         "dataLp": faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
         "siglaAtraso": faker.random_element(elements=['Perda', 'Creliq']),
         "cliente": {"id": str(id_serial), "idExterno": faker.random_number(digits=10), "tipoPessoa": faker.random_element(elements=['FISICA', 'JURIDICA']), "situacao": "ATIVO", "nome": faker.name(), "cic": faker.random_number(digits=11), "codigo": faker.random_number(digits=5), "sexo": faker.random_element(elements=['MASCULINO', 'FEMININO']), "dataNascimento": faker.date_of_birth().strftime('%Y-%m-%d'), "dataConta": faker.date_time().strftime('%Y-%m-%d %H:%M:%S'), "naturalidade": None, "estadoCivil": faker.random_element(elements=['SOLTEIRO', 'CASADO', 'DIVORCIADO', 'VIUVO']), "rg": faker.bothify(text='########-##'), "rating": faker.random_element(elements=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']), "lp": None, "propensaoPagamento": None, "historicoPagamento": None, "numeroDiasMaiorAtraso": None, "dataMaiorAtraso": None, "rendaTitular": faker.numerify(text='###.##'), "rendaConjuge": faker.numerify(text='###.##'), "outrasRendas": faker.numerify(text='###.##'), "profissao": None, "categoriaProfissao": None, "tipoResidencia": None, "saldoAtraso": faker.numerify(text='#.##'), "saldoAtual": faker.numerify(text='#.##'), "saldoContabil": faker.numerify(text='#.##'), "saldoProvisao": None, "diasAtraso": None, "dataHoraModificacao": faker.date_time().strftime('%Y-%m-%dT%H:%M:%S')},
-        "parcelas": [
+        "parcelas":
             [
                 {
                     "id": str(id_serial),
@@ -602,8 +605,7 @@ def criar_Contrato_faker():
                     "promessa": faker.boolean(),
                     "tipoAcordo": None
                 }
-            ]
-        ],
+            ],
         "production_date": faker.date_this_year()
     }
 
