@@ -173,7 +173,7 @@ def criar_pendencias():
 
 def criar_Emails():
     return {
-        "id": str(next(id_serial)),
+        "id": str(id_serial),
         "idExterno": faker.uuid4(),
         "email": faker.email(),
         "principal": faker.boolean(),
@@ -184,7 +184,7 @@ def criar_Emails():
 
 def criar_Enderecos():
     return {
-        "id": str(next(id_serial)),
+        "id": str(id_serial),
         "idExterno": faker.uuid4(),
         "cep": faker.postcode(),
         "codigoDne": faker.ean8(),
@@ -204,7 +204,7 @@ def criar_Enderecos():
  
 def criar_Telefones():
     return {
-        "id": str(next(id_serial)),
+        "id": str(id_serial),
         "idExterno": faker.uuid4(),
         "ddd": faker.random_number(digits=2),
         "telefone": faker.numerify('#########'),
@@ -219,7 +219,6 @@ def criar_Telefones():
 
 def criar_Informacoesadicionais():
     return {
-        "id": next(id_serial),
         "nome": faker.word(),
         "linha": faker.word(),
         "coluna": faker.word(),
@@ -230,7 +229,7 @@ def criar_Informacoesadicionais():
 
 def criar_Assessorias():
     return {
-        "id": str(next(id_serial)),
+        "id": str(id_serial),
         "nome": faker.company(),
         "situacao": faker.random_element(elements=('Ativo', 'Inativo')),
         "cic": faker.bothify(text='CIC-??-#######'),
@@ -246,7 +245,7 @@ def criar_Assessorias():
 
 def criar_marcadores():
     return {
-        "id": str(next(id_serial)),
+        "id": str(id_serial),
         "nome": faker .word(),
         "cor": faker .color_name()
     }
@@ -383,9 +382,10 @@ def criar_Acordo():
     }
 
 def criar_Cliente_faker():
+    produto_acordo = criar_produto_acordo()
     return {
         "source": faker.word(),
-        "id": str(next(id_serial)),
+        "id": produto_acordo["id"],
         "idExterno": faker.uuid4(),
         "tipoPessoa": faker.random_element(elements=("Física", "Jurídica")),
         "situacao": faker.random_element(elements=("Ativo", "Inativo")),
