@@ -1,5 +1,6 @@
 from google.cloud import aiplatform
 from vertexai.preview.generative_models import GenerativeModel
+from py_models.pfs_risco_tivea_models import Cartao
 
 from config import PROJECT_ID
 
@@ -41,284 +42,239 @@ project_id = PROJECT_ID
 model_name = "gemini-1.5-flash-002"
 gemini_model = init_gemini(project_id, model_name)
 
-prompt = """Você é um assistente especializado em gerar código Python de alta qualidade e aderente às melhores práticas. Você segue as instruções com precisão, sem fornecer explicações ou informações extras além do código solicitado.
+prompt = f"""Você é um assistente especializado em gerar código Python de alta qualidade e aderente às melhores práticas. Você segue as instruções com precisão, sem fornecer explicações ou informações extras além do código solicitado.
 
 Exemplo generico de como deve ser as funções que você irá gerar:
+
 Observação 1: se algum atributo for id você deve preencher com:
 next(id_serial).
+
 Observação 2: se algum atributo for data ou coisa do tipo você deve preencher as datas com a seguinte formatação:
 strftime('%Y-%m-%d %H:%M:%S')
 
+Observação 3: Em nenhuma hipotese, use acentos em palavras, escreva sem o acento mesmo.
+
 def criar_<nome_do_modelo>_faker():
     id_serial = itertools.count(start=0)
-    return {
+    "return {{
         "id": next(id_serial),
         "nome_do_atributo": função_fake_correspondente,
-    }
+    }}
 Dado o seguinte modelo Pydantic, crie uma função Python que instancia um objeto estritamente deste modelo e preencha os atributos com valores gerados por funções adequadas da biblioteca Faker. A função deve retornar o objeto como um dicionário. Use as funções Faker que melhor correspondem a cada tipo de dado. Retorne apenas a função Python, sem explicações adicionais, importações de bibliotecas, tratamento de exceções, apenas a implementação da função.
 para criar a função para o model abaixo, utilize do mapping que estou enviando:
-{
-    emails: criar_Emails(),
-    enderecos: criar_Enderecos(),
-    telefones: criar_Telefones(),
-    informacoesAdicionais: criar_Informacoesadicionais(),
-    assessorias: criar_Assessorias(),
-    marcadores: criar_marcadores()
-}
+
 
 utilize exatamente este modelo Pydantic:
-class Contrato(BaseModel):
-    SOURCE: str
-    id: str
-    idExterno: str
-    numeroContrato: str
-    numeroParcelas: str
-    dataEmissao: str
-    dataOperacao: str
-    situacao: str
-    tipo: str
-    taxaOperacao: str
-    valorDevolucao: str
-    valorIof: str
-    valorLiquido: str
-    valorTarifa: str
-    produto: 'Produto'
-    valorTotal: str
-    saldoAtual: str
-    saldoTotal: str
-    saldoContabil: str
-    saldoAtraso: str
-    gestao: str
-    diasAtraso: str
-    dataVencimento: str
-    dataHoraModificacao: str
-    lp: bool
-    dataLp: str
-    siglaAtraso: str
-    cliente: 'Cliente'
-    parcelas: 'Parcelas'
-    production_date: date
-Abaixo está um exemplo de como deveria ser os dados que satisfazem cada coluna desta tabela
-{
-    "contrato": {
-        "SOURCE": [
-            "https://pernambucanas.cobransaas.com.br/api/contratos?selector=parcelas&mode=CONTINUABLE&size=2000&situacao=ABERTO,PARCIAL,PENDENTE,CEDIDO&continuable=ODU3MjcxNTY4OTQ3Njg3NDI4",
-            "https://pernambucanas.cobransaas.com.br/api/contratos?selector=parcelas&mode=CONTINUABLE&size=2000&situacao=ABERTO,PARCIAL,PENDENTE,CEDIDO&continuable=ODU3NDQ2ODU3MDc4MTU3MzE3"
+{{Cartao}}
+abaixo esta um exemplo de como deveria ser os dados que satisfazem cada coluna desta tabela: 
+{{
+    "cartao": {{
+        "id_cartao": [
+            42709909
         ],
-        "id": [
-            "857446856973299715",
-            "857446848991539202",
-            "857446863411556354"
+        "id_produto_cartao": [
+            5,
+            6,
+            7
         ],
-        "idExterno": [
-            "97512",
-            "73409",
-            "134129"
+        "num_cartao": [
+            "6505234656725505"
         ],
-        "numeroContrato": [
-            "9751220190817",
-            "7340920190817",
-            "13412920190817"
+        "num_seq_via_cartao": [
+            2,
+            6,
+            7
         ],
-        "numeroParcelas": [
-            "1"
+        "id_conta": [
+            24861863,
+            1397165,
+            6562519
         ],
-        "dataEmissao": [
-            "2018-07-13",
-            "2018-10-27",
-            "2018-05-23"
+        "num_cpf_cliente": [
+            15685253893
         ],
-        "dataOperacao": [
-            "2019-12-12",
-            "2019-12-15",
-            "2019-12-16"
+        "cod_tip_portador": [
+            1,
+            2,
+            4,
+            3
         ],
-        "situacao": [
-            "CEDIDO",
-            "LIQUIDADO"
+        "num_bin": [
+            222989
         ],
-        "tipo": [
-            "FATURA"
+        "cod_loja_emis_cartao": [
+            646,
+            106,
+            312,
+            529,
+            502,
+            595,
+            752,
+            134,
+            150,
+            122,
+            358,
+            310,
+            458,
+            878,
+            494,
+            48,
+            180,
+            248,
+            62,
+            531,
+            916,
+            558,
+            430,
+            468,
+            500,
+            712,
+            100,
+            730,
+            406,
+            382,
+            732,
+            130,
+            394,
+            70,
+            860,
+            448,
+            164,
+            578,
+            691,
+            152,
+            378,
+            98,
+            294,
+            536,
+            438,
+            418,
+            28,
+            218,
+            124,
+            204
         ],
-        "taxaOperacao": [
-            "0.0000000"
+        "id_cliente_so": [
+            17760834
         ],
-        "valorDevolucao": [
-            "0.00"
+        "dth_emis_cartao": [
+            "2023-10-02T12:28:37+00:00"
         ],
-        "valorIof": [
-            "0.00"
+        "dth_embs_cartao": [
+            "2023-10-03T14:10:00+00:00"
         ],
-        "valorLiquido": [],
-        "valorTarifa": [
-            "0.00"
+        "dth_valid_cartao": [
+            "2026-10-02T15:19:00+00:00"
         ],
-        "produto": [
-            {
-                "nome": "STANDARD",
-                "descricao": "Cart\u00e3o Mastercard Standard"
-            },
-            {
-                "nome": "PL DIGITAL",
-                "descricao": "Cart\u00e3o Private Label Pernambucanas"
-            },
-            {
-                "nome": "ELO MAIS",
-                "descricao": "CART\u00c3O BANDEIRADO ELO MAIS"
-            },
-            {
-                "nome": "GOLD",
-                "descricao": "Mastercard Gold"
-            },
-            {
-                "nome": "ELO GRAFITE",
-                "descricao": "CART\u00c3O BANDEIRADO ELO GRAFITE"
-            },
-            {
-                "nome": "PERNAMBUCANAS ELO",
-                "descricao": "Pernambucanas Elo"
-            },
-            {
-                "nome": "PERNAMBUCANAS ELO MAIS",
-                "descricao": "Pernambucanas Elo Mais"
-            },
-            {
-                "nome": "EMPRESTIMO PESSOAL ONIDATA",
-                "descricao": "EMPRESTIMO PESSOAL ONIDATA"
-            },
-            {
-                "nome": "CARTAO TOP MASTERCARD",
-                "descricao": "Cart\u00e3o Auto Pass"
-            }
+        "dth_desbloqueio": [
+            "2023-10-02T17:23:00+00:00"
         ],
-        "valorTotal": [
-            "0.00",
-            "-11.80",
-            "-5.90",
-            "655.09",
-            "3718.67"
+        "cod_sit_cartao": [
+            1,
+            2,
+            3,
+            6,
+            33,
+            10,
+            68,
+            4,
+            61,
+            37,
+            11,
+            15,
+            54,
+            17,
+            55,
+            200,
+            30,
+            5,
+            32,
+            21,
+            34,
+            8,
+            50
         ],
-        "saldoAtual": [
-            "0.00"
+        "des_sit_cartao": [
+            "NORMAL",
+            "BLOQUEADO",
+            "CANCELADO",
+            "CANCELADO CLIENTE",
+            "CANCELADO EMBOSSING LOJA",
+            "CANCELADO TARJA",
+            "CADASTRO ERRO EMISSOR",
+            "CANCELADO PERDA",
+            "ALERTA PREVENTIVO MESA",
+            "BLOQUEADO PREVENÇÃO",
+            "CANCELADO EMBOSSING",
+            "CANCELADO DESATIVADO",
+            "FALSIFICAÇÃO NAC",
+            "CANCELADO DEIXADO LOJA",
+            "FALSIFICAÇÃO EXT",
+            "BLOQUEIO PREVENTIVO FALCON",
+            "CANCELADO CVV/CVV2 NAO GERADO",
+            "CANCELADO ROUBO",
+            "SUSPEITA DE FRAUDE - PREVENTIVO",
+            "CANCELADO DEFINITIVO TARJA",
+            "CANCELADO REEMISSÃO PERSONALIZADO",
+            "CANCELADO EXTRAVIADO",
+            "EXTRAVIO MALOTE CORREIOS"
         ],
-        "saldoTotal": [
-            "0.00"
+        "dth_sit_cartao": [
+            
+            "2023-10-02T13:51:00+00:00"
         ],
-        "saldoContabil": [
-            "0.00"
+        "cod_estagio_cartao": [
+            6,
+            1,
+            16,
+            17,
+            22,
+            18,
+            0,
+            4,
+            19
         ],
-        "saldoAtraso": [
-            "0.00"
+        "des_estagio_cartao": [
+            "DESBLOQUEADO SEM CODIGO",
+            "CRIADO",
+            "ENCAMINHADO"
         ],
-        "gestao": [
-            "EXTERNO",
-            "INTERNO"
+        "dth_estagio_cartao": [
+            "2023-10-02T16:25:00+00:00"
         ],
-        "diasAtraso": [],
-        "dataVencimento": [],
-        "dataHoraModificacao": [
-            "2019-12-13T15:15:23",
-            "2019-12-13T15:15:25",
-            "2019-12-13T15:15:27"
+        "flg_embs_loja": [
+            "S",
+            "N"
         ],
-        "lp": [
-            false,
-            true
+        "flg_cartao_cancelado": [
+            "N",
+            "S"
         ],
-        "dataLp": [
-            "2021-02-14",
-            "2021-07-11",
-            "2021-04-10"
+        "flg_cartao_provisorio": [
+            "N",
+            "S"
         ],
-        "siglaAtraso": [
-            "Perda",
-            "Creliq"
+        "flg_conta_cancelada": [
+            "N",
+            "S"
         ],
-        "cliente": [
-            {
-                "id": "857298998029676546",
-                "idExterno": "05407534916",
-                "tipoPessoa": "FISICA",
-                "situacao": "ATIVO",
-                "nome": "POLIANA DE A GRACIANO",
-                "cic": "05407534916",
-                "codigo": "107378",
-                "sexo": "FEMININO",
-                "dataNascimento": "1986-05-27",
-                "dataConta": "2011-09-06",
-                "naturalidade": null,
-                "estadoCivil": "CASADO",
-                "rg": "00091205181",
-                "rating": "HH",
-                "lp": null,
-                "propensaoPagamento": null,
-                "historicoPagamento": null,
-                "numeroDiasMaiorAtraso": null,
-                "dataMaiorAtraso": null,
-                "rendaTitular": "830.00",
-                "rendaConjuge": "0.00",
-                "outrasRendas": "0.00",
-                "profissao": null,
-                "categoriaProfissao": null,
-                "tipoResidencia": null,
-                "saldoAtraso": "0.00",
-                "saldoAtual": "0.00",
-                "saldoContabil": "0.00",
-                "saldoProvisao": null,
-                "diasAtraso": null,
-                "dataHoraModificacao": "2019-08-18T17:35:51"
-            }
+        "dth_ult_atu_so": [
+            "2023-10-03T17:09:25+00:00"
         ],
-        "parcelas": [
-            [
-                {
-                    "id": "857446856973299715",
-                    "idExterno": "1",
-                    "contrato": "857446856973299715",
-                    "numeroContrato": "9751220190817",
-                    "numeroParcela": "1",
-                    "dataVencimento": "2019-12-13",
-                    "diasAtraso": null,
-                    "saldoPrincipal": "0.00",
-                    "saldoTotal": "0.00",
-                    "saldoAtual": "0.00",
-                    "saldoContabil": "0.00",
-                    "valorPrincipal": "0.00",
-                    "valorTotal": "0.00",
-                    "valorMulta": "0.00",
-                    "valorPermanencia": "0.00",
-                    "valorMora": "0.00",
-                    "valorOutros": "0.00",
-                    "valorDesconto": "0.00",
-                    "valorDespesa": null,
-                    "valorBoleto": null,
-                    "valorBaseTributo": null,
-                    "valorPrincipalAberto": "0.00",
-                    "situacao": "CEDIDO",
-                    "agencia": null,
-                    "banco": null,
-                    "conta": null,
-                    "digito": null,
-                    "numeroNossoNumero": null,
-                    "nossoNumero": null,
-                    "digitoNossoNumero": null,
-                    "numeroDocumento": null,
-                    "notaFiscal": null,
-                    "cobrador": null,
-                    "cliente": null,
-                    "acordo": false,
-                    "bloqueio": false,
-                    "promessa": false,
-                    "tipoAcordo": null
-                }
-            ]
+        "num_seq_ult_alteracao": [
+            2,
+            1,
+            4
         ],
-        "production_date": [
-            "2024-10-24"
+        "dth_inclusao_reg": [
+            "2023-10-04T03:56:13+00:00"
+        ],
+        "num_anomes_emis_cartao": [
+            "2023-10-01"
         ]
-    }
-}
+    }}
+}}
 """
 
 code = generate_code(gemini_model, prompt)
-save_to_file('gemini_datagen.py', code)
+save_to_file('gemini_datagen_pfs_risco_tivea.py', code)
