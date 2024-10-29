@@ -9,6 +9,6 @@ directory = './bq_schemas'
 # - Criar dataset e tabelas
 # ...
 # - Enviar dados via jsonl
-jsonl_to_bigquery(filename='Contrato_faker.jsonl',table_id='contrato')
+jsonl_to_bigquery(filename='cartao_faker.jsonl',table_id='cartao')
 # ...
 
