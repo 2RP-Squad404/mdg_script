@@ -1,9 +1,8 @@
 from google.cloud import bigquery
-from config import PROJECT_ID
+from auth import get_bigquery_client
 from utils import create_tables,jsonl_to_bigquery
 
-# client = bigquery.Client('big-maxim-430019-g7')
-
+# client = get_bigquery_client()
 directory = './bq_schemas'
 
 create_tables()
