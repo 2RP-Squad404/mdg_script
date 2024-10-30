@@ -1,10 +1,11 @@
 import json
 import logging
+from config import setup_logging
 from google.cloud import bigquery, secretmanager
 from google.oauth2 import service_account
 from config import PROJECT_ID, SECRET_NAME
 
-logging.basicConfig(level=logging.INFO,format='%(levelname)s: %(message)s')
+setup_logging(log_level=logging.INFO)
 
 def get_secret(secret_name, project_id):
     """
