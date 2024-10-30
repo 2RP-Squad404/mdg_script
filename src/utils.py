@@ -1,9 +1,6 @@
-# Este arquivo possui a implementação de funções auxiliares da aplicação
 import logging
 from config import setup_logging
 import os
-from pathlib import Path
-from datetime import datetime
 import importlib.util
 
 from google.api_core.exceptions import NotFound
@@ -16,30 +13,33 @@ setup_logging(log_level=logging.INFO)
 
 def load_py_schema(dataset_name):
     """
-    Carrega o schema do dataset de um arquivo JSON que contém todas as tabelas.
+    Carrega o schema de um dataset a partir de um arquivo Python.
 
     Parâmetros:
-        schema_path (str): O caminho para o arquivo JSON do schema do dataset.
+        dataset_name (str): Nome do dataset.
 
     Retorno:
-        dict: Um dicionário onde as chaves são os nomes das tabelas e os valores são os schemas.
+        Módulo importado que contém o schema, ou None se o arquivo não existir.
     """
-    py_schema_path = os.path.join('py_schemas', f"{dataset_name}.py") # type: ignore
+    py_schema_path = os.path.join('py_schemas', f"{dataset_name}.py")
     if os.path.exists(py_schema_path):
         spec = importlib.util.spec_from_file_location(f"{dataset_name}", py_schema_path)
         schema_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(schema_module)
         return schema_module
-    else:
-        return None
-
+    return None
 
 def jsonl_to_bigquery():
-    client = get_bigquery_client()
+    """
+    Carrega dados de um arquivo JSONL para o BigQuery.
 
+    Abre um arquivo JSONL que contém dados gerados e envia para uma tabela específica
+    no BigQuery, utilizando configuração de trabalho de carga.
+
+    Exceções:
+        Gera exceções caso ocorra algum erro durante o carregamento dos dados.
     """
-    A função abre um arquivo jasonl que contém os dados gerados e envia para o Big Query
-    """
+    client = get_bigquery_client()
     jsonl_file_path = "jsonl_mock/Acordo_faker.jsonl"
     project_id = PROJECT_ID
     dataset_id = "pfs_risco_raw_tivea"
@@ -61,15 +61,17 @@ def jsonl_to_bigquery():
 
 def create_tables():
     """
-    Cria tabelas no BigQuery para cada dataset e tabela no diretório.
+    Cria tabelas no BigQuery a partir dos schemas definidos e aplica particionamento se configurado.
 
-    Carrega os schemas correspondentes da outra pasta e cria as tabelas no dataset que já tem criado,
-    excluindo algumas tabelas de serem particionadas.
+    Para cada dataset e tabela, carrega o schema correspondente do arquivo Python,
+    exclui algumas tabelas de serem particionadas e cria a tabela no dataset no BigQuery.
+
+    Exceções:
+        Gera exceções e loga erros caso ocorra algum problema durante a criação das tabelas.
     """
     client = bigquery.Client(project=PROJECT_ID)
 
     excluded_partition_tables = ["cobranca_telefone", "acordo", "cliente"]
-
     datasets = list(client.list_datasets())
     datasets_created = [dataset.dataset_id for dataset in datasets]
 
@@ -122,21 +124,35 @@ def create_tables():
             logging.error(f"Dataset {dataset_folder} não encontrado no BigQuery")
 
 def load_schema_module(schema_file):
-    """Carrega o módulo de esquema Python a partir de um arquivo."""
+    """
+    Carrega um módulo de schema Python a partir de um arquivo.
+
+    Parâmetros:
+        schema_file (str): Caminho para o arquivo de schema.
+
+    Retorno:
+        Módulo importado que contém o schema.
+    """
     spec = importlib.util.spec_from_file_location("schema_module", schema_file)
     schema_module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(schema_module)
     return schema_module
 
-def update_table_descriptions_from_schemas( schema_directory):
-    client = get_bigquery_client()
-
+def update_table_descriptions_from_schemas(schema_directory):
     """
-    Atualiza  as descrições das tabelas do BigQuery com base nos esquemas Python do  diretório 'py_schemas'.
+    Atualiza as descrições das tabelas no BigQuery usando schemas Python.
+
+    Para cada arquivo de schema no diretório especificado, carrega o módulo e
+    atualiza as descrições das tabelas no BigQuery com base nos schemas fornecidos.
 
     Parâmetros:
-    schema_directory: Caminho para o diretório com os arquivos de esquema Python
+        schema_directory (str): Caminho para o diretório com os arquivos de esquema Python.
+
+    Exceções:
+        Loga erros caso ocorra algum problema ao atualizar as descrições das tabelas.
     """
+    client = get_bigquery_client()
+
     for schema_file in os.listdir(schema_directory):
         dataset_id = schema_file.replace('.py', '')
         schema_file_path = os.path.join(schema_directory, schema_file)

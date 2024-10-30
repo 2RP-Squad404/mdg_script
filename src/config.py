@@ -40,7 +40,7 @@ def setup_logging(log_level=logging.INFO):
     """
     logging_config = {
         'version': 1,
-        'disable_existing_loggers': False,  # Não sobrescreve loggers de bibliotecas
+        'disable_existing_loggers': False, 
         'formatters': {
             'standard': {
                 'format': '%(levelname)s: %(message)s'
@@ -54,10 +54,10 @@ def setup_logging(log_level=logging.INFO):
             },
         },
         'loggers': {
-            '': {  # Logger raiz, afeta todos os loggers
+            '': {  
                 'handlers': ['console'],
                 'level': log_level,
-                'propagate': False  # Impede que mensagens sejam propagadas para loggers superiores.
+                'propagate': False  
             }
         }
     }
