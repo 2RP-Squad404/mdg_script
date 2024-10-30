@@ -1,5 +1,6 @@
 # Este arquivo possui a implementação de funções auxiliares da aplicação
 import logging
+from config import setup_logging
 import os
 from pathlib import Path
 from datetime import datetime
@@ -11,6 +12,7 @@ from google.cloud import bigquery
 from auth import get_bigquery_client
 from config import PROJECT_ID
 
+setup_logging(log_level=logging.INFO)
 
 def load_py_schema(dataset_name):
     """
@@ -98,26 +100,26 @@ def create_tables():
                                         partition_type = "MONTH" if field.name.startswith("num_anomes") or field.name.startswith("production_date") else "DAY"
                                         break
                                     else:
-                                        print(f"O campo {field.name} na tabela {table_name} não é do tipo TIMESTAMP, DATE ou DATETIME. Particionamento ignorado.")
+                                        logging.error(f"O campo {field.name} na tabela {table_name} não é do tipo TIMESTAMP, DATE ou DATETIME. Particionamento ignorado.")
                             
                             if partition_field and partition_type:
                                 table.time_partitioning = bigquery.TimePartitioning(
                                     type_=partition_type,
                                     field=partition_field
                                 )
-                                print(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
+                                logging.info(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
                             else:
-                                print(f"Tabela {table_name} sem campo de particionamento configurado.")
+                                logging.error(f"Tabela {table_name} sem campo de particionamento configurado.")
                                 
                         client.create_table(table, exists_ok=True)
                         update_table_descriptions_from_schemas("py_schemas")
-                        print(f"Tabela {table_name} criada no dataset {dataset_folder}")
+                        logging.info(f"Tabela {table_name} criada no dataset {dataset_folder}")
                     else:
-                        print(f"Schema não encontrado para a tabela {table_name} no dataset {dataset_folder}")
+                        logging.error(f"Schema não encontrado para a tabela {table_name} no dataset {dataset_folder}")
             else:
-                print(f"Arquivo de schema Python não encontrado para o dataset {dataset_folder}")
+                logging.error(f"Arquivo de schema Python não encontrado para o dataset {dataset_folder}")
         else:
-            print(f"Dataset {dataset_folder} não encontrado no BigQuery")
+            logging.error(f"Dataset {dataset_folder} não encontrado no BigQuery")
 
 def load_schema_module(schema_file):
     """Carrega o módulo de esquema Python a partir de um arquivo."""
@@ -157,6 +159,6 @@ def update_table_descriptions_from_schemas( schema_directory):
 
                 existing_table.schema = updated_schema
                 client.update_table(existing_table, ["schema"])
-                print(f"Tabela '{table_ref}' atualizada com descrições.")
+                logging.info(f"Tabela '{table_ref}' atualizada com descrições.")
             except Exception as e:
-                print(f"Erro ao atualizar tabela '{table_ref}': {e}")
+                logging.error(f"Erro ao atualizar tabela '{table_ref}': {e}")
