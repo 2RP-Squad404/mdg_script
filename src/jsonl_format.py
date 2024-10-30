@@ -3,7 +3,7 @@ import os
 import json
 from decimal import Decimal
 from datetime import datetime, date
-from gemini_datagen import criar_Acordo_faker,  criar_Cliente_faker
+from datagen.pfs_risco_raw_tivea import criar_Acordo_faker,  criar_Cliente_faker
 
 NUM_LINES = 100
 OUTPUT_DIR = 'jsonl_mock'
