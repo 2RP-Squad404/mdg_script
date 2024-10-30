@@ -29,10 +29,10 @@ class Proposta_consultas(BaseModel):
     source: str
     codigooperacao: str
     status: str
-    retornos: Any
+    retornos: dict
     datarealizacao: datetime
     dhfim: datetime
-    entradas: Any
+    entradas: dict
     id: str
     nome: str
     idlog: str
@@ -50,13 +50,13 @@ class Proposta_detalhe(BaseModel):
     hash_key: str
     source: str
     codigooperacao: str
-    entradas: Any
-    calculadas: Any
-    outros: Any
-    retornos: Any
-    variaveis: Any
-    fluxo_regras: Any
-    banco: Any
+    entradas: dict
+    calculadas: dict
+    outros: dict
+    retornos: dict
+    variaveis: dict
+    fluxo_regras: dict
+    banco: dict
     instante_data: datetime
     production_date: date
 
