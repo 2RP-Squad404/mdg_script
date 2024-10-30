@@ -15,27 +15,38 @@ TYPE_MAPPING = {
     "RECORD": "dict",
     "NUMERIC": "float",
     "ANY": "Any",
-    "JSON": "dict"  # Mapeamento para Pydantic
+    "JSON": "dict"
 }
 
 def create_output_directory(output_dir):
     """
-    Cria um diretório para a saída e garante que o arquivo __init__.py esteja presente.
+    Cria o diretório de saída e garante a presença do arquivo __init__.py.
+
+    Args:
+        output_dir (str): Caminho do diretório de saída.
     """
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    # Criar arquivo __init__.py no diretório
     init_file = os.path.join(output_dir, "__init__.py")
     if not os.path.exists(init_file):
         with open(init_file, 'w') as init_f:
             init_f.write(f"# Auto-generated init file for {output_dir}")
 
 def generate_bigquery_class(table_name, schema):
+    """
+    Gera a definição de schema BigQuery para uma tabela.
+
+    Args:
+        table_name (str): Nome da tabela.
+        schema (list): Esquema da tabela em formato de lista de dicionários.
+
+    Returns:
+        str: Definição da classe em formato de string.
+    """
     def process_field(field):
         field_type = field['type']
         if field_type == 'RECORD' and 'fields' in field:
-            # Processa subcampos recursivamente para campos aninhados do tipo RECORD
             subfields = ", ".join(
                 [process_field(subfield) for subfield in field['fields']]
             )
@@ -45,7 +56,6 @@ def generate_bigquery_class(table_name, schema):
         else:
             return f"bigquery.SchemaField('{field['name']}', '{field_type}', '{field.get('mode', 'NULLABLE')}')"
 
-    # Monta a definição da classe como uma lista de campos BigQuery
     class_definition = f"{table_name} = [\n"
     for field in schema:
         class_definition += f"    {process_field(field)},\n"
@@ -54,7 +64,12 @@ def generate_bigquery_class(table_name, schema):
 
 def process_bigquery_folder(folder_path, folder_name, output_dir):
     """
-    Processa uma pasta contendo arquivos JSON e gera um arquivo de schema para o BigQuery.
+    Processa uma pasta contendo arquivos JSON e gera um arquivo de schema BigQuery.
+
+    Args:
+        folder_path (str): Caminho da pasta de entrada.
+        folder_name (str): Nome da pasta de entrada.
+        output_dir (str): Diretório de saída.
     """
     schemas = []
     for filename in os.listdir(folder_path):
@@ -77,7 +92,10 @@ def process_bigquery_folder(folder_path, folder_name, output_dir):
 
 def create_bigquery_schemas(directory):
     """
-    Cria schemas do BigQuery para todos os datasets em um diretório especificado.
+    Cria schemas BigQuery para todos os datasets no diretório especificado.
+
+    Args:
+        directory (str): Caminho do diretório de entrada.
     """
     output_dir = "py_schemas"
     create_output_directory(output_dir)
@@ -90,9 +108,17 @@ def create_bigquery_schemas(directory):
     logging.info("BigQuery Schemas criados com sucesso!")
 
 def create_class_code_pydantic(schema: dict) -> str:
+    """
+    Gera código de classe Pydantic a partir de um schema.
+
+    Args:
+        schema (dict): Dicionário contendo nome da tabela e schema.
+
+    Returns:
+        str: Código da classe Pydantic como string.
+    """
     def process_field(field):
         if field['type'] == 'RECORD' and 'fields' in field:
-            # Gera classe aninhada para o campo RECORD
             class_name = field['name'].capitalize()
             nested_class = f"class {class_name}(BaseModel):\n"
             for subfield in field['fields']:
@@ -122,7 +148,12 @@ def create_class_code_pydantic(schema: dict) -> str:
 
 def process_pydantic_folder(folder_path, folder_name, output_dir):
     """
-    Processa uma pasta contendo arquivos JSON e gera um arquivo de models Pydantic.
+    Processa uma pasta com arquivos JSON e gera um arquivo de models Pydantic.
+
+    Args:
+        folder_path (str): Caminho da pasta de entrada.
+        folder_name (str): Nome da pasta de entrada.
+        output_dir (str): Diretório de saída.
     """
     models = []
     for filename in os.listdir(folder_path):
@@ -146,7 +177,10 @@ def process_pydantic_folder(folder_path, folder_name, output_dir):
 
 def create_pydantic_models(directory):
     """
-    Cria classes Pydantic para todos os datasets em um diretório especificado.
+    Cria classes Pydantic para todos os datasets no diretório especificado.
+
+    Args:
+        directory (str): Caminho do diretório de entrada.
     """
     output_dir = "py_models"
     create_output_directory(output_dir)
@@ -158,7 +192,6 @@ def create_pydantic_models(directory):
     
     logging.info("Pydantic Models criados com sucesso!")
 
-# Exemplo de uso
 directory = './bq_schemas'
 create_bigquery_schemas(directory)
 create_pydantic_models(directory)
