@@ -5,14 +5,12 @@ from pathlib import Path
 from datetime import datetime
 import importlib.util
 
-import pyfiglet
 from google.api_core.exceptions import NotFound
 from google.cloud import bigquery
 
 from auth import get_bigquery_client
 from config import PROJECT_ID
 
-client = bigquery.Client(PROJECT_ID)
 
 def load_py_schema(dataset_name):
     """
@@ -33,55 +31,10 @@ def load_py_schema(dataset_name):
     else:
         return None
 
-def send_data_to_bigquery(client, dataset_id, table_id, data):
-    """
-    Envia os dados mockados para tabelas no BigQuery.
-
-    Parâmetros:
-        client (bigquery.Client): instância do cliente do BigQuery.
-        dataset_id (str): o ID do dataset onde a tabela está localizada.
-        table_id (str): o ID da tabela onde os dados serão inseridos.
-        data (dict): dados a serem enviados, no formato de lista de dicionários.
-
-    Retorno:
-        None: Apenas imprime mensagens informando o status do envio.
-    """
-    try:
-        table_ref = client.dataset(dataset_id).table(table_id)
-        table = client.get_table(table_ref)
-        errors = client.insert_rows_json(table, data)
-        if errors:
-            print(f"Erro ao enviar: {errors}")
-        else:
-            print(f"{len(data)} linha(s) inserida(s) com sucesso para {table_id} em {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}.")
-
-    except Exception as e:
-        print(f"Erro durante o envio para a tabela {table_id}: {e}")
-
-
-def get_tables(dataset_id):
-    """
-    A função pega os nomes das tabelas e armazena em um array.
-
-    Parâmetros:
-        dataset_id (str): O nome do dataset que estão as tabelas.
-
-    Retorno:
-        list (str): Retorna os nomes em formato de lista.
-    """
-    client = bigquery.Client()
-    dataset_ref = client.dataset(dataset_id)
-
-    tables = client.list_tables(dataset_ref)
-
-    table_list = []
-    for table in tables:
-        table_list.append(table.table_id)
-
-    return table_list
-
 
 def jsonl_to_bigquery():
+    client = get_bigquery_client()
+
     """
     A função abre um arquivo jasonl que contém os dados gerados e envia para o Big Query
     """
@@ -174,6 +127,8 @@ def load_schema_module(schema_file):
     return schema_module
 
 def update_table_descriptions_from_schemas( schema_directory):
+    client = get_bigquery_client()
+
     """
     Atualiza  as descrições das tabelas do BigQuery com base nos esquemas Python do  diretório 'py_schemas'.
 
