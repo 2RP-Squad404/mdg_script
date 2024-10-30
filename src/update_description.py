@@ -1,4 +1,0 @@
-from utils import update_table_descriptions_from_schemas
-from config import PROJECT_ID
-
-update_table_descriptions_from_schemas("py_schemas")
