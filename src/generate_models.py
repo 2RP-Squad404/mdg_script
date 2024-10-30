@@ -1,8 +1,9 @@
 import json
 import logging
 import os
+from config import setup_logging
 
-logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+setup_logging(log_level=logging.INFO)
 
 TYPE_MAPPING = {
     "STRING": "str",
