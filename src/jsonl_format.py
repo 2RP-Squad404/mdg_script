@@ -1,9 +1,9 @@
-import inspect 
-import os
 import json
+import os
+from datetime import date, datetime
 from decimal import Decimal
-from datetime import datetime, date
-from gemini_datagen_pfs_risco_tivea import criar_cartao_faker, criar_cobr_cliente_atraso_faker, criar_cobranca_acordo_faker, criar_cobranca_assessoria_faker, criar_cobranca_cliente_faker
+
+from gemini_datagen_pfs_risco_tivea import criar_cobranca_cliente_faker
 
 NUM_LINES = 1000
 OUTPUT_DIR = 'jsonl_mock'
@@ -13,6 +13,7 @@ OUTPUT_DIR = 'jsonl_mock'
 #         if isinstance(value, datetime):
 #             row[key] = value.isoformat()  # Converte datetime para string
 #     return row
+
 
 def serialize_dates(data):
     """
@@ -47,17 +48,18 @@ def create_jsonL(faker_func, num_lines):
                            as chaves representam os campos do JSONL.
     num_lines (int): O número de linhas a serem geradas e escritas no arquivo JSONL.
     """
-    os.makedirs(OUTPUT_DIR,exist_ok=True)
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    filename = os.path.join(OUTPUT_DIR, faker_func.__name__.split('_', 1)[1] + '.jsonl') 
+    filename = os.path.join(OUTPUT_DIR, faker_func.__name__.split('_', 1)[1] + '.jsonl')
 
     with open(filename, mode='w', encoding='utf-8') as arquivo_jsonl:
         for _ in range(num_lines):
-            datamock = faker_func()  
+            datamock = faker_func()
             datamock = convert_decimals(datamock)
             datamock = serialize_dates(datamock)
             # print(datamock)
             arquivo_jsonl.write(json.dumps(datamock) + '\n')
+
 
 def convert_decimals(obj):
     """
@@ -73,5 +75,4 @@ def convert_decimals(obj):
     return obj
 
 
-create_jsonL(faker_func=criar_cobranca_cliente_faker,num_lines=NUM_LINES)
-
+create_jsonL(faker_func=criar_cobranca_cliente_faker, num_lines=NUM_LINES)

@@ -1,9 +1,8 @@
-import json
 from google.cloud import aiplatform
 from vertexai.preview.generative_models import GenerativeModel
-from py_models.pfs_risco_tivea_models import Cartao, Cobr_cliente_atraso, Cobranca_acordo, Cobranca_assessoria, Cobranca_cliente, Cobranca_email_cliente
 
 from config import PROJECT_ID
+
 
 def init_gemini(project_id: str, model_name: str):
     """
@@ -16,6 +15,7 @@ def init_gemini(project_id: str, model_name: str):
     aiplatform.init(project=project_id)
     return GenerativeModel(model_name)
 
+
 def generate_code(model, prompt: str):
     """
     Envia o prompt para o modelo e retorna o código de resposta.
@@ -26,6 +26,7 @@ def generate_code(model, prompt: str):
     """
     response = model.generate_content(prompt)
     return response.text
+
 
 def save_to_file(file_path: str, content: str):
     """
@@ -38,6 +39,7 @@ def save_to_file(file_path: str, content: str):
     with open(file_path, 'a') as file:
         file.write('\n')
         file.write(content)
+
 
 project_id = PROJECT_ID
 model_name = "gemini-1.5-flash-002"
@@ -73,7 +75,6 @@ utilize exatamente este modelo Pydantic:
 abaixo esta um exemplo de como deveria ser os dados que satisfazem cada coluna desta tabela: 
 #colocar nessa linha o json com os parâmetros!!
 """
-
 
 
 code = generate_code(gemini_model, prompt)

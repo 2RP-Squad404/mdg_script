@@ -39,7 +39,7 @@ bigquery.SchemaField('source', 'STRING', 'NULLABLE', description="Origem da info
     bigquery.SchemaField('gestao', 'STRING', 'NULLABLE', description="Gestão da negociação"),
     bigquery.SchemaField('cor', 'STRING', 'NULLABLE', description="Cor associada à negociação"),
     bigquery.SchemaField('icone', 'STRING', 'NULLABLE', description="Ícone que representa a negociação"),
-    bigquery.SchemaField('tipoDesconto', 'STRING', 'NULLABLE', description="Tipo de desconto aplicado na negociação"),   
+    bigquery.SchemaField('tipoDesconto', 'STRING', 'NULLABLE', description="Tipo de desconto aplicado na negociação"),
 
         bigquery.SchemaField('modalidade', 'RECORD', 'NULLABLE', description="Modalidade da negociação", fields=[
         bigquery.SchemaField('id', 'STRING', 'NULLABLE', description="ID da modalidade"),
@@ -74,7 +74,7 @@ bigquery.SchemaField('source', 'STRING', 'NULLABLE', description="Origem da info
     bigquery.SchemaField('meioPagamento', 'RECORD', 'NULLABLE', description="Meio de pagamento associado ao acordo", fields=[
     bigquery.SchemaField('id', 'STRING', 'NULLABLE', description="ID do meio de pagamento"),
     bigquery.SchemaField('tipo', 'STRING', 'NULLABLE', description="Tipo do meio de pagamento"),
-    bigquery.SchemaField('nome', 'STRING', 'NULLABLE', description="Nome do meio de pagamento"),                                                                        
+    bigquery.SchemaField('nome', 'STRING', 'NULLABLE', description="Nome do meio de pagamento"),
         bigquery.SchemaField('cobrador', 'RECORD', 'NULLABLE', description="Informações do cobrador", fields=[
         bigquery.SchemaField('id', 'STRING', 'NULLABLE', description="ID do cobrador"),
         bigquery.SchemaField('nome', 'STRING', 'NULLABLE', description="Nome do cobrador"),
@@ -133,7 +133,7 @@ bigquery.SchemaField('source', 'STRING', 'NULLABLE', description="Origem da info
         bigquery.SchemaField('cic', 'STRING', 'NULLABLE'),
         bigquery.SchemaField('codigo', 'STRING', 'NULLABLE'),
         bigquery.SchemaField('nomeFantasia', 'STRING', 'NULLABLE'),
-        bigquery.SchemaField('situacao', 'STRING', 'NULLABLE')]),                                                                     
+        bigquery.SchemaField('situacao', 'STRING', 'NULLABLE')]),
             bigquery.SchemaField('abatimentos', 'RECORD', 'REPEATED', fields=[
             bigquery.SchemaField('id', 'STRING', 'NULLABLE'),
             bigquery.SchemaField('origem', 'STRING', 'NULLABLE'),
@@ -234,7 +234,7 @@ bigquery.SchemaField('source', 'STRING', 'NULLABLE', description="Origem da info
 
         bigquery.SchemaField('id', 'STRING', 'NULLABLE', description="ID do parecer"),
 
-        bigquery.SchemaField('dataHoraModificacao', 'STRING', 'NULLABLE', description="Data e hora da última modificação do parecer")])]),    
+        bigquery.SchemaField('dataHoraModificacao', 'STRING', 'NULLABLE', description="Data e hora da última modificação do parecer")])]),
         bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description="Data de produção do registro")]
 
 
@@ -447,6 +447,6 @@ contrato = [
     bigquery.SchemaField('bloqueio', 'BOOLEAN', 'NULLABLE', description='Indica se a parcela está bloqueada'),
     bigquery.SchemaField('promessa', 'BOOLEAN', 'NULLABLE', description='Indica se a parcela possui promessa de pagamento'),
     bigquery.SchemaField('tipoAcordo', 'STRING', 'NULLABLE', description='Tipo de acordo da parcela')]),
-    
+
     bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção dos dados do contrato')
 ]

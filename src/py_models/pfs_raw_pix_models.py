@@ -1,5 +1,6 @@
+from datetime import date
+
 from pydantic import BaseModel
-from datetime import date, datetime
 
 
 # Dataset: pfs_raw_pix, Table: v_dict_direto
@@ -38,5 +39,3 @@ class Key(BaseModel):
 class Newstatus(BaseModel):
     id: int
     description: str
-
-

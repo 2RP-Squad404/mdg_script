@@ -1,9 +1,9 @@
-import base64
-import vertexai
-from vertexai.generative_models import GenerativeModel, Part, SafetySetting
-from py_models.pfs_risco_raw_tivea_models import Acordo
-from py_models.pfs_risco_tivea import cartao
 import json
+
+import vertexai
+from vertexai.generative_models import GenerativeModel, SafetySetting
+
+from py_models.pfs_risco_raw_tivea_models import Acordo
 
 with open('./secrets/pfs_risco_raw_tivea/acordo.json', 'r') as f:
     sample_data = json.load(f)
@@ -43,6 +43,7 @@ Dessa forma é feito o faker de colunas aninhadas. Com base nessas informações
 
 text1 = f"""Dado o seguinte modelo Pydantic: {Acordo} e dentro da variável {sample_data} está um exemplo de como deveria ser os dados que satisfazem cada coluna desta tabela"""
 
+
 def generate():
     vertexai.init(project="integracaohomologado", location="us-central1")
     model = GenerativeModel(
@@ -58,7 +59,7 @@ def generate():
 
     for response in responses:
         print(response.text, end="")
-   
+
 
 generation_config = {
     "max_output_tokens": 8192,

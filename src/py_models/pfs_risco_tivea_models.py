@@ -1,5 +1,6 @@
-from pydantic import BaseModel
 from datetime import date, datetime
+
+from pydantic import BaseModel
 
 
 # Dataset: pfs_risco_tivea, Table: cartao
@@ -32,8 +33,6 @@ class Cartao(BaseModel):
     num_seq_ult_alteracao: int
     dth_inclusao_reg: datetime
     num_anomes_emis_cartao: date
-
-
 
 
 # Dataset: pfs_risco_tivea, Table: cobranca_acordo
@@ -74,8 +73,6 @@ class Cobranca_acordo(BaseModel):
     dat_referencia: date
 
 
-
-
 # Dataset: pfs_risco_tivea, Table: cobranca_assessoria
 class Cobranca_assessoria(BaseModel):
     id_assessoria: str
@@ -84,16 +81,12 @@ class Cobranca_assessoria(BaseModel):
     dat_referencia: date
 
 
-
-
 # Dataset: pfs_risco_tivea, Table: cobranca_campo_customizavel
 class Cobranca_campo_customizavel(BaseModel):
     id_cliente_cobranca: int
     nom_campo: str
     val_campo: str
     dat_referencia: date
-
-
 
 
 # Dataset: pfs_risco_tivea, Table: cobranca_cliente
@@ -127,15 +120,11 @@ class Cobranca_cliente(BaseModel):
     dat_referencia: date
 
 
-
-
 # Dataset: pfs_risco_tivea, Table: cobranca_email_cliente
 class Cobranca_email_cliente(BaseModel):
     id_cliente_cobranca: int
     nom_email: str
     dat_referencia: date
-
-
 
 
 # Dataset: pfs_risco_tivea, Table: cobranca_endereco_cliente
@@ -155,8 +144,6 @@ class Cobranca_endereco_cliente(BaseModel):
     dat_referencia: date
 
 
-
-
 # Dataset: pfs_risco_tivea, Table: cobranca_liquidacao_parc_acordo
 class Cobranca_liquidacao_parc_acordo(BaseModel):
     id_liqd_parc_acordo: int
@@ -171,8 +158,6 @@ class Cobranca_liquidacao_parc_acordo(BaseModel):
     ind_tipo_liqd: str
     id_pagto_acordo: int
     dat_referencia: date
-
-
 
 
 # Dataset: pfs_risco_tivea, Table: cobranca_origem_acordo
@@ -203,8 +188,6 @@ class Cobranca_origem_acordo(BaseModel):
     dat_referencia: date
 
 
-
-
 # Dataset: pfs_risco_tivea, Table: cobranca_pagamento_acordo
 class Cobranca_pagamento_acordo(BaseModel):
     id_pagto_acordo: int
@@ -223,8 +206,6 @@ class Cobranca_pagamento_acordo(BaseModel):
     ind_situacao: str
     ind_integracao: str
     dat_referencia: date
-
-
 
 
 # Dataset: pfs_risco_tivea, Table: cobranca_parcela_acordo
@@ -250,8 +231,6 @@ class Cobranca_parcela_acordo(BaseModel):
     dat_referencia: date
 
 
-
-
 # Dataset: pfs_risco_tivea, Table: cobranca_telefone
 class Cobranca_telefone(BaseModel):
     id_cliente_cobranca: int
@@ -268,8 +247,6 @@ class Cobranca_telefone(BaseModel):
     dat_inclusao_reg: int
 
 
-
-
 # Dataset: pfs_risco_tivea, Table: cobranca_telefone_cliente
 class Cobranca_telefone_cliente(BaseModel):
     id_cliente_cobranca: int
@@ -280,8 +257,6 @@ class Cobranca_telefone_cliente(BaseModel):
     num_ddd_comercial: int
     num_tel_comercial: int
     dat_referencia: date
-
-
 
 
 # Dataset: pfs_risco_tivea, Table: cobr_cliente_atraso
@@ -330,8 +305,6 @@ class Cobr_cliente_atraso(BaseModel):
     cod_var_aux: str
     cod_faixa_atraso_b: str
     dat_referencia: date
-
-
 
 
 # Dataset: pfs_risco_tivea, Table: conta
@@ -387,5 +360,3 @@ class Conta(BaseModel):
     dat_referencia: int
     dth_inclusao_reg: datetime
     num_anomes_ads_conta: date
-
-
