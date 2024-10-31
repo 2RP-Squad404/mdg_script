@@ -6,6 +6,8 @@ from datetime import date, datetime
 import random 
 import re
 
+from utils import jsonl_data
+
 faker = Faker('pt_BR')
 id_serial = itertools.count(start=0)
 
@@ -191,7 +193,7 @@ def Datagen_pfs_risco_tivea(num_records):
                 "id_cliente_cobranca": next(id_serial),
                 "nom_campo": faker.word(),
                 "val_campo": faker.word(),
-                "dat_referencia": faker.date().strftime('%Y-%m-%d %H:%M:%S')
+                "dat_referencia": faker.date()
             }
         data['Cobranca_campo_customizavel'].append(criar_Cobranca_campo_customizavel_faker)
 
@@ -263,25 +265,7 @@ def Datagen_pfs_risco_tivea(num_records):
             }
         data['cobranca_origem_acordo'].append(criar_cobranca_origem_acordo_faker)
 
-    # Obtendo o nome do dataset
-    dataset_name = os.path.splitext(os.path.basename(__file__))[0]
-
-    # Obtendo o caminho absoluto do diretório raiz do projeto
-    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
-    output_path = os.path.join(project_root, "src/mock_data", dataset_name)
-
-    os.makedirs(output_path, exist_ok=True)
-
-    # Salvando os dados
-    for array_name, array_data in data.items():
-        filename = f"{array_name}.jsonl"
-        filepath = os.path.join(output_path, filename)
-        with open(filepath, 'w', encoding='utf-8') as f:
-            for item in array_data:
-                json.dump(item, f, ensure_ascii=False)
-                f.write('\n')
-
-    return data
+    jsonl_data(data=data)
 
 
 num_records = 100
