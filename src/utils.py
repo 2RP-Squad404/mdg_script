@@ -155,6 +155,7 @@ def create_tables():
                                 print(f"Tabela {table_name} sem campo de particionamento configurado.")
                                 
                         client.create_table(table, exists_ok=True)
+                        update_table_descriptions_from_schemas("py_schemas")
                         print(f"Tabela {table_name} criada no dataset {dataset_folder}")
                     else:
                         print(f"Schema não encontrado para a tabela {table_name} no dataset {dataset_folder}")
@@ -162,3 +163,43 @@ def create_tables():
                 print(f"Arquivo de schema Python não encontrado para o dataset {dataset_folder}")
         else:
             print(f"Dataset {dataset_folder} não encontrado no BigQuery")
+
+def load_schema_module(schema_file):
+    """Carrega o módulo de esquema Python a partir de um arquivo."""
+    spec = importlib.util.spec_from_file_location("schema_module", schema_file)
+    schema_module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(schema_module)
+    return schema_module
+
+def update_table_descriptions_from_schemas( schema_directory):
+    """
+    Atualiza  as descrições das tabelas do BigQuery com base nos esquemas Python do  diretório 'py_schemas'.
+
+    Parâmetros:
+    schema_directory: Caminho para o diretório com os arquivos de esquema Python
+    """
+    for schema_file in os.listdir(schema_directory):
+        dataset_id = schema_file.replace('.py', '')
+        schema_file_path = os.path.join(schema_directory, schema_file)
+
+        schema_module = load_schema_module(schema_file_path)
+        table_schemas = {name: value for name, value in schema_module.__dict__.items() if isinstance(value, list)}
+
+        for table_id, schema_fields in table_schemas.items():
+            table_ref = f"{PROJECT_ID}.{dataset_id}.{table_id}"
+            try:
+                existing_table = client.get_table(table_ref)
+                updated_schema = []
+
+                for schema_field in existing_table.schema:
+                    matching_field = next((f for f in schema_fields if f.name == schema_field.name), None)
+                    if matching_field:
+                        updated_schema.append(matching_field)
+                    else:
+                        updated_schema.append(schema_field)
+
+                existing_table.schema = updated_schema
+                client.update_table(existing_table, ["schema"])
+                print(f"Tabela '{table_ref}' atualizada com descrições.")
+            except Exception as e:
+                print(f"Erro ao atualizar tabela '{table_ref}': {e}")
