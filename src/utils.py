@@ -157,7 +157,6 @@ def create_tables():
                                 print(f"Tabela {table_name} sem campo de particionamento configurado.")
                                 
                         client.create_table(table, exists_ok=True)
-                        update_table_descriptions_from_schemas("py_schemas")
                         print(f"Tabela {table_name} criada no dataset {dataset_folder}")
                     else:
                         print(f"Schema não encontrado para a tabela {table_name} no dataset {dataset_folder}")
@@ -165,10 +164,17 @@ def create_tables():
                 print(f"Arquivo de schema Python não encontrado para o dataset {dataset_folder}")
         else:
             print(f"Dataset {dataset_folder} não encontrado no BigQuery")
+    # update_table_descriptions_from_schemas("py_schemas")
 
 def load_schema_module(schema_file):
     """Carrega o módulo de esquema Python a partir de um arquivo."""
+    if not os.path.isfile(schema_file):
+        raise FileNotFoundError(f"O arquivo '{schema_file}' não foi encontrado.")
+    
     spec = importlib.util.spec_from_file_location("schema_module", schema_file)
+    if spec is None:
+        raise ImportError(f"Não foi possível criar o spec para o arquivo '{schema_file}'.")
+
     schema_module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(schema_module)
     return schema_module
@@ -203,5 +209,5 @@ def update_table_descriptions_from_schemas( schema_directory):
                 existing_table.schema = updated_schema
                 client.update_table(existing_table, ["schema"])
                 print(f"Tabela '{table_ref}' atualizada com descrições.")
-            except Exception as e:
-                print(f"Erro ao atualizar tabela '{table_ref}': {e}")
+            except Exception:
+                print(f"Erro ao atualizar tabela '{table_ref}'")
