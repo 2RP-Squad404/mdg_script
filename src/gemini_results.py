@@ -110,15 +110,16 @@ print(adesao_dict)
 #         'origens': [[{'id': str(uuid.uuid4()), 'valorContabil': str(fake.pyfloat(left_digits=3, right_digits=2, positive=True)), 'descontoContabil': str(fake.pyfloat(left_digits=2, right_digits=2, positive=True)), 'saldoContabil': str(fake.pyfloat(left_digits=3, right_digits=2, positive=True)), 'contrato': fake.random_number(digits=8), 'contratoId': str(uuid.uuid4()), 'numeroContrato': fake.random_number(digits=11), 'parcela': '1', 'parcelaId': str(uuid.uuid4()), 'numeroParcela': '1', 'diasAtraso': fake.random_int(0, 100), 'ordem': '1', 'dataVencimento': fake.date_this_year().strftime('%Y-%m-%d'), 'nossoNumero': None, 'notaFiscal': None, 'situacao': 'CANCELADO', 'valorPrincipal': str(fake.pyfloat(left_digits=3, right_digits=2, positive=True)), 'valorTotal': str(fake.pyfloat(left_digits=3, right_digits=2, positive=True)), 'valorPermanencia': '0.00', 'valorMora': '0.00', 'valorMulta': '0.00', 'valorOutros': '0.00', 'valorDesconto': '0.00', 'valorJuros': '0.00', 'valorTarifa': '0.00', 'valorAdicionado': '0.00', 'valorAtual': str(fake.pyfloat(left_digits=3, right_digits=2, positive=True)), 'saldoPrincipal': str(fake.pyfloat(left_digits=3, right_digits=2, positive=True)), 'saldoTotal': str(fake.pyfloat(left_digits=3, right_digits=2, positive=True)), 'saldoPermanencia': '0.00', 'saldoMora': '0.00', 'saldoMulta': '0.00', 'saldoOutros': '0.00', 'saldoDesconto': '0.00', 'saldoJuros': '0.00', 'saldoTarifa': '0.00', 'saldoAdicionado': '0.00', 'saldoAtual': str(fake.pyfloat(left_digits=3, right_digits=2, positive=True)), 'descontoPrincipal': str(fake.pyfloat(left_digits=2, right_digits=2, positive=True)), 'descontoJuros': '0.00', 'descontoMora': '0.00', 'descontoMulta': '0.00', 'descontoOutros': '0.00', 'descontoPermanencia': str(fake.pyfloat(left_digits=3, right_digits=2, positive=True)), 'descontoTotal': str(fake.pyfloat(left_digits=2, right_digits=2, positive=True))}] for _ in range(2)],
 #         'pendencias': [[[] for _ in range(40)]],
 #         'production_date': [fake.date_this_year().strftime('%Y-%m-%d')]
-#     } 
+#     }
 
 
 import json
-from faker import Faker
-from datetime import datetime, timedelta
 import uuid
 
+from faker import Faker
+
 fake = Faker('pt_BR')
+
 
 def criar_acordo():
     id_serial = iter(range(1, 10000))
@@ -164,7 +165,9 @@ def criar_acordo():
         'production_date': [fake.date_this_year().strftime('%Y-%m-%d')]
     }
 
+
 data = criar_acordo()
+
 
 def escrever_em_arquivo(dados, nome_arquivo):
     with open(nome_arquivo, 'w') as arquivo:

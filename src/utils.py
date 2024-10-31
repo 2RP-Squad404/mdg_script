@@ -1,18 +1,15 @@
 # Este arquivo possui a implementação de funções auxiliares da aplicação
-import logging
-import os
-from pathlib import Path
-from datetime import datetime
 import importlib.util
+import os
+from datetime import datetime
 
-import pyfiglet
-from google.api_core.exceptions import NotFound
 from google.cloud import bigquery
 
 from auth import get_bigquery_client
 from config import PROJECT_ID
 
 client = get_bigquery_client()
+
 
 def load_py_schema(dataset_name):
     """
@@ -24,7 +21,7 @@ def load_py_schema(dataset_name):
     Retorno:
         dict: Um dicionário onde as chaves são os nomes das tabelas e os valores são os schemas.
     """
-    py_schema_path = os.path.join('py_schemas', f"{dataset_name}.py") # type: ignore
+    py_schema_path = os.path.join('py_schemas', f"{dataset_name}.py")  # type: ignore
     if os.path.exists(py_schema_path):
         spec = importlib.util.spec_from_file_location(f"{dataset_name}", py_schema_path)
         schema_module = importlib.util.module_from_spec(spec)
@@ -32,6 +29,7 @@ def load_py_schema(dataset_name):
         return schema_module
     else:
         return None
+
 
 def send_data_to_bigquery(client, dataset_id, table_id, data):
     """
@@ -88,7 +86,7 @@ def jsonl_to_bigquery(filename, table_id, dataset_id):
     project_id = PROJECT_ID
     dataset_id = dataset_id
     table_id = table_id
-    
+
     table_ref = f"{project_id}.{dataset_id}.{table_id}"
 
     job_config = bigquery.LoadJobConfig(
@@ -102,6 +100,7 @@ def jsonl_to_bigquery(filename, table_id, dataset_id):
         load_job = client.load_table_from_file(jsonl_file, table_ref, job_config=job_config)
 
     load_job.result()
+
 
 def create_tables():
     """
@@ -126,13 +125,13 @@ def create_tables():
             if schema_module:
                 for table_file in os.listdir(dataset_path):
                     table_name = table_file.replace('.json', '')
-                    
+
                     schema = getattr(schema_module, f"{table_name}", None)
-                    
+
                     if schema:
                         table_id = f"{dataset_id}.{table_name}"
                         table = bigquery.Table(table_id, schema=schema)
-                        
+
                         partition_field = None
                         partition_type = None
                         if table_name not in excluded_partition_tables:
@@ -144,7 +143,7 @@ def create_tables():
                                         break
                                     else:
                                         print(f"O campo {field.name} na tabela {table_name} não é do tipo TIMESTAMP, DATE ou DATETIME. Particionamento ignorado.")
-                            
+
                             if partition_field and partition_type:
                                 table.time_partitioning = bigquery.TimePartitioning(
                                     type_=partition_type,
@@ -153,7 +152,7 @@ def create_tables():
                                 print(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
                             else:
                                 print(f"Tabela {table_name} sem campo de particionamento configurado.")
-                                
+
                         client.create_table(table, exists_ok=True)
                         update_table_descriptions_from_schemas("py_schemas")
                         print(f"Tabela {table_name} criada no dataset {dataset_folder}")
@@ -164,6 +163,7 @@ def create_tables():
         else:
             print(f"Dataset {dataset_folder} não encontrado no BigQuery")
 
+
 def load_schema_module(schema_file):
     """Carrega o módulo de esquema Python a partir de um arquivo."""
     spec = importlib.util.spec_from_file_location("schema_module", schema_file)
@@ -171,7 +171,8 @@ def load_schema_module(schema_file):
     spec.loader.exec_module(schema_module)
     return schema_module
 
-def update_table_descriptions_from_schemas( schema_directory):
+
+def update_table_descriptions_from_schemas(schema_directory):
     """
     Atualiza  as descrições das tabelas do BigQuery com base nos esquemas Python do  diretório 'py_schemas'.
 

@@ -1,13 +1,14 @@
-from faker import Faker
 import itertools
-from datetime import date, datetime
-import random 
+import random
 import re
+
+from faker import Faker
 
 faker = Faker('pt_BR')
 id_serial = itertools.count(start=0)
 
 # Este arquivo possui as funções geradoras para a tabelas do dataset: 'pfs_risco_tivea'
+
 
 def criar_cartao_faker():
     return {
@@ -16,7 +17,7 @@ def criar_cartao_faker():
         "num_cartao": faker.credit_card_number(),
         "num_seq_via_cartao": faker.random_int(min=2, max=7),
         "id_conta": faker.random_int(min=1397165, max=24861863),
-        "num_cpf_cliente": re.sub(r'\D','',faker.cpf()),
+        "num_cpf_cliente": re.sub(r'\D', '', faker.cpf()),
         "cod_tip_portador": faker.random_int(min=1, max=4),
         "num_bin": faker.random_number(digits=6),
         "cod_loja_emis_cartao": faker.random_int(min=48, max=916),
@@ -42,14 +43,15 @@ def criar_cartao_faker():
     }
 
 
-
 def criar_cobranca_campo_customizavel_faker():
     return {
         "id_cliente_cobranca": str(next(id_serial)),
-        "nom_campo": faker.random_element(elements=['REACORDO','NOVO_LIMITE','ESTRATEGIA4']),
+        "nom_campo": faker.random_element(elements=['REACORDO', 'NOVO_LIMITE', 'ESTRATEGIA4']),
         "val_campo": faker.random_element(elements=['SERVICE_PREMIUM', 'TUDO JUSTO', 'SERASA', 'VALIDU', 'Portal Pefisa - PPN', 'DIGICOB TECNOLOGIA LTDA']),
         "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
     }
+
+
 def criar_cobr_cliente_atraso_faker():
     return {
         "num_cpf_cnpj_cliente": faker.random_int(min=10000000000, max=99999999999),
@@ -74,7 +76,7 @@ def criar_cobr_cliente_atraso_faker():
         "dth_modificacao": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
         "nom_assessoria": faker.company(),
         "num_ddd_cel": faker.random_int(min=11, max=99),
-        "num_tel_cel": re.sub(r'\D','',faker.phone_number()[-9:]),
+        "num_tel_cel": re.sub(r'\D', '', faker.phone_number()[-9:]),
         "num_ddd_res": faker.random_int(min=11, max=99),
         "num_tel_res": re.sub(r'\D', '', faker.phone_number()[-8:]),
         "num_ddd_com": faker.random_int(min=11, max=99),
@@ -97,6 +99,7 @@ def criar_cobr_cliente_atraso_faker():
         "cod_faixa_atraso_b": faker.random_element(elements=["1711 a 1800", "0901 a 0990", "Em dia", "Acima 1800", "0001 a 0006", "0007 a 0030", "0031 a 0060", "0061 a 0090", "0091 a 0120", "0121 a 0150", "0151 a 0180", "0181 a 0270", "0271 a 0360", "0361 a 0450", "0451 a 0540", "0541 a 0630", "0631 a 0720", "0721 a 0810", "0811 a 0900", "0991 a 1080", "1081 a 1170", "1171 a 1260", "1261 a 1350", "1351 a 1440", "1441 a 1530"]),
         "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
     }
+
 
 def criar_cobranca_acordo_faker():
     return {
@@ -135,6 +138,7 @@ def criar_cobranca_acordo_faker():
         "tip_acordo_meio_pagto": random.choice(["BOLETO_PIX", "BOLETO", "DINHEIRO"]),
         "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
     }
+
 
 def criar_cobranca_assessoria_faker():
     return {
@@ -185,12 +189,14 @@ def criar_Cobranca_campo_customizavel_faker():
         "dat_referencia": fake.date().strftime('%Y-%m-%d %H:%M:%S')
     }
 
+
 def criar_cobranca_email_cliente_faker():
     return {
         "id_cliente_cobranca": next(id_serial),
         "nom_email": faker.email(),
         "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
     }
+
 
 def criar_cobranca_endereco_cliente_faker():
     return {
@@ -201,13 +207,14 @@ def criar_cobranca_endereco_cliente_faker():
         "nom_logradouro": faker.street_name(),
         "num_logradouro": str(faker.building_number()),
         "nom_complemento": faker.street_address(),
-        "num_cep": re.sub(r'\D','',faker.postcode()),
+        "num_cep": re.sub(r'\D', '', faker.postcode()),
         "nom_bairro": faker.street_name(),
         "nom_cidade": faker.city(),
         "nom_uf": faker.state_abbr(),
         "ind_tipo": faker.random_element(elements=('RESIDENCIAL', 'COMERCIAL', 'OUTRO')),
         "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
     }
+
 
 def criar_cobranca_liquidacao_parc_acordo_faker():
     return {
@@ -224,6 +231,7 @@ def criar_cobranca_liquidacao_parc_acordo_faker():
         "id_pagto_acordo": next(id_serial),
         "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d %H:%M:%S')
     }
+
 
 def criar_cobranca_origem_acordo_faker():
     return {
@@ -252,4 +260,3 @@ def criar_cobranca_origem_acordo_faker():
         "val_desconto_total": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
         "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
     }
-

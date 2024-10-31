@@ -1,5 +1,6 @@
-from pydantic import BaseModel
 from datetime import date, datetime
+
+from pydantic import BaseModel
 
 
 # Dataset: pfs_unificacao_pefisa, Table: adesao_deb_automatico
@@ -19,8 +20,6 @@ class Adesao_deb_automatico(BaseModel):
     dth_inclusao_reg: datetime
     des_origem: str
     num_anomes_ads_deb_autm: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: adesao_pacote_tarifa_hist
@@ -43,8 +42,6 @@ class Adesao_pacote_tarifa_hist(BaseModel):
     dat_referencia: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: agpr_transacao_txn
 class Agpr_transacao_txn(BaseModel):
     cod_tipo_transacao: int
@@ -52,8 +49,6 @@ class Agpr_transacao_txn(BaseModel):
     flg_credito: str
     cod_agrupamento_txn: int
     des_agrupamento_txn: str
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: ajuste_debito
@@ -79,8 +74,6 @@ class Ajuste_debito(BaseModel):
     dth_inclusao_reg: datetime
     dat_referencia: int
     num_anomes_ajuste_debito: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: autorizacao_cartao_credito
@@ -136,8 +129,6 @@ class Autorizacao_cartao_credito(BaseModel):
     num_anomes_autoriz_ccred: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: autorizacao_cartao_credito_hist
 class Autorizacao_cartao_credito_hist(BaseModel):
     id_autorizacao_ccred: int
@@ -189,8 +180,6 @@ class Autorizacao_cartao_credito_hist(BaseModel):
     num_anomes_autoriz_ccred: int
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: autorizacao_detalhes
 class Autorizacao_detalhes(BaseModel):
     id_aut_detalhe_so: int
@@ -218,8 +207,6 @@ class Autorizacao_detalhes(BaseModel):
     dat_referencia: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: boleto
 class Boleto(BaseModel):
     id_boleto: str
@@ -242,8 +229,6 @@ class Boleto(BaseModel):
     num_anomes_emis_bol: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: cadastro_chave_pix
 class Cadastro_chave_pix(BaseModel):
     num_cpf_cnpj_cliente: int
@@ -258,8 +243,6 @@ class Cadastro_chave_pix(BaseModel):
     nome_cliente: str
     num_ano_mes_status: int
     dat_referencia: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: cartao
@@ -314,8 +297,6 @@ class Cartao(BaseModel):
     num_anomes_emis_cartao: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: cartao_debito
 class Cartao_debito(BaseModel):
     id_conta_debito_so: int
@@ -347,8 +328,6 @@ class Cartao_debito(BaseModel):
     dth_inclusao_reg: datetime
     dat_referencia: int
     num_anomes_emiss_cartao_debito: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: conta
@@ -439,8 +418,6 @@ class Conta(BaseModel):
     num_anomes_ads_conta: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: conta_debito
 class Conta_debito(BaseModel):
     id_conta_multiplo: int
@@ -470,8 +447,6 @@ class Conta_debito(BaseModel):
     dth_inclusao_reg: datetime
     dat_referencia: int
     num_anomes_ads_conta_debito: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: conta_hist
@@ -528,8 +503,6 @@ class Conta_hist(BaseModel):
     num_anomes_ads_conta: int
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: contestacoes
 class Contestacoes(BaseModel):
     num_cpf_cliente: int
@@ -579,8 +552,6 @@ class Contestacoes(BaseModel):
     dat_referencia: int
     des_origem: str
     safra_contest: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: contrato_emprestimo
@@ -652,8 +623,6 @@ class Contrato_emprestimo(BaseModel):
     num_ano_mes_sol_empr: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: estabelecimento_externo
 class Estabelecimento_externo(BaseModel):
     id_estabelecimento_externo: int
@@ -662,8 +631,6 @@ class Estabelecimento_externo(BaseModel):
     num_seq_ult_alteracao: int
     dth_inclusao_reg: datetime
     dat_referencia: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: evento_ajuste
@@ -707,8 +674,6 @@ class Evento_ajuste(BaseModel):
     dth_ult_atu_so: datetime
     dth_inclusao_reg: datetime
     dat_referencia: int
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: evento_compra_saque
@@ -770,8 +735,6 @@ class Evento_compra_saque(BaseModel):
     num_anomes_compra_saque: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: evento_pagamento
 class Evento_pagamento(BaseModel):
     id_evento_pagamento: int
@@ -814,8 +777,6 @@ class Evento_pagamento(BaseModel):
     dat_referencia: int
     des_sistema_origem: str
     num_anomes_pagamento: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: fatura_ccred
@@ -881,8 +842,6 @@ class Fatura_ccred(BaseModel):
     num_anomes_vencto_fatura: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: grade_produto
 class Grade_produto(BaseModel):
     id_grade_produto: str
@@ -908,8 +867,6 @@ class Grade_produto(BaseModel):
     dth_inclusao_reg: datetime
     des_origem: str
     num_anomes_mig_grade: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: grade_produto_hist
@@ -940,8 +897,6 @@ class Grade_produto_hist(BaseModel):
     dat_referencia: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: limite_disponibilidade
 class Limite_disponibilidade(BaseModel):
     id_conta: int
@@ -961,8 +916,6 @@ class Limite_disponibilidade(BaseModel):
     dth_inclusao_reg: datetime
     des_origem: str
     num_anomes_posicao_limite: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: limite_disponibilidade_hist
@@ -987,8 +940,6 @@ class Limite_disponibilidade_hist(BaseModel):
     dat_referencia: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: meta_dia_pfin
 class Meta_dia_pfin(BaseModel):
     dat_dia: datetime
@@ -1008,8 +959,6 @@ class Meta_dia_pfin(BaseModel):
     dth_ult_atu_so: datetime
     dth_inclusao_reg: datetime
     dat_referencia: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: parcelamento_fatura_ccred
@@ -1047,8 +996,6 @@ class Parcelamento_fatura_ccred(BaseModel):
     num_anomes_geracao_parcel: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: produto_cartao
 class Produto_cartao(BaseModel):
     nom_processadora: str
@@ -1061,8 +1008,6 @@ class Produto_cartao(BaseModel):
     dth_ult_atu_so: datetime
     num_seq_ult_alteracao: int
     dth_inclusao_reg: datetime
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: produto_financeiro
@@ -1079,8 +1024,6 @@ class Produto_financeiro(BaseModel):
     dth_ult_atu_so: datetime
     dth_inclusao_reg: datetime
     dat_referencia: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: refinanciamento_fatura_ccred
@@ -1124,8 +1067,6 @@ class Refinanciamento_fatura_ccred(BaseModel):
     num_anomes_refinanciamento: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: saldo_conta
 class Saldo_conta(BaseModel):
     id_conta: int
@@ -1139,8 +1080,6 @@ class Saldo_conta(BaseModel):
     dat_referencia: date
     des_origem: str
     num_anomes_posicao_saldo: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: saldo_conta_debito
@@ -1159,8 +1098,6 @@ class Saldo_conta_debito(BaseModel):
     num_anomes_pos_saldo_debito: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: saldo_conta_hist
 class Saldo_conta_hist(BaseModel):
     id_conta: int
@@ -1176,8 +1113,6 @@ class Saldo_conta_hist(BaseModel):
     dat_referencia: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: seguradora
 class Seguradora(BaseModel):
     id_seguradora: int
@@ -1188,8 +1123,6 @@ class Seguradora(BaseModel):
     des_tip_origem_sgrd: str
     dth_inclusao_reg: datetime
     dat_referencia: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: seguro_adesao
@@ -1247,8 +1180,6 @@ class Seguro_adesao(BaseModel):
     num_anomes_adesao: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: seguro_adesao_item
 class Seguro_adesao_item(BaseModel):
     id_adesao_seguro_so: int
@@ -1272,8 +1203,6 @@ class Seguro_adesao_item(BaseModel):
     dat_referencia: int
     des_tip_origem: str
     num_anomes_adesao_item: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: seguro_dependente
@@ -1309,8 +1238,6 @@ class Seguro_dependente(BaseModel):
     dth_inclusao_reg: datetime
     des_tip_origem: str
     num_anomes_referencia: date
-
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: seguro_parcela
@@ -1366,8 +1293,6 @@ class Seguro_parcela(BaseModel):
     num_anomes_vencimento: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: transacao_contabilizada
 class Transacao_contabilizada(BaseModel):
     id_transacao: int
@@ -1417,8 +1342,6 @@ class Transacao_contabilizada(BaseModel):
     num_anomes_geracao_trans: date
 
 
-
-
 # Dataset: pfs_unificacao_pefisa, Table: transacao_debito
 class Transacao_debito(BaseModel):
     id_conta_debito_so: int
@@ -1445,5 +1368,3 @@ class Transacao_debito(BaseModel):
     dth_inclusao_reg: datetime
     dat_referencia: int
     num_anomes_trans_debito: date
-
-

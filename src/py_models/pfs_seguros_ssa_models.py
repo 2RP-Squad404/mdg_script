@@ -1,5 +1,6 @@
-from pydantic import BaseModel
 from datetime import date, datetime
+
+from pydantic import BaseModel
 
 
 # Dataset: pfs_seguros_ssa, Table: adesao_seguro_item
@@ -19,8 +20,6 @@ class Adesao_seguro_item(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_seguros_ssa, Table: endereco
 class Endereco(BaseModel):
     id_Endereco: int
@@ -33,8 +32,6 @@ class Endereco(BaseModel):
     no_CEP: str
     data_cdcBI: datetime
     production_date: date
-
-
 
 
 # Dataset: pfs_seguros_ssa, Table: pessoa
@@ -60,8 +57,6 @@ class Pessoa(BaseModel):
     id_IntegracaoParceiro: int
     data_cdcBI: datetime
     production_date: date
-
-
 
 
 # Dataset: pfs_seguros_ssa, Table: produto_seguro
@@ -118,8 +113,6 @@ class Produto_seguro(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_seguros_ssa, Table: seguradora
 class Seguradora(BaseModel):
     id_Seguradora: int
@@ -128,5 +121,3 @@ class Seguradora(BaseModel):
     fl_Ativo: bool
     no_CNPJ: str
     production_date: date
-
-

@@ -1,5 +1,6 @@
+from datetime import datetime
+
 from pydantic import BaseModel
-from datetime import date, datetime
 
 
 # Dataset: pfs_pfin_raw_dw, Table: dw_funcionario
@@ -20,5 +21,3 @@ class Dw_funcionario(BaseModel):
     sk_situacao_funcionario: int
     num_cpf: str
     num_rg: str
-
-
