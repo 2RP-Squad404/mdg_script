@@ -1,15 +1,14 @@
-import logging
-from config import setup_logging
-import os
 import importlib.util
+import logging
+import os
 
-from google.api_core.exceptions import NotFound
 from google.cloud import bigquery
 
 from auth import get_bigquery_client
-from config import PROJECT_ID
+from config import PROJECT_ID, setup_logging
 
 setup_logging(log_level=logging.INFO)
+
 
 def load_py_schema(dataset_name):
     """
@@ -29,6 +28,7 @@ def load_py_schema(dataset_name):
         return schema_module
     return None
 
+
 def jsonl_to_bigquery():
     """
     Carrega dados de um arquivo JSONL para o BigQuery.
@@ -44,7 +44,7 @@ def jsonl_to_bigquery():
     project_id = PROJECT_ID
     dataset_id = "pfs_risco_raw_tivea"
     table_id = "cliente"
-    
+
     table_ref = f"{project_id}.{dataset_id}.{table_id}"
 
     job_config = bigquery.LoadJobConfig(
@@ -58,6 +58,7 @@ def jsonl_to_bigquery():
         load_job = client.load_table_from_file(jsonl_file, table_ref, job_config=job_config)
 
     load_job.result()
+
 
 def create_tables():
     """
@@ -85,13 +86,13 @@ def create_tables():
             if schema_module:
                 for table_file in os.listdir(dataset_path):
                     table_name = table_file.replace('.json', '')
-                    
+
                     schema = getattr(schema_module, f"{table_name}", None)
-                    
+
                     if schema:
                         table_id = f"{dataset_id}.{table_name}"
                         table = bigquery.Table(table_id, schema=schema)
-                        
+
                         partition_field = None
                         partition_type = None
                         if table_name not in excluded_partition_tables:
@@ -103,7 +104,7 @@ def create_tables():
                                         break
                                     else:
                                         logging.error(f"O campo {field.name} na tabela {table_name} não é do tipo TIMESTAMP, DATE ou DATETIME. Particionamento ignorado.")
-                            
+
                             if partition_field and partition_type:
                                 table.time_partitioning = bigquery.TimePartitioning(
                                     type_=partition_type,
@@ -112,7 +113,7 @@ def create_tables():
                                 logging.info(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
                             else:
                                 logging.error(f"Tabela {table_name} sem campo de particionamento configurado.")
-                                
+
                         client.create_table(table, exists_ok=True)
                         update_table_descriptions_from_schemas("py_schemas")
                         logging.info(f"Tabela {table_name} criada no dataset {dataset_folder}")
@@ -122,6 +123,7 @@ def create_tables():
                 logging.error(f"Arquivo de schema Python não encontrado para o dataset {dataset_folder}")
         else:
             logging.error(f"Dataset {dataset_folder} não encontrado no BigQuery")
+
 
 def load_schema_module(schema_file):
     """
@@ -137,6 +139,7 @@ def load_schema_module(schema_file):
     schema_module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(schema_module)
     return schema_module
+
 
 def update_table_descriptions_from_schemas(schema_directory):
     """

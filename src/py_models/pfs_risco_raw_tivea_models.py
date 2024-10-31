@@ -1,5 +1,6 @@
+from datetime import date
+
 from pydantic import BaseModel
-from datetime import date, datetime
 
 
 # Dataset: pfs_risco_raw_tivea, Table: acordo
@@ -195,8 +196,6 @@ class Pendencias(BaseModel):
     pareceres: dict
 
 
-
-
 # Dataset: pfs_risco_raw_tivea, Table: cliente
 class Cliente(BaseModel):
     source: str
@@ -308,8 +307,6 @@ class Marcadores(BaseModel):
     id: str
     nome: str
     cor: str
-
-
 
 
 # Dataset: pfs_risco_raw_tivea, Table: contrato
@@ -424,5 +421,3 @@ class Parcelas(BaseModel):
     bloqueio: bool
     promessa: bool
     tipoAcordo: str
-
-

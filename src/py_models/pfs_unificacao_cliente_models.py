@@ -1,5 +1,6 @@
-from pydantic import BaseModel
 from datetime import date, datetime
+
+from pydantic import BaseModel
 
 
 # Dataset: pfs_unificacao_cliente, Table: cliente_complemento
@@ -36,8 +37,6 @@ class Cliente_complemento(BaseModel):
     nom_profissao_isco08: str
 
 
-
-
 # Dataset: pfs_unificacao_cliente, Table: cliente_item_perfil
 class Cliente_item_perfil(BaseModel):
     id_cliente: str
@@ -54,13 +53,9 @@ class Cliente_item_perfil(BaseModel):
     cod_item_perfil: int
 
 
-
-
 # Dataset: pfs_unificacao_cliente, Table: de_para_num_pfj_id_cdt_cpf
 class De_para_num_pfj_id_cdt_cpf(BaseModel):
     num_pfj: int
     num_cpf: int
     id_pessoa_cdt: int
     tip_origem_cdt: str
-
-

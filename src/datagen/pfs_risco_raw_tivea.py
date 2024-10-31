@@ -1,19 +1,19 @@
 import json
-from faker import Faker
-from datetime import date, datetime
 import os
+
+from faker import Faker
 
 faker = Faker('pt_BR')
 
 # As funções abaixo são responsáveis por criar dados mock para o dataset pfs_risco_raw_tivea
 # observe que as funções correspondem a tabelas presentes no dataset.
 
+
 def DataGen(num_records, output_dir="src/mock_data"):
-    
-    data = {'acordo':[], 'cliente':[]}
+
+    data = {'acordo': [], 'cliente': []}
 
     for _ in range(num_records):
-        
 
         criar_Emails = {
                 "id": str(str(faker.random_number(digits=19, fix_len=True))),
@@ -23,7 +23,6 @@ def DataGen(num_records, output_dir="src/mock_data"):
                 "ranking": faker.word(),
                 "dataHoraModificacao": faker.date_time().strftime('%Y-%m-%d %H:%M:%S')
             }
-
 
         criar_Enderecos = {
                 "id": str(str(faker.random_number(digits=19, fix_len=True))),
@@ -43,7 +42,6 @@ def DataGen(num_records, output_dir="src/mock_data"):
                 "dataHoraModificacao": faker.date_time().strftime('%Y-%m-%d %H:%M:%S')
             }
 
-        
         criar_Telefones = {
                 "id": str(str(faker.random_number(digits=19, fix_len=True))),
                 "idExterno": faker.uuid4(),
@@ -56,7 +54,6 @@ def DataGen(num_records, output_dir="src/mock_data"):
                 "ranking": str(faker.random_int(min=1, max=10)),
                 "dataHoraModificacao": faker.date_time().strftime('%Y-%m-%d %H:%M:%S')
             }
-
 
         criar_Informacoesadicionais = {
                 "id": str(faker.random_number(digits=19, fix_len=True)),
@@ -88,7 +85,6 @@ def DataGen(num_records, output_dir="src/mock_data"):
                 "nome": faker .word(),
                 "cor": faker .color_name()
             }
-
 
         criar_Cliente_faker = {
                 "source": faker.word(),
@@ -132,8 +128,6 @@ def DataGen(num_records, output_dir="src/mock_data"):
                 "production_date": faker.date_time().strftime('%Y-%m-%d %H:%M:%S')
             }
         data['cliente'].append(criar_Cliente_faker)
-
-
 
         criar_Acordo_faker = {
                 "source": faker.url(),
@@ -269,6 +263,7 @@ def DataGen(num_records, output_dir="src/mock_data"):
                 f.write('\n')
 
     return data
+
 
 num_records = 100
 generated_data = DataGen(num_records)
