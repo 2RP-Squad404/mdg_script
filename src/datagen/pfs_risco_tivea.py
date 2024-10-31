@@ -145,11 +145,6 @@ def criar_cobranca_assessoria_faker():
     }
 
 
-import itertools
-from faker import Faker
-
-fake = Faker('pt_BR')
-
 def criar_cobranca_cliente_faker():
     return {
         "id_cliente_cobranca": next(id_serial),
@@ -179,5 +174,82 @@ def criar_cobranca_cliente_faker():
         "num_tel_com": fake.random_number(digits=8, fix_len=True),
         "nom_email": fake.email(),
         "dat_referencia": fake.date_this_year().strftime('%Y-%m-%d')
+    }
+
+
+def criar_Cobranca_campo_customizavel_faker():
+    return {
+        "id_cliente_cobranca": next(id_serial),
+        "nom_campo": fake.word(),
+        "val_campo": fake.word(),
+        "dat_referencia": fake.date().strftime('%Y-%m-%d %H:%M:%S')
+    }
+
+def criar_cobranca_email_cliente_faker():
+    return {
+        "id_cliente_cobranca": next(id_serial),
+        "nom_email": faker.email(),
+        "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
+    }
+
+def criar_cobranca_endereco_cliente_faker():
+    return {
+        "id_cliente_cobranca": next(id_serial),
+        "id_cliente_externo": faker.ean13(),
+        "id_endereco_cobranca": next(id_serial),
+        "tip_endereco_princ": faker.boolean(),
+        "nom_logradouro": faker.street_name(),
+        "num_logradouro": str(faker.building_number()),
+        "nom_complemento": faker.street_address(),
+        "num_cep": re.sub(r'\D','',faker.postcode()),
+        "nom_bairro": faker.street_name(),
+        "nom_cidade": faker.city(),
+        "nom_uf": faker.state_abbr(),
+        "ind_tipo": faker.random_element(elements=('RESIDENCIAL', 'COMERCIAL', 'OUTRO')),
+        "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
+    }
+
+def criar_cobranca_liquidacao_parc_acordo_faker():
+    return {
+        "id_liqd_parc_acordo": next(id_serial),
+        "id_parcela_acordo": next(id_serial),
+        "num_parcela_acordo": faker.random_int(min=0, max=10),
+        "val_principal": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
+        "val_total": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
+        "val_juros": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
+        "val_encargos": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
+        "val_desconto": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
+        "val_distorcao": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
+        "ind_tipo_liqd": faker.random_element(elements=("TOTAL", "PARCIAL")),
+        "id_pagto_acordo": next(id_serial),
+        "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d %H:%M:%S')
+    }
+
+def criar_cobranca_origem_acordo_faker():
+    return {
+        "id_origem_acordo": faker.numerify('####################'),
+        "id_acordo_cobranca": next(id_serial),
+        "num_contrato": faker.numerify('#################'),
+        "num_ordem_contrato": faker.random_int(min=1, max=10),
+        "id_parcela": faker.numerify('####################'),
+        "num_parcela": faker.random_int(min=1, max=100),
+        "dat_vencimento": faker.date_time_this_decade().strftime('%Y-%m-%d %H:%M:%S'),
+        "id_situacao": faker.random_element(elements=('CANCELADO', 'LIQUIDADO', 'ABERTO')),
+        "qtd_dias_atr_cont": faker.random_int(min=0, max=1000),
+        "val_principal": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
+        "val_total": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
+        "val_permanencia": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
+        "val_multa": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
+        "val_juros": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
+        "val_tarifa": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
+        "val_adicionado": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
+        "val_atual": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
+        "val_desconto": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
+        "val_desc_principal": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
+        "val_desc_juros": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
+        "val_desc_multa": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
+        "val_desc_permanencia": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
+        "val_desconto_total": faker.pyfloat(min_value=0, max_value=1000000, right_digits=2),
+        "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
     }
 

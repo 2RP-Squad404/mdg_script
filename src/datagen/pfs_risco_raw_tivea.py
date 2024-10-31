@@ -6,6 +6,40 @@ import random
 faker = Faker('pt_BR')
 id_serial = itertools.count(start=0)
 
+#dados que o faker não conseguiu gerar 
+
+num_pagamentos = 5
+num_origens = 3
+num_pendencias = 2
+
+pagamentos = [
+    {
+        "data": faker.date(),
+        "valor": faker.pydecimal(min_value=10, max_value=1000, positive=True),
+        "forma_pagamento": faker.credit_card_provider()
+    }
+    for _ in range(num_pagamentos)
+]
+
+origens = [
+    {
+        "sistema": faker.company(),
+        "data_importacao": faker.date_this_year().strftime('%Y-%m-%d %H:%M:%S')
+    }
+    for _ in range(num_origens)
+]
+
+pendencias = [
+    {
+        "descricao": faker.sentence(),
+        "data_limite": faker.date_time_between(start_date='+1w').strftime('%Y-%m-%d %H:%M:%S')
+    }
+    for _ in range(num_pendencias)
+]
+
+
+
+
 # As funções abaixo são responsáveis por criar dados mock para o dataset pfs_risco_raw_tivea
 # observe que as funções correspondem a tabelas presentes no dataset.
     
@@ -338,50 +372,6 @@ def criar_parcelas():
         "tipoAcordo": faker.word()
     }
 
-
-def criar_Acordo():
-    return {
-        "source": faker.word(),
-        "id": faker.uuid4(),
-        "cliente": faker.name(),
-        "cobrador": faker.name(),
-        "tipo": faker.word(),
-        "numeroAcordo": str(faker.random_number(digits=8)),
-        "numeroParcelas": faker.random_number(digits=2),
-        "dataOperacao": faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        "dataEmissao": faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        "dataProcessamento": faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        "dataHoraInclusao": faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        "dataHoraModificacao": faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        "dataVencimento": faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        "situacao": faker.word(),
-        "taxaOperacao": faker.random_number(digits=5),
-        "valorPagoTributo": faker.random_number(digits=8),
-        "valorPrincipal": faker.random_number(digits=8),
-        "valorJuros": faker.random_number(digits=8),
-        "valorTarifa": faker.random_number(digits=8),
-        "valorTributo": faker.random_number(digits=8),
-        "valorAdicionado": faker.random_number(digits=8),
-        "valorTotal": faker.random_number(digits=8),
-        "saldoPrincipal": faker.random_number(digits=8),
-        "saldoTotal": faker.random_number(digits=8),
-        "saldoAtual": faker.random_number(digits=8),
-        "diasAtraso": faker.random_number(digits=3),
-        "motivoCancelamento": faker.sentence(),
-        "negociacao": criar_negociacao(),
-        "criterioTributo": faker.word(),
-        "produto": criar_produto_acordo(),
-        "tributo": criar_tributo(),
-        "meioPagamento": criar_Meiopagamento(),
-        "usuario": criar_usuario(),
-        "assessoria": criar_Assessoria(),
-        "parcelas": criar_Parcelas(),
-        "pagamentos": criar_Pagamentos(),
-        "origens": criar_origens(),
-        "pendencias": criar_pendencias(),
-        "production_date": faker.date()
-    }
-
 def criar_Cliente_faker():
     produto_acordo = criar_produto_acordo()
     return {
@@ -522,9 +512,61 @@ def criar_Acordo_faker():
             "saldoAtual": str(faker.pydecimal(left_digits=5, right_digits=2)),
             "registrado": True
         }],
-        "pagamentos": [],
-        "origens": [],
-        "pendencias": [],
+        "pagamentos":  [{
+            "id": str(id_serial),
+            "dataProcessamento": str(id_serial),
+            "dataLiquidacao": str(faker.random_int()),
+            "dataCredito": faker.date_time_between(start_date='now', end_date='+1y').strftime('%Y-%m-%d'),
+            "dataCnab": faker.word(),
+            "dataOperacao": faker.random_number(digits=10),
+            "dataHoraInclusao": str(faker.pydecimal(left_digits=5, right_digits=2)),
+            "formaLiquidacao": str(faker.pydecimal(left_digits=5, right_digits=2)),
+            "valorRecebido": str(faker.pydecimal(left_digits=5, right_digits=2)),
+            "valorDesconto": str(faker.pydecimal(left_digits=5, right_digits=2)),
+            "valorEncargos": str(faker.pydecimal(left_digits=5, right_digits=2)),
+            "valorDistorcao": str(faker.pydecimal(left_digits=5, right_digits=2)),
+            "valorSobra": str(faker.pydecimal(left_digits=5, right_digits=2)),
+            "situacao": str(faker.pydecimal(left_digits=5, right_digits=2)),
+            "integracao": str(faker.pydecimal(left_digits=5, right_digits=2)),
+            "agrupador": {
+                'id' : str(id_serial),
+                'idExterno':  str(faker.random_int()),
+                'nome':  faker.word(),
+                'cic':   faker.word(),
+                'codigo':  faker.word(),
+                'nomeFantasia':  faker.word(),
+                'situacao':   faker.word(),
+            },
+            'abatimentos': {
+                'id': str(id_serial),
+                'origem':  faker.word(),
+                'valorPrincipal': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'valorTotal': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'valorPermanencia': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'valorMora': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'valorMulta': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'valorOutros': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'valorDesconto': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'valorJuros': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'valorTarifa': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'valorTributo': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'valorAdicionado': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'valorAtual': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'percentual': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'tipo': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'integracao': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'mensagemIntegracao': str(faker.pydecimal(left_digits=5, right_digits=2)),
+                'dataHoraIntegracao': str(faker.pydecimal(left_digits=5, right_digits=2)),
+
+            }
+
+            "saldoPrincipal": str(faker.pydecimal(left_digits=5, right_digits=2)),
+            "saldoTotal": str(faker.pydecimal(left_digits=5, right_digits=2)),
+            "saldoAtual": str(faker.pydecimal(left_digits=5, right_digits=2)),
+            "registrado": True
+        }],
+        "origens": origens,
+        "pendencias": pendencias,
         "production_date": faker.date_this_year()
     }
 
