@@ -1,4 +1,5 @@
 import logging
+
 from auth import get_bigquery_client
 
 """

@@ -1,6 +1,7 @@
 from google.cloud import aiplatform
 from vertexai.preview.generative_models import GenerativeModel
 
+
 def init_gemini(project_id: str, model_name: str):
     """
     Inicia a comunicação com Gemini API.
@@ -11,6 +12,7 @@ def init_gemini(project_id: str, model_name: str):
     """
     aiplatform.init(project=project_id)
     return GenerativeModel(model_name)
+
 
 def generate_code(model, prompt: str):
     """
@@ -23,6 +25,7 @@ def generate_code(model, prompt: str):
     response = model.generate_content(prompt)
     return response.text
 
+
 def save_to_file(file_path: str, content: str):
     """
     Escreve a resposta obtida do modelo no arquivo 'gemini_datagen.py'.
@@ -34,6 +37,7 @@ def save_to_file(file_path: str, content: str):
     with open(file_path, 'a') as file:
         file.write('\n')
         file.write(content)
+
 
 project_id = 'big-maxim-430019-g7'
 model_name = "gemini-1.5-flash-002"

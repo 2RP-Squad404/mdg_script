@@ -1,6 +1,7 @@
-from pydantic_settings import BaseSettings
 import logging
 import logging.config
+
+from pydantic_settings import BaseSettings
 
 """
     Classe Settings para gerenciar a configuração do projeto usando variáveis de ambiente.
@@ -32,6 +33,7 @@ settings = Settings()
 PROJECT_ID = settings.project_id
 SECRET_NAME = settings.secret_name
 
+
 def setup_logging(log_level=logging.INFO):
     """Configura o logging com um formato padrão no console.
 
@@ -40,7 +42,7 @@ def setup_logging(log_level=logging.INFO):
     """
     logging_config = {
         'version': 1,
-        'disable_existing_loggers': False, 
+        'disable_existing_loggers': False,
         'formatters': {
             'standard': {
                 'format': '%(levelname)s: %(message)s'
@@ -54,10 +56,10 @@ def setup_logging(log_level=logging.INFO):
             },
         },
         'loggers': {
-            '': {  
+            '': {
                 'handlers': ['console'],
                 'level': log_level,
-                'propagate': False  
+                'propagate': False
             }
         }
     }

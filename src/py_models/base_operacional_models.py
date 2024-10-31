@@ -1,5 +1,6 @@
-from pydantic import BaseModel
 from datetime import date, datetime
+
+from pydantic import BaseModel
 
 
 # Dataset: base_operacional, Table: conta_cartao_cliente
@@ -89,8 +90,6 @@ class Conta_cartao_cliente(BaseModel):
     des_origem: str
 
 
-
-
 # Dataset: base_operacional, Table: emprestimo_pessoal_processado
 class Emprestimo_pessoal_processado(BaseModel):
     id_evento_ep: str
@@ -142,8 +141,6 @@ class Emprestimo_pessoal_processado(BaseModel):
     num_anomes_ep: date
 
 
-
-
 # Dataset: base_operacional, Table: faturamento_conta_digital
 class Faturamento_conta_digital(BaseModel):
     id_conta_ccred_transacao: int
@@ -180,8 +177,6 @@ class Faturamento_conta_digital(BaseModel):
     num_anomes_transacao: date
 
 
-
-
 # Dataset: base_operacional, Table: fatura_fechada
 class Fatura_fechada(BaseModel):
     id_conta: int
@@ -213,8 +208,6 @@ class Fatura_fechada(BaseModel):
     dth_inclusao_reg: datetime
     des_origem: str
     num_anomes_vencto_fatura: date
-
-
 
 
 # Dataset: base_operacional, Table: limite_disponibilidade_pos_mensal
@@ -249,8 +242,6 @@ class Limite_disponibilidade_pos_mensal(BaseModel):
     num_anomes_posicao_limite: date
 
 
-
-
 # Dataset: base_operacional, Table: pagamento_consolidado
 class Pagamento_consolidado(BaseModel):
     num_cpf_cliente: int
@@ -280,5 +271,3 @@ class Pagamento_consolidado(BaseModel):
     dat_referencia: int
     des_origem: str
     num_anomes_pagto: date
-
-

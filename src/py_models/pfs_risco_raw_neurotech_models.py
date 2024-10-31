@@ -1,5 +1,6 @@
-from pydantic import BaseModel
 from datetime import date, datetime
+
+from pydantic import BaseModel
 
 
 # Dataset: pfs_risco_raw_neurotech, Table: proposta
@@ -19,8 +20,6 @@ class Proposta(BaseModel):
     instantefim: datetime
     instanceinicio: datetime
     production_date: date
-
-
 
 
 # Dataset: pfs_risco_raw_neurotech, Table: proposta_consultas
@@ -43,8 +42,6 @@ class Proposta_consultas(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_risco_raw_neurotech, Table: proposta_detalhe
 class Proposta_detalhe(BaseModel):
     hash_key: str
@@ -59,5 +56,3 @@ class Proposta_detalhe(BaseModel):
     banco: dict
     instante_data: datetime
     production_date: date
-
-
