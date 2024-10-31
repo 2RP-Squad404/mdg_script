@@ -154,7 +154,6 @@ def create_tables():
                                 print(f"Tabela {table_name} sem campo de particionamento configurado.")
 
                         client.create_table(table, exists_ok=True)
-                        update_table_descriptions_from_schemas("py_schemas")
                         print(f"Tabela {table_name} criada no dataset {dataset_folder}")
                     else:
                         print(f"Schema não encontrado para a tabela {table_name} no dataset {dataset_folder}")
