@@ -21,162 +21,6 @@ def criar_produto_acordo():
         'descricao': faker.paragraph(),
     }
 
-
-def criar_negociacao():
-    return {
-        'id': next(id_serial),
-        'nome': faker.company(),
-        'descricao': faker.paragraph(),
-        'situacao': faker.word(),
-        'tipo': faker.word(),
-        'gestao': faker.word(),
-        'cor': faker.hex_color(),
-        'icone': faker.word(),
-        'tipoDesconto': faker.word(),
-        'modalidade': {'chave': faker.word(), 'valor': faker.random_number()},
-    }
-
-
-def criar_tributo():
-    return {
-        'id': str(next(id_serial)),
-        'nome': faker.word(),
-        'percentual': faker.numerify('%0.2f'),
-        'percentualFixo': faker.numerify('%0.2f'),
-        'percentualMaximo': faker.numerify('%0.2f'),
-        'arredondamento': faker.random_element(elements=['0', '1']),
-        'dataCalculo': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-    }
-
-
-def criar_Meiopagamento():
-    return {
-        'id': str(next(id_serial)),
-        'tipo': faker.credit_card_provider(),
-        'nome': faker.credit_card_number(),
-        'cobrador': {'nome': faker.name(), 'cpf': faker.cpf()},
-    }
-
-
-def criar_usuario():
-    return {'id': str(next(id_serial)), 'nome': faker.name()}
-
-
-def criar_Assessoria():
-    return {'id': str(next(id_serial)), 'nome': faker.company()}
-
-
-def criar_Parcelas():
-    return {
-        'id': str(next(id_serial)),
-        'acordo': faker.word(),
-        'numeroParcela': faker.word(),
-        'dataVencimento': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        'situacao': faker.word(),
-        'nossoNumero': faker.word(),
-        'valorPrincipal': faker.pydecimal(left_digits=5, right_digits=2),
-        'valorJuros': faker.pydecimal(left_digits=5, right_digits=2),
-        'valorTarifa': faker.pydecimal(left_digits=5, right_digits=2),
-        'valorAdicionado': faker.pydecimal(left_digits=5, right_digits=2),
-        'valorTotal': faker.pydecimal(left_digits=5, right_digits=2),
-        'valorTributo': faker.pydecimal(left_digits=5, right_digits=2),
-        'valorBaseTributo': faker.pydecimal(left_digits=5, right_digits=2),
-        'valorPermanencia': faker.pydecimal(left_digits=5, right_digits=2),
-        'valorMora': faker.pydecimal(left_digits=5, right_digits=2),
-        'valorMulta': faker.pydecimal(left_digits=5, right_digits=2),
-        'saldoPrincipal': faker.pydecimal(left_digits=5, right_digits=2),
-        'saldoTotal': faker.pydecimal(left_digits=5, right_digits=2),
-        'saldoAtual': faker.pydecimal(left_digits=5, right_digits=2),
-        'registrado': faker.boolean(),
-    }
-
-
-def criar_Pagamentos():
-    return {
-        'id': str(next(id_serial)),
-        'dataProcessamento': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        'dataLiquidacao': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        'dataCredito': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        'dataCnab': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        'dataOperacao': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        'dataHoraInclusao': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        'formaLiquidacao': faker.word(),
-        'valorRecebido': faker.numerify('R$ ###,##'),
-        'valorDesconto': faker.numerify('R$ ###,##'),
-        'valorEncargos': faker.numerify('R$ ###,##'),
-        'valorDistorcao': faker.numerify('R$ ###,##'),
-        'valorSobra': faker.numerify('R$ ###,##'),
-        'situacao': faker.word(),
-        'integracao': faker.word(),
-        'agrupador': {},
-        'abatimentos': {},
-        'liquidacoes': {},
-    }
-
-
-def criar_origens():
-    return {
-        'id': next(id_serial),
-        'valorContabil': faker.pystr(),
-        'descontoContabil': faker.pystr(),
-        'saldoContabil': faker.pystr(),
-        'contrato': faker.pystr(),
-        'contratoId': faker.pystr(),
-        'numeroContrato': faker.pystr(),
-        'parcela': faker.pystr(),
-        'parcelaId': faker.pystr(),
-        'numeroParcela': faker.pystr(),
-        'diasAtraso': faker.pystr(),
-        'ordem': faker.pystr(),
-        'dataVencimento': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        'nossoNumero': faker.pystr(),
-        'notaFiscal': faker.pystr(),
-        'situacao': faker.pystr(),
-        'valorPrincipal': faker.pystr(),
-        'valorTotal': faker.pystr(),
-        'valorPermanencia': faker.pystr(),
-        'valorMora': faker.pystr(),
-        'valorMulta': faker.pystr(),
-        'valorOutros': faker.pystr(),
-        'valorDesconto': faker.pystr(),
-        'valorJuros': faker.pystr(),
-        'valorTarifa': faker.pystr(),
-        'valorAdicionado': faker.pystr(),
-        'valorAtual': faker.pystr(),
-        'saldoPrincipal': faker.pystr(),
-        'saldoTotal': faker.pystr(),
-        'saldoPermanencia': faker.pystr(),
-        'saldoMora': faker.pystr(),
-        'saldoMulta': faker.pystr(),
-        'saldoOutros': faker.pystr(),
-        'saldoDesconto': faker.pystr(),
-        'saldoJuros': faker.pystr(),
-        'saldoTarifa': faker.pystr(),
-        'saldoAdicionado': faker.pystr(),
-        'saldoAtual': faker.pystr(),
-        'descontoPrincipal': faker.pystr(),
-        'descontoJuros': faker.pystr(),
-        'descontoMora': faker.pystr(),
-        'descontoMulta': faker.pystr(),
-        'descontoOutros': faker.pystr(),
-        'descontoPermanencia': faker.pystr(),
-        'descontoTotal': faker.pystr(),
-    }
-
-
-def criar_pendencias():
-    return {
-        'id': str(next(id_serial)),
-        'dataGeracao': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        'dataProcessamento': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        'dataParecer': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
-        'situacao': faker.word(),
-        'tipo': faker.word(),
-        'observacao': faker.paragraph(),
-        'pareceres': {'a': faker.word()},
-    }
-
-
 def criar_Emails():
     return {
         'id': str(id_serial),
@@ -443,7 +287,7 @@ def criar_Acordo_faker():
             start_date='-1y', end_date='now'
         ).strftime('%Y-%m-%dT%H:%M:%S'),
         'dataHoraModificacao': faker.date_time_between(
-            start_date='-1y', end_date='now'
+        start_date='-1y', end_date='now'
         ).strftime('%Y-%m-%dT%H:%M:%S'),
         'dataVencimento': faker.date_time_between(
             start_date='now', end_date='+1y'
@@ -699,7 +543,11 @@ def criar_Acordo_faker():
                 'numeroParcela': faker.random_int(min=1, max=12),
                 'tipo': faker.word(),
             },
-            'origens': {
+            
+            
+            
+        },
+        'origens': {
                 'id': faker.uuid4(),
                 'valorContabil': faker.pyfloat(positive=True, max_value=10000),
                 'descontoContabil': faker.pyfloat(
@@ -786,12 +634,12 @@ def criar_Acordo_faker():
                     },
                     'id': faker.uuid4(),
                     'dataHoraModificacao': faker.date_time_between(
-                        start_date='-1y', end_date='today'
+                        start_date='-1y', end_date='now'
                     ),
                 },
             },
+
             'production_date': faker.date_this_year(),
-        },
     }
 
 
