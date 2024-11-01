@@ -750,7 +750,6 @@ evento_compra_saque = [
 ]
 
 
-
 # Dataset: pfs_unificacao_pefisa, Table: evento_pagamento
 evento_pagamento = [
     bigquery.SchemaField('id_evento_pagamento', 'INTEGER', 'NULLABLE', description='ID do evento de pagamento'),
@@ -886,7 +885,6 @@ grade_produto = [
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
     bigquery.SchemaField('num_anomes_mig_grade', 'DATE', 'NULLABLE', description='Ano e mês da migração da grade')
 ]
-
 
 
 # Dataset: pfs_unificacao_pefisa, Table: grade_produto_hist

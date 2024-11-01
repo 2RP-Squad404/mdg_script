@@ -1,5 +1,6 @@
-from pydantic import BaseModel
 from datetime import date, datetime
+
+from pydantic import BaseModel
 
 
 # Dataset: pfs_raw_conductor, Table: adesao_debito_automatico
@@ -21,8 +22,6 @@ class Adesao_debito_automatico(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: adesao_pacote_tarifa
 class Adesao_pacote_tarifa(BaseModel):
     hash_key: str
@@ -38,8 +37,6 @@ class Adesao_pacote_tarifa(BaseModel):
     operation: str
     operation_sequence: int
     production_date: date
-
-
 
 
 # Dataset: pfs_raw_conductor, Table: autorizacao
@@ -202,8 +199,6 @@ class Autorizacao(BaseModel):
     aut_taxaiofinternacional: float
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: autorizacoes_detalhes
 class Autorizacoes_detalhes(BaseModel):
     hash_key: str
@@ -229,8 +224,6 @@ class Autorizacoes_detalhes(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: boleto_emitido
 class Boleto_emitido(BaseModel):
     hash_key: str
@@ -249,8 +242,6 @@ class Boleto_emitido(BaseModel):
     operation: str
     operation_sequence: int
     production_date: date
-
-
 
 
 # Dataset: pfs_raw_conductor, Table: cliente
@@ -277,8 +268,6 @@ class Cliente(BaseModel):
     operation: str
     operation_sequence: int
     production_date: date
-
-
 
 
 # Dataset: pfs_raw_conductor, Table: cliente_complemento
@@ -497,8 +486,6 @@ class Cliente_complemento(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: compras_contestadas
 class Compras_contestadas(BaseModel):
     hash_key: str
@@ -531,8 +518,6 @@ class Compras_contestadas(BaseModel):
     audit_control_number: str
     dataenviocb: datetime
     data2reapresentacao: datetime
-
-
 
 
 # Dataset: pfs_raw_conductor, Table: conta
@@ -711,8 +696,6 @@ class Conta(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: controle_vencimento
 class Controle_vencimento(BaseModel):
     hash_key: str
@@ -732,8 +715,6 @@ class Controle_vencimento(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: dado_bancario_conta
 class Dado_bancario_conta(BaseModel):
     hash_key: str
@@ -749,8 +730,6 @@ class Dado_bancario_conta(BaseModel):
     operation_sequence: int
     db_id_tipocontabancaria: int
     production_date: date
-
-
 
 
 # Dataset: pfs_raw_conductor, Table: estabelecimento
@@ -843,8 +822,6 @@ class Estabelecimento(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: estabelecimento_externo
 class Estabelecimento_externo(BaseModel):
     hash_key: str
@@ -855,8 +832,6 @@ class Estabelecimento_externo(BaseModel):
     operation: str
     operation_sequence: int
     production_date: date
-
-
 
 
 # Dataset: pfs_raw_conductor, Table: estado_conta
@@ -988,8 +963,6 @@ class Estado_conta(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: evento_externo_ajuste
 class Evento_externo_ajuste(BaseModel):
     hash_key: str
@@ -1027,8 +1000,6 @@ class Evento_externo_ajuste(BaseModel):
     operation: str
     operation_sequence: int
     production_date: date
-
-
 
 
 # Dataset: pfs_raw_conductor, Table: evento_externo_compra_nao_processado
@@ -1131,8 +1102,6 @@ class Evento_externo_compra_nao_processado(BaseModel):
     production_date: date
     een_transactionuuid: str
     een_cotacao: float
-
-
 
 
 # Dataset: pfs_raw_conductor, Table: evento_externo_compra_processado
@@ -1244,8 +1213,6 @@ class Evento_externo_compra_processado(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: evento_externo_pagamento
 class Evento_externo_pagamento(BaseModel):
     hash_key: str
@@ -1300,8 +1267,6 @@ class Evento_externo_pagamento(BaseModel):
     operation: str
     operation_sequence: int
     production_date: date
-
-
 
 
 # Dataset: pfs_raw_conductor, Table: fatura
@@ -1440,8 +1405,6 @@ class Fatura(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: grade_produto
 class Grade_produto(BaseModel):
     hash_key: str
@@ -1509,8 +1472,6 @@ class Grade_produto(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: integracao_grade
 class Integracao_grade(BaseModel):
     hash_key: str
@@ -1555,8 +1516,6 @@ class Integracao_grade(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: limite_disponibilidade
 class Limite_disponibilidade(BaseModel):
     hash_key: str
@@ -1592,8 +1551,6 @@ class Limite_disponibilidade(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: limite_portador
 class Limite_portador(BaseModel):
     hash_key: str
@@ -1608,8 +1565,6 @@ class Limite_portador(BaseModel):
     operation: str
     operation_sequence: int
     production_date: date
-
-
 
 
 # Dataset: pfs_raw_conductor, Table: parcelamento_fatura
@@ -1643,8 +1598,6 @@ class Parcelamento_fatura(BaseModel):
     operation: str
     operation_sequence: int
     production_date: date
-
-
 
 
 # Dataset: pfs_raw_conductor, Table: produto
@@ -1724,8 +1677,6 @@ class Produto(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: refinanciamento
 class Refinanciamento(BaseModel):
     hash_key: str
@@ -1759,8 +1710,6 @@ class Refinanciamento(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: seguro_adesao_item
 class Seguro_adesao_item(BaseModel):
     hash_key: str
@@ -1781,8 +1730,6 @@ class Seguro_adesao_item(BaseModel):
     production_date: date
 
 
-
-
 # Dataset: pfs_raw_conductor, Table: seguro_endereco
 class Seguro_endereco(BaseModel):
     hash_key: str
@@ -1799,8 +1746,6 @@ class Seguro_endereco(BaseModel):
     operation: str
     operation_sequence: int
     production_date: date
-
-
 
 
 # Dataset: pfs_raw_conductor, Table: seguro_pessoa
@@ -1830,8 +1775,6 @@ class Seguro_pessoa(BaseModel):
     operation: str
     operation_sequence: int
     production_date: date
-
-
 
 
 # Dataset: pfs_raw_conductor, Table: transacao_corrente
@@ -1872,5 +1815,3 @@ class Transacao_corrente(BaseModel):
     operation: str
     operation_sequence: int
     production_date: date
-
-

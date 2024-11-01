@@ -54,7 +54,7 @@ debit_person = [
     bigquery.SchemaField('person_id', 'INTEGER', 'NULLABLE', description='ID da pessoa'),
     bigquery.SchemaField('person_type', 'STRING', 'NULLABLE', description='Tipo de pessoa'),
     bigquery.SchemaField('politically_exposed', 'BOOLEAN', 'NULLABLE', description='Exposto politicamente'),
-    
+
     bigquery.SchemaField('properties', 'RECORD', 'NULLABLE', description='Propriedades adicionais', fields=[
     bigquery.SchemaField('cmd_seq', 'INTEGER', 'NULLABLE', description='Sequência do comando'),
     bigquery.SchemaField('dt_capture', 'STRING', 'NULLABLE', description='Data de captura'),

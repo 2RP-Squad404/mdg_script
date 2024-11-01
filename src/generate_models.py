@@ -2,7 +2,7 @@ import json
 import logging
 import os
 
-logging.basicConfig(level=logging.INFO,format='%(levelname)s: %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 
 TYPE_MAPPING = {
     "STRING": "str",
@@ -11,10 +11,11 @@ TYPE_MAPPING = {
     "BOOLEAN": "bool",
     "DATE": "date",
     "TIMESTAMP": "datetime",
-    "RECORD": "dict",  
+    "RECORD": "dict",
     "NUMERIC": "float",
     "ANY": "Any"
 }
+
 
 def create_output_directory(output_dir):
     """
@@ -35,6 +36,7 @@ def create_output_directory(output_dir):
         with open(init_file, 'w') as init_f:
             init_f.write(f"# Auto-generated init file for {output_dir}")
 
+
 def generate_bigquery_class(table_name, schema):
     def process_field(field):
         if field['type'] == 'RECORD' and 'fields' in field:
@@ -52,6 +54,7 @@ def generate_bigquery_class(table_name, schema):
         class_definition += f"    {process_field(field)},\n"
     class_definition += "]\n"
     return class_definition
+
 
 def process_bigquery_folder(folder_path, folder_name, output_dir):
     """
@@ -84,6 +87,7 @@ def process_bigquery_folder(folder_path, folder_name, output_dir):
         output_file.write("from google.cloud import bigquery\n\n")
         output_file.write("\n\n".join(schemas))
 
+
 def create_bigquery_schemas(directory):
     """
     Cria schemas do BigQuery para todos os datasets em um diretório especificado.
@@ -104,6 +108,7 @@ def create_bigquery_schemas(directory):
 
     logging.info("Big Query Schemas criados com sucesso!")
 
+
 def create_class_code_pydantic(schema: dict) -> str:
     def process_field(field):
         if field['type'] == 'RECORD' and 'fields' in field:
@@ -113,7 +118,7 @@ def create_class_code_pydantic(schema: dict) -> str:
             for subfield in field['fields']:
                 subfield_type = TYPE_MAPPING.get(subfield['type'], "Any")
                 nested_class += f"    {subfield['name']}: {subfield_type}\n"
-            
+
             return nested_class, f"{field['name']}: '{class_name}'"
         else:
             field_type = TYPE_MAPPING.get(field['type'], "Any")
@@ -168,6 +173,7 @@ def process_pydantic_folder(folder_path, folder_name, output_dir):
         output_file.write("\n\n")
         output_file.write("\n\n".join(models))
 
+
 def create_pydantic_models(directory):
     """
     Cria classes Pydantic para todos os datasets em um diretório especificado.
@@ -185,8 +191,9 @@ def create_pydantic_models(directory):
         folder_path = os.path.join(directory, folder_name)
         if os.path.isdir(folder_path):
             process_pydantic_folder(folder_path, folder_name, output_dir)
-    
+
     logging.info("Pydantic Models criados com sucesso!")
+
 
 directory = './bq_schemas'
 create_bigquery_schemas(directory)

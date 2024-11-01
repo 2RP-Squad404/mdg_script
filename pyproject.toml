@@ -26,7 +26,7 @@ google-cloud-aiplatform = "^1.70.0"
 
 [tool.ruff]
 line-length = 79
-extend-exclude = ['__pycache__']
+extend-exclude = ['__pycache__', 'py_models', 'jsonl_mock', 'bq_schemas', '.ruff_cache', '.vscode', 'docs', 'secrets']
 
 [tool.ruff.lint]
 preview = true
