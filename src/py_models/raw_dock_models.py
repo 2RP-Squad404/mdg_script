@@ -1,5 +1,6 @@
+from datetime import date
+
 from pydantic import BaseModel
-from datetime import date, datetime
 
 
 # Dataset: raw_dock, Table: debit_account
@@ -36,8 +37,6 @@ class Properties(BaseModel):
     issuer_id: int
     issuer_name: str
     operation: str
-
-
 
 
 # Dataset: raw_dock, Table: debit_person
@@ -77,5 +76,3 @@ class Properties(BaseModel):
     issuer_id: int
     issuer_name: str
     operation: str
-
-
