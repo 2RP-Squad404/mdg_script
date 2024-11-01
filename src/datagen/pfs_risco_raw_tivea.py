@@ -1,15 +1,15 @@
 import random
 
 from faker import Faker
-
 from jsonl_convert import jsonl_data
 
 faker = Faker('pt_BR')
 
+
 def Datagen_pfs_risco_raw_tivea(num_records):
 
-    data = {'acordo': [], 'cliente':[], 'contrato':[]}
-        
+    data = {'acordo': [], 'cliente': [], 'contrato': []}
+
     for _ in range(num_records):
 
         criar_produto_acordo = {
@@ -27,7 +27,6 @@ def Datagen_pfs_risco_raw_tivea(num_records):
             'ranking': faker.word(),
             'dataHoraModificacao': faker.date_time().isoformat(),
         }
-
 
         criar_Enderecos = {
             'id': faker.random_number(digits=10, fix_len=True),
@@ -47,7 +46,6 @@ def Datagen_pfs_risco_raw_tivea(num_records):
             'dataHoraModificacao': faker.date_time().isoformat(),
         }
 
-
         criar_Telefones = {
             'id': faker.random_number(digits=10, fix_len=True),
             'ddd': faker.random_number(digits=2),
@@ -60,7 +58,6 @@ def Datagen_pfs_risco_raw_tivea(num_records):
             'dataHoraModificacao': faker.date_time().isoformat(),
         }
 
-
         criar_Informacoesadicionais = {
             'nome': faker.word(),
             'linha': faker.word(),
@@ -69,7 +66,6 @@ def Datagen_pfs_risco_raw_tivea(num_records):
             'tipo': faker.word(),
             'tamanho': faker.word(),
         }
-
 
         criar_Assessorias = {
             'id': faker.random_number(digits=10, fix_len=True),
@@ -86,14 +82,13 @@ def Datagen_pfs_risco_raw_tivea(num_records):
             'alterarInformacoesCadastrais': faker.boolean(),
         }
 
-
         criar_marcadores = {
             'id': faker.random_number(digits=10, fix_len=True),
             'nome': faker.word(),
             'cor': faker.color_name(),
         }
 
-        criar_Cliente_faker =  {
+        criar_Cliente_faker = {
                 'source': faker.word(),
                 'id': criar_produto_acordo['id'],
                 'idExterno': faker.uuid4(),
@@ -147,7 +142,6 @@ def Datagen_pfs_risco_raw_tivea(num_records):
                 'production_date': faker.date_this_year(),
             }
         data['cliente'].append(criar_Cliente_faker)
-
 
         criar_Acordo_faker = {
                 'SOURCE': f"https://pernambucanas.cobransaas.com.br/api/contratos?"
@@ -521,7 +515,6 @@ def Datagen_pfs_risco_raw_tivea(num_records):
                 },
             }
         data['acordo'].append(criar_Acordo_faker)
-
 
         criar_Contrato_faker = {
                 'SOURCE': f"https://pernambucanas.cobransaas.com.br/api/contratos?"
