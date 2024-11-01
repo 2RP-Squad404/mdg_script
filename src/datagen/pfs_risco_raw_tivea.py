@@ -1,6 +1,3 @@
-import itertools
-import json
-import os
 import random
 
 from faker import Faker
@@ -8,14 +5,6 @@ from faker import Faker
 from jsonl_convert import jsonl_data
 
 faker = Faker('pt_BR')
-id_serial = itertools.count(start=0)
-
-# dados que o faker não conseguiu gerar
-
-
-# As funções abaixo são responsáveis por criar dados mock para o dataset pfs_risco_raw_tivea
-# observe que as funções correspondem a tabelas presentes no dataset.
-
 
 def Datagen_pfs_risco_raw_tivea(num_records):
 
@@ -24,24 +13,24 @@ def Datagen_pfs_risco_raw_tivea(num_records):
     for _ in range(num_records):
 
         criar_produto_acordo = {
-            'id': next(id_serial),
+            'id': faker.random_number(digits=10, fix_len=True),
             'idExterno': faker.ean8(),
             'nome': faker.company(),
             'descricao': faker.paragraph(),
         }
 
         criar_Emails = {
-            'id': next(id_serial),  # next(id_serial) instead of str(id_serial)
+            'id': faker.random_number(digits=10, fix_len=True),
             'idExterno': faker.uuid4(),
             'email': faker.email(),
             'principal': faker.boolean(),
             'ranking': faker.word(),
-            'dataHoraModificacao': faker.date_time().isoformat(), # ISO format
+            'dataHoraModificacao': faker.date_time().isoformat(),
         }
 
 
         criar_Enderecos = {
-            'id': next(id_serial), # next(id_serial) instead of str(id_serial)
+            'id': faker.random_number(digits=10, fix_len=True),
             'idExterno': faker.uuid4(),
             'cep': faker.postcode(),
             'codigoDne': faker.ean8(),
@@ -55,13 +44,12 @@ def Datagen_pfs_risco_raw_tivea(num_records):
             'uf': faker.state_abbr(),
             'principal': faker.boolean(),
             'ranking': str(faker.random_int(min=1, max=10)),
-            'dataHoraModificacao': faker.date_time().isoformat(), # ISO format
+            'dataHoraModificacao': faker.date_time().isoformat(),
         }
 
 
         criar_Telefones = {
-            'id': next(id_serial), # next(id_serial) instead of str(id_serial)
-            'idExterno': faker.uuid4(),
+            'id': faker.random_number(digits=10, fix_len=True),
             'ddd': faker.random_number(digits=2),
             'telefone': faker.numerify('#########'),
             'ramal': faker.random_number(digits=4),
@@ -69,7 +57,7 @@ def Datagen_pfs_risco_raw_tivea(num_records):
             'observacao': faker.sentence(),
             'principal': faker.boolean(),
             'ranking': str(faker.random_int(min=1, max=10)),
-            'dataHoraModificacao': faker.date_time().isoformat(), # ISO format
+            'dataHoraModificacao': faker.date_time().isoformat(),
         }
 
 
@@ -84,7 +72,7 @@ def Datagen_pfs_risco_raw_tivea(num_records):
 
 
         criar_Assessorias = {
-            'id': next(id_serial), # next(id_serial) instead of str(id_serial)
+            'id': faker.random_number(digits=10, fix_len=True),
             'nome': faker.company(),
             'situacao': faker.random_element(elements=('Ativo', 'Inativo')),
             'cic': faker.bothify(text='CIC-??-#######'),
@@ -100,7 +88,7 @@ def Datagen_pfs_risco_raw_tivea(num_records):
 
 
         criar_marcadores = {
-            'id': next(id_serial), # next(id_serial) instead of str(id_serial)
+            'id': faker.random_number(digits=10, fix_len=True),
             'nome': faker.word(),
             'cor': faker.color_name(),
         }
@@ -165,7 +153,7 @@ def Datagen_pfs_risco_raw_tivea(num_records):
                 'SOURCE': f"https://pernambucanas.cobransaas.com.br/api/contratos?"
                 f"selector=parcelas&mode=CONTINUABLE&size=2000&"
                 f"situacao={random.choice(['ABERTO', 'PARCIAL', 'PENDENTE', 'CEDIDO', 'LIQUIDADO'])}",
-                'id': str(next(id_serial)),
+                'id': str(faker.random_number(digits=10, fix_len=True)),
                 'cliente': faker.random_number(digits=11),
                 'cobrador': faker.random_number(digits=16),
                 'tipo': faker.random_element(elements=('ACORDO', 'RENEGOCIACAO')),
@@ -212,7 +200,7 @@ def Datagen_pfs_risco_raw_tivea(num_records):
                 'diasAtraso': str(faker.random_int(min=-10, max=10)),
                 'motivoCancelamento': faker.json(),
                 'negociacao': {
-                    'id': str(id_serial),
+                    'id': str(faker.random_number(digits=10, fix_len=True)),
                     'nome': faker.word(),
                     'descricao': faker.sentence(),
                     'situacao': faker.word(),
@@ -226,7 +214,7 @@ def Datagen_pfs_risco_raw_tivea(num_records):
                     'icone': faker.word(),
                     'tipoDesconto': faker.word(),
                     'modalidade': {
-                        'id': str(id_serial),
+                        'id': str(faker.random_number(digits=10, fix_len=True)),
                         'nome': faker.word(),
                         'tipo': faker.word(),
                         'situacao': faker.word(),
@@ -249,13 +237,13 @@ def Datagen_pfs_risco_raw_tivea(num_records):
                 },
                 'criterioTributo': faker.word(),
                 'produto': {
-                    'id': str(id_serial),
+                    'id': str(faker.random_number(digits=10, fix_len=True)),
                     'idExterno': faker.word(),
                     'nome': faker.word(),
                     'descricao': faker.sentence(),
                 },
                 'tributo': {
-                    'id': str(id_serial),
+                    'id': str(faker.random_number(digits=10, fix_len=True)),
                     'nome': faker.word(),
                     'percentual': str(faker.pyfloat(left_digits=2, right_digits=4)),
                     'percentualFixo': str(
@@ -268,21 +256,21 @@ def Datagen_pfs_risco_raw_tivea(num_records):
                     'dataCalculo': faker.word(),
                 },
                 'meioPagamento': {
-                    'id': str(id_serial),
+                    'id': str(faker.random_number(digits=10, fix_len=True)),
                     'tipo': faker.word(),
                     'nome': faker.word(),
                     'cobrador': {
-                        'id': str(id_serial),
+                        'id': str(faker.random_number(digits=10, fix_len=True)),
                         'nome': faker.word(),
                         'banco': faker.random_number(digits=3),
                     },
                 },
-                'usuario': {'id': str(id_serial), 'nome': faker.word()},
-                'assessoria': {'id': str(id_serial), 'nome': faker.word()},
+                'usuario': {'id': str(faker.random_number(digits=10, fix_len=True)), 'nome': faker.word()},
+                'assessoria': {'id': str(faker.random_number(digits=10, fix_len=True)), 'nome': faker.word()},
                 'parcelas': [
                     {
-                        'id': str(id_serial),
-                        'acordo': str(id_serial),
+                        'id': str(faker.random_number(digits=10, fix_len=True)),
+                        'acordo': str(faker.random_number(digits=10, fix_len=True)),
                         'numeroParcela': str(faker.random_int()),
                         'dataVencimento': faker.date_time_between(
                             start_date='now', end_date='+1y'
@@ -332,8 +320,8 @@ def Datagen_pfs_risco_raw_tivea(num_records):
                     }
                 ],
                 'pagamentos': {
-                    'id': str(id_serial),
-                    'dataProcessamento': str(id_serial),
+                    'id': str(faker.random_number(digits=10, fix_len=True)),
+                    'dataProcessamento': str(faker.random_number(digits=10, fix_len=True)),
                     'dataLiquidacao': str(faker.random_int()),
                     'dataCredito': faker.date_time_between(
                         start_date='now', end_date='+1y'
@@ -362,7 +350,7 @@ def Datagen_pfs_risco_raw_tivea(num_records):
                     'situacao': str(faker.pydecimal(left_digits=5, right_digits=2)),
                     'integracao': str(faker.pydecimal(left_digits=5, right_digits=2)),
                     'agrupador': {
-                        'id': str(id_serial),
+                        'id': str(faker.random_number(digits=10, fix_len=True)),
                         'idExterno': str(faker.random_int()),
                         'nome': faker.word(),
                         'cic': faker.word(),
@@ -371,7 +359,7 @@ def Datagen_pfs_risco_raw_tivea(num_records):
                         'situacao': faker.word(),
                     },
                     'abatimentos': {
-                        'id': str(id_serial),
+                        'id': str(faker.random_number(digits=10, fix_len=True)),
                         'origem': faker.word(),
                         'valorPrincipal': str(
                             faker.pydecimal(left_digits=5, right_digits=2)
@@ -539,7 +527,7 @@ def Datagen_pfs_risco_raw_tivea(num_records):
                 'SOURCE': f"https://pernambucanas.cobransaas.com.br/api/contratos?"
                 f"selector=parcelas&mode=CONTINUABLE&size=2000&"
                 f"situacao={random.choice(['ABERTO', 'PARCIAL', 'PENDENTE', 'CEDIDO', 'LIQUIDADO'])}",
-                'id': str(next(id_serial)),
+                'id': str(faker.random_number(digits=10, fix_len=True)),
                 'idExterno': faker.random_number(digits=5),
                 'numeroContrato': faker.bothify(text='?????????########'),
                 'numeroParcelas': faker.random_number(digits=1),
@@ -568,7 +556,7 @@ def Datagen_pfs_risco_raw_tivea(num_records):
                 'dataLp': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
                 'siglaAtraso': faker.random_element(elements=['Perda', 'Creliq']),
                 'cliente': {
-                    'id': str(id_serial),
+                    'id': str(faker.random_number(digits=10, fix_len=True)),
                     'idExterno': faker.random_number(digits=10),
                     'tipoPessoa': faker.random_element(
                         elements=['FISICA', 'JURIDICA']
@@ -610,9 +598,9 @@ def Datagen_pfs_risco_raw_tivea(num_records):
                 },
                 'parcelas': [
                     {
-                        'id': str(id_serial),
+                        'id': str(faker.random_number(digits=10, fix_len=True)),
                         'idExterno': faker.random_number(digits=1),
-                        'contrato': str(id_serial),
+                        'contrato': str(faker.random_number(digits=10, fix_len=True)),
                         'numeroContrato': faker.bothify(text='?????????########'),
                         'numeroParcela': faker.random_number(digits=1),
                         'dataVencimento': faker.date_time().strftime(
@@ -664,16 +652,6 @@ def Datagen_pfs_risco_raw_tivea(num_records):
             }
         data['contrato'].append(criar_Contrato_faker)
 
-    # Obtendo o nome do dataset
-    dataset_name = os.path.splitext(os.path.basename(__file__))[0]
-
-    # Obtendo o caminho absoluto do diretório raiz do projeto
-    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
-    output_path = os.path.join(project_root, "src/mock_data", dataset_name)
-
-    os.makedirs(output_path, exist_ok=True)
-
-    # Salvando os dados
     jsonl_data(data=data)
 
     return data
