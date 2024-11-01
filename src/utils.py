@@ -1,88 +1,51 @@
-# Este arquivo possui a implementação de funções auxiliares da aplicação
+from datetime import date, datetime
+from decimal import Decimal
 import importlib.util
+import inspect
+import json
+import logging
 import os
-from datetime import datetime
 
 from google.cloud import bigquery
 
 from auth import get_bigquery_client
-from config import PROJECT_ID
+from config import PROJECT_ID, setup_logging
 
-client = get_bigquery_client()
+setup_logging(log_level=logging.INFO)
 
 
 def load_py_schema(dataset_name):
     """
-    Carrega o schema do dataset de um arquivo JSON que contém todas as tabelas.
+    Carrega o schema de um dataset a partir de um arquivo Python.
 
     Parâmetros:
-        schema_path (str): O caminho para o arquivo JSON do schema do dataset.
+        dataset_name (str): Nome do dataset.
 
     Retorno:
-        dict: Um dicionário onde as chaves são os nomes das tabelas e os valores são os schemas.
+        Módulo importado que contém o schema, ou None se o arquivo não existir.
     """
-    py_schema_path = os.path.join('py_schemas', f"{dataset_name}.py")  # type: ignore
+    py_schema_path = os.path.join('py_schemas', f"{dataset_name}.py")
     if os.path.exists(py_schema_path):
         spec = importlib.util.spec_from_file_location(f"{dataset_name}", py_schema_path)
         schema_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(schema_module)
         return schema_module
-    else:
-        return None
-
-
-def send_data_to_bigquery(client, dataset_id, table_id, data):
-    """
-    Envia os dados mockados para tabelas no BigQuery.
-
-    Parâmetros:
-        client (bigquery.Client): instância do cliente do BigQuery.
-        dataset_id (str): o ID do dataset onde a tabela está localizada.
-        table_id (str): o ID da tabela onde os dados serão inseridos.
-        data (dict): dados a serem enviados, no formato de lista de dicionários.
-
-    Retorno:
-        None: Apenas imprime mensagens informando o status do envio.
-    """
-    try:
-        table_ref = client.dataset(dataset_id).table(table_id)
-        table = client.get_table(table_ref)
-        errors = client.insert_rows_json(table, data)
-        if errors:
-            print(f"Erro ao enviar: {errors}")
-        else:
-            print(f"{len(data)} linha(s) inserida(s) com sucesso para {table_id} em {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}.")
-
-    except Exception as e:
-        print(f"Erro durante o envio para a tabela {table_id}: {e}")
-
-
-def get_tables(dataset_id):
-    """
-    A função pega os nomes das tabelas e armazena em um array.
-
-    Parâmetros:
-        dataset_id (str): O nome do dataset que estão as tabelas.
-
-    Retorno:
-        list (str): Retorna os nomes em formato de lista.
-    """
-    dataset_ref = client.dataset(dataset_id)
-
-    tables = client.list_tables(dataset_ref)
-
-    table_list = []
-    for table in tables:
-        table_list.append(table.table_id)
-
-    return table_list
+    return None
 
 
 def jsonl_to_bigquery(filename, table_id, dataset_id):
     """
-    A função abre um arquivo jasonl que contém os dados gerados e envia para o Big Query
+    Carrega dados de um arquivo JSONL para o BigQuery.
+
+    Abre um arquivo JSONL que contém dados gerados e envia para uma tabela específica
+    no BigQuery, utilizando configuração de trabalho de carga.
+
+    Exceções:
+        Gera exceções caso ocorra algum erro durante o carregamento dos dados.
     """
     jsonl_file_path = f"jsonl_mock/{filename}"
+    client = get_bigquery_client()
+    jsonl_file_path = "jsonl_mock/Acordo_faker.jsonl"
     project_id = PROJECT_ID
     dataset_id = dataset_id
     table_id = table_id
@@ -102,16 +65,21 @@ def jsonl_to_bigquery(filename, table_id, dataset_id):
     load_job.result()
 
 
+
 def create_tables():
     """
-    Cria tabelas no BigQuery para cada dataset e tabela no diretório.
+    Cria tabelas no BigQuery a partir dos schemas definidos e aplica particionamento se configurado.
 
-    Carrega os schemas correspondentes da outra pasta e cria as tabelas no dataset que já tem criado,
-    excluindo algumas tabelas de serem particionadas.
+    Para cada dataset e tabela, carrega o schema correspondente do arquivo Python,
+    exclui algumas tabelas de serem particionadas e cria a tabela no dataset no BigQuery.
+
+    Exceções:
+        Gera exceções e loga erros caso ocorra algum problema durante a criação das tabelas.
     """
 
-    excluded_partition_tables = ["cobranca_telefone", "acordo", "cliente"]
+    client = get_bigquery_client()
 
+    excluded_partition_tables = ["cobranca_telefone", "acordo", "cliente"]
     datasets = list(client.list_datasets())
     datasets_created = [dataset.dataset_id for dataset in datasets]
 
@@ -126,11 +94,14 @@ def create_tables():
                 for table_file in os.listdir(dataset_path):
                     table_name = table_file.replace('.json', '')
 
+
                     schema = getattr(schema_module, f"{table_name}", None)
+
 
                     if schema:
                         table_id = f"{dataset_id}.{table_name}"
                         table = bigquery.Table(table_id, schema=schema)
+
 
                         partition_field = None
                         partition_type = None
@@ -142,28 +113,38 @@ def create_tables():
                                         partition_type = "MONTH" if field.name.startswith("num_anomes") or field.name.startswith("production_date") else "DAY"
                                         break
                                     else:
-                                        print(f"O campo {field.name} na tabela {table_name} não é do tipo TIMESTAMP, DATE ou DATETIME. Particionamento ignorado.")
+                                        logging.error(f"O campo {field.name} na tabela {table_name} não é do tipo TIMESTAMP, DATE ou DATETIME. Particionamento ignorado.")
 
                             if partition_field and partition_type:
                                 table.time_partitioning = bigquery.TimePartitioning(
                                     type_=partition_type,
                                     field=partition_field
                                 )
-                                print(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
+                                logging.info(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
                             else:
-                                print(f"Tabela {table_name} sem campo de particionamento configurado.")
+                                logging.error(f"Tabela {table_name} sem campo de particionamento configurado.")
 
                         client.create_table(table, exists_ok=True)
-                        print(f"Tabela {table_name} criada no dataset {dataset_folder}")
+                        update_table_descriptions_from_schemas("py_schemas")
+                        logging.info(f"Tabela {table_name} criada no dataset {dataset_folder}")
                     else:
-                        print(f"Schema não encontrado para a tabela {table_name} no dataset {dataset_folder}")
+                        logging.error(f"Schema não encontrado para a tabela {table_name} no dataset {dataset_folder}")
             else:
-                print(f"Arquivo de schema Python não encontrado para o dataset {dataset_folder}")
+                logging.error(f"Arquivo de schema Python não encontrado para o dataset {dataset_folder}")
         else:
-            print(f"Dataset {dataset_folder} não encontrado no BigQuery")
+            logging.error(f"Dataset {dataset_folder} não encontrado no BigQuery")
+
 
 def load_schema_module(schema_file):
-    """Carrega o módulo de esquema Python a partir de um arquivo."""
+    """
+    Carrega um módulo de schema Python a partir de um arquivo.
+
+    Parâmetros:
+        schema_file (str): Caminho para o arquivo de schema.
+
+    Retorno:
+        Módulo importado que contém o schema.
+    """
     if not os.path.isfile(schema_file):
         raise FileNotFoundError(f"O arquivo '{schema_file}' não foi encontrado.")
     
@@ -176,13 +157,22 @@ def load_schema_module(schema_file):
     return schema_module
 
 
+
 def update_table_descriptions_from_schemas(schema_directory):
     """
-    Atualiza  as descrições das tabelas do BigQuery com base nos esquemas Python do  diretório 'py_schemas'.
+    Atualiza as descrições das tabelas no BigQuery usando schemas Python.
+
+    Para cada arquivo de schema no diretório especificado, carrega o módulo e
+    atualiza as descrições das tabelas no BigQuery com base nos schemas fornecidos.
 
     Parâmetros:
-    schema_directory: Caminho para o diretório com os arquivos de esquema Python
+        schema_directory (str): Caminho para o diretório com os arquivos de esquema Python.
+
+    Exceções:
+        Loga erros caso ocorra algum problema ao atualizar as descrições das tabelas.
     """
+    client = get_bigquery_client()
+
     for schema_file in os.listdir(schema_directory):
         dataset_id = schema_file.replace('.py', '')
         schema_file_path = os.path.join(schema_directory, schema_file)
@@ -205,6 +195,50 @@ def update_table_descriptions_from_schemas(schema_directory):
 
                 existing_table.schema = updated_schema
                 client.update_table(existing_table, ["schema"])
-                print(f"Tabela '{table_ref}' atualizada com descrições.")
+                logging.info(f"Tabela '{table_ref}' atualizada com descrições.")
             except Exception as e:
-                print(f"Erro ao atualizar tabela '{table_ref}': {e}")
+                logging.error(f"Erro ao atualizar tabela '{table_ref}': {e}")
+
+def jsonl_data(data):
+    """
+    Salva dados em arquivos JSONL, convertendo automaticamente datas e decimais 
+    para formatos compatíveis com JSON.
+
+    Parâmetros:
+    data (dict): Dicionário onde as chaves são nomes de arrays e os valores são listas de dicionários.
+    """
+    # Obtendo o nome do arquivo chamador para definir o nome do dataset
+    caller_frame = inspect.stack()[1]
+    caller_file = caller_frame.filename
+    dataset_name = os.path.splitext(os.path.basename(caller_file))[0]
+
+    # Definindo o caminho de saída
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+    output_path = os.path.join(project_root, "src/mock_data", dataset_name)
+    os.makedirs(output_path, exist_ok=True)
+
+    def serialize_data(item):
+        """Converte datas, decimais e processa dados aninhados para compatibilidade JSON."""
+        if isinstance(item, datetime):
+            return item.strftime('%Y-%m-%d %H:%M:%S')
+        elif isinstance(item, date):
+            return item.strftime('%Y-%m-%d')
+        elif isinstance(item, Decimal):
+            return float(item)
+        elif isinstance(item, dict):
+            return {k: serialize_data(v) for k, v in item.items()}
+        elif isinstance(item, list):
+            return [serialize_data(i) for i in item]
+        return item
+
+    # Salvando os dados no formato JSONL
+    for array_name, array_data in data.items():
+        filename = f"{array_name}.jsonl"
+        filepath = os.path.join(output_path, filename)
+        with open(filepath, 'w', encoding='utf-8') as f:
+            for item in array_data:
+                serialized_item = serialize_data(item)
+                json.dump(serialized_item, f, ensure_ascii=False)
+                f.write('\n')
+
+    return data

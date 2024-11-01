@@ -1,3 +1,6 @@
+import logging
+import logging.config
+
 from pydantic_settings import BaseSettings
 
 """
@@ -29,3 +32,36 @@ settings = Settings()
 
 PROJECT_ID = settings.project_id
 SECRET_NAME = settings.secret_name
+
+
+def setup_logging(log_level=logging.INFO):
+    """Configura o logging com um formato padrão no console.
+
+    Args:
+        log_level: Nível de log (ex: logging.DEBUG, logging.INFO, logging.WARNING, logging.ERROR, logging.CRITICAL).
+    """
+    logging_config = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'formatters': {
+            'standard': {
+                'format': '%(levelname)s: %(message)s'
+            },
+        },
+        'handlers': {
+            'console': {
+                'class': 'logging.StreamHandler',
+                'level': log_level,
+                'formatter': 'standard',
+            },
+        },
+        'loggers': {
+            '': {
+                'handlers': ['console'],
+                'level': log_level,
+                'propagate': False
+            }
+        }
+    }
+
+    logging.config.dictConfig(logging_config)
