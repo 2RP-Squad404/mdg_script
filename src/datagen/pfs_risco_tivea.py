@@ -1,15 +1,16 @@
-from faker import Faker
-import random 
+import random
 import re
 
+from faker import Faker
 from jsonl_convert import jsonl_data
 
 faker = Faker('pt_BR')
 
+
 def Datagen_pfs_risco_tivea(num_records):
 
     data = {'cartao': [], 'cobranca_campo_customizavel': [], 'cobr_cliente_atraso': [], 'cobranca_acordo': [],
-            'cobranca_assessoria': [], 'cobranca_cliente':[], 'Cobranca_campo_customizavel': [], 'cobranca_email_cliente': [],
+            'cobranca_assessoria': [], 'cobranca_cliente': [], 'Cobranca_campo_customizavel': [], 'cobranca_email_cliente': [],
             'cobranca_endereco_cliente': [], 'cobranca_liquidacao_parc_acordo': [], 'cobranca_origem_acordo': []}
 
     for _ in range(num_records):
@@ -46,8 +47,6 @@ def Datagen_pfs_risco_tivea(num_records):
             }
         data['cartao'].append(criar_cartao_faker)
 
-
-
         criar_cobranca_campo_customizavel_faker = {
                 "id_cliente_cobranca": str(faker.random_number(digits=10, fix_len=True)),
                 "nom_campo": faker.random_element(elements=['REACORDO', 'NOVO_LIMITE', 'ESTRATEGIA4']),
@@ -55,7 +54,7 @@ def Datagen_pfs_risco_tivea(num_records):
                 "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
             }
         data['cobranca_campo_customizavel'].append(criar_cobranca_campo_customizavel_faker)
-        
+
         criar_cobr_cliente_atraso_faker = {
                 "num_cpf_cnpj_cliente": faker.random_int(min=10000000000, max=99999999999),
                 "id_conta": faker.random_number(digits=10, fix_len=True),
@@ -150,7 +149,6 @@ def Datagen_pfs_risco_tivea(num_records):
             }
         data['cobranca_assessoria'].append(criar_cobranca_assessoria_faker)
 
-
         criar_cobranca_cliente_faker = {
                 "id_cliente_cobranca": faker.random_number(digits=10, fix_len=True),
                 "id_cliente_externo": faker.random_number(digits=11, fix_len=True),
@@ -181,7 +179,6 @@ def Datagen_pfs_risco_tivea(num_records):
                 "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
             }
         data['cobranca_cliente'].append(criar_cobranca_cliente_faker)
-
 
         criar_Cobranca_campo_customizavel_faker = {
                 "id_cliente_cobranca": faker.random_number(digits=10, fix_len=True),
