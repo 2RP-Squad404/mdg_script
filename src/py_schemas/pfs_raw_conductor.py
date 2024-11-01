@@ -1805,6 +1805,7 @@ seguro_pessoa = [
 
 # Dataset: pfs_raw_conductor, Table: transacao_corrente
 transacao_corrente = [
+<<<<<<< HEAD
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('tc_id_transacao', 'INTEGER', 'NULLABLE'),
@@ -1841,4 +1842,42 @@ transacao_corrente = [
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('production_date', 'DATE', 'NULLABLE'),
+=======
+    bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
+    bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
+    bigquery.SchemaField('tc_id_transacao', 'INTEGER', 'NULLABLE', description='ID da transação.'),
+    bigquery.SchemaField('tc_id_tipotransacao', 'INTEGER', 'NULLABLE', description='ID do tipo de transação.'),
+    bigquery.SchemaField('tc_id_emissor', 'INTEGER', 'NULLABLE', description='ID do emissor.'),
+    bigquery.SchemaField('tc_id_produto', 'INTEGER', 'NULLABLE', description='ID do produto.'),
+    bigquery.SchemaField('tc_id_conta', 'INTEGER', 'NULLABLE', description='ID da conta.'),
+    bigquery.SchemaField('tc_portador', 'INTEGER', 'NULLABLE', description='ID do portador.'),
+    bigquery.SchemaField('tc_sequencialcartao', 'INTEGER', 'NULLABLE', description='Sequencial do cartão.'),
+    bigquery.SchemaField('tc_datavencimentoreal', 'TIMESTAMP', 'NULLABLE', description='Data e hora do vencimento real.'),
+    bigquery.SchemaField('tc_datavencimentopadrao', 'STRING', 'NULLABLE', description='Data de vencimento padrão.'),
+    bigquery.SchemaField('tc_datageracao', 'TIMESTAMP', 'NULLABLE', description='Data e hora de geração.'),
+    bigquery.SchemaField('tc_valor', 'FLOAT', 'NULLABLE', description='Valor da transação.'),
+    bigquery.SchemaField('tc_historico', 'STRING', 'NULLABLE', description='Histórico da transação.'),
+    bigquery.SchemaField('tc_statuscontabil', 'INTEGER', 'NULLABLE', description='Status contábil.'),
+    bigquery.SchemaField('tc_statusgerencial', 'INTEGER', 'NULLABLE', description='Status gerencial.'),
+    bigquery.SchemaField('tc_id_eventoexterno', 'INTEGER', 'NULLABLE', description='ID do evento externo.'),
+    bigquery.SchemaField('tc_dataorigem', 'TIMESTAMP', 'NULLABLE', description='Data e hora de origem.'),
+    bigquery.SchemaField('tc_statusconta', 'INTEGER', 'NULLABLE', description='Status da conta.'),
+    bigquery.SchemaField('tc_faturado', 'INTEGER', 'NULLABLE', description='Faturado.'),
+    bigquery.SchemaField('tc_id_estabelecimento', 'INTEGER', 'NULLABLE', description='ID do estabelecimento.'),
+    bigquery.SchemaField('tc_datafaturamento', 'TIMESTAMP', 'NULLABLE', description='Data e hora do faturamento.'),
+    bigquery.SchemaField('tc_complemento', 'STRING', 'NULLABLE', description='Complemento.'),
+    bigquery.SchemaField('tc_id_transacaoestorno', 'INTEGER', 'NULLABLE', description='ID da transação de estorno.'),
+    bigquery.SchemaField('tc_flagestornado', 'INTEGER', 'NULLABLE', description='Estornado.'),
+    bigquery.SchemaField('tc_parcela', 'INTEGER', 'NULLABLE', description='Parcela.'),
+    bigquery.SchemaField('tc_plano', 'INTEGER', 'NULLABLE', description='Plano.'),
+    bigquery.SchemaField('tc_id_estabelecimento_visa', 'INTEGER', 'NULLABLE', description='ID do estabelecimento na base Visa.'),
+    bigquery.SchemaField('tc_id_planocredito', 'INTEGER', 'NULLABLE', description='ID do plano de crédito.'),
+    bigquery.SchemaField('tc_id_processoprocedure', 'INTEGER', 'NULLABLE', description='ID do processo/procedure.'),
+    bigquery.SchemaField('tc_datavencpadrao', 'TIMESTAMP', 'NULLABLE', description='Data de vencimento padrão.'),
+    bigquery.SchemaField('tc_id_taxajurosapropriacao', 'INTEGER', 'NULLABLE', description='ID da taxa de juros de apropriação.'),
+    bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
+    bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
+    bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+>>>>>>> a292a1809c41d2cb7f6eba509ea28d7807aea6f5
 ]

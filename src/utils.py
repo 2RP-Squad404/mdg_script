@@ -33,7 +33,7 @@ def load_py_schema(dataset_name):
     return None
 
 
-def jsonl_to_bigquery():
+def jsonl_to_bigquery(filename, table_id, dataset_id):
     """
     Carrega dados de um arquivo JSONL para o BigQuery.
 
@@ -43,11 +43,12 @@ def jsonl_to_bigquery():
     Exceções:
         Gera exceções caso ocorra algum erro durante o carregamento dos dados.
     """
+    jsonl_file_path = f"jsonl_mock/{filename}"
     client = get_bigquery_client()
     jsonl_file_path = "jsonl_mock/Acordo_faker.jsonl"
     project_id = PROJECT_ID
-    dataset_id = "pfs_risco_raw_tivea"
-    table_id = "cliente"
+    dataset_id = dataset_id
+    table_id = table_id
 
     table_ref = f"{project_id}.{dataset_id}.{table_id}"
 
@@ -64,6 +65,7 @@ def jsonl_to_bigquery():
     load_job.result()
 
 
+
 def create_tables():
     """
     Cria tabelas no BigQuery a partir dos schemas definidos e aplica particionamento se configurado.
@@ -74,7 +76,8 @@ def create_tables():
     Exceções:
         Gera exceções e loga erros caso ocorra algum problema durante a criação das tabelas.
     """
-    client = bigquery.Client(project=PROJECT_ID)
+
+    client = get_bigquery_client()
 
     excluded_partition_tables = ["cobranca_telefone", "acordo", "cliente"]
     datasets = list(client.list_datasets())
@@ -91,11 +94,14 @@ def create_tables():
                 for table_file in os.listdir(dataset_path):
                     table_name = table_file.replace('.json', '')
 
+
                     schema = getattr(schema_module, f"{table_name}", None)
+
 
                     if schema:
                         table_id = f"{dataset_id}.{table_name}"
                         table = bigquery.Table(table_id, schema=schema)
+
 
                         partition_field = None
                         partition_type = None
@@ -139,10 +145,17 @@ def load_schema_module(schema_file):
     Retorno:
         Módulo importado que contém o schema.
     """
+    if not os.path.isfile(schema_file):
+        raise FileNotFoundError(f"O arquivo '{schema_file}' não foi encontrado.")
+    
     spec = importlib.util.spec_from_file_location("schema_module", schema_file)
+    if spec is None:
+        raise ImportError(f"Não foi possível criar o spec para o arquivo '{schema_file}'.")
+
     schema_module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(schema_module)
     return schema_module
+
 
 
 def update_table_descriptions_from_schemas(schema_directory):
