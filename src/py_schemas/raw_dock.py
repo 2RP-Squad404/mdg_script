@@ -19,6 +19,7 @@ debit_account = [
 
 # Dataset: raw_dock, Table: debit_person
 debit_person = [
+<<<<<<< HEAD
     bigquery.SchemaField('bank_account', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('bank_agency', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('bank_code', 'INTEGER', 'NULLABLE'),
@@ -43,4 +44,40 @@ debit_person = [
     bigquery.SchemaField('spouse_salary', 'FLOAT', 'NULLABLE'),
     bigquery.SchemaField('tax_identification_number', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('production_date', 'DATE', 'NULLABLE'),
+=======
+    bigquery.SchemaField('bank_account', 'STRING', 'NULLABLE', description='Conta bancária'),
+    bigquery.SchemaField('bank_agency', 'STRING', 'NULLABLE', description='Agência bancária'),
+    bigquery.SchemaField('bank_code', 'INTEGER', 'NULLABLE', description='Código do banco'),
+    bigquery.SchemaField('birth_date', 'STRING', 'NULLABLE', description='Data de nascimento'),
+    bigquery.SchemaField('birth_place', 'STRING', 'NULLABLE', description='Local de nascimento'),
+    bigquery.SchemaField('document_id', 'STRING', 'NULLABLE', description='ID do documento'),
+    bigquery.SchemaField('document_issuer', 'STRING', 'NULLABLE', description='Emissor do documento'),
+    bigquery.SchemaField('email', 'STRING', 'NULLABLE', description='Email'),
+    bigquery.SchemaField('father', 'STRING', 'NULLABLE', description='Nome do pai'),
+    bigquery.SchemaField('gender', 'STRING', 'NULLABLE', description='Gênero'),
+    bigquery.SchemaField('graduation_degree', 'STRING', 'NULLABLE', description='Grau de escolaridade'),
+    bigquery.SchemaField('mother', 'STRING', 'NULLABLE', description='Nome da mãe'),
+    bigquery.SchemaField('name', 'STRING', 'NULLABLE', description='Nome'),
+    bigquery.SchemaField('nationality', 'STRING', 'NULLABLE', description='Nacionalidade'),
+    bigquery.SchemaField('occupation', 'STRING', 'NULLABLE', description='Ocupação'),
+    bigquery.SchemaField('person_id', 'INTEGER', 'NULLABLE', description='ID da pessoa'),
+    bigquery.SchemaField('person_type', 'STRING', 'NULLABLE', description='Tipo de pessoa'),
+    bigquery.SchemaField('politically_exposed', 'BOOLEAN', 'NULLABLE', description='Exposto politicamente'),
+
+    bigquery.SchemaField('properties', 'RECORD', 'NULLABLE', description='Propriedades adicionais', fields=[
+    bigquery.SchemaField('cmd_seq', 'INTEGER', 'NULLABLE', description='Sequência do comando'),
+    bigquery.SchemaField('dt_capture', 'STRING', 'NULLABLE', description='Data de captura'),
+    bigquery.SchemaField('dt_publish', 'STRING', 'NULLABLE', description='Data de publicação'),
+    bigquery.SchemaField('dt_sync', 'STRING', 'NULLABLE', description='Data de sincronização'),
+    bigquery.SchemaField('dt_transaction', 'STRING', 'NULLABLE', description='Data da transação'),
+    bigquery.SchemaField('issuer_id', 'INTEGER', 'NULLABLE', description='ID do emissor'),
+    bigquery.SchemaField('issuer_name', 'STRING', 'NULLABLE', description='Nome do emissor'),
+    bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Operação')]),
+
+    bigquery.SchemaField('salary', 'FLOAT', 'NULLABLE', description='Salário'),
+    bigquery.SchemaField('spouse_name', 'STRING', 'NULLABLE', description='Nome do cônjuge'),
+    bigquery.SchemaField('spouse_salary', 'FLOAT', 'NULLABLE', description='Salário do cônjuge'),
+    bigquery.SchemaField('tax_identification_number', 'STRING', 'NULLABLE', description='Número de identificação fiscal'),
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção dos dados')
+>>>>>>> a292a1809c41d2cb7f6eba509ea28d7807aea6f5
 ]

@@ -1380,6 +1380,7 @@ transacao_contabilizada = [
 
 # Dataset: pfs_unificacao_pefisa, Table: transacao_debito
 transacao_debito = [
+<<<<<<< HEAD
     bigquery.SchemaField('id_conta_debito_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_cartao_debito_so', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('id_transacao_debito', 'INTEGER', 'NULLABLE'),
@@ -1404,4 +1405,30 @@ transacao_debito = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE'),
     bigquery.SchemaField('num_anomes_trans_debito', 'DATE', 'NULLABLE'),
+=======
+    bigquery.SchemaField('id_conta_debito_so', 'INTEGER', 'NULLABLE', description='ID da conta de débito'),
+    bigquery.SchemaField('id_cartao_debito_so', 'INTEGER', 'NULLABLE', description='ID do cartão de débito'),
+    bigquery.SchemaField('id_transacao_debito', 'INTEGER', 'NULLABLE', description='ID da transação de débito'),
+    bigquery.SchemaField('dth_transacao_debito', 'TIMESTAMP', 'NULLABLE', description='Data da transação de débito'),
+    bigquery.SchemaField('dth_origem_transacao_debito', 'TIMESTAMP', 'NULLABLE', description='Data de origem da transação de débito'),
+    bigquery.SchemaField('val_transacao_debito', 'FLOAT', 'NULLABLE', description='Valor da transação de débito'),
+    bigquery.SchemaField('nom_tipo_transacao_debito', 'STRING', 'NULLABLE', description='Nome do tipo de transação de débito'),
+    bigquery.SchemaField('cod_tipo_transacao_debito', 'INTEGER', 'NULLABLE', description='Código do tipo de transação de débito'),
+    bigquery.SchemaField('des_tipo_transacao_debito', 'STRING', 'NULLABLE', description='Descrição do tipo de transação de débito'),
+    bigquery.SchemaField('flg_transacao_credito', 'STRING', 'NULLABLE', description='Flag de transação de crédito'),
+    bigquery.SchemaField('cod_categoria_comerciante', 'INTEGER', 'NULLABLE', description='Código da categoria do comerciante'),
+    bigquery.SchemaField('des_categoria_comerciante', 'STRING', 'NULLABLE', description='Descrição da categoria do comerciante'),
+    bigquery.SchemaField('id_evento_debito', 'INTEGER', 'NULLABLE', description='ID do evento de débito'),
+    bigquery.SchemaField('num_parcela_atual', 'INTEGER', 'NULLABLE', description='Número da parcela atual'),
+    bigquery.SchemaField('qtde_parcela', 'INTEGER', 'NULLABLE', description='Quantidade de parcelas'),
+    bigquery.SchemaField('id_conta_multiplo', 'INTEGER', 'NULLABLE', description='ID da conta múltipla'),
+    bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE', description='ID do produto do cartão'),
+    bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE', description='CPF do cliente'),
+    bigquery.SchemaField('id_cartao_multiplo_titular', 'INTEGER', 'NULLABLE', description='ID do cartão múltiplo do titular'),
+    bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Sequência da última alteração'),
+    bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
+    bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
+    bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
+    bigquery.SchemaField('num_anomes_trans_debito', 'DATE', 'NULLABLE', description='Ano e mês da transação de débito')
+>>>>>>> a292a1809c41d2cb7f6eba509ea28d7807aea6f5
 ]

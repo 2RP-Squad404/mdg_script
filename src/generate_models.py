@@ -14,10 +14,12 @@ TYPE_MAPPING = {
     "DATE": "date",
     "TIMESTAMP": "datetime",
     "RECORD": "dict",
+    "RECORD": "dict",
     "NUMERIC": "float",
     "ANY": "Any",
     "JSON": "dict"
 }
+
 
 
 def create_output_directory(output_dir):
@@ -34,6 +36,7 @@ def create_output_directory(output_dir):
     if not os.path.exists(init_file):
         with open(init_file, 'w') as init_f:
             init_f.write(f"# Auto-generated init file for {output_dir}")
+
 
 
 def generate_bigquery_class(table_name, schema):
@@ -66,6 +69,7 @@ def generate_bigquery_class(table_name, schema):
     return class_definition
 
 
+
 def process_bigquery_folder(folder_path, folder_name, output_dir):
     """
     Processa uma pasta contendo arquivos JSON e gera um arquivo de schema BigQuery.
@@ -93,6 +97,7 @@ def process_bigquery_folder(folder_path, folder_name, output_dir):
     with open(output_file_path, 'w', encoding='utf-8') as output_file:
         output_file.write("from google.cloud import bigquery\n\n")
         output_file.write("\n\n".join(schemas))
+
 
 
 def create_bigquery_schemas(directory):
@@ -130,6 +135,7 @@ def create_class_code_pydantic(schema: dict) -> str:
             for subfield in field['fields']:
                 subfield_type = TYPE_MAPPING.get(subfield['type'], "Any")
                 nested_class += f"    {subfield['name']}: {subfield_type}\n"
+
 
             return nested_class, f"{field['name']}: '{class_name}'"
         else:
@@ -183,6 +189,7 @@ def process_pydantic_folder(folder_path, folder_name, output_dir):
         output_file.write("\n\n".join(models))
 
 
+
 def create_pydantic_models(directory):
     """
     Cria classes Pydantic para todos os datasets no diretório especificado.
@@ -198,9 +205,12 @@ def create_pydantic_models(directory):
         if os.path.isdir(folder_path):
             process_pydantic_folder(folder_path, folder_name, output_dir)
 
+
     logging.info("Pydantic Models criados com sucesso!")
+
 
 
 directory = './bq_schemas'
 create_bigquery_schemas(directory)
 create_pydantic_models(directory)
+
