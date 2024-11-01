@@ -1,27 +1,22 @@
-import json
-import os
-from faker import Faker
-import itertools
-from datetime import date, datetime
-import random 
+import random
 import re
 
+from faker import Faker
 from jsonl_convert import jsonl_data
 
 faker = Faker('pt_BR')
-id_serial = itertools.count(start=0)
+
 
 def Datagen_pfs_risco_tivea(num_records):
 
     data = {'cartao': [], 'cobranca_campo_customizavel': [], 'cobr_cliente_atraso': [], 'cobranca_acordo': [],
-            'cobranca_assessoria': [], 'cobranca_cliente':[], 'Cobranca_campo_customizavel': [], 'cobranca_email_cliente': [],
+            'cobranca_assessoria': [], 'cobranca_cliente': [], 'Cobranca_campo_customizavel': [], 'cobranca_email_cliente': [],
             'cobranca_endereco_cliente': [], 'cobranca_liquidacao_parc_acordo': [], 'cobranca_origem_acordo': []}
 
     for _ in range(num_records):
 
-        # Este arquivo possui as funções geradoras para a tabelas do dataset: 'pfs_risco_tivea'
         criar_cartao_faker = {
-                "id_cartao": next(id_serial),
+                "id_cartao": faker.random_number(digits=10, fix_len=True),
                 "id_produto_cartao": faker.random_int(min=5, max=7),
                 "num_cartao": faker.credit_card_number(),
                 "num_seq_via_cartao": faker.random_int(min=2, max=7),
@@ -52,22 +47,20 @@ def Datagen_pfs_risco_tivea(num_records):
             }
         data['cartao'].append(criar_cartao_faker)
 
-
-
         criar_cobranca_campo_customizavel_faker = {
-                "id_cliente_cobranca": str(next(id_serial)),
+                "id_cliente_cobranca": str(faker.random_number(digits=10, fix_len=True)),
                 "nom_campo": faker.random_element(elements=['REACORDO', 'NOVO_LIMITE', 'ESTRATEGIA4']),
                 "val_campo": faker.random_element(elements=['SERVICE_PREMIUM', 'TUDO JUSTO', 'SERASA', 'VALIDU', 'Portal Pefisa - PPN', 'DIGICOB TECNOLOGIA LTDA']),
                 "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
             }
         data['cobranca_campo_customizavel'].append(criar_cobranca_campo_customizavel_faker)
-        
+
         criar_cobr_cliente_atraso_faker = {
                 "num_cpf_cnpj_cliente": faker.random_int(min=10000000000, max=99999999999),
-                "id_conta": next(id_serial),
-                "id_cliente_so": next(id_serial),
+                "id_conta": faker.random_number(digits=10, fix_len=True),
+                "id_cliente_so": faker.random_number(digits=10, fix_len=True),
                 "num_cartao": faker.credit_card_number(),
-                "id_produto_cartao": next(id_serial),
+                "id_produto_cartao": faker.random_number(digits=10, fix_len=True),
                 "nom_cliente": faker.name(),
                 "tip_pessoa": "FISICA",
                 "tip_situacao": faker.random_element(elements=["DEVEDOR", "COBRANCA", "ATIVO", "BLOQUEADO"]),
@@ -111,7 +104,7 @@ def Datagen_pfs_risco_tivea(num_records):
         data['cobr_cliente_atraso'].append(criar_cobr_cliente_atraso_faker)
 
         criar_cobranca_acordo_faker = {
-                "id_acordo_cobranca": next(id_serial),
+                "id_acordo_cobranca": faker.random_number(digits=10, fix_len=True),
                 "id_cliente_externo": faker.random_int(min=10000000000, max=99999999999),
                 "num_cpf_cnpj_cliente": faker.random_number(digits=11),
                 "id_cobrador": faker.uuid4(),
@@ -137,11 +130,11 @@ def Datagen_pfs_risco_tivea(num_records):
                 "val_saldo_atual": faker.random_int(min=0, max=10000),
                 "qtd_dias_atraso": faker.random_int(min=-100, max=100),
                 "dat_atraso_orig_acordo": faker.date_this_year().strftime('%Y-%m-%d'),
-                "id_acordo_usuario": next(id_serial),
+                "id_acordo_usuario": faker.random_number(digits=10, fix_len=True),
                 "nom_acordo_usuario": faker.name(),
-                "id_acordo_assessoria": next(id_serial),
+                "id_acordo_assessoria": faker.random_number(digits=10, fix_len=True),
                 "nom_acordo_assessoria": faker.company(),
-                "id_acordo_negociacao": next(id_serial),
+                "id_acordo_negociacao": faker.random_number(digits=10, fix_len=True),
                 "nom_acordo_negociacao": faker.job(),
                 "tip_acordo_meio_pagto": random.choice(["BOLETO_PIX", "BOLETO", "DINHEIRO"]),
                 "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
@@ -149,16 +142,15 @@ def Datagen_pfs_risco_tivea(num_records):
         data['cobranca_acordo'].append(criar_cobranca_acordo_faker)
 
         criar_cobranca_assessoria_faker = {
-                "id_assessoria": str(next(id_serial)),
+                "id_assessoria": str(faker.random_number(digits=10, fix_len=True)),
                 "nom_assessoria": faker.company(),
-                "id_cliente_cobranca": str(next(id_serial)),
+                "id_cliente_cobranca": str(faker.random_number(digits=10, fix_len=True)),
                 "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
             }
         data['cobranca_assessoria'].append(criar_cobranca_assessoria_faker)
 
-
         criar_cobranca_cliente_faker = {
-                "id_cliente_cobranca": next(id_serial),
+                "id_cliente_cobranca": faker.random_number(digits=10, fix_len=True),
                 "id_cliente_externo": faker.random_number(digits=11, fix_len=True),
                 "tip_pessoa": faker.random_element(elements=['FISICA']),
                 "tip_situacao": faker.random_element(elements=['COBRANCA', 'DEVEDOR', 'ATIVO', 'BLOQUEADO']),
@@ -188,9 +180,8 @@ def Datagen_pfs_risco_tivea(num_records):
             }
         data['cobranca_cliente'].append(criar_cobranca_cliente_faker)
 
-
         criar_Cobranca_campo_customizavel_faker = {
-                "id_cliente_cobranca": next(id_serial),
+                "id_cliente_cobranca": faker.random_number(digits=10, fix_len=True),
                 "nom_campo": faker.word(),
                 "val_campo": faker.word(),
                 "dat_referencia": faker.date()
@@ -198,16 +189,16 @@ def Datagen_pfs_risco_tivea(num_records):
         data['Cobranca_campo_customizavel'].append(criar_Cobranca_campo_customizavel_faker)
 
         criar_cobranca_email_cliente_faker = {
-                "id_cliente_cobranca": next(id_serial),
+                "id_cliente_cobranca": faker.random_number(digits=10, fix_len=True),
                 "nom_email": faker.email(),
                 "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
             }
         data['cobranca_email_cliente'].append(criar_cobranca_email_cliente_faker)
 
         criar_cobranca_endereco_cliente_faker = {
-                "id_cliente_cobranca": next(id_serial),
+                "id_cliente_cobranca": faker.random_number(digits=10, fix_len=True),
                 "id_cliente_externo": faker.ean13(),
-                "id_endereco_cobranca": next(id_serial),
+                "id_endereco_cobranca": faker.random_number(digits=10, fix_len=True),
                 "tip_endereco_princ": faker.boolean(),
                 "nom_logradouro": faker.street_name(),
                 "num_logradouro": str(faker.building_number()),
@@ -222,8 +213,8 @@ def Datagen_pfs_risco_tivea(num_records):
         data['cobranca_endereco_cliente'].append(criar_cobranca_endereco_cliente_faker)
 
         criar_cobranca_liquidacao_parc_acordo_faker = {
-                "id_liqd_parc_acordo": next(id_serial),
-                "id_parcela_acordo": next(id_serial),
+                "id_liqd_parc_acordo": faker.random_number(digits=10, fix_len=True),
+                "id_parcela_acordo": faker.random_number(digits=10, fix_len=True),
                 "num_parcela_acordo": faker.random_int(min=0, max=10),
                 "val_principal": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
                 "val_total": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
@@ -232,14 +223,14 @@ def Datagen_pfs_risco_tivea(num_records):
                 "val_desconto": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
                 "val_distorcao": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
                 "ind_tipo_liqd": faker.random_element(elements=("TOTAL", "PARCIAL")),
-                "id_pagto_acordo": next(id_serial),
+                "id_pagto_acordo": faker.random_number(digits=10, fix_len=True),
                 "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d %H:%M:%S')
             }
         data['cobranca_liquidacao_parc_acordo'].append(criar_cobranca_liquidacao_parc_acordo_faker)
 
         criar_cobranca_origem_acordo_faker = {
                 "id_origem_acordo": faker.numerify('####################'),
-                "id_acordo_cobranca": next(id_serial),
+                "id_acordo_cobranca": faker.random_number(digits=10, fix_len=True),
                 "num_contrato": faker.numerify('#################'),
                 "num_ordem_contrato": faker.random_int(min=1, max=10),
                 "id_parcela": faker.numerify('####################'),

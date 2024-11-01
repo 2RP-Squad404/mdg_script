@@ -1,10 +1,10 @@
-from datetime import date, datetime
-from decimal import Decimal
 import importlib.util
 import inspect
 import json
 import logging
 import os
+from datetime import date, datetime
+from decimal import Decimal
 
 from google.cloud import bigquery
 
@@ -65,7 +65,6 @@ def jsonl_to_bigquery(filename, table_id, dataset_id):
     load_job.result()
 
 
-
 def create_tables():
     """
     Cria tabelas no BigQuery a partir dos schemas definidos e aplica particionamento se configurado.
@@ -94,14 +93,11 @@ def create_tables():
                 for table_file in os.listdir(dataset_path):
                     table_name = table_file.replace('.json', '')
 
-
                     schema = getattr(schema_module, f"{table_name}", None)
-
 
                     if schema:
                         table_id = f"{dataset_id}.{table_name}"
                         table = bigquery.Table(table_id, schema=schema)
-
 
                         partition_field = None
                         partition_type = None
@@ -147,7 +143,7 @@ def load_schema_module(schema_file):
     """
     if not os.path.isfile(schema_file):
         raise FileNotFoundError(f"O arquivo '{schema_file}' não foi encontrado.")
-    
+
     spec = importlib.util.spec_from_file_location("schema_module", schema_file)
     if spec is None:
         raise ImportError(f"Não foi possível criar o spec para o arquivo '{schema_file}'.")
@@ -155,7 +151,6 @@ def load_schema_module(schema_file):
     schema_module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(schema_module)
     return schema_module
-
 
 
 def update_table_descriptions_from_schemas(schema_directory):
@@ -198,6 +193,7 @@ def update_table_descriptions_from_schemas(schema_directory):
                 logging.info(f"Tabela '{table_ref}' atualizada com descrições.")
             except Exception as e:
                 logging.error(f"Erro ao atualizar tabela '{table_ref}': {e}")
+
 
 def jsonl_data(data):
     """
