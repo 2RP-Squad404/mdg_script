@@ -5,7 +5,7 @@ import random
 
 from faker import Faker
 
-from utils import jsonl_data
+from jsonl_convert import jsonl_data
 
 faker = Faker('pt_BR')
 id_serial = itertools.count(start=0)
