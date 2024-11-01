@@ -1,0 +1,866 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "conta",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_filial",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_produto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_bin",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_tipopessoa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_pessoa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_quantidadevencimentos",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_vencimento1",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_vencimento2",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_vencimento3",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_proximovencimentoreal",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_proximovencimentopadrao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_datacadastramento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_aniversarioanuidade1",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_aniversarioanuidade2",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_quantidadeportadores",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_caracteristicaanuidade",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_flagutilizacao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_origemcomercial",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_flagdescontoparticular",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_statusextrato",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_posicaocobranca",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_correspondencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_statusdata",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_datavencimentocobranca",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_dataultimopagamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_dataultimopagamentoatraso",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_datapagamentomaioratraso",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_tamanhoultimoatraso",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_tamanhomaioratraso",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_atrasototal",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_quantidadepagamentos",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_quantidadeatrasos",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_datapgtoinformado",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_banco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_agencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_datavisitaagendada",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_datapgtoprometido",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_finalconta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_assessoriastatus",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_assessoriaatual",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_rendacomprovada",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_numeroacc",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_flagrescaldo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_obscli",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_acaocobranca",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_dataagendamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_horaagendamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_datavalidadeacao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_flagnegativado",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_dataenviocartafollow",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_dataultimoenvio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_dataprimeiroenvio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_flagacaoadm",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_acordo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_datavencimentoativacao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_dataultimaativacao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_dataultimaalteracaovencto",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_dataultimoatraso",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_proposta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_datasaidaassessoria",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_acionamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_containdicacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_behaviorscore",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_possuioverlimit",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_telefonesms",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_contamigracao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_numerofidelidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_id_tipocliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_anoquitacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_proximovencpadrao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_funcaoativa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ct_idconta_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagnegativsaldo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagalteradatacobranca",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagmantemstatus",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_respautorizador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_portadorcupomsaldo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagencargosmulta",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagemiteextrato",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_statuscongelado",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_statusdescongelado",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagapropriajuros",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagajustaencargosvencimento",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagajustedebitovencimento",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagdebitosfaturadosprox",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagemitecartao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_statusgeraembossing",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagencargos",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagmulta",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_statusgeranegativacao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagmovimentocontascredoras",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagalteralimitelote",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagcancelacartao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagperda",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagaceitanovacontagrupoproduto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagpermiteautorizacaovialistagem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagpermiteacordo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_cupomsaldodiasatrasobloqueio",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagalteralimite",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagpermitealteracaovencto",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagcancelamento",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagnaopermiteacordo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagnormalizaconta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagcadastrosenha",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagapropriacreditobeneficio",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagdestacastatusatdo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagentracreliq",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagofereceseguroatdo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagcancelaconta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagdemissao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagtratamentoacordo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_statusacordo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagiofrotativo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagantecipadivida",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagrefinanciadivida",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flaglimitessegmentados",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagcompraestocada",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagreversivel",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagstatusfraude",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagliberacreditoconvenio",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagconsignar",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagenviarpreviaconsignado",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagfaztransferencia",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagrecebetransferencia",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flaggeratarifa",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagreemiteautcartao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_prioridade",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagpermitebloqueio",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sct_flagpermitedesbloqueio",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_id_origemcomercial",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_nome",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_id_promotorvenda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagpreaprovado",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagaprovacaoimediata",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_nomefantasiaplastico",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_id_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagsituacaoorigem",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagcartaoprovisorio",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagcartaodefinitivo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_usuario",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_senha",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_origemexterna",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagmodificado",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_id_tipoorigem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_tipopessoa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_responsavel",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagenviafaturausuario",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagcreditofaturamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagconcedelimiteprovisorio",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_id_grupoorigemcomercial",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagdigitalizardoc",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagembossingloja",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagconsultaprevia",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagembossacartaodefinitivo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagenviasms",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tos_id_tipoorigem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tos_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tos_flagrelatoriotad",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

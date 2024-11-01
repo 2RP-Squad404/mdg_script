@@ -1,0 +1,111 @@
+{
+    "dataset": "pfs_seguros_ssa",
+    "table": "pessoa",
+    "schema": [
+        {
+            "name": "id_Pessoa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_Pessoa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_CPF",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dt_Nascimento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tp_Sexo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_Mae",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_RG",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dt_EmissaoRG",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_UF_RG",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_PIS",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_CNS",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_DeclaracaoNascidoVivo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tp_EstadoCivil",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tp_GrauParentesco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_Endereco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_Contato",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tp_Pessoa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_ApenasResponsavelFinanceiro",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_IntegracaoParceiro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "data_cdcBI",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "REQUIRED"
+        }
+    ]
+}

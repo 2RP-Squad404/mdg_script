@@ -1,0 +1,36 @@
+{
+    "dataset": "pfs_unificacao_pefisa",
+    "table": "estabelecimento_externo",
+    "schema": [
+        {
+            "name": "id_estabelecimento_externo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_estabelecimento_externo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_seq_ult_alteracao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

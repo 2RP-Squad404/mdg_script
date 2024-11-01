@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "mdg_script"
+version = "0.0.1"
+description = ""
+authors = [
+    "KauanIzidoro <cnttbussineskauan@gmail.com>",
+    "scryng <gnyrcs@gmail.com>"
+]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12.*"
+pydantic = "^2.9.2"
+pydantic-settings = "^2.5.2"
+google-cloud-bigquery = "^3.26.0"
+faker = "^30.3.0"
+pyfiglet = "^1.0.2"
+taskipy = "^1.13.0"
+google-auth = "^2.35.0"
+google-cloud-secret-manager = "^2.20.2"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.6.9"
+ignr = "^2.2"
+google-cloud-aiplatform = "^1.70.0"
+
+[tool.ruff]
+line-length = 79
+extend-exclude = ['__pycache__', 'py_models', 'jsonl_mock', 'bq_schemas', '.ruff_cache', '.vscode', 'docs', 'secrets']
+
+[tool.ruff.lint]
+preview = true
+select = ['I', 'F', 'E', 'W', 'PL', 'PT']
+
+[tool.ruff.format]
+preview = true
+quote-style = 'single'
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = '-p no:warnings'
+
+[tool.taskipy.tasks]
+lint = 'ruff check . && ruff . --diff'
+format = 'ruff check . --fix && ruff format'
+run = 'python main.py'
+run3 = 'python3 src/main.py'
+test = 'python test_connection.py'
+generate = 'python generate_models.py'
+csv  = 'python3 csv_format.py'
+load  = 'python3 csv_load.py'
+ia = 'python3 gemini_interface.py'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

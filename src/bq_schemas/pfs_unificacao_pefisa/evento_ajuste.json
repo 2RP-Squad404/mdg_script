@@ -1,0 +1,201 @@
+{
+    "dataset": "pfs_unificacao_pefisa",
+    "table": "evento_ajuste",
+    "schema": [
+        {
+            "name": "id_evento_ajuste",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_movimento_ajuste",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_tipo_ajuste",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tipo_ajuste",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ajuste",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_ajuste",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_origem",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_movimento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_seq_via_cartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cartao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_funcao_cartao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_vencimento_padrao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_vencimento_real",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_transacao_original",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_status",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_categoria_autorizacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_responsavel_inclusao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_processamento_lojista",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_borderaux",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_processamento_lojista_dois",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_evento_externo_original",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_evento_externo_original",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_status_lojista",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_estabelecimento_visa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_destino",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_incoming",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_parcela_pedida_incoming",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_origem_resolucao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_debito_conta",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_estabelecimento_externo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_seq_ult_alteracao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        }
+    ]
+}

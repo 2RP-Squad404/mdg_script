@@ -1,0 +1,371 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "produto",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_id_produto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_id_produtotipo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_id_fantasiabasica",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_id_variante",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_bin",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_nome",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_caracteristicas",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_banco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_agencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_contacorrente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_carteira",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_cedente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_especie",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_especiedoc",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_aceite",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_instrucoes",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_localpagamento1",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_localpagamento2",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_proximonumerodocumento",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_mensagemextrato",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_nomeextrato",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_nomearquivoembossing",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_flagsituacaoproduto",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_codigocedente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_codigoarquivocarteira",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_nomearquivoextrato",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_id_plasticodefault",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_flagpersonalizado",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_propostaproduto",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_bancoacordo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_agenciaacordo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_contacorrenteacordo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_carteiraacordo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_flagcpfembossing",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_id_tipoproduto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_codigoproduto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_logo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_id_bandeira",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_id_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_codigocedenteacordo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_instrucoesacordo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_validacaoregrasenha",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_bancofatcarona",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_agenciafatcarona",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_contacorrentefatcarona",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_carteirafatcarona",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_codigocedentefatcarona",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_especiedocfatcarona",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_aceitefatcarona",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_localpagamento1fatcarona",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_id_servicecode",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_id_bancoagenciaconta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pr_id_bancoagenciaconta_acordos",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tpr_id_tipoproduto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tpr_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tpr_flagcreditobeneficio",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tpr_flagconsignado",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tpr_flagprepago",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tpr_id_perfilacessousuario",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tpr_flagantecipacao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tpr_flagcompraprogramada",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sc_id_servicecode",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sc_servicecode",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sc_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sc_flagativo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

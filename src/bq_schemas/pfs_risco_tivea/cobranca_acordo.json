@@ -1,0 +1,176 @@
+{
+    "dataset": "pfs_risco_tivea",
+    "table": "cobranca_acordo",
+    "schema": [
+        {
+            "name": "id_acordo_cobranca",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cliente_externo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cnpj_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cobrador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_cobrador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_modalidade_acordo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_acordo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_parcelas",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_operacao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_emissao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_processamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_origem",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_alteracao_origem",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_vencimento",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ind_situacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_taxa_operacao",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_principal",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_juros",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_atributo",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_total",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_desconto",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_saldo_principal",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_saldo_total",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_saldo_atual",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_dias_atraso",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_atraso_orig_acordo",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_acordo_usuario",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_acordo_usuario",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_acordo_assessoria",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_acordo_assessoria",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_acordo_negociacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_acordo_negociacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_acordo_meio_pagto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

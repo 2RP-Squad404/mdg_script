@@ -1,0 +1,786 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "autorizacao",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_id_mensagem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_datahora",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_tipotransacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_ip_servico",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_ip_atf",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codigoprocessamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codigoprocessamentosecundario",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_numeroestabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_dvnumeroestabelecimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_nsuorigem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_id_tipoterminal",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_terminal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_versao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_cartao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_valor",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_parcelas",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_datavalidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codigodesbloqueio",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codigodebarras",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codigoinstituicao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_dadostransacaooriginal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_dadosultimatransacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_tipoaberturafechamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_datahoralocal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_datalocal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_horalocal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_modoentrada",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_nsuhostcancelar",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codigorespostaterminal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_tipoterminal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_trilhacartao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_chavesessao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_id_fornecedor",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_id_modelo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_serieperiferico",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_versaoperiferico",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_cupom",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_mcc",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codcondicaopos",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_numerorefenciarecebimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codigoservico",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_nomeestabelecimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_trilha01",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codigomoeda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_infoadicionalpos",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_valordispensado",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_identificacaotransacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_valorsubtituicao",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_configentrada",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_cvvresultcode",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_cvv2resultcode",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codigoautorizacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codigoresposta",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codigomoedadestino",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_valordestino",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_id_cartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_id_capacidadedevice",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_lifecicleauthorization",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_id_tipoestabelecimentopreautorizacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codigopostal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codigopais",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_id_nivelseguranca",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_dadosadicionais",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_numeroestabelecimento_externo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_id_emissorredecompartilhada",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_standinreasoncode",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_codigooperador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_flagtransacaocomsenha",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_dadosparcelamentovendaemissor",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_flagtransacaocomcvv1",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_flagtransacaocomcvv2",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_flagtransacaocomcvv3",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_flagtransacaotokenizada",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tt_id_tipoterminal",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tt_descricaoterminal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tt_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tt_flagcancelamentonsubit90",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tt_flagresolveultimatransacao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tt_flagcontroleabertura",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tt_flagsonda",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tt_codpinblock",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tt_tipochave",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tt_aceitatransacaochip",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cp_codigoprocessamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cp_transacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cp_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cp_tipobuscadadosoperacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cp_flaggravafraude",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_id_mensagem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_datahora",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_codigoautorizacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_informacoesadicionais",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_nomeportador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_nsuhost",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_codigoresposta",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_datacorrespondente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_dadoshost",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_codigodescricao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_flagvalidousenha",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_flagvalidoucvv1",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_flagvalidoucvv2",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_flagvalidoucvv3",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_flagvalidoucriptograma",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ms_dadosadicionais",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dtn_codigodescricao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dtn_descricaoaplicativo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dtn_flagenvioterminal",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dtn_descricaoterminal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ra_codigoresposta",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ra_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_id_autorizacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_codigoautorizacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_nsuorigem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_cartao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_numeroestabelecimento",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_dataautorizacao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_valor",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_id_operacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_numeroparcelas",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_terminal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_flagparticipapromocao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_referencenumber",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_identificacaotransacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_modoentrada",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_codcondicaopos",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_id_capacidadedevice",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_id_tipoestabelecimentopreautorizacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_id_cartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_datalocal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_horalocal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_flagtransacaocomsenha",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_flagautorizadostandin",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_motivoautorizadostandin",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_id_mensagementrada",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_estabelecimentoautenticado",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_flagaprovacaoparcial",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_transactionuuid",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ra_codigodescricaoodin",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ra_descricaoodim",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_flagtransacao3ds",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_origemautenticacao3ds",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ra_aplicacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "me_flagpreautorizacao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_taxaptax",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_taxacartao",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aut_taxaiofinternacional",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        }
+    ]
+}

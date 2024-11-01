@@ -1,0 +1,121 @@
+{
+    "dataset": "pfs_unificacao_pefisa",
+    "table": "grade_produto",
+    "schema": [
+        {
+            "name": "id_grade_produto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_conta_cartao_credito",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_produto_ccred_origem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_produto_ccred_destino",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_estabelecimento_grade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_estabelecimento_grade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_chapa_colaborador_grade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_colaborador_grade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_status_grade_produto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_status_grade_produto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_solicitacao_grade_produto",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_migracao_grade_produto",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_limite_anterior_ccred",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_limite_novo_ccred",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_origem_web_service",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_responsavel",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_grade_automatico",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_seq_ult_alteracao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_anomes_mig_grade",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

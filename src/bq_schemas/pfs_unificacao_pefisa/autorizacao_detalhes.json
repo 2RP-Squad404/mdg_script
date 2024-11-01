@@ -1,0 +1,121 @@
+{
+    "dataset": "pfs_unificacao_pefisa",
+    "table": "autorizacao_detalhes",
+    "schema": [
+        {
+            "name": "id_aut_detalhe_so",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_transacao_uuid",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estab_autoriz_ccred",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_razao_social",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_estab_exter_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estab",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estab_cdt",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_autoriz_ons",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_score_conductor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_score_bandeira",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_score_regra",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_aut_detalhe_1",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_aut_detalhe_2",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_aut_detalhe_3",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_cidade_evento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_pais_evento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_cep_evento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_token_evento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_token_evento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_evento_autorizacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_com_eletronico",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

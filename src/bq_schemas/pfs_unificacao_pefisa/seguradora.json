@@ -1,0 +1,46 @@
+{
+    "dataset": "pfs_unificacao_pefisa",
+    "table": "seguradora",
+    "schema": [
+        {
+            "name": "id_seguradora",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_seguradora",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cnpj_seguradora",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_seguradora_origem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_seguradora_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tip_origem_sgrd",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

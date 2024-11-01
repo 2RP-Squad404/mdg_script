@@ -1,0 +1,66 @@
+{
+    "dataset": "pfs_unificacao_pefisa",
+    "table": "cadastro_chave_pix",
+    "schema": [
+        {
+            "name": "num_cpf_cnpj_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_conta_corrente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_cad_conta",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_chave_pix",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tipo_chave_pix",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_chave_pix",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_status_chave_pix",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_status_chave_pix",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_status_chave_pix",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nome_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_ano_mes_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

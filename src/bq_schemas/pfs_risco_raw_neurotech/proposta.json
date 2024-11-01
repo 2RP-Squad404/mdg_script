@@ -1,0 +1,81 @@
+{
+    "dataset": "pfs_risco_raw_neurotech",
+    "table": "proposta",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "codigooperacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "codigoproposta",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nomepolitica",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "resultado",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "instante_data",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "mensagem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sucesso",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "versaopolitica",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tempo_execucao_msec",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "instantefim",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "instanceinicio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

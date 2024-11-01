@@ -1,0 +1,91 @@
+{
+    "dataset": "pfs_unificacao_pefisa",
+    "table": "meta_dia_pfin",
+    "schema": [
+        {
+            "name": "dat_dia",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_produto_financeiro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_prev_venda",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_real_venda",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_prev_venda",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_real_venda",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_prev_receb",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_real_receb",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_prev_receb",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_real_receb",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "per_prev_receb",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "per_real_receb",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "per_real_receb_acm",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

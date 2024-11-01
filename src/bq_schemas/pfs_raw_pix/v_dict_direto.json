@@ -1,0 +1,124 @@
+{
+    "dataset": "pfs_raw_pix",
+    "table": "v_dict_direto",
+    "schema": [
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "account",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "branch",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "accountNumber",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "accountType",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "openingDate",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "clearingAcknowledgeTimestampUtc",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "clearingEndClaimTimestampUtc",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "confirmationToken",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "holder",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "name",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "tradeName",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "taxId",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "key",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "value",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "type",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "newStatus",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "description",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "newStatusUtcTimestamp",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "reason",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        }
+    ]
+}

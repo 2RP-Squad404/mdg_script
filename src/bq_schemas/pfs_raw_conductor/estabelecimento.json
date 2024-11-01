@@ -1,0 +1,436 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "estabelecimento",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_nome",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_tipoestabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_flagautomacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_quantidadepos",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_credor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_cgc",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_numeroestabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_dvnumeroestabelecimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_contato",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_cargocontato",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_email",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_matrizfilial",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_tipopagamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_banco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_agencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_contacorrente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_dvcontacorrente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_nomefantasia",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_aberturaempresa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_dataconsulta1",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_identidade1",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_status1",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_dataconsulta2",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_identidade2",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_status2",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_dataconsulta3",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_identidade3",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_status3",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_datacadastramento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_obs",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_terminal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_mensagem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_cartaodigitado",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_dvagencia",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_inativo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_flagarquivosecrfazenda",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_associadospcbrasil",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_tipoconta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_tipoendereco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_tipologradouro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_nomelogradouro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_numeroendereco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_complementoendereco",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_bairro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_cep",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_uf",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_pais",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_datainclusao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_municipio",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_cidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_nomelogradouro2",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_numeroendereco2",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_complementoendereco2",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_municipio2",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_cidade2",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_bairro2",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_cep2",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_uf2",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_correspondencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_obsdescred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_flagdescred",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_usuario",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_bandeira",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_codigomcc",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_grupomcc",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_moeda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_mcc",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_pais",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_usuarioapl",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tes_id_tipoestabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tes_tipoestabelecimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tes_ticketmedio",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tes_percentual",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "mo_codigomoeda",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "mo_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "mo_simbolo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "mo_id_moeda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

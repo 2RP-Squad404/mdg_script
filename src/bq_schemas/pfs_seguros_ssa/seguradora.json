@@ -1,0 +1,36 @@
+{
+    "dataset": "pfs_seguros_ssa",
+    "table": "seguradora",
+    "schema": [
+        {
+            "name": "id_Seguradora",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_Seguradora",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_Endereco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_Ativo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_CNPJ",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "REQUIRED"
+        }
+    ]
+}

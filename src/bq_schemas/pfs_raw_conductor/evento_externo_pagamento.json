@@ -1,0 +1,266 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "evento_externo_pagamento",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_id_eventopagamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_banco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_datamovimento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_datapagamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_nossonumero",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_arquivocobrancabancaria",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_datavencimento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_valorpago",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_numerodocumento",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_cartao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_id_movimentopagamentopendente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_lote",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_defasagemcobranca",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_meioliquidacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_id_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_id_autorizacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_id_operacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_codigoautenticacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_dataentradapagamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_datavencimentopadrao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_datavencimentoreal",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_origemresolucao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_restituicaosaque",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_dataprocessamentolojista",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_id_borderaux",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_dataprocessamentolojista2",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_codigoautorizacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_statuslojista",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_mcc",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_codigomoeda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_nome_estabelecimento_visa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_id_estabelecimento_visa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_id_incoming",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_valordolar",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_id_cartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_id_eventoexternoredecompartilhada",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_id_emissorredecompartilhada",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_id_estabelecimento_externo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_codautredecompartilhada",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_databaixa",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_datavencpadrao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_flagusoudiasperdao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ep_datapagamentoreal",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

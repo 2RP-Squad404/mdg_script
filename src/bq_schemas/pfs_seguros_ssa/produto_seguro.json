@@ -1,0 +1,256 @@
+{
+    "dataset": "pfs_seguros_ssa",
+    "table": "produto_seguro",
+    "schema": [
+        {
+            "name": "id_ProdutoSeguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_Emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_ProdutoSeguro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_ProdutoSeguro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_ProdutoSeguro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_Seguradora",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_SeguroMensal",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_PagamentoAntecipado",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qt_ParcelasBonificacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tp_BonificacaoMensal",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tp_DevolucaoCancelamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_DiasDevolucaoCancelamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_ValidacaoAdesao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_Excluido",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_PossuiItem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_Itens",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_AgrupamentoProdutoSeguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_AceitaParcelamento",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_MaximoParcelas",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_NOP",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_TextoNotaFiscal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_IntegracaoAP",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tp_IntegracaoAP",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_GrupoPagamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_GrupoPagamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_ContaContabil",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qt_ParcelasCancelamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_NaoEstornarParcelasNaoPagas",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_PostagemParcelaCorte",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_EnvioSeguradoraMensal",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_SMS",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_EnvioSMS",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_permitePrimeiraParcelaPaga",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_PermiteResponsavelFinanceiro",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_PermiteMultiplasAdesoes",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_ValidaProdutoVenda",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_ValidaNumeroSerieProdutoVenda",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_RestituicaoCancelamento",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_CalculaParcelaPorItem",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_MinimoItens",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_IntegracaoServicoGS",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_ProdutoAssociado",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_PermiteAssociacao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_IntegracaoServicoGSRecorrencia",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_BonificacaoAntesDoCorte",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_DiasBonificacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_PermiteEstCancSolicitacao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_Parceiro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_ProdutoNovo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "REQUIRED"
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "dataset": "pfs_risco_tivea",
+    "table": "cobranca_telefone",
+    "schema": [
+        {
+            "name": "id_cliente_cobranca",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_telefone_cobranca",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_telefone_externo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cnpj_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_ddd",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_telefone",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_telefone",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_principal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_obsercacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_ranking",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_modificacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_inclusao_reg",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        }
+    ]
+}

@@ -1,0 +1,140 @@
+{
+    "dataset": "raw_dock",
+    "table": "debit_account",
+    "schema": [
+        {
+            "name": "next_due_date",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "delivery_address",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "product",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "issuer_account_number",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_bank_number",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_branch_number",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "product_id",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "product_type",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "produto_description",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "status_description",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "account_id",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "due_day",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status_id",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "next_real_due_date",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "create_date",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "properties",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "cmd_seq",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_capture",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_publish",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_sync",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_transaction",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_id",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_name",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "operation",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "person_id",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

@@ -1,0 +1,71 @@
+{
+    "dataset": "pfs_risco_tivea",
+    "table": "cobranca_endereco_cliente",
+    "schema": [
+        {
+            "name": "id_cliente_cobranca",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cliente_externo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_endereco_cobranca",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_endereco_princ",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_logradouro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_logradouro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_complemento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cep",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_bairro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_cidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_uf",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ind_tipo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

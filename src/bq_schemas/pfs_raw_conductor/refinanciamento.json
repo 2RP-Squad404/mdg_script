@@ -1,0 +1,151 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "refinanciamento",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_id_refinanciamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_id_eventocompra",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_datarefinanciamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_rotativopagajuros",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_debitosfaturadosprox",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_totalposprox",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_totalrefinanciado",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_numeroparcelas",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_valorparcela",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_taxajuros",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_valoriof",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_cet",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_responsavel",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_valorantecipacaopendente",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_valorparcelasfuturas",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_valorabatimentojuros",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_flagsaldototal",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_totalarefinanciar",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_statuscashback",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_percentualcashback",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "rf_valorcashback",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

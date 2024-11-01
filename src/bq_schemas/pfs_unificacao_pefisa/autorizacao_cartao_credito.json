@@ -1,0 +1,251 @@
+{
+    "dataset": "pfs_unificacao_pefisa",
+    "table": "autorizacao_cartao_credito",
+    "schema": [
+        {
+            "name": "id_autorizacao_ccred",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_autoriz_ccred",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cartao_autoriz_ccred",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_funcao_cartao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cartao_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estab_autoriz_ccred",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_estab_autoriz_ccred_so",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_estab_exter_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_canal_autoriz_ccred",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_canal_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_tipo_trans_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_proc_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tipo_transacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_tip_terminal_autoriz_ccred",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tip_terminal_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_band_modo_entrada",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_modo_entrada_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_modo_entrada_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_autorizacao_ccred",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_parcela_autoriz_ccred",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_resp_terml_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_resp_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_resp_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_status_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_categoria_autorizacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_motivo_neg_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_motivo_neg_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_autorizacao_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_autorizacao_ccred_so",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_nsuhost_autoriz_ccred",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_tipo_estab_mcc_autoriz",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tipo_estab_mcc_autoriz",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_moeda_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_moeda_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_conta_ccred",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_autoriz_ons",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cliente_so",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_instituicao_autoriz_ccred",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_adquirente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_transacao_uuid",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_resp_autorizador_antigo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_resp_autorizador_antigo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_seq_ult_alteracao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_anomes_autoriz_ccred",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

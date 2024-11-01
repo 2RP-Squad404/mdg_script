@@ -1,0 +1,1130 @@
+{
+    "dataset": "pfs_risco_raw_tivea",
+    "table": "acordo",
+    "schema": [
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cobrador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tipo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "numeroAcordo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "numeroParcelas",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dataOperacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dataEmissao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dataProcessamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dataHoraInclusao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dataHoraModificacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dataVencimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "situacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxaOperacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valorPagoTributo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valorPrincipal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valorJuros",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valorTarifa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valorTributo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valorAdicionado",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valorTotal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "saldoPrincipal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "saldoTotal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "saldoAtual",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "diasAtraso",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "motivoCancelamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "negociacao",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nome",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "descricao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "situacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "tipo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "gestao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "cor",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "icone",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "tipoDesconto",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "modalidade",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "id",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "nome",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "tipo",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "situacao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "gestao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "cor",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorDistorcao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "percentualDistorcao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "atrasoMaximo",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "atrasoEntrada",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "acaoOrigemLiquidaca",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "criterioTributo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "produto",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "idExterno",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nome",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "descricao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "tributo",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nome",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "percentual",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "percentualFixo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "percentualMaximo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "arredondamento",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataCalculo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "meioPagamento",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "tipo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nome",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "cobrador",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "id",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "nome",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "banco",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "usuario",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nome",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "assessoria",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nome",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "parcelas",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "acordo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "numeroParcela",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataVencimento",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "situacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nossoNumero",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorPrincipal",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorJuros",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorTarifa",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorAdicionado",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorTotal",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorTributo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorBaseTributo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorPermanencia",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorMora",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorMulta",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoPrincipal",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoTotal",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoAtual",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "registrado",
+                    "type": "BOOLEAN",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "pagamentos",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataProcessamento",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataLiquidacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataCredito",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataCnab",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataOperacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataHoraInclusao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "formaLiquidacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorRecebido",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorDesconto",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorEncargos",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorDistorcao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorSobra",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "situacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "integracao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "agrupador",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "id",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "idExterno",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "nome",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "cic",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "codigo",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "nomeFantasia",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "situacao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                },
+                {
+                    "name": "abatimentos",
+                    "type": "RECORD",
+                    "mode": "REPEATED",
+                    "fields": [
+                        {
+                            "name": "id",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "origem",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorPrincipal",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorTotal",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorPermanencia",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorMora",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorMulta",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorOutros",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorDesconto",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorJuros",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorTarifa",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorTributo",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorAdicionado",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorAtual",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "percentual",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "tipo",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "integracao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "mensagemIntegracao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "dataHoraIntegracao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                },
+                {
+                    "name": "liquidacoes",
+                    "type": "RECORD",
+                    "mode": "REPEATED",
+                    "fields": [
+                        {
+                            "name": "id",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "parcela",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorPrincipal",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorTotal",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorJuros",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorEncargos",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorDesconto",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valorDistorcao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "diasAtraso",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "numeroParcela",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "tipo",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "origens",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorContabil",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "descontoContabil",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoContabil",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "contrato",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "contratoId",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "numeroContrato",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "parcela",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "parcelaId",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "numeroParcela",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "diasAtraso",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "ordem",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataVencimento",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nossoNumero",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "notaFiscal",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "situacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorPrincipal",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorTotal",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorPermanencia",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorMora",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorMulta",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorOutros",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorDesconto",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorJuros",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorTarifa",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorAdicionado",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valorAtual",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoPrincipal",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoTotal",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoPermanencia",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoMora",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoMulta",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoOutros",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoDesconto",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoJuros",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoTarifa",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoAdicionado",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldoAtual",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "descontoPrincipal",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "descontoJuros",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "descontoMora",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "descontoMulta",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "descontoOutros",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "descontoPermanencia",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "descontoTotal",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "pendencias",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataGeracao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataProcessamento",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dataParecer",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "situacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "tipo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "observacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "pareceres",
+                    "type": "RECORD",
+                    "mode": "REPEATED",
+                    "fields": [
+                        {
+                            "name": "situacao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "observacao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "usuario",
+                            "type": "RECORD",
+                            "mode": "NULLABLE",
+                            "fields": [
+                                {
+                                    "name": "idExterno",
+                                    "type": "STRING",
+                                    "mode": "NULLABLE"
+                                },
+                                {
+                                    "name": "nome",
+                                    "type": "STRING",
+                                    "mode": "NULLABLE"
+                                },
+                                {
+                                    "name": "id",
+                                    "type": "STRING",
+                                    "mode": "NULLABLE"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "id",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "dataHoraModificacao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

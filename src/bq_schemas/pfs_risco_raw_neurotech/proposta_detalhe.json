@@ -1,0 +1,66 @@
+{
+    "dataset": "pfs_risco_raw_neurotech",
+    "table": "proposta_detalhe",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "codigooperacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "entradas",
+            "type": "JSON",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "calculadas",
+            "type": "JSON",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "outros",
+            "type": "JSON",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "retornos",
+            "type": "JSON",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "variaveis",
+            "type": "JSON",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fluxo_regras",
+            "type": "JSON",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "banco",
+            "type": "JSON",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "instante_data",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

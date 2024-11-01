@@ -1,0 +1,161 @@
+{
+    "dataset": "pfs_unificacao_pefisa",
+    "table": "seguro_dependente",
+    "schema": [
+        {
+            "name": "id_pessoa_so",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cnpj",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_pessoa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_sexo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_sexo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_dependente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_nascimento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_mae",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estado_civil",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_estado_civil",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_grau_parentesco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_grau_parentesco",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_rg",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_uf_rg",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_emissao_rg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_pis",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cns",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_doc_nascido_vivo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_apenas_resp_financeiro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_lograd_end",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_lograd_end",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_compl_end",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_bairro_end",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_municipio_end",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estado_end",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_cep_end",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dt_referencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tip_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_anomes_referencia",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "dataset": "pfs_unificacao_pefisa",
+    "table": "agpr_transacao_txn",
+    "schema": [
+        {
+            "name": "cod_tipo_transacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tipo_transacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_credito",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_agrupamento_txn",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_agrupamento_txn",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        }
+    ]
+}

@@ -1,0 +1,126 @@
+{
+    "dataset": "pfs_risco_tivea",
+    "table": "cobranca_origem_acordo",
+    "schema": [
+        {
+            "name": "id_origem_acordo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_acordo_cobranca",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_contrato",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_ordem_contrato",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_parcela",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_parcela",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_vencimento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_situacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_dias_atr_cont",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_principal",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_total",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_permanencia",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_multa",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_juros",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_tarifa",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_adicionado",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_atual",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_desconto",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_desc_principal",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_desc_juros",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_desc_multa",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_desc_permanencia",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_desconto_total",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}
