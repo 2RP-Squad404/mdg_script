@@ -1,0 +1,156 @@
+{
+    "dataset": "pfs_unificacao_cliente",
+    "table": "cliente_complemento",
+    "schema": [
+        {
+            "name": "id_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_pessoa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cnpj_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_nacionalidade",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_nacionalidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_naturalidade_cidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_naturalidade_estado",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_pessoa_politicamente_exposta",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_deficiente_visual",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_outra_renda_cliente",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_pai_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_rg",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_emissao_rg",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_orgao_expedicao_rg",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estado_emissao_rg",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cnh",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_validade_cnh",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_seguranca_cnh",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_validacao_cnh",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_emissao_cnh",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_patrimonio_total",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_profissao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_profissao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_origem_principal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_nacionalidade_iso",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_nacionalidade_iso",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_profissao_isco08",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_profissao_isco08",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        }
+    ]
+}

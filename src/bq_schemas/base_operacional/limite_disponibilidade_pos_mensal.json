@@ -1,0 +1,146 @@
+{
+    "dataset": "base_operacional",
+    "table": "limite_disponibilidade_pos_mensal",
+    "schema": [
+        {
+            "name": "id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_produto_cartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cliente_titular",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_tip_portador",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_sit_conta",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_conta_cancelada",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_cadastro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dia_vencto_cartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_disp_global_credito",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_disp_parcela_nac",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_disp_saque_nac_global",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_limite_global_credito",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_limite_maximo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_limite_parcelas_nac",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_limite_saque_nac_global",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_lim_util_max",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_lim_util_global",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_lim_util_parc",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_lim_util_saque",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "perc_iu_max",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "perc_iu_global",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "perc_iu_parc",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "perc_iu_saque",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_seq_ult_alteracao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_anomes_posicao_limite",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

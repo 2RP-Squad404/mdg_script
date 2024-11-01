@@ -1,0 +1,321 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "grade_produto",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_id_gradeproduto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_id_produtoorigem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_id_origemcomercialorigem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_id_produtodestino",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_id_origemcomercialdestino",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_id_arquivo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_datasolicitacao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_datamigracao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_limiteanterior",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_limitenovo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_flagorigemws",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_responsavel",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_flaggradeautomatico",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_id_origemcomercial",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_nome",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_id_promotorvenda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagpreaprovado",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagaprovacaoimediata",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_nomefantasiaplastico",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_id_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagsituacaoorigem",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagcartaoprovisorio",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagcartaodefinitivo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_usuario",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_senha",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_origemexterna",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagmodificado",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_id_tipoorigem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_tipopessoa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_responsavel",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagenviafaturausuario",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagcreditofaturamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagconcedelimiteprovisorio",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_id_grupoorigemcomercial",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagdigitalizardoc",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagembossingloja",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagconsultaprevia",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagembossacartaodefinitivo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "oc_flagenviasms",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gc_id_grupoorigemcomercial",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gc_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tg_id_tipoorigem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tg_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tg_flagrelatoriotad",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_dataatualizacao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_dadocriacaograde",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_reprocessar",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_erro",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_descricaoerro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_id_statuscriacaograde",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_id_pessoafisica",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_id_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gp_matricula",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

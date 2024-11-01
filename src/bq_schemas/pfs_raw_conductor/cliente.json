@@ -1,0 +1,116 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "cliente",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_id_pessoafisica",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_nome",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_cpf",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_datanascimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_sexo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_numeroidentidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_orgaoidentidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_estadoidentidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_dataemissaoidentidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_cic",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_statuscic",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_flagalteracaocic",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_flagdeficientevisual",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_tipopessoa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pf_statuspf",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

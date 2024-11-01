@@ -1,0 +1,206 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "integracao_grade",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_id_grade",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_idstatusintegracao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_statusintegracao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_datacadastramento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_estabelecimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_email",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_tipodocumento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_cpf",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_idproduto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_motivoemissaocartao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_motivoreemissaocartao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_statuscartaoantigo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_statuscartaonovo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_limiteinterno",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_limite",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_datafimvalidade",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_portador",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_cartaonovo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_cartaoantigo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_bloqueiocartaoantigo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_chapa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_chapapromotor",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_conta",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_datacriacaoconta",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_tipocobranca",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_codanuidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_coddesconto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_codaceite",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_codlogonovo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_dataenvio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_serial_tablet",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_observacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ig_id_cartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}
