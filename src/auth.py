@@ -1,7 +1,6 @@
 import json
 import logging
 
-
 from google.cloud import bigquery, secretmanager
 from google.oauth2 import service_account
 
@@ -18,15 +17,12 @@ def get_secret(secret_name, project_id):
     try:
         logging.info("Acessando o Secret Manager")
 
-
         client = secretmanager.SecretManagerServiceClient(client_options={"quota_project_id": project_id})
-
 
         name = f"projects/{project_id}/secrets/{secret_name}/versions/latest"
         response = client.access_secret_version(request={"name": name})
         secret_string = response.payload.data.decode("UTF-8")
         return json.loads(secret_string)
-
 
     except Exception as e:
         logging.error(f"Ocorreu um erro: {e}")
