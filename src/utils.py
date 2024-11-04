@@ -43,9 +43,9 @@ def jsonl_to_bigquery(filename, table_id, dataset_id):
     Exceções:
         Gera exceções caso ocorra algum erro durante o carregamento dos dados.
     """
-    jsonl_file_path = f"jsonl_mock/{filename}"
+
     client = get_bigquery_client()
-    jsonl_file_path = "jsonl_mock/Acordo_faker.jsonl"
+    jsonl_file_path = f"mock_data/{dataset_id}/{filename}"
     project_id = PROJECT_ID
     dataset_id = dataset_id
     table_id = table_id
