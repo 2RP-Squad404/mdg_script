@@ -1,109 +1,215 @@
-# **Preparar o ambiente para rodar a aplicação via `Ubuntu WSL Terminal`**
+# **Como preparar o ambiente para rodar a aplicação via `Ubuntu WSL Terminal`:**
 
-O terminal utilizado pode ser instalado através da ["Microsoft Store - Ubuntu"](https://www.microsoft.com/store/productId/9PDXGNCFSCZV?ocid=pdpshare)
+[![Ubuntu WSL](https://img.shields.io/badge/Ubuntu%20WSL-Download-e95420?logo=ubuntu)](https://ubuntu.com/desktop/wsl)
 
-Após instalado, abra o terminal, todo o restante do processo será feito através dele.
+OBS.: Todos os procedimentos a seguir será feito através do `Ubuntu WSL Terminal`
+
+# **Configuração do ambiente no Ubuntu:**
 
 ## **1. Gerenciamento de Ambiente:**
 
-[![Pyenv](https://img.shields.io/badge/Pyenv-2.4.13-3776ab?logo=python)](https://github.com/pyenv/pyenv)
+### **1.1. Instalação do `gcloud`:**
 
-Utilizaremos o `pyenv` para auxiliar no gerenciamento do ambiente e trabalhar com a versão desejada do Python.
+[![Google Cloud CLI](https://img.shields.io/badge/Google%20Cloud%20CLI%2FSDK-498.0.0-4285f4?logo=google-cloud)](https://cloud.google.com/sdk/docs/install#deb)
 
-Siga os passos abaixo para fazer a instalação dessa ferramenta
+O `gcloud` possibilita autenticar-se com o Google Cloud Platform via CLI.
 
-- Atualize os pacotes do sistema:
+Siga os passos abaixo para fazer a instalação dessa ferramenta:
+
+- Atualizar os pacotes do sistema (Recomendado antes de qualquer instalação):
+
     ```shell
     sudo apt update && sudo apt upgrade
     ```
 
-- Instale dependências necessárias para o pyenv:
+- Instalar o `gcloud`:
+
+    ```shell
+    sudo snap install google-cloud-cli --classic
+    ```
+
+- Reiniciar o terminal:
+
+    ```shell
+    exec bash
+    ```
+
+----
+
+### **1.2. Instalação do `pyenv`:**
+
+[![Pyenv](https://img.shields.io/badge/Pyenv-2.4.13-3776ab?logo=python)](https://github.com/pyenv/pyenv)
+
+O `pyenv` possibilita trabalhar com a versão desejada do Python.
+
+Siga os passos abaixo para fazer a instalação dessa ferramenta:
+
+- Atualizar os pacotes do sistema (Recomendado antes de qualquer instalação):
+
+    ```shell
+    sudo apt update && sudo apt upgrade
+    ```
+
+- Instalar as dependências necessárias para o pyenv:
+
     ```shell
     sudo apt install -y make build-essential libssl-dev zlib1g-dev \
     libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
     ```
 
-- Clone o repositório pyenv:
+- Clonar o repositório do `pyenv`:
+
     ```shell
     curl https://pyenv.run | bash
     ```
 
-- Adicione o pyenv ao PATH:
+- Adicionar o pyenv ao PATH:
+
     ```shell
     echo -e '\n# Pyenv Configuration\nexport PYTHON_BUILD_ARIA2_OPTS="-x 10 -k 1M"\nexport PATH="${HOME}/.pyenv/bin:$PATH"\neval "$(pyenv init --path)"\neval "$(pyenv init -)"\neval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
     ```
 
-- Reiniciar o terminal.
+- Reiniciar o terminal:
 
-## **2. Linguagem de Programação:**
+    ```shell
+    exec bash
+    ```
 
-- Atualizar o `pyenv` e verificar se foi corretamente instalado, o comando abaixo deverá listar a versão do `pyenv` e os seus comandos.
+#### **1.2.1. Linguagem de Programação:**
+
+- Atualizar o `pyenv` e verificar se foi corretamente instalado, o comando abaixo listará a versão do `pyenv` e os seus comandos:
+
     ```shell
     pyenv update
     pyenv
     ```
 
-- Instale a versão do python desejada
+- Instalar a versão do python desejada:
 
     ```shell
     pyenv install 3.12.6
     ```
-- Caso você tiver uma versão antiga do python instalada rode esse comando:
+- Caso você tiver uma versão antiga do python instalada:
+
     ```shell
     pyenv global 3.12.6
     ```
-## **3. Gerenciamento de Dependências:**
+
+## **2. Gerenciamento de Dependências:**
 
 [![Pipx](https://img.shields.io/badge/Pipx-1.7.1-2cffaa?logo=pipx)](https://pipx.pypa.io/stable/)
 [![Poetry](https://img.shields.io/badge/Poetry-1.8.3-60a5fa?logo=poetry)](https://python-poetry.org)
 
-- Instale o `pip` (caso não tenha)
+- Atualizar os pacotes do sistema (Recomendado antes de qualquer instalação):
+
+    ```shell
+    sudo apt update && sudo apt upgrade
+    ```
+
+- Instalar `pip`:
+
     ```shell
     sudo apt install pip
     ```
 
-- Instale o `pipx` (via `pip`)
+- Instalar `pipx` via `pip`:
+
     ```shell
     pip install pipx
     ```
 
-- Instale o `poetry` (via `pipx`)
+- Instalar `poetry` via `pipx`:
+
     ```shell
     pipx install poetry
     ```
 
-- Reinicie o terminal.
+- Reiniciar o terminal:
 
-## **4.Bibliotecas e Ferramentas de Desenvolvimento:**
+    ```shell
+    exec bash
+    ```
 
-- Execute uma opção:
+## **3. Clonar o repositório com o `git`:**
 
-    - Instalar somente as bibliotecas
+[![Git](https://img.shields.io/badge/Git-Download-f05032?logo=git)](https://git-scm.com/downloads)
+
+O `git` possibilita trabalhar com versionamento e gerenciamento de projetos.
+
+Siga os passos abaixo para fazer a instalação dessa ferramenta:
+
+- Acessar no Terminal o diretório onde a aplicação será instalada.
+
+- Clonar o repositório:
+
+    ```shell
+    git clone https://github.com/2RP-Squad404/mdg_script.git
+    ```
+
+- Abrir a aplicação:
+
+    ```shell
+    cd mdg_script
+    ```
+
+## **4. Autenticação via `gcloud`:**
+
+- Autenticar-se via "Google Cloud SDK" (A conta que conectar deverá possuir as permissões necessárias):
+    
+    ```shell
+    gcloud auth login
+    ```
+
+- Autenticar-se via "Google Auth Library" (A conta que conectar deverá possuir as permissões necessárias):
+
+    ```shell
+    gcloud auth application-default login
+    ```
+
+## **5. Instalar Dependências (Bibliotecas e Ferramentas de Desenvolvimento):**
+
+- Lembre-se do terminal estar no diretório da aplicação.
+
+- Executar uma opção:
+
+    - Instalar somente as bibliotecas:
+
         ```shell
         poetry install --no-dev
         ```
 
-    - Instalar as bibliotecas + ferramentas de desenvolvimento
+    - Instalar as bibliotecas + ferramentas de desenvolvimento:
+
         ```shell
         poetry install
         ```
 
-- Inicie o ambiente
+- Iniciar o ambiente virtual:
+
     ```shell
     poetry shell
     ```
 
-- Ative o ambiente
+## **6. Rodar a aplicação:**
+
+- Atualizar as dependências do `poetry`:
+
+    ```shell
+    poetry update
+    ```
+
+- Ativar o ambiente virtual do `poetry`:
+
     ```shell
     source $(poetry env info --path)/bin/activate
     ```
 
-## **Comando para rodar o script:**
+- Executar a aplicação via `taskipy`:
 
-```shell
-task run
-```
+    ```shell
+    task run
+    ```
 
 ----
 

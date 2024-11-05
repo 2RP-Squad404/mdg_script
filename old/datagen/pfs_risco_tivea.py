@@ -12,8 +12,8 @@ def Datagen_pfs_risco_tivea(num_records):
     data = {'cartao': [], 'cobranca_campo_customizavel': [], 'cobr_cliente_atraso': [], 'cobranca_acordo': [],
             'cobranca_assessoria': [], 'cobranca_cliente': [], 'Cobranca_campo_customizavel': [], 'cobranca_email_cliente': [],
             'cobranca_endereco_cliente': [], 'cobranca_liquidacao_parc_acordo': [], 'cobranca_origem_acordo': [],
-            'cobranca_pagamento_acordo': [], 'cobranca_parcela_acordo': [], 'cobranca_telefone_cliente':[],
-            'cobranca_relefone_cliente':[], 'conta':[]}
+            'cobranca_pagamento_acordo': [], 'cobranca_parcela_acordo': [], 'cobranca_telefone_cliente': [],
+            'cobranca_relefone_cliente': [], 'conta': []}
 
     for _ in range(num_records):
 
@@ -281,7 +281,7 @@ def Datagen_pfs_risco_tivea(num_records):
         criar_cobranca_parcela_acordo_faker = {
             "id_parcela_acordo": faker.random_number(digits=10, fix_len=True),
             "id_acordo_cobranca": faker.random_number(digits=10, fix_len=True),
-            "num_parcela_acordo": faker.random_int(min=1 ,max=30),
+            "num_parcela_acordo": faker.random_int(min=1, max=30),
             "dat_vencimento": faker.date_time_this_year().strftime('%Y-%m-%d %H:%M:%S'),
             "ind_situacao": faker.random_element(elements=['LIQUIDADO', 'CANCELADO', 'CONCLUIDO', 'ABERTO']),
             "num_nossonumero": faker.bothify(text='########'),
@@ -316,7 +316,6 @@ def Datagen_pfs_risco_tivea(num_records):
             "dat_inclusao_reg": faker.date_this_year().strftime('%Y%m%d')
         }
         data['cobranca_telefone'].append(criar_cobranca_telefone_faker)
-
 
         criar_cobranca_telefone_cliente_faker = {
             "id_cliente_cobranca": faker.random_number(digits=10, fix_len=True),
@@ -386,6 +385,7 @@ def Datagen_pfs_risco_tivea(num_records):
     data['conta'].append(criar_conta_faker)
 
     jsonl_data(data=data)
+
 
 num_records = 100
 generated_data = Datagen_pfs_risco_tivea(num_records)

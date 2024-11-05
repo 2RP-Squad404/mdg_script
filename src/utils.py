@@ -1,240 +1,372 @@
-import importlib.util
-import inspect
+import glob
 import json
-import logging
 import os
-from datetime import date, datetime
-from decimal import Decimal
+import re
+import subprocess
+from typing import List
 
-from google.cloud import bigquery
+from google.cloud import aiplatform, bigquery, secretmanager
+from google.oauth2 import service_account
+from vertexai.preview.generative_models import GenerativeModel
 
-from auth import get_bigquery_client
-from config import PROJECT_ID, setup_logging
-
-setup_logging(log_level=logging.INFO)
+from config import logger
 
 
-def load_py_schema(dataset_name):
+def run_command(command: str) -> str:
+    """Execute a gcloud command and return the output.
+
+    Args:
+        command (str): The gcloud command to be executed.
+
+    Returns:
+        str: The standard output from the command execution.
     """
-    Carrega o schema de um dataset a partir de um arquivo Python.
+    result = subprocess.run(
+        command, capture_output=True, text=True, shell=True, check=False
+    )
+    return result.stdout.strip()
 
-    Parâmetros:
-        dataset_name (str): Nome do dataset.
 
-    Retorno:
-        Módulo importado que contém o schema, ou None se o arquivo não existir.
+def gcloud_list(
+    resource_type: str, project_id: str, credentials: str, dataset_id: str
+) -> list:
+    """List various resources from Google Cloud based on the specified type.
+
+    Args:
+        resource_type (str): The type of resource to list. Options are:
+            'projects', 'secrets', 'datasets', 'tables'.
+        project_id (str): The project ID used for resource queries.
+        credentials (str): Credentials for accessing BigQuery.
+        dataset_id (str): The dataset ID, required for listing tables.
+
+    Returns:
+        list: A list of resource identifiers (e.g., project IDs, secret names,
+        dataset IDs, or table IDs) based on the specified resource type.
+
+    Raises:
+        ValueError: If an unknown resource type is provided.
     """
-    py_schema_path = os.path.join('py_schemas', f"{dataset_name}.py")
-    if os.path.exists(py_schema_path):
-        spec = importlib.util.spec_from_file_location(f"{dataset_name}", py_schema_path)
-        schema_module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(schema_module)
-        return schema_module
-    return None
+    if resource_type == 'projects':
+        command = "gcloud projects list --format='value(projectId)'"
+    elif resource_type == 'secrets':
+        command = f"gcloud secrets list --project={project_id} --format='value(name)'"
+    elif resource_type in {'datasets', 'tables'}:
+        client = bigquery.Client(credentials=credentials, project=project_id)
+        if resource_type == 'datasets':
+            datasets = client.list_datasets(project_id)
+            return [dataset.dataset_id for dataset in datasets]
+        elif resource_type == 'tables':
+            tables = client.list_tables(dataset_id)
+            return [table.table_id for table in tables]
+    else:
+        raise ValueError(f'Unknown resource type: {resource_type}')
+
+    return run_command(command).splitlines()
 
 
-def jsonl_to_bigquery(filename, table_id, dataset_id):
+def gcloud_choose(
+    resource_type: str,
+    project_id: str = None,
+    credentials: str = None,
+    dataset_id: str = None,
+) -> str:
+    """Prompt the user to choose a resource from a list.
+
+    Args:
+        resource_type (str): The type of resource to list and choose from.
+        project_id (str, optional): The project ID used for resource queries.
+        credentials (str, optional): Credentials for accessing BigQuery.
+        dataset_id (str, optional): The dataset ID, required for listing tables.
+
+    Returns:
+        str: The chosen resource identifier, or None if no valid choice is made.
+
+    Raises:
+        ValueError: If an unknown resource type is provided.
     """
-    Carrega dados de um arquivo JSONL para o BigQuery.
-
-    Abre um arquivo JSONL que contém dados gerados e envia para uma tabela específica
-    no BigQuery, utilizando configuração de trabalho de carga.
-
-    Exceções:
-        Gera exceções caso ocorra algum erro durante o carregamento dos dados.
-    """
-
-    client = get_bigquery_client()
-    jsonl_file_path = f"mock_data/{dataset_id}/{filename}"
-    project_id = PROJECT_ID
-    dataset_id = dataset_id
-    table_id = table_id
-
-    table_ref = f"{project_id}.{dataset_id}.{table_id}"
-
-    job_config = bigquery.LoadJobConfig(
-        source_format=bigquery.SourceFormat.NEWLINE_DELIMITED_JSON,
-        write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE,
-        autodetect=False,
-        ignore_unknown_values=True
+    choices = gcloud_list(
+        resource_type=resource_type,
+        project_id=project_id,
+        credentials=credentials,
+        dataset_id=dataset_id,
     )
 
-    with open(jsonl_file_path, "rb") as jsonl_file:
-        load_job = client.load_table_from_file(jsonl_file, table_ref, job_config=job_config)
+    if not choices:
+        return None
 
-    load_job.result()
+    logger.info(f'\033[33mAvailable {resource_type}:\033[0m')
+    for i, choice in enumerate(choices, start=1):
+        logger.info(f'{i}. {choice}')
+
+    choice_index = int(input('> Enter the option number: ')) - 1
+    if 0 <= choice_index < len(choices):
+        return choices[choice_index]
+    else:
+        return None
 
 
-def create_tables():
+def get_credentials(secret_name: str):
+    """Retrieve service account credentials from Google Cloud Secret Manager.
+
+    Args:
+        secret_name (str): The full resource name of the secret version.
+
+    Returns:
+        tuple: A tuple containing the credentials object and the credentials dictionary.
     """
-    Cria tabelas no BigQuery a partir dos schemas definidos e aplica particionamento se configurado.
+    secret_client = secretmanager.SecretManagerServiceClient()
+    response = secret_client.access_secret_version(name=secret_name)
+    credentials_dict = json.loads(response.payload.data.decode('utf-8'))
 
-    Para cada dataset e tabela, carrega o schema correspondente do arquivo Python,
-    exclui algumas tabelas de serem particionadas e cria a tabela no dataset no BigQuery.
+    credentials = service_account.Credentials.from_service_account_info(
+        credentials_dict
+    )
+    return credentials, credentials_dict
 
-    Exceções:
-        Gera exceções e loga erros caso ocorra algum problema durante a criação das tabelas.
+
+def get_bq_schemas_json(
+    project_id: str, credentials: str, dataset: str
+) -> bool:
+    """Get the schemas of all tables in the specified dataset and store them in JSON files."""
+
+    client = bigquery.Client(credentials=credentials, project=project_id)
+    tables = client.list_tables(dataset)
+
+    output_dir = f'src/bq_schemas_json/{dataset}'
+    os.makedirs(output_dir, exist_ok=True)
+
+    for table in tables:
+        table_name = table.table_id
+        output_file = os.path.join(output_dir, f'{table_name}.json')
+
+        table_ref = client.get_table(table)
+        schema = []
+
+        for field in table_ref.schema:
+            field_info = {
+                'name': field.name,
+                'mode': field.mode,
+                'type': field.field_type,
+                'description': field.description or '',
+                'fields': [],
+            }
+            if field.field_type == 'RECORD' and field.fields:
+                field_info['fields'] = [
+                    {
+                        'name': subfield.name,
+                        'mode': subfield.mode,
+                        'type': subfield.field_type,
+                        'description': subfield.description or '',
+                    }
+                    for subfield in field.fields
+                ]
+
+            schema.append(field_info)
+
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(schema, f, indent=2, ensure_ascii=False)
+
+    return True
+
+
+def gen_py_models(dataset: str):
+    output_dir = f'src/py_models/{dataset}'
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Carregar os esquemas do BigQuery do diretório correspondente
+    schema_dir = f'src/bq_schemas_json/{dataset}'
+    for filename in os.listdir(schema_dir):
+        if filename.endswith('.json'):
+            with open(
+                os.path.join(schema_dir, filename), 'r', encoding='utf-8'
+            ) as f:
+                schema = json.load(f)
+                class_name = filename.replace(
+                    '.json', ''
+                ).capitalize()  # Nome da classe
+                model_code = generate_model_code(class_name, schema)
+
+                # Escrever o código do modelo em um arquivo
+                with open(
+                    os.path.join(output_dir, f'{class_name}.py'),
+                    'w',
+                    encoding='utf-8',
+                ) as model_file:
+                    model_file.write(model_code)
+    return True
+
+
+def generate_model_code(class_name: str, schema: List[dict]) -> str:
+    """Gera o código da classe Pydantic a partir do schema."""
+    fields = []
+    for field in schema:
+        field_type = map_field_type(field['type'])
+        field_name = field['name']
+        is_optional = field['mode'] == 'NULLABLE'
+
+        if is_optional:
+            field_type = f'Optional[{field_type}]'
+
+        fields.append(
+            f"    {field_name}: {field_type}  # {field['description']}"
+        )
+
+    return f"""from datetime import datetime, date
+from pydantic import BaseModel
+from typing import Optional
+
+class {class_name}(BaseModel):
+{os.linesep.join(fields)}
+"""
+
+
+def map_field_type(bq_type: str) -> str:
+    """Mapeia tipos do BigQuery para tipos do Pydantic."""
+    mapping = {
+        'STRING': 'str',
+        'INTEGER': 'int',
+        'FLOAT': 'float',
+        'BOOLEAN': 'bool',
+        'TIMESTAMP': 'datetime',
+        'DATE': 'date',
+        'DATETIME': 'datetime',
+        'RECORD': 'dict',  # Para subcampos de RECORD, mais complexidade seria necessária
+        'NUMERIC': 'float',  # Para subcampos de RECORD, mais complexidade seria necessária
+        'ANY': 'Any',  # Para subcampos de RECORD, mais complexidade seria necessária
+    }
+
+    return mapping.get(bq_type, 'Any')
+
+
+def init_gemini(project_id: str, credentials: str):
     """
-
-    client = get_bigquery_client()
-
-    excluded_partition_tables = ["cobranca_telefone", "acordo", "cliente"]
-    datasets = list(client.list_datasets())
-    datasets_created = [dataset.dataset_id for dataset in datasets]
-
-    for dataset_folder in os.listdir('bq_schemas'):
-        dataset_path = os.path.join('bq_schemas', dataset_folder)
-
-        if os.path.isdir(dataset_path) and dataset_folder in datasets_created:
-            dataset_id = f"{PROJECT_ID}.{dataset_folder}"
-            schema_module = load_py_schema(dataset_folder)
-
-            if schema_module:
-                for table_file in os.listdir(dataset_path):
-                    table_name = table_file.replace('.json', '')
-
-                    schema = getattr(schema_module, f"{table_name}", None)
-
-                    if schema:
-                        table_id = f"{dataset_id}.{table_name}"
-                        table = bigquery.Table(table_id, schema=schema)
-
-                        partition_field = None
-                        partition_type = None
-                        if table_name not in excluded_partition_tables:
-                            for field in schema:
-                                if field.name.startswith("num_anomes") or field.name.startswith("production_date") or field.name.startswith("dat_referencia"):
-                                    if field.field_type in ["TIMESTAMP", "DATE", "DATETIME"]:
-                                        partition_field = field.name
-                                        partition_type = "MONTH" if field.name.startswith("num_anomes") or field.name.startswith("production_date") else "DAY"
-                                        break
-                                    else:
-                                        logging.error(f"O campo {field.name} na tabela {table_name} não é do tipo TIMESTAMP, DATE ou DATETIME. Particionamento ignorado.")
-
-                            if partition_field and partition_type:
-                                table.time_partitioning = bigquery.TimePartitioning(
-                                    type_=partition_type,
-                                    field=partition_field
-                                )
-                                logging.info(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
-                            else:
-                                logging.error(f"Tabela {table_name} sem campo de particionamento configurado.")
-
-                        client.create_table(table, exists_ok=True)
-                        update_table_descriptions_from_schemas("py_schemas")
-                        logging.info(f"Tabela {table_name} criada no dataset {dataset_folder}")
-                    else:
-                        logging.error(f"Schema não encontrado para a tabela {table_name} no dataset {dataset_folder}")
-            else:
-                logging.error(f"Arquivo de schema Python não encontrado para o dataset {dataset_folder}")
-        else:
-            logging.error(f"Dataset {dataset_folder} não encontrado no BigQuery")
-
-
-def load_schema_module(schema_file):
-    """
-    Carrega um módulo de schema Python a partir de um arquivo.
+    Inicia a comunicação com Gemini API.
 
     Parâmetros:
-        schema_file (str): Caminho para o arquivo de schema.
-
-    Retorno:
-        Módulo importado que contém o schema.
+    project_id (str): Id do projeto GCP.
+    model_name (str): O nome do modelo do Vertex IA que será usado.
     """
-    if not os.path.isfile(schema_file):
-        raise FileNotFoundError(f"O arquivo '{schema_file}' não foi encontrado.")
-
-    spec = importlib.util.spec_from_file_location("schema_module", schema_file)
-    if spec is None:
-        raise ImportError(f"Não foi possível criar o spec para o arquivo '{schema_file}'.")
-
-    schema_module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(schema_module)
-    return schema_module
+    aiplatform.init(project=project_id, credentials=credentials)
+    return GenerativeModel('gemini-1.5-flash-002')
 
 
-def update_table_descriptions_from_schemas(schema_directory):
+def generate_code_with_gemini(model, prompt: str):
     """
-    Atualiza as descrições das tabelas no BigQuery usando schemas Python.
-
-    Para cada arquivo de schema no diretório especificado, carrega o módulo e
-    atualiza as descrições das tabelas no BigQuery com base nos schemas fornecidos.
+    Envia o prompt para o modelo e retorna o código de resposta.
 
     Parâmetros:
-        schema_directory (str): Caminho para o diretório com os arquivos de esquema Python.
-
-    Exceções:
-        Loga erros caso ocorra algum problema ao atualizar as descrições das tabelas.
+    model (GenerativeModel): Modelo que será usado.
+    prompt (str): Texto do prompt que será enviado ao modelo.
     """
-    client = get_bigquery_client()
-
-    for schema_file in os.listdir(schema_directory):
-        dataset_id = schema_file.replace('.py', '')
-        schema_file_path = os.path.join(schema_directory, schema_file)
-
-        schema_module = load_schema_module(schema_file_path)
-        table_schemas = {name: value for name, value in schema_module.__dict__.items() if isinstance(value, list)}
-
-        for table_id, schema_fields in table_schemas.items():
-            table_ref = f"{PROJECT_ID}.{dataset_id}.{table_id}"
-            try:
-                existing_table = client.get_table(table_ref)
-                updated_schema = []
-
-                for schema_field in existing_table.schema:
-                    matching_field = next((f for f in schema_fields if f.name == schema_field.name), None)
-                    if matching_field:
-                        updated_schema.append(matching_field)
-                    else:
-                        updated_schema.append(schema_field)
-
-                existing_table.schema = updated_schema
-                client.update_table(existing_table, ["schema"])
-                logging.info(f"Tabela '{table_ref}' atualizada com descrições.")
-            except Exception as e:
-                logging.error(f"Erro ao atualizar tabela '{table_ref}': {e}")
+    response = model.generate_content(prompt)
+    return response.text
 
 
-def jsonl_data(data):
+def save_code_from_gemini(dataset: str, content: str):
     """
-    Salva dados em arquivos JSONL, convertendo automaticamente datas e decimais 
-    para formatos compatíveis com JSON.
+    Escreve a resposta obtida do modelo no arquivo 'gemini_datagen.py'.
 
     Parâmetros:
-    data (dict): Dicionário onde as chaves são nomes de arrays e os valores são listas de dicionários.
+    content (str): O código obtido do modelo.
     """
-    # Obtendo o nome do arquivo chamador para definir o nome do dataset
-    caller_frame = inspect.stack()[1]
-    caller_file = caller_frame.filename
-    dataset_name = os.path.splitext(os.path.basename(caller_file))[0]
+    # Remover qualquer marcação de código extra (como ``` ou ```python) no início e final
+    content = re.sub(
+        r'^```(python)?\s*', '', content
+    )  # Remover ```python ou apenas ```
+    content = re.sub(r'```$', '', content)  # Remover ```
 
-    # Definindo o caminho de saída
-    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
-    output_path = os.path.join(project_root, "src/mock_data", dataset_name)
-    os.makedirs(output_path, exist_ok=True)
+    # Define o diretório e o caminho do arquivo
+    pathdir = 'src/gm_functions'
+    os.makedirs(pathdir, exist_ok=True)  # Cria o diretório se não existir
 
-    def serialize_data(item):
-        """Converte datas, decimais e processa dados aninhados para compatibilidade JSON."""
-        if isinstance(item, datetime):
-            return item.strftime('%Y-%m-%d %H:%M:%S')
-        elif isinstance(item, date):
-            return item.strftime('%Y-%m-%d')
-        elif isinstance(item, Decimal):
-            return float(item)
-        elif isinstance(item, dict):
-            return {k: serialize_data(v) for k, v in item.items()}
-        elif isinstance(item, list):
-            return [serialize_data(i) for i in item]
-        return item
+    # Define o caminho do arquivo
+    file_path = os.path.join(pathdir, f'{dataset}.py')
 
-    # Salvando os dados no formato JSONL
-    for array_name, array_data in data.items():
-        filename = f"{array_name}.jsonl"
-        filepath = os.path.join(output_path, filename)
-        with open(filepath, 'w', encoding='utf-8') as f:
-            for item in array_data:
-                serialized_item = serialize_data(item)
-                json.dump(serialized_item, f, ensure_ascii=False)
-                f.write('\n')
+    # Abre o arquivo para escrita
+    with open(file_path, 'a', encoding='utf-8') as file:
+        file.write(content)  # Escreve o conteúdo diretamente
 
-    return data
+    return True
+
+
+def load_models_and_examples(dataset: str, prompt) -> str:
+    # Carregar modelos Pydantic
+    models_dir = f'src/py_models/{dataset}'
+    models_code = []
+
+    for filename in os.listdir(models_dir):
+        if filename.endswith('.py'):
+            with open(
+                os.path.join(models_dir, filename), 'r', encoding='utf-8'
+            ) as f:
+                models_code.append(f.read())
+
+    models_code_str = '\n\n'.join(models_code)
+
+    # Carregar todos os exemplos JSON do diretório
+    json_files_pattern = f'src/data_sample_json/{dataset}/*.json'
+    json_file_paths = glob.glob(json_files_pattern)
+    examples_data = []
+
+    for json_file_path in json_file_paths:
+        with open(json_file_path, 'r', encoding='utf-8') as f:
+            examples_data.append(json.load(f))
+
+    # Converter todos os dados JSON em uma string
+    examples_data_str = json.dumps(examples_data, indent=2, ensure_ascii=False)
+
+    # Carregar exemplo de retorno esperado (agora com o caminho fixo 'example.py')
+    expected_return_file = 'src/example_of_expected_return/example.py'
+    with open(expected_return_file, 'r', encoding='utf-8') as f:
+        expected_return_code = f.read()
+
+    # Concatenar tudo
+    full_prompt = prompt.replace(
+        '#colocar nessa linha os modelos do py_models/{dataset}/*.py',
+        models_code_str,
+    )
+    full_prompt = full_prompt.replace(
+        '#colocar nessa linha o json com os dados de exemplo do data_sample_json/{dataset}/*.json',
+        examples_data_str,
+    )
+    full_prompt = full_prompt.replace(
+        '#colocar nessa linha algum py com um exemplo de retorno esperado do example_of_expected_return/{dataset}.py',
+        expected_return_code,
+    )
+
+    return full_prompt
+
+
+prompt = """Você é um assistente especializado em gerar código Python de alta qualidade e aderente às melhores práticas. Você segue as instruções com precisão, sem fornecer explicações ou informações extras além do código solicitado.
+
+Exemplo generico de como deve ser as funções que você irá gerar:
+
+Observação 1: se algum atributo for id você deve preencher com:
+next(id_serial).
+
+Observação 2: se algum atributo for data ou coisa do tipo você deve preencher as datas com a seguinte formatação:
+strftime('%Y-%m-%d %H:%M:%S')
+
+Observação 3: Em nenhuma hipotese, use acentos em palavras, escreva sem o acento mesmo.
+
+Observação 4: Colunas que nao tiverem amostras de dados no exemplo,  você deve criar uma função fake correspondente para cada uma delas tomando como base o tipo e o nome da coluna.
+
+def criar_<nome_do_modelo>_faker():
+    id_serial = itertools.count(start=0)
+    return {{
+        "id": next(id_serial),
+        "nome_do_atributo": função_fake_correspondente,
+    }}
+Dado o seguinte modelo Pydantic, crie uma função Python que instancia um objeto estritamente deste modelo e preencha os atributos com valores gerados por funções adequadas da biblioteca Faker. A função deve retornar o objeto como um dicionário. Use as funções Faker que melhor correspondem a cada tipo de dado. Retorne apenas a função Python, sem explicações adicionais, importações de bibliotecas, tratamento de exceções, apenas a implementação da função.
+para criar a função para o model abaixo, utilize do mapping que estou enviando:
+
+
+utilize exatamente este modelo Pydantic:
+#colocar nessa linha os modelos do py_models/{dataset}/*.py
+
+abaixo está um exemplo de como deveria ser os dados que satisfazem cada coluna desta tabela: 
+#colocar nessa linha o json com os dados de exemplo do data_sample_json/{dataset}.json!!
+
+abaixo está um exemplo de retorno esperado de um outro dataset para você se basear:
+#colocar nessa linha algum py com um exemplo de retorno esperado do example_of_expected_return/example.py
+"""

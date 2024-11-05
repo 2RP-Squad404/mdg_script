@@ -180,3 +180,8 @@ pyrightconfig.json
 
 # Generated using ignr.py - github.com/Antrikshy/ignr.py
 
+### From MDG_SCRIPT
+log.txt
+src/bq_schemas_json
+src/gm_functions
+src/py_models
