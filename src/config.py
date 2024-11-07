@@ -30,7 +30,7 @@ class Settings(BaseSettings):
     secret_name: str
 
     class Config:
-        env_file = "../.env"
+        env_file = ["../.env", ".env"]
         extra = "ignore"
 
 
