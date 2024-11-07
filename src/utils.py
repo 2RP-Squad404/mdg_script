@@ -1,17 +1,10 @@
 import importlib.util
-import inspect
-import json
-import logging
 import os
-from datetime import date, datetime
-from decimal import Decimal
 
 from auth import get_bigquery_client
 from google.cloud import bigquery
 
-from config import PROJECT_ID, setup_logging
-
-setup_logging(log_level=logging.INFO)
+from config import PROJECT_ID, logger
 
 
 def load_py_schema(dataset_name):
@@ -109,26 +102,26 @@ def create_tables():
                                         partition_type = "MONTH" if field.name.startswith("num_anomes") or field.name.startswith("production_date") else "DAY"
                                         break
                                     else:
-                                        logging.error(f"O campo {field.name} na tabela {table_name} não é do tipo TIMESTAMP, DATE ou DATETIME. Particionamento ignorado.")
+                                        logger.error(f"O campo {field.name} na tabela {table_name} não é do tipo TIMESTAMP, DATE ou DATETIME. Particionamento ignorado.")
 
                             if partition_field and partition_type:
                                 table.time_partitioning = bigquery.TimePartitioning(
                                     type_=partition_type,
                                     field=partition_field
                                 )
-                                logging.info(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
+                                logger.info(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
                             else:
-                                logging.error(f"Tabela {table_name} sem campo de particionamento configurado.")
+                                logger.error(f"Tabela {table_name} sem campo de particionamento configurado.")
 
                         client.create_table(table, exists_ok=True)
                         update_table_descriptions_from_schemas("py_schemas")
-                        logging.info(f"Tabela {table_name} criada no dataset {dataset_folder}")
+                        logger.info(f"Tabela {table_name} criada no dataset {dataset_folder}")
                     else:
-                        logging.error(f"Schema não encontrado para a tabela {table_name} no dataset {dataset_folder}")
+                        logger.error(f"Schema não encontrado para a tabela {table_name} no dataset {dataset_folder}")
             else:
-                logging.error(f"Arquivo de schema Python não encontrado para o dataset {dataset_folder}")
+                logger.error(f"Arquivo de schema Python não encontrado para o dataset {dataset_folder}")
         else:
-            logging.error(f"Dataset {dataset_folder} não encontrado no BigQuery")
+            logger.error(f"Dataset {dataset_folder} não encontrado no BigQuery")
 
 
 def load_schema_module(schema_file):
@@ -190,51 +183,6 @@ def update_table_descriptions_from_schemas(schema_directory):
 
                 existing_table.schema = updated_schema
                 client.update_table(existing_table, ["schema"])
-                logging.info(f"Tabela '{table_ref}' atualizada com descrições.")
+                logger.info(f"Tabela '{table_ref}' atualizada com descrições.")
             except Exception as e:
-                logging.error(f"Erro ao atualizar tabela '{table_ref}': {e}")
-
-
-def jsonl_data(data):
-    """
-    Salva dados em arquivos JSONL, convertendo automaticamente datas e decimais 
-    para formatos compatíveis com JSON.
-
-    Parâmetros:
-    data (dict): Dicionário onde as chaves são nomes de arrays e os valores são listas de dicionários.
-    """
-    # Obtendo o nome do arquivo chamador para definir o nome do dataset
-    caller_frame = inspect.stack()[1]
-    caller_file = caller_frame.filename
-    dataset_name = os.path.splitext(os.path.basename(caller_file))[0]
-
-    # Definindo o caminho de saída
-    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
-    output_path = os.path.join(project_root, "src/mock_data", dataset_name)
-    os.makedirs(output_path, exist_ok=True)
-
-    def serialize_data(item):
-        """Converte datas, decimais e processa dados aninhados para compatibilidade JSON."""
-        if isinstance(item, datetime):
-            return item.strftime('%Y-%m-%d %H:%M:%S')
-        elif isinstance(item, date):
-            return item.strftime('%Y-%m-%d')
-        elif isinstance(item, Decimal):
-            return float(item)
-        elif isinstance(item, dict):
-            return {k: serialize_data(v) for k, v in item.items()}
-        elif isinstance(item, list):
-            return [serialize_data(i) for i in item]
-        return item
-
-    # Salvando os dados no formato JSONL
-    for array_name, array_data in data.items():
-        filename = f"{array_name}.jsonl"
-        filepath = os.path.join(output_path, filename)
-        with open(filepath, 'w', encoding='utf-8') as f:
-            for item in array_data:
-                serialized_item = serialize_data(item)
-                json.dump(serialized_item, f, ensure_ascii=False)
-                f.write('\n')
-
-    return data
+                logger.error(f"Erro ao atualizar tabela '{table_ref}': {e}")
