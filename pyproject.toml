@@ -20,6 +20,7 @@ taskipy = "^1.13.0"
 pydantic = "^2.9.2"
 vertexai = "^1.71.1"
 faker = "^30.8.2"
+pydantic-settings = "^2.6.1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.6.9"
