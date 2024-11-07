@@ -1,5 +1,4 @@
-import logging
-
+from config import logger
 from auth import get_bigquery_client
 
 """
@@ -26,9 +25,9 @@ if client is not None:
         query_job = client.query(query)
 
         for row in query_job:
-            logging.info(f"Conexão bem-sucedida! Data de hoje: {row['today']}")
-            logging.info("Autenticado com a conta de serviço.")
+            logger.info(f"Conexão bem-sucedida! Data de hoje: {row['today']}")
+            logger.info("Autenticado com a conta de serviço.")
     except Exception as e:
-        logging.error(f"Erro ao executar a query: {e}")
+        logger.error(f"Erro ao executar a query: {e}")
 else:
-    logging.error("Falha ao autenticar.")
+    logger.error("Falha ao autenticar.")
