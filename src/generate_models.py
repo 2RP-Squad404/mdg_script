@@ -1,10 +1,7 @@
 import json
-import logging
 import os
+from config import logger
 
-from config import setup_logging
-
-setup_logging(log_level=logging.INFO)
 
 TYPE_MAPPING = {
     "STRING": "str",
@@ -111,7 +108,7 @@ def create_bigquery_schemas(directory):
         if os.path.isdir(folder_path):
             process_bigquery_folder(folder_path, folder_name, output_dir)
 
-    logging.info("BigQuery Schemas criados com sucesso!")
+    logger.info("BigQuery Schemas criados com sucesso!")
 
 
 def create_class_code_pydantic(schema: dict) -> str:
@@ -199,7 +196,7 @@ def create_pydantic_models(directory):
         if os.path.isdir(folder_path):
             process_pydantic_folder(folder_path, folder_name, output_dir)
 
-    logging.info("Pydantic Models criados com sucesso!")
+    logger.info("Pydantic Models criados com sucesso!")
 
 
 directory = './bq_schemas'
