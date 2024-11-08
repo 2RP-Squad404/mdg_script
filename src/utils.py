@@ -1,15 +1,17 @@
 import importlib.util
+import inspect
 import os
 from datetime import date, datetime
 from decimal import Decimal
 import subprocess
+import json
 
-from auth import get_bigquery_client
-from google.cloud import bigquery,secretmanager
+from auth import get_bigquery_client,secretmanager
 from google.oauth2 import service_account
+from google.cloud import bigquery
 
 from config import PROJECT_ID, logger
-
+import importlib.metadata
 
 def load_py_schema(dataset_name):
     """
@@ -29,16 +31,14 @@ def load_py_schema(dataset_name):
         return schema_module
     return None
 
-
 def jsonl_to_bigquery(filename, table_id, dataset_id):
     """
     Carrega dados de um arquivo JSONL para o BigQuery.
 
-    Abre um arquivo JSONL que contém dados gerados e envia para uma tabela específica
-    no BigQuery, utilizando configuração de trabalho de carga.
-
-    Exceções:
-        Gera exceções caso ocorra algum erro durante o carregamento dos dados.
+    Parâmetros:
+        filename (str): Nome do arquivo JSONL.
+        table_id (str): Nome da tabela no BigQuery.
+        dataset_id (str): Nome do dataset no BigQuery.
     """
 
     client = get_bigquery_client()
@@ -60,7 +60,6 @@ def jsonl_to_bigquery(filename, table_id, dataset_id):
         load_job = client.load_table_from_file(jsonl_file, table_ref, job_config=job_config)
 
     load_job.result()
-
 
 def create_tables():
     """
@@ -127,7 +126,6 @@ def create_tables():
         else:
             logger.error(f"Dataset {dataset_folder} não encontrado no BigQuery")
 
-
 def load_schema_module(schema_file):
     """
     Carrega um módulo de schema Python a partir de um arquivo.
@@ -148,7 +146,6 @@ def load_schema_module(schema_file):
     schema_module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(schema_module)
     return schema_module
-
 
 def update_table_descriptions_from_schemas(schema_directory):
     """
@@ -194,10 +191,10 @@ def update_table_descriptions_from_schemas(schema_directory):
 def jsonl_data(data):
     """
     Salva dados em arquivos JSONL, convertendo automaticamente datas e decimais 
-    para formatos compatíveis com JSON.
+        para formatos compatíveis com JSON.
 
     Parâmetros:
-    data (dict): Dicionário onde as chaves são nomes de arrays e os valores são listas de dicionários.
+        data (dict): Dicionário onde as chaves são nomes de arrays e os valores são listas de dicionários.
     """
     # Obtendo o nome do arquivo chamador para definir o nome do dataset
     caller_frame = inspect.stack()[1]
@@ -210,7 +207,15 @@ def jsonl_data(data):
     os.makedirs(output_path, exist_ok=True)
 
     def serialize_data(item):
-        """Converte datas, decimais e processa dados aninhados para compatibilidade JSON."""
+        """
+        Converte datas, decimais e processa dados aninhados para compatibilidade JSON.
+
+        Parâmetros:
+            item (dict): Dicionário a ser serializado.
+
+        Retorno:
+            dict: Dicionário serializado.
+        """
         if isinstance(item, datetime):
             return item.strftime('%Y-%m-%d %H:%M:%S')
         elif isinstance(item, date):
@@ -223,7 +228,6 @@ def jsonl_data(data):
             return [serialize_data(i) for i in item]
         return item
 
-    # Salvando os dados no formato JSONL
     for array_name, array_data in data.items():
         filename = f"{array_name}.jsonl"
         filepath = os.path.join(output_path, filename)
@@ -235,15 +239,15 @@ def jsonl_data(data):
 
     return data
 
-
 def run_command(command: str) -> str:
-    """Execute a gcloud command and return the output.
+    """
+    Executa um comando gcloud e retorna a saída.
 
-    Args:
-        command (str): The gcloud command to be executed.
+    Parâmetro:
+        command (str): Comando a ser executado.
 
-    Returns:
-        str: The standard output from the command execution.
+    Returno:
+        str: Saída do comando.
     """
     result = subprocess.run(
         command, capture_output=True, text=True, shell=True, check=False
@@ -251,23 +255,18 @@ def run_command(command: str) -> str:
     return result.stdout.strip()
 
 def gcloud_list(
-    resource_type: str, project_id: str, credentials: str, dataset_id: str
-) -> list:
-    """List various resources from Google Cloud based on the specified type.
+    resource_type: str, project_id: str, credentials: str, dataset_id: str) -> list:
+    """
+    Lista recursos do Google Cloud com base no tipo especificado.
 
-    Args:
-        resource_type (str): The type of resource to list. Options are:
-            'projects', 'secrets', 'datasets', 'tables'.
-        project_id (str): The project ID used for resource queries.
-        credentials (str): Credentials for accessing BigQuery.
-        dataset_id (str): The dataset ID, required for listing tables.
+    Parâmetros:
+    resource_type (str): Tipo de recurso a ser listado.
+    project_id (str): ID do projeto.
+    credentials (str): Arquivo de credenciais do Google Cloud.
+    dataset_id (str): ID do dataset.
 
-    Returns:
-        list: A list of resource identifiers (e.g., project IDs, secret names,
-        dataset IDs, or table IDs) based on the specified resource type.
-
-    Raises:
-        ValueError: If an unknown resource type is provided.
+    Returno:
+    list: Lista de recursos.
     """
     if resource_type == 'projects':
         command = "gcloud projects list --format='value(projectId)'"
@@ -292,19 +291,18 @@ def gcloud_choose(
     credentials: str = None,
     dataset_id: str = None,
 ) -> str:
-    """Prompt the user to choose a resource from a list.
+    """
+    Prompt the user to choose a resource from a list.
+    Opcionalmente, você pode especificar o tipo de recurso, projeto e credenciais
 
-    Args:
-        resource_type (str): The type of resource to list and choose from.
-        project_id (str, optional): The project ID used for resource queries.
-        credentials (str, optional): Credentials for accessing BigQuery.
-        dataset_id (str, optional): The dataset ID, required for listing tables.
+    Parâmetro:
+        resource_type (str): Tipo de recurso a ser escolhido.
+        project_id (str): ID do projeto.
+        credentials (str): Arquivo de credenciais do Google Cloud.
+        dataset_id (str): ID do dataset.
 
-    Returns:
-        str: The chosen resource identifier, or None if no valid choice is made.
-
-    Raises:
-        ValueError: If an unknown resource type is provided.
+    Returno
+        str: Nome do recurso escolhido.
     """
     choices = gcloud_list(
         resource_type=resource_type,
@@ -325,3 +323,88 @@ def gcloud_choose(
         return choices[choice_index]
     else:
         return None
+    
+def get_credentials(secret_name: str):
+    """Retrieve service account credentials from Google Cloud Secret Manager.
+
+    Args:
+        secret_name (str): The full resource name of the secret version.
+
+    Returns:
+        tuple: A tuple containing the credentials object and the credentials dictionary.
+    """
+    secret_client = secretmanager.SecretManagerServiceClient()
+    response = secret_client.access_secret_version(name=secret_name)
+    credentials_dict = json.loads(response.payload.data.decode('utf-8'))
+
+    credentials = service_account.Credentials.from_service_account_info(
+        credentials_dict
+    )
+    return credentials, credentials_dict
+
+def list_datasets_from_folder(folder_path: str) -> list:
+    """
+    Lista apenas os arquivos de dataset na pasta especificada, removendo a extensão .py.
+
+    Args:
+        folder_path (str): Caminho para a pasta que contém os arquivos.
+
+    Returns:
+        list: Lista dos nomes dos arquivos sem a extensão .py.
+    """
+    return [os.path.splitext(f)[0] for f in os.listdir(folder_path)
+            if os.path.isfile(os.path.join(folder_path, f)) and f.endswith('.py')]
+
+def list_datasets_from_bigquery(project_id: str) -> list:
+    """
+    Lista os datasets disponíveis no BigQuery.
+
+    Args:
+        project_id (str): ID do projeto no Google Cloud.
+
+    Returns:
+        list: Lista dos nomes dos datasets no BigQuery.
+    """
+    client = bigquery.Client(project=project_id)
+    datasets = client.list_datasets()  # Lista os datasets do projeto
+    return [dataset.dataset_id for dataset in datasets]
+
+def display_common_datasets(folder_path: str, project_id: str):
+    """
+    Exibe e permite a seleção opcional dos datasets que estão em comum entre a pasta local e o BigQuery.
+
+    Args:
+        folder_path (str): Caminho para a pasta que contém os arquivos.
+        project_id (str): ID do projeto no Google Cloud.
+
+    Returns:
+        list: Lista de datasets selecionados ou todos os datasets em comum, se nenhuma seleção for feita.
+    """
+    local_datasets = list_datasets_from_folder(folder_path)
+    bq_datasets = list_datasets_from_bigquery(project_id)
+
+    # Encontrar datasets em comum
+    common_datasets = sorted(set(local_datasets) & set(bq_datasets))
+
+    if not common_datasets:
+        print("\033[91mNenhum dataset em comum encontrado.\033[0m")
+        return []
+
+    print("\033[32mDatasets em comum:\033[0m")
+    for i, dataset in enumerate(common_datasets, start=1):
+        print(f"{i}. {dataset}")
+
+    # Prompt opcional para seleção de datasets
+    user_input = input("\nDigite os números dos datasets que deseja selecionar: ").strip()
+
+    if not user_input:
+        return common_datasets
+
+    selected_indexes = [int(x) - 1 for x in user_input.split(",") if x.isdigit()]
+    selected_dataset = [
+        common_datasets[i] for i in selected_indexes if 0 <= i < len(common_datasets)
+    ]
+
+    
+
+    return selected_dataset
