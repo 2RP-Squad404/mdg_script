@@ -1,11 +1,5 @@
-from utils import jsonl_to_bigquery
-
-# client = get_bigquery_client()
-directory = './bq_schemas'
+from utils import jsonl_to_bigquery,run_command
 
 # create_tables()
-# - Criar dataset e tabelas
-# ...
-# - Enviar dados via jsonl
-jsonl_to_bigquery(filename='cliente.jsonl', table_id='cliente', dataset_id='pfs_risco_raw_tivea')
-# ...
+
+jsonl_to_bigquery(filename='acordo.jsonl', table_id='acordo', dataset_id='pfs_risco_raw_tivea')

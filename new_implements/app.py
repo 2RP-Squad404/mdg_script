@@ -1,7 +1,7 @@
 import sys
 
 from config import logger
-from utils import (
+from utils_new import (
     gcloud_choose,
     gen_py_models,
     generate_code_with_gemini,
