@@ -1,8 +1,12 @@
 import importlib.util
 import os
+from datetime import date, datetime
+from decimal import Decimal
+import subprocess
 
 from auth import get_bigquery_client
-from google.cloud import bigquery
+from google.cloud import bigquery,secretmanager
+from google.oauth2 import service_account
 
 from config import PROJECT_ID, logger
 
@@ -49,7 +53,7 @@ def jsonl_to_bigquery(filename, table_id, dataset_id):
         source_format=bigquery.SourceFormat.NEWLINE_DELIMITED_JSON,
         write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE,
         autodetect=False,
-        ignore_unknown_values=True
+        ignore_unknown_values=True,
     )
 
     with open(jsonl_file_path, "rb") as jsonl_file:
@@ -186,3 +190,138 @@ def update_table_descriptions_from_schemas(schema_directory):
                 logger.info(f"Tabela '{table_ref}' atualizada com descrições.")
             except Exception as e:
                 logger.error(f"Erro ao atualizar tabela '{table_ref}': {e}")
+
+def jsonl_data(data):
+    """
+    Salva dados em arquivos JSONL, convertendo automaticamente datas e decimais 
+    para formatos compatíveis com JSON.
+
+    Parâmetros:
+    data (dict): Dicionário onde as chaves são nomes de arrays e os valores são listas de dicionários.
+    """
+    # Obtendo o nome do arquivo chamador para definir o nome do dataset
+    caller_frame = inspect.stack()[1]
+    caller_file = caller_frame.filename
+    dataset_name = os.path.splitext(os.path.basename(caller_file))[0]
+
+    # Definindo o caminho de saída
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+    output_path = os.path.join(project_root, "src/mock_data", dataset_name)
+    os.makedirs(output_path, exist_ok=True)
+
+    def serialize_data(item):
+        """Converte datas, decimais e processa dados aninhados para compatibilidade JSON."""
+        if isinstance(item, datetime):
+            return item.strftime('%Y-%m-%d %H:%M:%S')
+        elif isinstance(item, date):
+            return item.strftime('%Y-%m-%d')
+        elif isinstance(item, Decimal):
+            return float(item)
+        elif isinstance(item, dict):
+            return {k: serialize_data(v) for k, v in item.items()}
+        elif isinstance(item, list):
+            return [serialize_data(i) for i in item]
+        return item
+
+    # Salvando os dados no formato JSONL
+    for array_name, array_data in data.items():
+        filename = f"{array_name}.jsonl"
+        filepath = os.path.join(output_path, filename)
+        with open(filepath, 'w', encoding='utf-8') as f:
+            for item in array_data:
+                serialized_item = serialize_data(item)
+                json.dump(serialized_item, f, ensure_ascii=False)
+                f.write('\n')
+
+    return data
+
+
+def run_command(command: str) -> str:
+    """Execute a gcloud command and return the output.
+
+    Args:
+        command (str): The gcloud command to be executed.
+
+    Returns:
+        str: The standard output from the command execution.
+    """
+    result = subprocess.run(
+        command, capture_output=True, text=True, shell=True, check=False
+    )
+    return result.stdout.strip()
+
+def gcloud_list(
+    resource_type: str, project_id: str, credentials: str, dataset_id: str
+) -> list:
+    """List various resources from Google Cloud based on the specified type.
+
+    Args:
+        resource_type (str): The type of resource to list. Options are:
+            'projects', 'secrets', 'datasets', 'tables'.
+        project_id (str): The project ID used for resource queries.
+        credentials (str): Credentials for accessing BigQuery.
+        dataset_id (str): The dataset ID, required for listing tables.
+
+    Returns:
+        list: A list of resource identifiers (e.g., project IDs, secret names,
+        dataset IDs, or table IDs) based on the specified resource type.
+
+    Raises:
+        ValueError: If an unknown resource type is provided.
+    """
+    if resource_type == 'projects':
+        command = "gcloud projects list --format='value(projectId)'"
+    elif resource_type == 'secrets':
+        command = f"gcloud secrets list --project={project_id} --format='value(name)'"
+    elif resource_type in {'datasets', 'tables'}:
+        client = bigquery.Client(credentials=credentials, project=project_id)
+        if resource_type == 'datasets':
+            datasets = client.list_datasets(project_id)
+            return [dataset.dataset_id for dataset in datasets]
+        elif resource_type == 'tables':
+            tables = client.list_tables(dataset_id)
+            return [table.table_id for table in tables]
+    else:
+        raise ValueError(f'Unknown resource type: {resource_type}')
+
+    return run_command(command).splitlines()
+
+def gcloud_choose(
+    resource_type: str,
+    project_id: str = None,
+    credentials: str = None,
+    dataset_id: str = None,
+) -> str:
+    """Prompt the user to choose a resource from a list.
+
+    Args:
+        resource_type (str): The type of resource to list and choose from.
+        project_id (str, optional): The project ID used for resource queries.
+        credentials (str, optional): Credentials for accessing BigQuery.
+        dataset_id (str, optional): The dataset ID, required for listing tables.
+
+    Returns:
+        str: The chosen resource identifier, or None if no valid choice is made.
+
+    Raises:
+        ValueError: If an unknown resource type is provided.
+    """
+    choices = gcloud_list(
+        resource_type=resource_type,
+        project_id=project_id,
+        credentials=credentials,
+        dataset_id=dataset_id,
+    )
+
+    if not choices:
+        return None
+
+    logger.info(f'\033[33mAvailable {resource_type}:\033[0m')
+    for i, choice in enumerate(choices, start=1):
+        logger.info(f'{i}. {choice}')
+
+    choice_index = int(input('> Enter the option number: ')) - 1
+    if 0 <= choice_index < len(choices):
+        return choices[choice_index]
+    else:
+        return None
