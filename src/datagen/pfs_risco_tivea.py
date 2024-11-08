@@ -2,12 +2,12 @@ import random
 import re
 
 from faker import Faker
-from jsonl_convert import jsonl_data
+from datagen.jsonl_convert import jsonl_data
 
 faker = Faker('pt_BR')
 
 
-def Datagen_pfs_risco_tivea(num_records):
+def pfs_risco_tivea(num_records):
 
     data = {'cartao': [], 'cobranca_campo_customizavel': [], 'cobr_cliente_atraso': [], 'cobranca_acordo': [],
             'cobranca_assessoria': [], 'cobranca_cliente': [], 'Cobranca_campo_customizavel': [], 'cobranca_email_cliente': [],
@@ -33,15 +33,15 @@ def Datagen_pfs_risco_tivea(num_records):
             "dth_valid_cartao": faker.date_time_between(start_date="+3y", end_date='+6y').strftime('%Y-%m-%dT%H:%M:%S+00:00'),
             "dth_desbloqueio": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
             "cod_sit_cartao": faker.random_int(min=1, max=50),
-            "des_sit_cartao": faker.random_element(elements=['NORMAL', 'BLOQUEADO', 'CANCELADO', 'CANCELADO CLIENTE', 'CANCELADO EMBOSSING LOJA', 'CANCELADO TARJA', 'CADASTRO ERRO EMISSOR', 'CANCELADO PERDA', 'ALERTA PREVENTIVO MESA', 'BLOQUEADO PREVENÇÃO', 'CANCELADO EMBOSSING', 'CANCELADO DESATIVADO', 'FALSIFICAÇÃO NAC', 'CANCELADO DEIXADO LOJA', 'FALSIFICAÇÃO EXT', 'BLOQUEIO PREVENTIVO FALCON', 'CANCELADO CVV/CVV2 NAO GERADO', 'CANCELADO ROUBO', 'SUSPEITA DE FRAUDE - PREVENTIVO', 'CANCELADO DEFINITIVO TARJA', 'CANCELADO REEMISSÃO PERSONALIZADO', 'CANCELADO EXTRAVIADO', 'EXTRAVIO MALOTE CORREIOS']),
+            "des_sit_cartao": faker.random_element(elements=('NORMAL', 'BLOQUEADO', 'CANCELADO', 'CANCELADO CLIENTE', 'CANCELADO EMBOSSING LOJA', 'CANCELADO TARJA', 'CADASTRO ERRO EMISSOR', 'CANCELADO PERDA', 'ALERTA PREVENTIVO MESA', 'BLOQUEADO PREVENÇÃO', 'CANCELADO EMBOSSING', 'CANCELADO DESATIVADO', 'FALSIFICAÇÃO NAC', 'CANCELADO DEIXADO LOJA', 'FALSIFICAÇÃO EXT', 'BLOQUEIO PREVENTIVO FALCON', 'CANCELADO CVV/CVV2 NAO GERADO', 'CANCELADO ROUBO', 'SUSPEITA DE FRAUDE - PREVENTIVO', 'CANCELADO DEFINITIVO TARJA', 'CANCELADO REEMISSÃO PERSONALIZADO', 'CANCELADO EXTRAVIADO', 'EXTRAVIO MALOTE CORREIOS')),
             "dth_sit_cartao": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
             "cod_estagio_cartao": faker.random_int(min=0, max=22),
-            "des_estagio_cartao": faker.random_element(elements=['DESBLOQUEADO SEM CODIGO', 'CRIADO', 'ENCAMINHADO']),
+            "des_estagio_cartao": faker.random_element(elements=('DESBLOQUEADO SEM CODIGO', 'CRIADO', 'ENCAMINHADO')),
             "dth_estagio_cartao": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
-            "flg_embs_loja": faker.random_element(elements=['S', 'N']),
-            "flg_cartao_cancelado": faker.random_element(elements=['S', 'N']),
-            "flg_cartao_provisorio": faker.random_element(elements=['S', 'N']),
-            "flg_conta_cancelada": faker.random_element(elements=['S', 'N']),
+            "flg_embs_loja": faker.random_element(elements=('S', 'N')),
+            "flg_cartao_cancelado": faker.random_element(elements=('S', 'N')),
+            "flg_cartao_provisorio": faker.random_element(elements=('S', 'N')),
+            "flg_conta_cancelada": faker.random_element(elements=('S', 'N')),
             "dth_ult_atu_so": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
             "num_seq_ult_alteracao": faker.random_int(min=1, max=4),
             "dth_inclusao_reg": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
@@ -51,8 +51,8 @@ def Datagen_pfs_risco_tivea(num_records):
 
         criar_cobranca_campo_customizavel_faker = {
             "id_cliente_cobranca": str(faker.random_number(digits=10, fix_len=True)),
-            "nom_campo": faker.random_element(elements=['REACORDO', 'NOVO_LIMITE', 'ESTRATEGIA4']),
-            "val_campo": faker.random_element(elements=['SERVICE_PREMIUM', 'TUDO JUSTO', 'SERASA', 'VALIDU', 'Portal Pefisa - PPN', 'DIGICOB TECNOLOGIA LTDA']),
+            "nom_campo": faker.random_element(elements=('REACORDO', 'NOVO_LIMITE', 'ESTRATEGIA4')),
+            "val_campo": faker.random_element(elements=('SERVICE_PREMIUM', 'TUDO JUSTO', 'SERASA', 'VALIDU', 'Portal Pefisa - PPN', 'DIGICOB TECNOLOGIA LTDA')),
             "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
         }
         data['cobranca_campo_customizavel'].append(criar_cobranca_campo_customizavel_faker)
@@ -65,9 +65,9 @@ def Datagen_pfs_risco_tivea(num_records):
             "id_produto_cartao": faker.random_number(digits=10, fix_len=True),
             "nom_cliente": faker.name(),
             "tip_pessoa": "FISICA",
-            "tip_situacao": faker.random_element(elements=["DEVEDOR", "COBRANCA", "ATIVO", "BLOQUEADO"]),
-            "nom_uf": faker.random_element(elements=["SP", "PR", "XX"]),
-            "cod_rating": faker.random_element(elements=["HH", "A", "C", "B", "G", "H", "D", "E", "F"]),
+            "tip_situacao": faker.random_element(elements=("DEVEDOR", "COBRANCA", "ATIVO", "BLOQUEADO")),
+            "nom_uf": faker.random_element(elements=("SP", "PR", "XX")),
+            "cod_rating": faker.random_element(elements=("HH", "A", "C", "B", "G", "H", "D", "E", "F")),
             "des_marcador": None,
             "val_saldo_atual": faker.random_number(digits=5, fix_len=False),
             "val_saldo_atraso": faker.random_number(digits=5, fix_len=False),
@@ -86,21 +86,21 @@ def Datagen_pfs_risco_tivea(num_records):
             "num_ddd_com": faker.random_int(min=11, max=99),
             "num_tel_com": re.sub(r'\D', '', faker.phone_number()[-8:]),
             "nom_email": faker.email(),
-            "cod_loja": faker.random_element(elements=["60", "72", "96", "98", "100", "6", "10", "12", "18", "26", "28", "32", "42", "46", "48", "52", "54", "56", "62", "64", "70", "74", "76", "78", "82", "84", "86", "88", "90", "94", "053", "102"]),
+            "cod_loja": faker.random_element(elements=("60", "72", "96", "98", "100", "6", "10", "12", "18", "26", "28", "32", "42", "46", "48", "52", "54", "56", "62", "64", "70", "74", "76", "78", "82", "84", "86", "88", "90", "94", "053", "102")),
             "cod_colmar": None,
-            "cod_colchao": faker.random_element(elements=["49", "15"]),
+            "cod_colchao": faker.random_element(elements=("49", "15")),
             "cod_contr_orig": None,
             "cod_dist_assessoria": None,
             "cod_dist_assess_mar": None,
             "cod_dist_escob": None,
-            "cod_estrategia1": faker.random_element(elements=["202", "696", "847", "743", "46", "120", "10", "20", "811", "19", "783", "290", "713", "168", "67,27", "90", "856", "771", "P", "571", "259", "269", "782", "84", "218", "857", "744", "800", "650", "667", "277", "2", "683", "109", "730", "276", "206", "618", "217", "827", "792", "248", "33", "739", "682", "537", "757", "786", "211", "604"]),
-            "cod_estrategia2": faker.random_element(elements=["13", "98", "10", "40", "20", "21", "808", "705", "43", "807", "435", "202", "430", "1220", "806", "122", "F", "701", "900", "121", "902", "801", "600", "706", "700", "800", "0", "802", "41", "6002", "901", "11", "910", "23", "911", "69", "903", "702", "20231", "1", "400", "402", "809", "6001", "703", "20232", "94", "81", "97", "49"]),
-            "cod_estrategia3": faker.random_element(elements=["1", "2780.54", "0", "3638.47", "4251.09", "601.84", "3502.27", "4645.34", "1743.77", "167.4", "1129.22", "1001.99", "2915.01", "427.47", "7439.47", "3481.55", "2549.49", "865.84", "5091.79", "1238.35", "2836.28", "4175.9", "2786.91", "487.37", "3013.51", "32.39", "1796.20", "551.17", "3038.16", "783.48", "414.98", "4865.44", "927.77", "325.51", "1483.08", "2324.45", "2184.37", "355.89", "2057.74", "11166.39", "1332.86", "530.25", "7114.39", "1369.88", "3414.39", "2428.68", "4700.22", "2005.53", "1870.09", "1627.49"]),
-            "cod_estrategia4": faker.random_element(elements=["1", "0", "2", "5", "C"]),
+            "cod_estrategia1": faker.random_element(elements=("202", "696", "847", "743", "46", "120", "10", "20", "811", "19", "783", "290", "713", "168", "67,27", "90", "856", "771", "P", "571", "259", "269", "782", "84", "218", "857", "744", "800", "650", "667", "277", "2", "683", "109", "730", "276", "206", "618", "217", "827", "792", "248", "33", "739", "682", "537", "757", "786", "211", "604")),
+            "cod_estrategia2": faker.random_element(elements=("13", "98", "10", "40", "20", "21", "808", "705", "43", "807", "435", "202", "430", "1220", "806", "122", "F", "701", "900", "121", "902", "801", "600", "706", "700", "800", "0", "802", "41", "6002", "901", "11", "910", "23", "911", "69", "903", "702", "20231", "1", "400", "402", "809", "6001", "703", "20232", "94", "81", "97", "49")),
+            "cod_estrategia3": faker.random_element(elements=("1", "2780.54", "0", "3638.47", "4251.09", "601.84", "3502.27", "4645.34", "1743.77", "167.4", "1129.22", "1001.99", "2915.01", "427.47", "7439.47", "3481.55", "2549.49", "865.84", "5091.79", "1238.35", "2836.28", "4175.9", "2786.91", "487.37", "3013.51", "32.39", "1796.20", "551.17", "3038.16", "783.48", "414.98", "4865.44", "927.77", "325.51", "1483.08", "2324.45", "2184.37", "355.89", "2057.74", "11166.39", "1332.86", "530.25", "7114.39", "1369.88", "3414.39", "2428.68", "4700.22", "2005.53", "1870.09", "1627.49")),
+            "cod_estrategia4": faker.random_element(elements=("1", "0", "2", "5", "C")),
             "cod_estrategia5": None,
-            "cod_fpd": faker.random_element(elements=["NAO", "sim", "SIM", "2", "1"]),
-            "cod_var_aux": faker.random_element(elements=["0", "1"]),
-            "cod_faixa_atraso_b": faker.random_element(elements=["1711 a 1800", "0901 a 0990", "Em dia", "Acima 1800", "0001 a 0006", "0007 a 0030", "0031 a 0060", "0061 a 0090", "0091 a 0120", "0121 a 0150", "0151 a 0180", "0181 a 0270", "0271 a 0360", "0361 a 0450", "0451 a 0540", "0541 a 0630", "0631 a 0720", "0721 a 0810", "0811 a 0900", "0991 a 1080", "1081 a 1170", "1171 a 1260", "1261 a 1350", "1351 a 1440", "1441 a 1530"]),
+            "cod_fpd": faker.random_element(elements=("NAO", "sim", "SIM", "2", "1")),
+            "cod_var_aux": faker.random_element(elements=("0", "1")),
+            "cod_faixa_atraso_b": faker.random_element(elements=("1711 a 1800", "0901 a 0990", "Em dia", "Acima 1800", "0001 a 0006", "0007 a 0030", "0031 a 0060", "0061 a 0090", "0091 a 0120", "0121 a 0150", "0151 a 0180", "0181 a 0270", "0271 a 0360", "0361 a 0450", "0451 a 0540", "0541 a 0630", "0631 a 0720", "0721 a 0810", "0811 a 0900", "0991 a 1080", "1081 a 1170", "1171 a 1260", "1261 a 1350", "1351 a 1440", "1441 a 1530")),
             "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
         }
         data['cobr_cliente_atraso'].append(criar_cobr_cliente_atraso_faker)
@@ -154,12 +154,12 @@ def Datagen_pfs_risco_tivea(num_records):
         criar_cobranca_cliente_faker = {
             "id_cliente_cobranca": faker.random_number(digits=10, fix_len=True),
             "id_cliente_externo": faker.random_number(digits=11, fix_len=True),
-            "tip_pessoa": faker.random_element(elements=['FISICA']),
-            "tip_situacao": faker.random_element(elements=['COBRANCA', 'DEVEDOR', 'ATIVO', 'BLOQUEADO']),
+            "tip_pessoa": faker.random_element(elements=('FISICA')),
+            "tip_situacao": faker.random_element(elements=('COBRANCA', 'DEVEDOR', 'ATIVO', 'BLOQUEADO')),
             "nom_cliente": faker.name(),
             "num_cpf_cnpj_cliente": faker.random_number(digits=11, fix_len=True),
-            "nom_uf": faker.random_element(elements=['GO', 'MG', 'SC']),
-            "cod_rating": faker.random_element(elements=['A', 'HH', 'B', 'F', 'G', 'D', 'H', 'C', 'E']),
+            "nom_uf": faker.random_element(elements=('GO', 'MG', 'SC')),
+            "cod_rating": faker.random_element(elements=('A', 'HH', 'B', 'F', 'G', 'D', 'H', 'C', 'E')),
             "des_marcador": None,
             "num_dias_maior_atraso": None,
             "dat_maior_atraso": None,
@@ -171,11 +171,11 @@ def Datagen_pfs_risco_tivea(num_records):
             "val_saldo_total": faker.random_number(digits=5, fix_len=False),
             "val_saldo_total_atraso": faker.random_number(digits=5, fix_len=False),
             "dth_modificacao": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
-            "num_ddd_cel": faker.random_element(elements=[11]),
+            "num_ddd_cel": faker.random_element(elements=(11)),
             "num_tel_cel": faker.random_number(digits=9, fix_len=True),
-            "num_ddd_res": faker.random_element(elements=[62, 34, 47]),
+            "num_ddd_res": faker.random_element(elements=(62, 34, 47)),
             "num_tel_res": faker.random_number(digits=8, fix_len=True),
-            "num_ddd_com": faker.random_element(elements=[34, 11, 13]),
+            "num_ddd_com": faker.random_element(elements=(34, 11, 13)),
             "num_tel_com": faker.random_number(digits=8, fix_len=True),
             "nom_email": faker.email(),
             "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
@@ -283,7 +283,7 @@ def Datagen_pfs_risco_tivea(num_records):
             "id_acordo_cobranca": faker.random_number(digits=10, fix_len=True),
             "num_parcela_acordo": faker.random_int(min=1, max=30),
             "dat_vencimento": faker.date_time_this_year().strftime('%Y-%m-%d %H:%M:%S'),
-            "ind_situacao": faker.random_element(elements=['LIQUIDADO', 'CANCELADO', 'CONCLUIDO', 'ABERTO']),
+            "ind_situacao": faker.random_element(elements=('LIQUIDADO', 'CANCELADO', 'CONCLUIDO', 'ABERTO')),
             "num_nossonumero": faker.bothify(text='########'),
             "val_principal": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
             "val_juros": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
@@ -308,8 +308,8 @@ def Datagen_pfs_risco_tivea(num_records):
             "num_cpf_cnpj_cliente": faker.random_int(min=10000000000, max=99999999999),
             "num_ddd": faker.random_int(min=10, max=99),
             "num_telefone": faker.random_int(min=10000000, max=99999999),
-            "tip_telefone": faker.random_element(elements=['RESIDENCIAL', 'CELULAR', 'COMERCIAL', 'OUTRO', 'RECADO', 'FAX']),
-            "flg_principal": faker.random_element(elements=['S', 'N']),
+            "tip_telefone": faker.random_element(elements=('RESIDENCIAL', 'CELULAR', 'COMERCIAL', 'OUTRO', 'RECADO', 'FAX')),
+            "flg_principal": faker.random_element(elements=('S', 'N')),
             "des_obsercacao": faker.sentence(nb_words=6),
             "num_ranking": faker.random_int(min=0, max=10),
             "dat_modificacao": faker.date_this_year().strftime('%Y%m%d'),
@@ -385,7 +385,3 @@ def Datagen_pfs_risco_tivea(num_records):
     data['conta'].append(criar_conta_faker)
 
     jsonl_data(data=data)
-
-
-num_records = 100
-generated_data = Datagen_pfs_risco_tivea(num_records)
