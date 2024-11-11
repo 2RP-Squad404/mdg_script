@@ -5,8 +5,7 @@ from datagen.jsonl_convert import jsonl_data
 
 faker = Faker('pt_BR')
 
-
-def pfs_risco_raw_tivea(num_records):
+def function_pfs_risco_raw_tivea(num_records):
 
     data = {'acordo': [], 'cliente':[], 'contrato':[]}
 
