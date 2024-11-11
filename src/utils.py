@@ -12,6 +12,7 @@ from google.cloud import bigquery
 
 from config import PROJECT_ID, logger
 import importlib.metadata
+from gemini_interface import run_gemini
 
 def load_py_schema(dataset_name):
     """
@@ -30,7 +31,6 @@ def load_py_schema(dataset_name):
         spec.loader.exec_module(schema_module)
         return schema_module
     return None
-
 def jsonl_to_bigquery(filename, table_id, dataset_id):
     """
     Carrega dados de um arquivo JSONL para o BigQuery.
@@ -42,11 +42,8 @@ def jsonl_to_bigquery(filename, table_id, dataset_id):
     """
 
     client = get_bigquery_client()
-    jsonl_file_path = f"mock_data/{dataset_id}/{filename}"
+    jsonl_file_path = filename 
     project_id = PROJECT_ID
-    dataset_id = dataset_id
-    table_id = table_id
-
     table_ref = f"{project_id}.{dataset_id}.{table_id}"
 
     job_config = bigquery.LoadJobConfig(
@@ -56,9 +53,11 @@ def jsonl_to_bigquery(filename, table_id, dataset_id):
         ignore_unknown_values=True,
     )
 
-    with open(jsonl_file_path, "rb") as jsonl_file:
-        load_job = client.load_table_from_file(jsonl_file, table_ref, job_config=job_config)
-
+    with open(jsonl_file_path, "rb") as source_file:
+        load_job = client.load_table_from_file(
+            source_file, table_ref, job_config=job_config
+        )
+    
     load_job.result()
 
 def create_tables():
@@ -137,7 +136,7 @@ def load_schema_module(schema_file):
         Módulo importado que contém o schema.
     """
     if not os.path.isfile(schema_file):
-        raise FileNotFoundError(f"O arquivo '{schema_file}' não foi encontrado.")
+        raise FileNotFoundError(f"O arquivo `{schema_file}` não foi encontrado.")
 
     spec = importlib.util.spec_from_file_location("schema_module", schema_file)
     if spec is None:
@@ -163,6 +162,9 @@ def update_table_descriptions_from_schemas(schema_directory):
     client = get_bigquery_client()
 
     for schema_file in os.listdir(schema_directory):
+        if os.path.isdir(os.path.join(schema_directory, schema_file)) or not schema_file.endswith('.py'):
+            continue
+
         dataset_id = schema_file.replace('.py', '')
         schema_file_path = os.path.join(schema_directory, schema_file)
 
@@ -355,21 +357,27 @@ def list_datasets_from_folder(folder_path: str) -> list:
     return [os.path.splitext(f)[0] for f in os.listdir(folder_path)
             if os.path.isfile(os.path.join(folder_path, f)) and f.endswith('.py')]
 
-def list_datasets_from_bigquery(project_id: str) -> list:
+def list_datasets_from_bigquery() -> list:
     """
     Lista os datasets disponíveis no BigQuery.
 
-    Args:
-        project_id (str): ID do projeto no Google Cloud.
-
-    Returns:
+    Retorno:
         list: Lista dos nomes dos datasets no BigQuery.
     """
-    client = bigquery.Client(project=project_id)
-    datasets = client.list_datasets()  # Lista os datasets do projeto
+    client = bigquery.Client(project=PROJECT_ID)
+    datasets = client.list_datasets()
     return [dataset.dataset_id for dataset in datasets]
 
-def display_common_datasets(folder_path: str, project_id: str):
+def list_tables_from_bigquery(dataset):
+    client = bigquery.Client(project=PROJECT_ID)
+    tables = client.list_tables(dataset)
+    return [table.table_id for table in tables]
+
+def list_tables_from_folder(folder_path: str) -> list:
+    return [os.path.splitext(f)[0] for f in os.listdir(folder_path)
+            if os.path.isfile(os.path.join(folder_path, f)) and f.endswith('.py')]
+
+def display_common_datasets(folder_path: str):
     """
     Exibe e permite a seleção opcional dos datasets que estão em comum entre a pasta local e o BigQuery.
 
@@ -381,16 +389,15 @@ def display_common_datasets(folder_path: str, project_id: str):
         list: Lista de datasets selecionados ou todos os datasets em comum, se nenhuma seleção for feita.
     """
     local_datasets = list_datasets_from_folder(folder_path)
-    bq_datasets = list_datasets_from_bigquery(project_id)
+    bq_datasets = list_datasets_from_bigquery()
 
-    # Encontrar datasets em comum
     common_datasets = sorted(set(local_datasets) & set(bq_datasets))
 
     if not common_datasets:
-        print("\033[91mNenhum dataset em comum encontrado.\033[0m")
+        logger.info("\033[91mNenhum dataset em comum encontrado.\033[0m")
         return []
 
-    print("\033[32mDatasets em comum:\033[0m")
+    logger.info("\033[32mDatasets em comum:\033[0m")
     for i, dataset in enumerate(common_datasets, start=1):
         print(f"{i}. {dataset}")
 
@@ -405,6 +412,59 @@ def display_common_datasets(folder_path: str, project_id: str):
         common_datasets[i] for i in selected_indexes if 0 <= i < len(common_datasets)
     ]
 
-    
-
     return selected_dataset
+
+def commom_tables(dataset_file):
+    local_tables = list_tables_from_folder(f"mock_data/{dataset_file}")
+    bigquery_tables = list_tables_from_bigquery(dataset_file)
+
+    tables_created = sorted(set(local_tables) & set(bigquery_tables))
+
+    if not tables_created:
+        logger.info("\033[91mNenhuma tabela em comum encontrada.\033[0m")
+    
+    logger.info("\033[32mDatasets em comum:\033[0m")
+    for table in bigquery_tables:
+        if table in tables_created:
+            logger.info(f"Processando tabela existente: {table}")
+        else:
+            logger.info(f"Tabela não encontrada localmente, gerando dados: {table}")
+        
+        run_gemini(PROJECT_ID, model_name="gemini-1.5-flash-002",dataset=dataset_file)
+
+def input_num_linhas():
+    """
+    Gerar um número de linhas para o arquivo de saída.
+
+    Returno:
+        int: Número de linhas para o arquivo de saída.
+    """
+    while True:
+        try:
+            num_linhas = int(input("Quantas linhas deseja gerar?\n"))
+            return num_linhas
+        except ValueError:
+            logger.info("Digite um valor inteiro")
+
+def send_jsonl_to_bigquery(select_dataset):
+    # Define o caminho para o diretório do dataset
+    dataset_directory = f"mock_data/{select_dataset}"
+    
+    # Verifica se o diretório existe
+    if not os.path.isdir(dataset_directory):
+        logger.error(f"\033[91mO diretório {dataset_directory} não existe.\033[0m")
+        return
+
+    # Itera sobre os arquivos dentro do diretório do dataset
+    for filename in os.listdir(dataset_directory):
+        if filename.endswith(".jsonl"):
+            table_id = os.path.splitext(filename)[0]
+
+            try:
+                # Cria o caminho completo para o arquivo
+                jsonl_file_path = os.path.join(dataset_directory, filename)
+                # Envia o arquivo para o BigQuery
+                jsonl_to_bigquery(filename=jsonl_file_path, table_id=table_id, dataset_id=select_dataset)
+                logger.info(f'\033[32mArquivo {filename} enviado para a tabela {table_id} no dataset {select_dataset}\033[0m')
+            except Exception as e:
+                logger.error(f"\033[91mErro ao enviar o arquivo {filename} para o BigQuery: {e}\033[0m")
