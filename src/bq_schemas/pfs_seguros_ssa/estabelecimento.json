@@ -1,0 +1,61 @@
+{
+    "dataset": "pfs_seguros_ssa",
+    "table": "estabelecimento",
+    "schema": [
+        {
+            "name": "id_Estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_Emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_CNPJ",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_Estabelecimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_Estabelecimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_Endereco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_Contato",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_Ativo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_SerieNFE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_Servico",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "REQUIRED"
+        }
+    ]
+}

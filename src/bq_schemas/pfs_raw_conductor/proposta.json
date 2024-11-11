@@ -1,0 +1,471 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "proposta",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_proposta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_pessoafisica",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_produto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_origemcomercial",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_quantidadevencimentos",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_vencimento1",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_vencimento2",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_vencimento3",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_correspondencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_datacadastramento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_dataaprovacaonegacaopendencia",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_dataconsulta1",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_entidadeconsultada1",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_statusconsulta1",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_dataconsulta2",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_entidadeconsultada2",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_statusconsulta2",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_dataconsulta3",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_entidadeconsultada3",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_statusconsulta3",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_nomeembossado",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_limitesaquenacperiodo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_limitesaquenacglobal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_limitecompranac",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_limiteparceladonac",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_limitesaqueintperiodo",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_limitesaqueintglobal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_limitecompraint",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_limiteparceladoint",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_limiteglobalcredito",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_limiteparcelasnac",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_limiteparcelasint",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_responsavel",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_observacaoaprovacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_rendacomprovada",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_inconsistente",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_motivorecusa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_motivopendencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_responsaveldigitacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_creditscore",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_observacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_rendaajustada",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_percentualrendaajustada",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_faixacredito",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_promotorvenda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_datapagamentopromotor",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_cartaofidelidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_historicogravacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_borderauxproposta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_percepcaolojista",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_canalent",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_datatratamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_tempolimitetrabalho",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_dataultimasubmissao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_usuarioultimasubmissao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_dataultimobloqueio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_usuarioultimobloqueio",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_credor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_cod_vendedor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_cod_coordenador",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_cod_regional",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_matricula",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_cargo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_usuario",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_origemativacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_imagem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_imagemadicional",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_senhacartao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_nomeoutros",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_p1mobilesmsvalido",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_p1mobilecodigosms",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_id_propostaemissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_codigoorg",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_codigologo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_codigopct",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_codigotabelaanuidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pro_lotearquivo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pv_id_promotorvenda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pv_nome",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pv_apelido",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pv_cpf",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pv_datainclusao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pv_id_usuario",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pv_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pv_chapa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

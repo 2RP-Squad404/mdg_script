@@ -1,0 +1,296 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "seguro_produto",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_id_produtoseguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_cd_produtoseguro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_nm_produtoseguro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_dc_produtoseguro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_id_seguradora",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_seguromensal",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_pagamentoantecipado",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_qt_parcelasbonificacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_tp_bonificacaomensal",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_tp_devolucaocancelamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_no_diasdevolucaocancelamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_validacaoadesao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_excluido",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_possuiitem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_no_itens",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_id_agrupamentoprodutoseguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_aceitaparcelamento",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_no_maximoparcelas",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_no_nop",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_dc_textonotafiscal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_cd_integracaoap",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_tp_integracaoap",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_cd_grupopagamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_dc_grupopagamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_cd_contacontabil",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_qt_parcelascancelamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_naoestornarparcelasnaopagas",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_postagemparcelacorte",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_envioseguradoramensal",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_dc_sms",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_enviosms",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aps_id_agrupamentoprodutoseguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aps_nm_agrupamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aps_dc_termoaceite",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aps_no_ordemapresentacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aps_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "aps_fl_ativo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "seg_id_seguradora",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "seg_nm_seguradora",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "seg_id_endereco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "seg_fl_ativo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "seg_no_cnpj",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_permiteprimeiraparcelapaga",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_permiteresponsavelfinanceiro",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_permitemultiplasadesoes",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_validaprodutovenda",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_validanumeroserieprodutovenda",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_restituicaocancelamento",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_calculaparcelaporitem",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_no_minimoitens",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_integracaoservicogs",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

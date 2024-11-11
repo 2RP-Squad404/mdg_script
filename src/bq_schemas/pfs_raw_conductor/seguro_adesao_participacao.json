@@ -1,0 +1,76 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "seguro_adesao_participacao",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "apr_id_adesaoseguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "apr_id_participante",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "apr_tp_operacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "par_id_participante",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "par_tp_participante",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "par_cd_participante",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "par_id_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "par_nm_participante",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

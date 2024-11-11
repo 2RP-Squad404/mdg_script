@@ -1,0 +1,366 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "debito_recorrente",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_id_tipodebitorecorrente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_datainicio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_datafim",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_arquivoenvio",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_combinacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_flagsinistro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_dataultimopagamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_id_usuario",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_login",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_numerociclo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_id_promotorvenda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_datafinalvigencia",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_contadornaopgto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_contadornaopgtoconsec",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_flagpagamento",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_flagadesao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_flagnumsorte",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_id_tipoenderecorisco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_nomeestabelecimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_id_motivo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_id_contadebitorecorrente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_dataproximoenvio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_parcelapedida",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_id_tipodebitorecorrente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_tipocarta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_valor",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_flagestornoautomatico",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_flagativo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_flagopcional",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_numeroapolice",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_flaggeranumerosorte",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_vlrrepassadoseguradora",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_flagseguro",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_flaglancatransacao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_flagextratoincondicional",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_flagdebitoincondicional",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_flagadesaoautomatica",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_faixaetaria",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_sorteiosmensais",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_descricaoapolice",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_flagadereautomatico",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_id_termoseguroservico",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_flaginserefila",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_id_produto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_qtdtentativascobranca",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_id_ajustes",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_condicoesgeraissiteportadorcredito",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_flagtransfautomatica",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_codigoprodutomapfre",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_flaganuidadebonificada",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_descricaoabreviada",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_codigoclientemapfre",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_codigoplanomapfre",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_codigoempresamapfre",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_valortitulomapfre",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_flagdependente",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_quantidadedependente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_id_grupo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_valorbonus",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_numeroparcelas",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_idademinima",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "td_idademaxima",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

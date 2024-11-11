@@ -1,0 +1,166 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "seguro_estabelecimento",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_no_cnpj",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_cd_estabelecimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_nm_estabelecimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_endereco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_id_contato",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_fl_ativo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_no_serienfe",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "es_cd_servico",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "edr_id_endereco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "edr_nm_logradouro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "edr_no_logradouro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "edr_dc_complemento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "edr_nm_bairro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "edr_nm_municipio",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "edr_cd_uf",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "edr_no_cep",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cnt_id_contato",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cnt_nm_contato",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cnt_no_ddd_telefone",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cnt_no_telefone",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cnt_no_ramal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cnt_no_ddd_celular",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cnt_no_celular",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cnt_dc_email",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

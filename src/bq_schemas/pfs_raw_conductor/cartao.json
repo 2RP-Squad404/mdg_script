@@ -1,0 +1,596 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "cartao",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_cartao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_id_filial",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_bin",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_sequencialcartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_digitoverificador1",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_digitoverificador2",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_portador",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_dataemissao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_datavalidade",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_id_pessoafisica",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_statusdata",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_estagio",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_dataestagio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_arquivolote",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_codigodesbloqueio",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_codigocancelamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_sequencialanterior",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_qtdsenhasincorretas",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_senhavisa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_senhavisacriptografada",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_flaggeracartasenha",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_flagprovisorio",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_id_cartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_cartaohash",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_criptografiahsm",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_id_binschave",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_numerocartaooriginal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_flagembossadoloja",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_senhavisaanterior",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_id_embossing",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_dataembossing",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_flag2viacartasenha",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_id_imagem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_qtdevezespermitedesbloqueio",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_senhavisapendente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_senhavisacriptopendente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_senhavisacriptoanterior",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ca_id_servicecode",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_id_statuscartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_respautorizador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagreemitecartao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagcobratarifa",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagemiteprovisorio",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagalteranome",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagcancelaconta",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_statusdestinoconta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagalterastatus",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagcancelamento",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_respautorizadoratm",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagcadastrosenha",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagcadastranovasenha",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagofereceseguroatdo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_statusdestinodesbloqueio",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagreemitemigracao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_statusdestinomigracao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_statusreemissaomigracao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagpermitedesbloqueio",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagcancelardesbloqueio",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_respautorizadorvisa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagbloqueiosenhaincorreta",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_respautorizadormastercard",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagreversivel",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagstatusfraude",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagavisaemissor",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagprepago",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagenviaexceptionfile",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_id_motivoembossing",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagfaztransferencia",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagrecebetransferencia",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagexibevalorreemissao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagreemiteautcartao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_respautorizadormasterrepower",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sca_flagpermitebloqueio",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_portador",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_id_produto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_id_pessoafisica",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_nomeplastico",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_datainclusao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_datacancelamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_parentesco",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_observacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_codigoparentesco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_flagativo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_senha",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_datasuspensaosenhaatm",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_tentativaserrosenhaatm",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_tipoportador",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_tentativaserrosenhavisa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_id_imagem",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pt_numerofidelidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ec_id_estagiocartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ec_estagio",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ec_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ec_flagcancelacartao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "bc_id_binschaves",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "bc_bin",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "bc_id_tipochave",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "bc_chave",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "bc_checkvalue",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "bc_id_produtoentidade",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "bc_validade",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "bc_flagdescriptografado",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "bc_label",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "bc_responsavel",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}
