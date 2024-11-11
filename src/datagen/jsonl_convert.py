@@ -37,7 +37,6 @@ def jsonl_data(data):
             return [serialize_data(i) for i in item]
         return item
 
-    # Salvando os dados no formato JSONL
     for array_name, array_data in data.items():
         filename = f"{array_name}.jsonl"
         filepath = os.path.join(output_path, filename)
