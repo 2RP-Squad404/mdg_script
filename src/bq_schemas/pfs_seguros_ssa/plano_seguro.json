@@ -1,0 +1,286 @@
+{
+    "dataset": "pfs_seguros_ssa",
+    "table": "plano_seguro",
+    "schema": [
+        {
+            "name": "id_PlanoSeguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_ProdutoSeguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_PlanoEmissor",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_PlanoSeguro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_PlanoSeguro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_ProdutoPlano",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dt_InicioVigencia",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dt_TerminoVigencia",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_MesesVigencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_InformarMesesVigencia",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_PrefixoCertificado",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_MascaraCertificado",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qt_TitulosCapitalizacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_InformarQtdNumerosSorte",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_InformarNumerosSorte",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_MascaraNumeroSorte",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qt_LoteNumerosSorte",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_EmissaoTituloCapitalizacaoMensal",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tp_CobrancaRepasse",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tp_VigenciaFutura",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_DiasVigenciaFutura",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_ConjuntoTituloCapitalizacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_OperacaoCobranca",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_OperacaoEstorno",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_Completa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_RiscosExcluidos",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_TermoAdesao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_ExtratoIncondicional",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_DebitoIncondicional",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tp_Garantia",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_RenovacaoAutomatica",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_ReenviarEmail",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dt_InicioVigenciaRenovacaoAutomatica",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "vl_Plano",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_TipoAjusteDebito",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_TipoAjusteEstorno",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_AceitaLancamentoNaAdesao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_ConjuntoPIN",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_MascaraPIN",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_RecebeInfoPinAdesao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_MascaraSeriePIN",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_MascaraLotePIN",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_AceitaItem",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_ObtemValorNoPlano",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_AjusteRestituicaoCredito",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_AjusteRestituicaoDebito",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_mesesCarencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "destaque",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tp_Complemento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_mesesCarencia",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "Total_Dependentes",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_OperacaoCobranca",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_OperacaoEstorno",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_AjusteCobranca",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_AjusteEstorno",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "REQUIRED"
+        }
+    ]
+}

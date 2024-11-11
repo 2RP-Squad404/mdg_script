@@ -1,0 +1,41 @@
+{
+    "dataset": "pfs_seguros_ssa",
+    "table": "participante",
+    "schema": [
+        {
+            "name": "id_Participante",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tp_Participante",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_Participante",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_Estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_Participante",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "data_cdcBI",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "REQUIRED"
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "dataset": "pfs_seguros_ssa",
+    "table": "canal_venda",
+    "schema": [
+        {
+            "name": "id_CanalVenda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_CanalVenda",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_CanalVenda",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_CanalPadrao",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_Emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "REQUIRED"
+        }
+    ]
+}

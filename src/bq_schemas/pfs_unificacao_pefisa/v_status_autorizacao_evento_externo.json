@@ -1,0 +1,66 @@
+{
+    "dataset": "pfs_unificacao_pefisa",
+    "table": "v_status_autorizacao_evento_externo",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sae_id_statusautorizacoeseventosexternos",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sae_status",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sae_descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sae_flagpagamentovalidocorrespondente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sae_flagpermitealteracaostatuscorrespondente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sae_flagpermitecancelamentocorrespondente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "seq",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        }
+    ]
+}

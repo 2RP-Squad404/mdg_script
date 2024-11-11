@@ -1,0 +1,346 @@
+{
+    "dataset": "pfs_unificacao_cliente",
+    "table": "cliente",
+    "schema": [
+        {
+            "name": "id_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_pessoa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cnpj_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_cadastro",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_loja_cad",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_email",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_nascimento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_sexo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_loja_pref",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_ddd_cel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_tel_cel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_ddd_res",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_tel_res",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_lograd_end_res",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_endereco_res",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_compl_end_res",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_bairro_res",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_cidade_res",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estado_res",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_cep_res",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_pais_res",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_ddd_com",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_tel_com",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_lograd_end_com",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_endereco_com",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_compl_end_com",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_bairro_com",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_cidade_com",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estado_com",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_cep_com",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_pais_com",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_ddd_cob",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_tel_cob",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_lograd_end_cob",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_endereco_cob",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_compl_end_cob",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_bairro_cob",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_cidade_cob",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estado_cob",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_cep_cob",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_pais_cob",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_ddd_ent",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_tel_ent",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_lograd_end_ent",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_endereco_ent",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_compl_end_ent",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_bairro_ent",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_cidade_ent",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estado_ent",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_cep_ent",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_pais_ent",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estado_civil",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_renda_cliente",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_endereco_mac",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_mae_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_cli",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_sit_telefone_res",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_sit_telefone_ent",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_sit_telefone_com",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_sit_telefone_cob",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_sit_email",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_sit_telefone_cel",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cliente_so",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_origem_principal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_efetivacao_crediario",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        }
+    ]
+}

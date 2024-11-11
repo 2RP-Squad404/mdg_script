@@ -1,0 +1,436 @@
+{
+    "dataset": "pfs_raw_conductor",
+    "table": "seguro_adesao",
+    "schema": [
+        {
+            "name": "hash_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "source",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_id_adesaoseguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_id_emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_id_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_id_produtoseguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_id_planoseguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_id_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_dt_emissao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_dt_iniciovigencia",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_dt_terminovigencia",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_no_certificado",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_id_objetoseguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_id_produtovenda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_vl_objetoseguro",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_dt_vendaproduto",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_vl_franquia",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_id_localrisco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_tp_situacaoseguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_dt_situacaoseguro",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_vl_premioliquido",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_vl_iof",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_vl_premiototal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_tp_situacaotransferencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_vl_restituido",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_tp_cancelamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_no_ultimaparcelaemitida",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_id_motivocancelamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_tp_canalvenda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_cd_canalvenda",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_vl_prolabore",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_dc_observacaocancelamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_no_parcelas",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_no_notafiscal",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_no_serieprodutovenda",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_no_bilhete",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_dt_adesao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_vl_iofrestituido",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "asg_id_documentosafedoc",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_id_planoseguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_id_produtoseguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_cd_planoemissor",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_nm_planoseguro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_dc_planoseguro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_nm_produtoplano",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_dt_iniciovigencia",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_dt_terminovigencia",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_no_mesesvigencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_informarmesesvigencia",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_dc_prefixocertificado",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_dc_mascaracertificado",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_qt_tituloscapitalizacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_informarqtdnumerossorte",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_informarnumerossorte",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_dc_mascaranumerosorte",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_qt_lotenumerossorte",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_emissaotitulocapitalizacaomensal",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_tp_cobrancarepasse",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_tp_vigenciafutura",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_no_diasvigenciafutura",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_id_conjuntotitulocapitalizacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_id_operacaocobranca",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_id_operacaoestorno",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_dc_completa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_dc_riscosexcluidos",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_dc_termoadesao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_extratoincondicional",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_fl_debitoincondicional",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ps_tp_garantia",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "os_id_objetoseguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "os_id_planoseguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "os_tp_objetoseguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "os_id_categoriaproduto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "os_dt_iniciovigencia",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "os_dt_terminovigencia",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "os_vl_faixaprecoinicial",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "os_vl_faixaprecofinal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "os_vl_premioliquido",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "os_vl_iof",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "os_vl_premiototal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "os_pc_franquia",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "os_vl_prolabore",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dh_relatorio",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "operation_sequence",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}
