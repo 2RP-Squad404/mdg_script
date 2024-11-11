@@ -2,8 +2,9 @@ import os
 import sys
 
 from config import PROJECT_ID, SECRET_NAME, logger
-from utils import display_common_datasets,create_tables,jsonl_to_bigquery
-from datagen import pfs_raw_conductor,pfs_risco_raw_tivea,pfs_risco_tivea
+from utils import display_common_datasets,create_tables,jsonl_to_bigquery,input_num_linhas,commom_tables,send_jsonl_to_bigquery
+from datagen.pfs_risco_tivea import function_pfs_risco_tivea
+from datagen.pfs_risco_raw_tivea import function_pfs_risco_raw_tivea
 
 def show_cli():
     logger.info(
@@ -25,21 +26,22 @@ def show_cli():
 
     logger.info('\033[33mAutenticating with Secret manager...\033[0m')
 
-    select_dataset = display_common_datasets(folder_path="datagen",project_id=PROJECT_ID)
+    select_dataset = display_common_datasets(folder_path="datagen")
 
-    num_linhas = logger.info(int("Quantas linhas deseja gerar?"))
+    num_linhas = input_num_linhas()
 
-    create_tables()
+    # create_tables()
 
     match str(select_dataset[0]):
+
         case "pfs_risco_raw_tivea":
-            pfs_risco_raw_tivea(num_linhas)
+            function_pfs_risco_raw_tivea(num_linhas)
+
         case "pfs_risco_tivea":
-            pfs_risco_tivea(num_linhas)
+            function_pfs_risco_tivea(num_linhas)
 
-    for filename in os.listdir("datagen"):
-        if filename.endswith(".jsonl"):
-            table_id = os.path.splitext(filename)[0]
-            jsonl_to_bigquery(filename=f"datagen/{filename}", table_id=table_id, dataset_id=select_dataset[0])
-            logger.info(f'\033[32mArquivo {filename} enviado para a tabela {table_id} no dataset {select_dataset[0]}\033[0m')
+    dataset = select_dataset[0]
 
+    # commom_tables(select_dataset[0])
+
+    send_jsonl_to_bigquery(dataset)
