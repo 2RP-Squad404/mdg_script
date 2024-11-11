@@ -46,7 +46,7 @@ lint = 'ruff check . && ruff . --diff'
 format = 'ruff check . --fix && ruff format'
 auth1 = 'gcloud auth login'
 auth2 = 'gcloud auth application-default login'
-run = 'python src/app.py'
+run = 'python src/main.py'
 
 [build-system]
 requires = ["poetry-core"]
