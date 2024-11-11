@@ -1,10 +1,11 @@
+import os
 from google.cloud import aiplatform
 from vertexai.preview.generative_models import GenerativeModel
 
 from config import PROJECT_ID
 
 
-def run_gemini(project_id, model_name):
+def run_gemini(project_id, model_name,dataset):
   def init_gemini(project_id: str, model_name: str):
     """
     Inicia a comunicação com Gemini API.
@@ -29,21 +30,23 @@ def run_gemini(project_id, model_name):
     return response.text
 
 
-  def save_to_file(file_path: str, content: str):
-    """
-    Escreve a resposta obtida do modelo no arquivo 'gemini_datagen.py'.
-    
-    Parâmetros:
-    file_path (str): Caminho do arquivo para gravar a resposta do modelo.
-    content (str): O código obtido do modelo.
-    """
-    with open(file_path, 'a') as file:
-        file.write('\n')
-        file.write(content)
-
-
-  project_id = PROJECT_ID
-  model_name = "gemini-1.5-flash-002"
+  def save_to_file(directory: str, filename: str, content: str):
+      """
+      Escreve a resposta obtida do modelo em um arquivo específico dentro de um diretório.
+      
+      Parâmetros:
+      directory (str): Caminho da pasta onde o arquivo será salvo.
+      filename (str): Nome do arquivo para gravar a resposta do modelo.
+      content (str): O código obtido do modelo.
+      """
+      os.makedirs(directory, exist_ok=True)
+      
+      file_path = os.path.join(directory, filename)
+      
+      with open(file_path, 'a') as file:
+          file.write('\n')
+          file.write(content)
+        
   gemini_model = init_gemini(project_id, model_name)
 
   prompt = """Você é um assistente especializado em gerar código Python de alta qualidade e aderente às melhores práticas. Você segue as instruções com precisão, sem fornecer explicações ou informações extras além do código solicitado.
@@ -79,4 +82,4 @@ def run_gemini(project_id, model_name):
 
 
   code = generate_code(gemini_model, prompt)
-  save_to_file('gemini_datagen.py', code)
+  save_to_file('datagen', f'{dataset}.py', code)
