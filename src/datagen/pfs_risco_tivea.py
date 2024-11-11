@@ -7,13 +7,12 @@ from datagen.jsonl_convert import jsonl_data
 faker = Faker('pt_BR')
 
 
-def pfs_risco_tivea(num_records):
+def function_pfs_risco_tivea(num_records):
 
     data = {'cartao': [], 'cobranca_campo_customizavel': [], 'cobr_cliente_atraso': [], 'cobranca_acordo': [],
             'cobranca_assessoria': [], 'cobranca_cliente': [], 'Cobranca_campo_customizavel': [], 'cobranca_email_cliente': [],
             'cobranca_endereco_cliente': [], 'cobranca_liquidacao_parc_acordo': [], 'cobranca_origem_acordo': [],
-            'cobranca_pagamento_acordo': [], 'cobranca_parcela_acordo': [], 'cobranca_telefone_cliente': [],
-            'cobranca_relefone_cliente': [], 'conta': []}
+            'cobranca_pagamento_acordo': [], 'cobranca_parcela_acordo': [], 'cobranca_telefone_cliente': [],'conta': []}
 
     for _ in range(num_records):
 
@@ -171,7 +170,7 @@ def pfs_risco_tivea(num_records):
             "val_saldo_total": faker.random_number(digits=5, fix_len=False),
             "val_saldo_total_atraso": faker.random_number(digits=5, fix_len=False),
             "dth_modificacao": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
-            "num_ddd_cel": faker.random_element(elements=(11)),
+            "num_ddd_cel": faker.random_element(elements=(11,15)),
             "num_tel_cel": faker.random_number(digits=9, fix_len=True),
             "num_ddd_res": faker.random_element(elements=(62, 34, 47)),
             "num_tel_res": faker.random_number(digits=8, fix_len=True),
@@ -217,16 +216,16 @@ def pfs_risco_tivea(num_records):
         criar_cobranca_liquidacao_parc_acordo_faker = {
             "id_liqd_parc_acordo": faker.random_number(digits=10, fix_len=True),
             "id_parcela_acordo": faker.random_number(digits=10, fix_len=True),
-            "num_parcela_acordo": faker.random_int(min=0, max=10),
-            "val_principal": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
-            "val_total": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
-            "val_juros": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
-            "val_encargos": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
-            "val_desconto": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
-            "val_distorcao": faker.pyfloat(left_digits=3, right_digits=2, positive=True),
+            "num_parcela_acordo": faker.random_int(min=0, max=24),
+            "val_principal": faker.random_int(min=0, max=1000),
+            "val_total": faker.random_int(min=0, max=1000),
+            "val_juros": faker.random_int(min=0, max=10),
+            "val_encargos": faker.random_int(min=0, max=150),
+            "val_desconto": faker.random_int(min=0, max=10),
+            "val_distorcao": faker.random_int(min=0, max=10),
             "ind_tipo_liqd": faker.random_element(elements=("TOTAL", "PARCIAL")),
             "id_pagto_acordo": faker.random_number(digits=10, fix_len=True),
-            "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d %H:%M:%S')
+            "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
         }
         data['cobranca_liquidacao_parc_acordo'].append(criar_cobranca_liquidacao_parc_acordo_faker)
 
@@ -300,22 +299,6 @@ def pfs_risco_tivea(num_records):
             "dat_referencia": faker.date_this_year().strftime('%Y-%m-%d')
         }
         data['cobranca_parcela_acordo'].append(criar_cobranca_parcela_acordo_faker)
-
-        criar_cobranca_telefone_faker = {
-            "id_cliente_cobranca": faker.random_number(digits=10, fix_len=True),
-            "id_telefone_cobranca": faker.random_number(digits=10, fix_len=True),
-            "id_telefone_externo": faker.random_int(min=1, max=99999999),
-            "num_cpf_cnpj_cliente": faker.random_int(min=10000000000, max=99999999999),
-            "num_ddd": faker.random_int(min=10, max=99),
-            "num_telefone": faker.random_int(min=10000000, max=99999999),
-            "tip_telefone": faker.random_element(elements=('RESIDENCIAL', 'CELULAR', 'COMERCIAL', 'OUTRO', 'RECADO', 'FAX')),
-            "flg_principal": faker.random_element(elements=('S', 'N')),
-            "des_obsercacao": faker.sentence(nb_words=6),
-            "num_ranking": faker.random_int(min=0, max=10),
-            "dat_modificacao": faker.date_this_year().strftime('%Y%m%d'),
-            "dat_inclusao_reg": faker.date_this_year().strftime('%Y%m%d')
-        }
-        data['cobranca_telefone'].append(criar_cobranca_telefone_faker)
 
         criar_cobranca_telefone_cliente_faker = {
             "id_cliente_cobranca": faker.random_number(digits=10, fix_len=True),
