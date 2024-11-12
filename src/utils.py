@@ -60,70 +60,71 @@ def jsonl_to_bigquery(filename, table_id, dataset_id):
     
     load_job.result()
 
-def create_tables():
+def create_tables(dataset: str):
     """
-    Cria tabelas no BigQuery a partir dos schemas definidos e aplica particionamento se configurado.
+    Cria tabelas no BigQuery para o dataset especificado, aplicando particionamento onde configurado.
 
-    Para cada dataset e tabela, carrega o schema correspondente do arquivo Python,
-    exclui algumas tabelas de serem particionadas e cria a tabela no dataset no BigQuery.
+    Args:
+        dataset (str): Nome do dataset no qual as tabelas serão criadas.
 
     Exceções:
-        Gera exceções e loga erros caso ocorra algum problema durante a criação das tabelas.
+        Loga erros caso ocorra algum problema durante a criação das tabelas.
     """
 
-    client = get_bigquery_client()
+    client = get_bigquery_client()  # Supondo que a função para obter o cliente já está configurada
 
+    dataset_path = os.path.join("py_schemas", dataset)
     excluded_partition_tables = ["cobranca_telefone", "acordo", "cliente"]
-    datasets = list(client.list_datasets())
-    datasets_created = [dataset.dataset_id for dataset in datasets]
 
-    for dataset_folder in os.listdir('bq_schemas'):
-        dataset_path = os.path.join('bq_schemas', dataset_folder)
+    # Verifica se o diretório do dataset existe no sistema de arquivos
+    if os.path.isdir(dataset_path):
+        dataset_id = f"{PROJECT_ID}.{dataset}"
+        schema_module = load_py_schema(dataset)  # Função que carrega o módulo de schema Python
 
-        if os.path.isdir(dataset_path) and dataset_folder in datasets_created:
-            dataset_id = f"{PROJECT_ID}.{dataset_folder}"
-            schema_module = load_py_schema(dataset_folder)
+        if schema_module:
+            # Itera sobre os arquivos no diretório do dataset
+            for table_file in os.listdir(dataset_path):
+                table_name = table_file.replace('.json', '')
 
-            if schema_module:
-                for table_file in os.listdir(dataset_path):
-                    table_name = table_file.replace('.json', '')
+                # Obtém o schema da tabela a partir do módulo de schemas Python
+                schema = getattr(schema_module, table_name, None)
 
-                    schema = getattr(schema_module, f"{table_name}", None)
+                if schema:
+                    table_id = f"{dataset_id}.{table_name}"
+                    table = bigquery.Table(table_id, schema=schema)
 
-                    if schema:
-                        table_id = f"{dataset_id}.{table_name}"
-                        table = bigquery.Table(table_id, schema=schema)
+                    partition_field = None
+                    partition_type = None
 
-                        partition_field = None
-                        partition_type = None
-                        if table_name not in excluded_partition_tables:
-                            for field in schema:
-                                if field.name.startswith("num_anomes") or field.name.startswith("production_date") or field.name.startswith("dat_referencia"):
-                                    if field.field_type in ["TIMESTAMP", "DATE", "DATETIME"]:
-                                        partition_field = field.name
-                                        partition_type = "MONTH" if field.name.startswith("num_anomes") or field.name.startswith("production_date") else "DAY"
-                                        break
-                                    else:
-                                        logger.error(f"O campo {field.name} na tabela {table_name} não é do tipo TIMESTAMP, DATE ou DATETIME. Particionamento ignorado.")
+                    # Configura particionamento para tabelas que não estão na lista de exclusão
+                    if table_name not in excluded_partition_tables:
+                        for field in schema:
+                            if field.name.startswith("num_anomes") or field.name.startswith("production_date") or field.name.startswith("dat_referencia"):
+                                if field.field_type in ["TIMESTAMP", "DATE", "DATETIME"]:
+                                    partition_field = field.name
+                                    partition_type = "MONTH" if field.name.startswith("num_anomes") or field.name.startswith("production_date") else "DAY"
+                                    break
+                                else:
+                                    logger.error(f"O campo {field.name} na tabela {table_name} não é do tipo TIMESTAMP, DATE ou DATETIME. Particionamento ignorado.")
 
-                            if partition_field and partition_type:
-                                table.time_partitioning = bigquery.TimePartitioning(
-                                    type_=partition_type,
-                                    field=partition_field
-                                )
-                                logger.info(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
-                            else:
-                                logger.error(f"Tabela {table_name} sem campo de particionamento configurado.")
+                        if partition_field and partition_type:
+                            table.time_partitioning = bigquery.TimePartitioning(
+                                type_=partition_type,
+                                field=partition_field
+                            )
+                            logger.info(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
+                        else:
+                            logger.warning(f"Tabela {table_name} sem campo de particionamento configurado.")
 
-                        client.create_table(table, exists_ok=True)
-                        update_table_descriptions_from_schemas("py_schemas")
-                        logger.info(f"Tabela {table_name} criada no dataset {dataset_folder}")
-                    else:
-                        logger.error(f"Schema não encontrado para a tabela {table_name} no dataset {dataset_folder}")
-            else:
-                logger.error(f"Arquivo de schema Python não encontrado para o dataset {dataset_folder}")
+                    client.create_table(table, exists_ok=True)
+                    update_table_descriptions_from_schemas("py_schemas")
+                    logger.info(f"Tabela {table_name} criada no dataset {dataset}")
+                else:
+                    logger.error(f"Schema não encontrado para a tabela {table_name} no dataset {dataset}")
         else:
-            logger.error(f"Dataset {dataset_folder} não encontrado no BigQuery")
+            logger.error(f"Arquivo de schema Python não encontrado para o dataset {dataset}")
+    else:
+        logger.error(f"Dataset {dataset} não encontrado no sistema de arquivos")
 
 def load_schema_module(schema_file):
     """
@@ -344,18 +345,24 @@ def get_credentials(secret_name: str):
     )
     return credentials, credentials_dict
 
-def list_datasets_from_folder(folder_path: str) -> list:
+def list_datasets_from_folder(folder_path: str, folder_file: str) -> list:
     """
-    Lista apenas os arquivos de dataset na pasta especificada, removendo a extensão .py.
+    Lista arquivos de dataset ou subpastas na pasta especificada, removendo a extensão .py dos arquivos.
 
     Args:
-        folder_path (str): Caminho para a pasta que contém os arquivos.
+        folder_path (str): Caminho para a pasta que contém os arquivos ou subpastas.
+        folder_file (str): Especifica o que listar. Use 'file' para arquivos ou 'folder' para subpastas.
 
     Returns:
-        list: Lista dos nomes dos arquivos sem a extensão .py.
+        list: Lista dos nomes dos arquivos sem a extensão .py ou das subpastas.
     """
-    return [os.path.splitext(f)[0] for f in os.listdir(folder_path)
-            if os.path.isfile(os.path.join(folder_path, f)) and f.endswith('.py')]
+    if folder_file == 'folder':
+        return [f for f in os.listdir(folder_path) if os.path.isdir(os.path.join(folder_path, f))]
+    elif folder_file == 'file':
+        return [os.path.splitext(f)[0] for f in os.listdir(folder_path)
+                if os.path.isfile(os.path.join(folder_path, f)) and f.endswith('.py')]
+    else:
+        raise ValueError("Invalid value for 'folder_file'. Use 'file' or 'folder'.")
 
 def list_datasets_from_bigquery() -> list:
     """
@@ -383,12 +390,11 @@ def display_common_datasets(folder_path: str):
 
     Args:
         folder_path (str): Caminho para a pasta que contém os arquivos.
-        project_id (str): ID do projeto no Google Cloud.
 
     Returns:
         list: Lista de datasets selecionados ou todos os datasets em comum, se nenhuma seleção for feita.
     """
-    local_datasets = list_datasets_from_folder(folder_path)
+    local_datasets = list_datasets_from_folder(folder_path,folder_file='folder')
     bq_datasets = list_datasets_from_bigquery()
 
     common_datasets = sorted(set(local_datasets) & set(bq_datasets))
@@ -402,7 +408,7 @@ def display_common_datasets(folder_path: str):
         print(f"{i}. {dataset}")
 
     # Prompt opcional para seleção de datasets
-    user_input = input("\nDigite os números dos datasets que deseja selecionar: ").strip()
+    user_input = input("\nDigite os números do dataset:").strip()
 
     if not user_input:
         return common_datasets
@@ -447,24 +453,41 @@ def input_num_linhas():
             logger.info("Digite um valor inteiro")
 
 def send_jsonl_to_bigquery(select_dataset):
-    # Define o caminho para o diretório do dataset
     dataset_directory = f"mock_data/{select_dataset}"
     
-    # Verifica se o diretório existe
     if not os.path.isdir(dataset_directory):
         logger.error(f"\033[91mO diretório {dataset_directory} não existe.\033[0m")
         return
 
-    # Itera sobre os arquivos dentro do diretório do dataset
     for filename in os.listdir(dataset_directory):
         if filename.endswith(".jsonl"):
             table_id = os.path.splitext(filename)[0]
 
             try:
-                # Cria o caminho completo para o arquivo
                 jsonl_file_path = os.path.join(dataset_directory, filename)
-                # Envia o arquivo para o BigQuery
+
                 jsonl_to_bigquery(filename=jsonl_file_path, table_id=table_id, dataset_id=select_dataset)
                 logger.info(f'\033[32mArquivo {filename} enviado para a tabela {table_id} no dataset {select_dataset}\033[0m')
             except Exception as e:
                 logger.error(f"\033[91mErro ao enviar o arquivo {filename} para o BigQuery: {e}\033[0m")
+
+def cli_option():
+    logger.info("Funções possiveis:")
+    logger.info("1 - Criar tabelas por dataset no BigQuery")
+    logger.info("2 - Gerar funções Faker com Gemini")
+    logger.info("3 - Gerar dados em JSONL")
+    logger.info("4 - Enviar JSONL para o BigQuery")
+
+    input_user = input("Escolha uma opção: ")
+
+    match(input_user):
+        case "1":
+            select_dataset = display_common_datasets(folder_path='bq_schemas')
+            create_tables(select_dataset)
+        case "2":
+            run_gemini()
+        case "3":
+            display_common_datasets()
+        case "4":
+            display_common_datasets()
+            send_jsonl_to_bigquery()
