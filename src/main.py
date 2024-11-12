@@ -1,4 +1,4 @@
-from app import show_cli
+from app import run_cli
 
 
-show_cli()
+run_cli()
