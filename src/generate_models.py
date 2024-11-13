@@ -199,6 +199,3 @@ def create_pydantic_models(directory):
     logger.info("Pydantic Models criados com sucesso!")
 
 
-directory = './bq_schemas'
-create_bigquery_schemas(directory)
-create_pydantic_models(directory)
