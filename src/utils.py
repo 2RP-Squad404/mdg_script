@@ -7,6 +7,7 @@ import subprocess
 import json
 
 from auth import get_bigquery_client,secretmanager
+from generate_models import create_pydantic_models
 from google.oauth2 import service_account
 from google.cloud import bigquery
 
@@ -470,6 +471,8 @@ def send_jsonl_to_bigquery(select_dataset):
                 logger.error(f"\033[91mErro ao enviar o arquivo {filename} para o BigQuery: {e}\033[0m")
 
 def cli_option():
+    create_pydantic_models('./bq_schemas')
+    
     logger.info("Funções possiveis:")
     logger.info("1 - Criar tabelas por dataset no BigQuery")
     logger.info("2 - Gerar funções Faker com Gemini")
