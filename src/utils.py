@@ -199,12 +199,10 @@ def jsonl_data(data):
     Parâmetros:
         data (dict): Dicionário onde as chaves são nomes de arrays e os valores são listas de dicionários.
     """
-    # Obtendo o nome do arquivo chamador para definir o nome do dataset
     caller_frame = inspect.stack()[1]
     caller_file = caller_frame.filename
     dataset_name = os.path.splitext(os.path.basename(caller_file))[0]
 
-    # Definindo o caminho de saída
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
     output_path = os.path.join(project_root, "src/mock_data", dataset_name)
     os.makedirs(output_path, exist_ok=True)
@@ -263,13 +261,13 @@ def gcloud_list(
     Lista recursos do Google Cloud com base no tipo especificado.
 
     Parâmetros:
-    resource_type (str): Tipo de recurso a ser listado.
-    project_id (str): ID do projeto.
-    credentials (str): Arquivo de credenciais do Google Cloud.
-    dataset_id (str): ID do dataset.
+        resource_type (str): Tipo de recurso a ser listado.
+        project_id (str): ID do projeto.
+        credentials (str): Arquivo de credenciais do Google Cloud.
+        dataset_id (str): ID do dataset.
 
     Returno:
-    list: Lista de recursos.
+        list: Lista de recursos.
     """
     if resource_type == 'projects':
         command = "gcloud projects list --format='value(projectId)'"
@@ -487,7 +485,9 @@ def cli_option():
         case "2":
             run_gemini()
         case "3":
-            display_common_datasets()
+            select_dataset = display_common_datasets(folder_path='')
+            data = run_command(f'python {select_dataset}.py')
+            jsonl_data(data)
         case "4":
-            display_common_datasets()
-            send_jsonl_to_bigquery()
+            select_dataset = display_common_datasets(folder_path='mock_data')
+            send_jsonl_to_bigquery(select_dataset)
