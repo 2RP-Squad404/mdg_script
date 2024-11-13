@@ -483,9 +483,10 @@ def cli_option():
             select_dataset = display_common_datasets(folder_path='bq_schemas')
             create_tables(select_dataset)
         case "2":
-            run_gemini()
+            select_dataset = display_common_datasets(folder_path='bq_schemas')
+            run_gemini(project_id=PROJECT_ID, model_name="gemini-1.5-flash-002",dataset=select_dataset)
         case "3":
-            select_dataset = display_common_datasets(folder_path='')
+            select_dataset = display_common_datasets(folder_path='bq_schemas')
             data = run_command(f'python {select_dataset}.py')
             jsonl_data(data)
         case "4":
