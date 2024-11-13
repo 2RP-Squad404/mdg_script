@@ -2,11 +2,9 @@ import os
 import sys
 
 from config import PROJECT_ID, SECRET_NAME, logger
-from utils import display_common_datasets,create_tables,jsonl_to_bigquery,input_num_linhas,commom_tables,send_jsonl_to_bigquery
-from datagen.pfs_risco_tivea import function_pfs_risco_tivea
-from datagen.pfs_risco_raw_tivea import function_pfs_risco_raw_tivea
+from utils import cli_option
 
-def show_cli():
+def run_cli():
     logger.info(
         '\033[33mIdentifying active Google Cloud CLI authentication...\033[0m')
 
@@ -26,22 +24,4 @@ def show_cli():
 
     logger.info('\033[33mAutenticating with Secret manager...\033[0m')
 
-    select_dataset = display_common_datasets(folder_path="datagen")
-
-    num_linhas = input_num_linhas()
-
-    # create_tables()
-
-    match str(select_dataset[0]):
-
-        case "pfs_risco_raw_tivea":
-            function_pfs_risco_raw_tivea(num_linhas)
-
-        case "pfs_risco_tivea":
-            function_pfs_risco_tivea(num_linhas)
-
-    dataset = select_dataset[0]
-
-    # commom_tables(select_dataset[0])
-
-    send_jsonl_to_bigquery(dataset)
+    cli_option()
