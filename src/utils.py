@@ -5,15 +5,15 @@ from datetime import date, datetime
 from decimal import Decimal
 import subprocess
 import json
+import glob
+import re
 
 from auth import get_bigquery_client,secretmanager
-from generate_models import create_pydantic_models
 from google.oauth2 import service_account
 from google.cloud import bigquery
 
 from config import PROJECT_ID, logger
 import importlib.metadata
-from gemini_interface import run_gemini
 
 def load_py_schema(dataset_name):
     """
@@ -417,9 +417,11 @@ def display_common_datasets(folder_path: str):
         common_datasets[i] for i in selected_indexes if 0 <= i < len(common_datasets)
     ]
 
-    return selected_dataset
+    return selected_dataset[0]
 
 def commom_tables(dataset_file):
+    from gemini_interface import run_gemini
+
     local_tables = list_tables_from_folder(f"mock_data/{dataset_file}")
     bigquery_tables = list_tables_from_bigquery(dataset_file)
 
@@ -470,28 +472,77 @@ def send_jsonl_to_bigquery(select_dataset):
             except Exception as e:
                 logger.error(f"\033[91mErro ao enviar o arquivo {filename} para o BigQuery: {e}\033[0m")
 
-def cli_option():
-    create_pydantic_models('./bq_schemas')
-    
-    logger.info("Funções possiveis:")
-    logger.info("1 - Criar tabelas por dataset no BigQuery")
-    logger.info("2 - Gerar funções Faker com Gemini")
-    logger.info("3 - Gerar dados em JSONL")
-    logger.info("4 - Enviar JSONL para o BigQuery")
+def load_models_and_examples(dataset: str, prompt) -> str:
+    # Carregar modelos Pydantic
+    models_dir = f'py_models'
+    models_code = []
 
-    input_user = input("Escolha uma opção: ")
+    for filename in os.listdir(models_dir):
+        if filename.endswith('.py'):
+            with open(
+                os.path.join(models_dir, filename), 'r', encoding='utf-8'
+            ) as f:
+                models_code.append(f.read())
 
-    match(input_user):
-        case "1":
-            select_dataset = display_common_datasets(folder_path='bq_schemas')
-            create_tables(select_dataset)
-        case "2":
-            select_dataset = display_common_datasets(folder_path='bq_schemas')
-            run_gemini(project_id=PROJECT_ID, model_name="gemini-1.5-flash-002",dataset=select_dataset)
-        case "3":
-            select_dataset = display_common_datasets(folder_path='bq_schemas')
-            data = run_command(f'python {select_dataset}.py')
-            jsonl_data(data)
-        case "4":
-            select_dataset = display_common_datasets(folder_path='mock_data')
-            send_jsonl_to_bigquery(select_dataset)
+    models_code_str = '\n\n'.join(models_code)
+
+    # Carregar todos os exemplos JSON do diretório
+    json_files_pattern = f'src/data_sample_json/{dataset}/*.json'
+    json_file_paths = glob.glob(json_files_pattern)
+    examples_data = []
+
+    for json_file_path in json_file_paths:
+        with open(json_file_path, 'r', encoding='utf-8') as f:
+            examples_data.append(json.load(f))
+
+    # Converter todos os dados JSON em uma string
+    examples_data_str = json.dumps(examples_data, indent=2, ensure_ascii=False)
+
+    # Carregar exemplo de retorno esperado (agora com o caminho fixo 'example.py')
+    expected_return_file = 'src/example_of_expected_return/example.py'
+    with open(expected_return_file, 'r', encoding='utf-8') as f:
+        expected_return_code = f.read()
+
+    # Concatenar tudo
+    full_prompt = prompt.replace(
+        '#colocar nessa linha os modelos do py_models/{dataset}/*.py',
+        models_code_str,
+    )
+    full_prompt = full_prompt.replace(
+        '#colocar nessa linha o json com os dados de exemplo do data_sample_json/{dataset}/*.json',
+        examples_data_str,
+    )
+    full_prompt = full_prompt.replace(
+        '#colocar nessa linha algum py com um exemplo de retorno esperado do example_of_expected_return/{dataset}.py',
+        expected_return_code,
+    )
+
+    return full_prompt
+
+
+def save_code_from_gemini(dataset: str, content: str):
+    """
+    Escreve a resposta obtida do modelo no arquivo 'gemini_datagen.py'.
+
+    Parâmetros:
+    content (str): O código obtido do modelo.
+    """
+    # Remover qualquer marcação de código extra (como ``` ou ```python) no início e final
+    content = re.sub(
+        r'^```(python)?\s*', '', content
+    )  # Remover ```python ou apenas ```
+    content = re.sub(r'```$', '', content)  # Remover ```
+
+    # Define o diretório e o caminho do arquivo
+    pathdir = 'src/gm_functions'
+    os.makedirs(pathdir, exist_ok=True)  # Cria o diretório se não existir
+
+    # Define o caminho do arquivo
+    file_path = os.path.join(pathdir, f'{dataset}.py')
+
+    # Abre o arquivo para escrita
+    with open(file_path, 'a', encoding='utf-8') as file:
+        file.write(content)  # Escreve o conteúdo diretamente
+
+    return True
+
