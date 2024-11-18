@@ -1,0 +1,96 @@
+{
+    "dataset": "pfs_raw_credit",
+    "table": "produtos_financeiros",
+    "schema": [
+        {
+            "name": "COD_PRODUTO_FINANCEIRO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_INI_VIGENCIA",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DES_PRODUTO_FINANCEIRO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_ULT_ATU",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOM_USER_ATU",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_FIM_VIGENCIA",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_INTERFACE",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "IND_PRIORIDADE_PAGTO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_TIPO_PRODUTO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_ADMIN_PFIN",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_ADMIN_PFIN_TERC",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DES_PFIN_PDV",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DES_PFIN_EXTRATO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DES_PRODUTO_FINANCEIRO_SUSEP",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_SEGURO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "FLG_IND_DESCONTO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "SEQ_OFERTA_PDV",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "FLG_IND_GRUPO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        }
+    ]
+}

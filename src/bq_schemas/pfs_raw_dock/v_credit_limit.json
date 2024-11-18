@@ -1,0 +1,128 @@
+{
+    "dataset": "pfs_raw_dock",
+    "table": "v_credit_limit",
+    "schema": [
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "account_id",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "credit_limit",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "installment_limit",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tranche_limit",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "withdrawal_limit",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "international_purchase_limit",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "international_withdrawal_limit",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "maximum_limit",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "available_balance",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "installment_available_balance",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tranche_available_balance",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "withdrawal_available_balance",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "international_available_balance",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "international_withdrawal_available",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "available_point",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "properties",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "cmd_seq",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_capture",
+                    "type": "TIMESTAMP",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_publish",
+                    "type": "TIMESTAMP",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_transaction",
+                    "type": "TIMESTAMP",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_id",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_name",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "operation",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "dataset": "pfs_pfin_termometro",
+    "table": "campanha_ctadig_50k",
+    "schema": [
+        {
+            "name": "id_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_campanha",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_conta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        }
+    ]
+}

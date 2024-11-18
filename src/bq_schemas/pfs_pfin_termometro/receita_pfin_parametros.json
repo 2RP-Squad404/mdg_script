@@ -1,0 +1,86 @@
+{
+    "dataset": "pfs_pfin_termometro",
+    "table": "receita_pfin_parametros",
+    "schema": [
+        {
+            "name": "data",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_produto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_indicador",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_indicador_frontend",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_produto_financeiro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "uni_pro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_prolabore",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_ajustado",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "anomes_prolabore",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "variavel_meta",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_variavel_meta",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "variavel_real",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_variavel_real",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tabela",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ano_mes_particao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        }
+    ]
+}

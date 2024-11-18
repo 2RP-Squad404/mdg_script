@@ -19,7 +19,6 @@ adesao_deb_automatico = [
     bigquery.SchemaField('num_anomes_ads_deb_autm', 'DATE', 'NULLABLE', description='Ano e mês da adesão')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: adesao_pacote_tarifa_hist
 adesao_pacote_tarifa_hist = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta'),
@@ -40,7 +39,6 @@ adesao_pacote_tarifa_hist = [
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: agpr_transacao_txn
 agpr_transacao_txn = [
     bigquery.SchemaField('cod_tipo_transacao', 'INTEGER', 'NULLABLE', description='Código do tipo de transação'),
@@ -49,7 +47,6 @@ agpr_transacao_txn = [
     bigquery.SchemaField('cod_agrupamento_txn', 'INTEGER', 'NULLABLE', description='Código do agrupamento da transação'),
     bigquery.SchemaField('des_agrupamento_txn', 'STRING', 'NULLABLE', description='Descrição do agrupamento da transação')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: ajuste_debito
 ajuste_debito = [
@@ -75,7 +72,6 @@ ajuste_debito = [
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('num_anomes_ajuste_debito', 'DATE', 'NULLABLE', description='Ano e mês do ajuste de débito')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: autorizacao_cartao_credito
 autorizacao_cartao_credito = [
@@ -130,7 +126,6 @@ autorizacao_cartao_credito = [
     bigquery.SchemaField('num_anomes_autoriz_ccred', 'DATE', 'NULLABLE', description='Ano e mês da autorização')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: autorizacao_cartao_credito_hist
 autorizacao_cartao_credito_hist = [
     bigquery.SchemaField('id_autorizacao_ccred', 'INTEGER', 'NULLABLE', description='ID da autorização de cartão de crédito'),
@@ -182,7 +177,6 @@ autorizacao_cartao_credito_hist = [
     bigquery.SchemaField('num_anomes_autoriz_ccred', 'INTEGER', 'NULLABLE', description='Ano e mês da autorização')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: autorizacao_detalhes
 autorizacao_detalhes = [
     bigquery.SchemaField('id_aut_detalhe_so', 'INTEGER', 'NULLABLE', description='ID do detalhe da autorização'),
@@ -210,7 +204,6 @@ autorizacao_detalhes = [
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: boleto
 boleto = [
     bigquery.SchemaField('id_boleto', 'STRING', 'NULLABLE', description='ID do boleto'),
@@ -233,7 +226,6 @@ boleto = [
     bigquery.SchemaField('num_anomes_emis_bol', 'DATE', 'NULLABLE', description='Ano e mês da emissão')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: cadastro_chave_pix
 cadastro_chave_pix = [
     bigquery.SchemaField('num_cpf_cnpj_cliente', 'INTEGER', 'NULLABLE', description='CPF/CNPJ do cliente'),
@@ -249,7 +241,6 @@ cadastro_chave_pix = [
     bigquery.SchemaField('num_ano_mes_status', 'INTEGER', 'NULLABLE', description='Ano e mês do status'),
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: cartao
 cartao = [
@@ -303,7 +294,6 @@ cartao = [
     bigquery.SchemaField('num_anomes_emis_cartao', 'DATE', 'NULLABLE', description='Ano e mês da emissão do cartão')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: cartao_debito
 cartao_debito = [
     bigquery.SchemaField('id_conta_debito_so', 'INTEGER', 'NULLABLE', description='ID da conta de débito'),
@@ -337,6 +327,58 @@ cartao_debito = [
     bigquery.SchemaField('num_anomes_emiss_cartao_debito', 'DATE', 'NULLABLE', description='Ano e mês da emissão do cartão de débito')
 ]
 
+# Dataset: pfs_unificacao_pefisa, Table: cartao_hist
+cartao_hist = [
+    bigquery.SchemaField('id_cartao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('num_cartao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('num_seq_via_cartao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_modo_cartao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('flg_cartao_atual', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('id_conta_debito', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('id_produto_cartao_debito', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('cod_tip_portador', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('num_bin', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('cod_loja_emis_cartao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('id_cliente_so', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('dth_emis_cartao', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('dth_embs_cartao', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('dth_valid_cartao', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('dth_desbloqueio', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('cod_sit_cartao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_sit_cartao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dth_sit_cartao', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('cod_agrp_sit_cartao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_agrp_sit_cartao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_estagio_cartao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_estagio_cartao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dth_estagio_cartao', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('flg_embs_loja', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('flg_cartao_cancelado', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('flg_cartao_provisorio', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('flg_conta_cancelada', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('flg_conta_debito_cancelada', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('num_anomes_emis_cartao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('pt_nomeplastico', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('ca_arquivolote', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('ca_id_imagem', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('bc_responsavel', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('ca_codigocancelamento', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('ca_flaggeracartasenha', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('pt_id_imagem', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('id_cartao_hist_dock', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('id_conta_hist_dock', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('id_cliente_hist_dock', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('flg_cartao_migrado', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dth_cartao_migrado', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE')
+]
 
 # Dataset: pfs_unificacao_pefisa, Table: conta
 conta = [
@@ -426,7 +468,6 @@ conta = [
     bigquery.SchemaField('num_anomes_ads_conta', 'DATE', 'NULLABLE', description='Ano e mês da adesão da conta')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: conta_debito
 conta_debito = [
     bigquery.SchemaField('id_conta_multiplo', 'INTEGER', 'NULLABLE', description='ID da conta múltipla'),
@@ -512,7 +553,6 @@ conta_hist = [
     bigquery.SchemaField('num_anomes_ads_conta', 'INTEGER', 'NULLABLE', description='Ano e mês da adesão da conta')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: contestacoes
 contestacoes = [
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE', description='CPF do cliente'),
@@ -563,7 +603,6 @@ contestacoes = [
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
     bigquery.SchemaField('safra_contest', 'DATE', 'NULLABLE', description='Safra da contestação')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: contrato_emprestimo
 contrato_emprestimo = [
@@ -634,7 +673,6 @@ contrato_emprestimo = [
     bigquery.SchemaField('num_ano_mes_sol_empr', 'DATE', 'NULLABLE', description='Ano e mês da solicitação do empréstimo')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: estabelecimento_externo
 estabelecimento_externo = [
     bigquery.SchemaField('id_estabelecimento_externo', 'INTEGER', 'NULLABLE', description='ID do estabelecimento externo'),
@@ -644,7 +682,6 @@ estabelecimento_externo = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: evento_ajuste
 evento_ajuste = [
@@ -688,7 +725,6 @@ evento_ajuste = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: evento_compra_saque
 evento_compra_saque = [
@@ -749,7 +785,6 @@ evento_compra_saque = [
     bigquery.SchemaField('num_anomes_compra_saque', 'DATE', 'NULLABLE', description='Ano e mês da compra/saque')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: evento_pagamento
 evento_pagamento = [
     bigquery.SchemaField('id_evento_pagamento', 'INTEGER', 'NULLABLE', description='ID do evento de pagamento'),
@@ -793,7 +828,6 @@ evento_pagamento = [
     bigquery.SchemaField('des_sistema_origem', 'STRING', 'NULLABLE', description='Descrição do sistema de origem'),
     bigquery.SchemaField('num_anomes_pagamento', 'DATE', 'NULLABLE', description='Ano e mês do pagamento')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: fatura_ccred
 fatura_ccred = [
@@ -858,34 +892,32 @@ fatura_ccred = [
     bigquery.SchemaField('num_anomes_vencto_fatura', 'DATE', 'NULLABLE', description='Ano e mês do vencimento da fatura')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: grade_produto
-grade_produto = [
-    bigquery.SchemaField('id_grade_produto', 'STRING', 'NULLABLE', description='ID da grade do produto'),
-    bigquery.SchemaField('id_conta_cartao_credito', 'INTEGER', 'NULLABLE', description='ID da conta do cartão de crédito'),
-    bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE', description='CPF do cliente'),
-    bigquery.SchemaField('id_produto_ccred_origem', 'INTEGER', 'NULLABLE', description='ID do produto de origem'),
-    bigquery.SchemaField('id_produto_ccred_destino', 'INTEGER', 'NULLABLE', description='ID do produto de destino'),
-    bigquery.SchemaField('id_estabelecimento_grade', 'STRING', 'NULLABLE', description='ID do estabelecimento da grade'),
-    bigquery.SchemaField('nom_estabelecimento_grade', 'STRING', 'NULLABLE', description='Nome do estabelecimento da grade'),
-    bigquery.SchemaField('id_chapa_colaborador_grade', 'STRING', 'NULLABLE', description='ID da chapa do colaborador da grade'),
-    bigquery.SchemaField('nom_colaborador_grade', 'STRING', 'NULLABLE', description='Nome do colaborador da grade'),
-    bigquery.SchemaField('cod_status_grade_produto', 'INTEGER', 'NULLABLE', description='Código do status da grade do produto'),
-    bigquery.SchemaField('des_status_grade_produto', 'STRING', 'NULLABLE', description='Descrição do status da grade do produto'),
-    bigquery.SchemaField('dth_solicitacao_grade_produto', 'TIMESTAMP', 'NULLABLE', description='Data da solicitação da grade do produto'),
-    bigquery.SchemaField('dth_migracao_grade_produto', 'TIMESTAMP', 'NULLABLE', description='Data da migração da grade do produto'),
-    bigquery.SchemaField('val_limite_anterior_ccred', 'FLOAT', 'NULLABLE', description='Valor do limite anterior do cartão de crédito'),
-    bigquery.SchemaField('val_limite_novo_ccred', 'FLOAT', 'NULLABLE', description='Valor do novo limite do cartão de crédito'),
-    bigquery.SchemaField('flg_origem_web_service', 'STRING', 'NULLABLE', description='Flag de origem do web service'),
-    bigquery.SchemaField('des_responsavel', 'STRING', 'NULLABLE', description='Descrição do responsável'),
-    bigquery.SchemaField('flg_grade_automatico', 'STRING', 'NULLABLE', description='Flag de grade automático'),
-    bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Sequência da última alteração'),
-    bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
-    bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
-    bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('num_anomes_mig_grade', 'DATE', 'NULLABLE', description='Ano e mês da migração da grade')
+GRADE_PRODUTO = [
+    bigquery.SchemaField('id_grade_produto', 'STRING', 'NULLABLE', description='Identificador da grade de produto.'),
+    bigquery.SchemaField('id_conta_cartao_credito', 'INTEGER', 'NULLABLE', description='Identificador da conta do cartão de crédito.'),
+    bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE', description='CPF do cliente.'),
+    bigquery.SchemaField('id_produto_ccred_origem', 'INTEGER', 'NULLABLE', description='ID do produto de origem.'),
+    bigquery.SchemaField('id_produto_ccred_destino', 'INTEGER', 'NULLABLE', description='ID do produto de destino.'),
+    bigquery.SchemaField('id_estabelecimento_grade', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_estabelecimento_grade', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('id_chapa_colaborador_grade', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_colaborador_grade', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_status_grade_produto', 'INTEGER', 'NULLABLE', description='Código do status da grade de produto.'),
+    bigquery.SchemaField('des_status_grade_produto', 'STRING', 'NULLABLE', description='Descrição do status da grade de produto.'),
+    bigquery.SchemaField('dth_solicitacao_grade_produto', 'TIMESTAMP', 'NULLABLE', description='Data e hora da solicitação.'),
+    bigquery.SchemaField('dth_migracao_grade_produto', 'TIMESTAMP', 'NULLABLE', description='Data e hora da migração.'),
+    bigquery.SchemaField('val_limite_anterior_ccred', 'FLOAT', 'NULLABLE', description='Valor do limite anterior.'),
+    bigquery.SchemaField('val_limite_novo_ccred', 'FLOAT', 'NULLABLE', description='Valor do novo limite.'),
+    bigquery.SchemaField('flg_origem_web_service', 'STRING', 'NULLABLE', description='Flag de origem do web service.'),
+    bigquery.SchemaField('des_responsavel', 'STRING', 'NULLABLE', description='Responsável.'),
+    bigquery.SchemaField('flg_grade_automatico', 'STRING', 'NULLABLE', description='Flag de grade automático.'),
+    bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Número sequencial da última alteração.'),
+    bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data e hora da última atualização.'),
+    bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data e hora da inclusão.'),
+    bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem dos dados.'),
+    bigquery.SchemaField('num_anomes_mig_grade', 'DATE', 'NULLABLE', description='Ano e mês da migração da grade.')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: grade_produto_hist
 grade_produto_hist = [
@@ -915,7 +947,6 @@ grade_produto_hist = [
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: limite_disponibilidade
 limite_disponibilidade = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta'),
@@ -936,7 +967,6 @@ limite_disponibilidade = [
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
     bigquery.SchemaField('num_anomes_posicao_limite', 'DATE', 'NULLABLE', description='Ano e mês da posição do limite')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: limite_disponibilidade_hist
 limite_disponibilidade_hist = [
@@ -960,7 +990,6 @@ limite_disponibilidade_hist = [
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: meta_dia_pfin
 meta_dia_pfin = [
     bigquery.SchemaField('dat_dia', 'TIMESTAMP', 'NULLABLE', description='Data do dia'),
@@ -981,7 +1010,6 @@ meta_dia_pfin = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: parcelamento_fatura_ccred
 parcelamento_fatura_ccred = [
@@ -1018,7 +1046,6 @@ parcelamento_fatura_ccred = [
     bigquery.SchemaField('num_anomes_geracao_parcel', 'DATE', 'NULLABLE', description='Ano e mês da geração do parcelamento')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: produto_cartao
 produto_cartao = [
     bigquery.SchemaField('nom_processadora', 'STRING', 'NULLABLE', description='Nome da processadora'),
@@ -1032,7 +1059,6 @@ produto_cartao = [
     bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Sequência da última alteração'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: produto_financeiro
 produto_financeiro = [
@@ -1050,48 +1076,46 @@ produto_financeiro = [
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: refinanciamento_fatura_ccred
-efinanciamento_fatura_ccred = [
-    bigquery.SchemaField('id_refinanciamento_fatura', 'INTEGER', 'NULLABLE', description='ID do refinanciamento da fatura'),
-    bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta'),
-    bigquery.SchemaField('num_cpf_cliente_titular', 'INTEGER', 'NULLABLE', description='CPF do cliente titular'),
-    bigquery.SchemaField('id_evento_compra', 'INTEGER', 'NULLABLE', description='ID do evento de compra'),
-    bigquery.SchemaField('cod_tipo_operacao', 'INTEGER', 'NULLABLE', description='Código do tipo de operação'),
-    bigquery.SchemaField('des_tipo_operacao', 'STRING', 'NULLABLE', description='Descrição do tipo de operação'),
-    bigquery.SchemaField('dth_refinanciamento', 'TIMESTAMP', 'NULLABLE', description='Data do refinanciamento'),
-    bigquery.SchemaField('val_rotativo_paga_juro', 'FLOAT', 'NULLABLE', description='Valor do rotativo pago com juros'),
-    bigquery.SchemaField('val_debito_faturado_prox', 'FLOAT', 'NULLABLE', description='Valor do débito faturado no próximo período'),
-    bigquery.SchemaField('val_total_pos_prox', 'FLOAT', 'NULLABLE', description='Valor total do próximo período'),
-    bigquery.SchemaField('val_total_refinanciado', 'FLOAT', 'NULLABLE', description='Valor total refinanciado'),
-    bigquery.SchemaField('qtde_parcela', 'INTEGER', 'NULLABLE', description='Quantidade de parcelas'),
-    bigquery.SchemaField('val_parcela', 'FLOAT', 'NULLABLE', description='Valor da parcela'),
-    bigquery.SchemaField('val_taxa_juro', 'FLOAT', 'NULLABLE', description='Valor da taxa de juros'),
-    bigquery.SchemaField('val_iof', 'FLOAT', 'NULLABLE', description='Valor do IOF'),
-    bigquery.SchemaField('per_cet', 'FLOAT', 'NULLABLE', description='Percentual do CET'),
-    bigquery.SchemaField('nm_responsavel', 'STRING', 'NULLABLE', description='Nome do responsável'),
-    bigquery.SchemaField('cd_status', 'INTEGER', 'NULLABLE', description='Código do status'),
-    bigquery.SchemaField('des_status', 'STRING', 'NULLABLE', description='Descrição do status'),
-    bigquery.SchemaField('val_antecipacao_pendente', 'FLOAT', 'NULLABLE', description='Valor da antecipação pendente'),
-    bigquery.SchemaField('val_parcela_futura', 'FLOAT', 'NULLABLE', description='Valor da parcela futura'),
-    bigquery.SchemaField('val_abatimento_juro', 'FLOAT', 'NULLABLE', description='Valor do abatimento de juros'),
-    bigquery.SchemaField('flg_saldo_total', 'STRING', 'NULLABLE', description='Flag de saldo total'),
-    bigquery.SchemaField('val_total_refinanciar', 'FLOAT', 'NULLABLE', description='Valor total a refinanciar'),
-    bigquery.SchemaField('cd_status_cashback', 'INTEGER', 'NULLABLE', description='Código do status do cashback'),
-    bigquery.SchemaField('des_status_cashback', 'STRING', 'NULLABLE', description='Descrição do status do cashback'),
-    bigquery.SchemaField('per_cashback', 'FLOAT', 'NULLABLE', description='Percentual do cashback'),
-    bigquery.SchemaField('val_cashback', 'FLOAT', 'NULLABLE', description='Valor do cashback'),
-    bigquery.SchemaField('id_parcelamento_fatura', 'INTEGER', 'NULLABLE', description='ID do parcelamento da fatura'),
-    bigquery.SchemaField('id_fatura', 'INTEGER', 'NULLABLE', description='ID da fatura'),
-    bigquery.SchemaField('dth_vencimento_fatura', 'TIMESTAMP', 'NULLABLE', description='Data de vencimento da fatura'),
-    bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
-    bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Sequência da última alteração'),
-    bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
-    bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
-    bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('num_anomes_refinanciamento', 'DATE', 'NULLABLE', description='Ano e mês do refinanciamento')
+refinanciamento_fatura_ccred = [
+    bigquery.SchemaField('id_refinanciamento_fatura', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('num_cpf_cliente_titular', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('id_evento_compra', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('cod_tipo_operacao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_tipo_operacao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dth_refinanciamento', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('val_rotativo_paga_juro', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('val_debito_faturado_prox', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('val_total_pos_prox', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('val_total_refinanciado', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('qtde_parcela', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('val_parcela', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('val_taxa_juro', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('val_iof', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('per_cet', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('nm_responsavel', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cd_status', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_status', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('val_antecipacao_pendente', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('val_parcela_futura', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('val_abatimento_juro', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('flg_saldo_total', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('val_total_refinanciar', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('cd_status_cashback', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_status_cashback', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('per_cashback', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('val_cashback', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('id_parcelamento_fatura', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('id_fatura', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('dth_vencimento_fatura', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('num_anomes_refinanciamento', 'DATE', 'NULLABLE')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: saldo_conta
 saldo_conta = [
@@ -1107,7 +1131,6 @@ saldo_conta = [
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
     bigquery.SchemaField('num_anomes_posicao_saldo', 'DATE', 'NULLABLE', description='Ano e mês da posição do saldo')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: saldo_conta_debito
 saldo_conta_debito = [
@@ -1125,7 +1148,6 @@ saldo_conta_debito = [
     bigquery.SchemaField('num_anomes_pos_saldo_debito', 'DATE', 'NULLABLE', description='Ano e mês da posição do saldo de débito')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: saldo_conta_hist
 saldo_conta_hist = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta'),
@@ -1141,7 +1163,6 @@ saldo_conta_hist = [
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: seguradora
 seguradora = [
     bigquery.SchemaField('id_seguradora', 'INTEGER', 'NULLABLE', description='ID da seguradora'),
@@ -1153,7 +1174,6 @@ seguradora = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: seguro_adesao
 seguro_adesao = [
@@ -1210,7 +1230,6 @@ seguro_adesao = [
     bigquery.SchemaField('num_anomes_adesao', 'DATE', 'NULLABLE', description='Ano e mês da adesão')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: seguro_adesao_item
 seguro_adesao_item = [
     bigquery.SchemaField('id_adesao_seguro_so', 'INTEGER', 'NULLABLE', description='ID da adesão ao seguro'),
@@ -1235,7 +1254,6 @@ seguro_adesao_item = [
     bigquery.SchemaField('des_tip_origem', 'STRING', 'NULLABLE', description='Descrição do tipo de origem'),
     bigquery.SchemaField('num_anomes_adesao_item', 'DATE', 'NULLABLE', description='Ano e mês da adesão do item')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: seguro_dependente
 seguro_dependente = [
@@ -1271,7 +1289,6 @@ seguro_dependente = [
     bigquery.SchemaField('des_tip_origem', 'STRING', 'NULLABLE', description='Descrição do tipo de origem'),
     bigquery.SchemaField('num_anomes_referencia', 'DATE', 'NULLABLE', description='Ano e mês de referência')
 ]
-
 
 # Dataset: pfs_unificacao_pefisa, Table: seguro_parcela
 seguro_parcela = [
@@ -1326,7 +1343,6 @@ seguro_parcela = [
     bigquery.SchemaField('num_anomes_vencimento', 'DATE', 'NULLABLE', description='Ano e mês do vencimento')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: transacao_contabilizada
 transacao_contabilizada = [
     bigquery.SchemaField('id_transacao', 'INTEGER', 'NULLABLE', description='ID da transação'),
@@ -1376,7 +1392,6 @@ transacao_contabilizada = [
     bigquery.SchemaField('num_anomes_geracao_trans', 'DATE', 'NULLABLE', description='Ano e mês da geração da transação')
 ]
 
-
 # Dataset: pfs_unificacao_pefisa, Table: transacao_debito
 transacao_debito = [
     bigquery.SchemaField('id_conta_debito_so', 'INTEGER', 'NULLABLE', description='ID da conta de débito'),
@@ -1403,4 +1418,113 @@ transacao_debito = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('num_anomes_trans_debito', 'DATE', 'NULLABLE', description='Ano e mês da transação de débito')
+]
+
+# Dataset: pfs_unificacao_pefisa, Table: v_status_autorizacao_evento_externo
+v_status_autorizacao_evento_externo = [
+    bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('sae_id_statusautorizacoeseventosexternos', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('sae_status', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('sae_descricao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('sae_flagpagamentovalidocorrespondente', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('sae_flagpermitealteracaostatuscorrespondente', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('sae_flagpermitecancelamentocorrespondente', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('operation', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE'),
+    bigquery.SchemaField('seq', 'INTEGER', 'NULLABLE')
+]
+
+# Dataset: pfs_unificacao_pefisa, Table: v_tipo_ajuste
+v_tipo_ajuste = [
+    bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('ta_id_ajuste', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('ta_descricao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('ta_flagcredito', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('ta_flagtransacaodisputa', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('ta_flagpagamentolojista', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('ta_toleranciavalorminimoextrato', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('ta_flagsistema', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('ta_tipoeventoexternooriginal', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('operation', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE'),
+    bigquery.SchemaField('seq', 'INTEGER', 'NULLABLE')
+]
+
+# Dataset: pfs_unificacao_pefisa, Table: v_tipo_operacao
+v_tipo_operacao = [
+    bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tos_id_operacao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_nomeoperacao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tos_descricaooperacao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tos_id_emissor', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_remuneracaoemissor', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('tos_condicionadorliquidacao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_tipoliquidacao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_dataliquidacao', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('tos_tipodebito', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_tipocontrato', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_tipocalculoprestacao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_flagrefinanciamento', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('tos_tipopagamento', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_parcelasdefault', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_id_tabela', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_valoroperacao', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('tos_quantidadeparcelas', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_valorparcela', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('tos_tipocompra', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_id_credordefault', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_flagcobraprorata', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('tos_diasafastamento', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_remuneracaoemissorperc', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('tos_remuneracaoemissorfixa', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('tos_definicaocondicao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tos_financiavel', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_tipotransacaoajuste', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_tipooperacao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tos_tipoplano', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tos_flagjuros', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('tos_planominimo', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_planomaximo', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_valorminimo', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('tos_valormaximo', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('tos_excedentepermitido', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('tos_tipoexcedentepermitido', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tos_id_tabelajuros', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_flagposproximovencimento', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_codproccancelamento', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tos_toleranciavalorminimoextrato', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('tos_flagparcelado', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('tos_codigoarquivoseguro', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_valortac', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('tos_percentualtac', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('tos_flagcredito', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_taxajuros', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('tos_flagcobratarifa', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('tos_codigoprocessamento', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tos_id_grupostransacoeslojista', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_percentualdeflacao', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('tos_id_operacaoorigem', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_flagverenderecobloq', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('tos_tarifa', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('tos_flagplanospagamento', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_flagtiratac', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('tos_regravalidacaosenha', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_regraoperacaodigitada', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_flagisentatarifa', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('tos_descricaoabreviada', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tos_respeitavalidacaoregrasenha', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tos_flagposmobile', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('tos_flagfinanciada', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('tpo_id_tipooperacao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tpo_descricao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tpo_operacaovisa', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('operation', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE'),
+    bigquery.SchemaField('seq', 'INTEGER', 'NULLABLE')
 ]

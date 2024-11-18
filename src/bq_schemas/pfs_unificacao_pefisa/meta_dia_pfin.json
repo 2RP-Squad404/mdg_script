@@ -5,87 +5,104 @@
         {
             "name": "dat_dia",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data do dia."
         },
         {
             "name": "cod_estabelecimento",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo do estabelecimento."
         },
         {
             "name": "cod_produto_financeiro",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo do produto financeiro."
         },
         {
             "name": "qtd_prev_venda",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Quantidade prevista de vendas."
         },
         {
             "name": "qtd_real_venda",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Quantidade real de vendas."
         },
         {
             "name": "val_prev_venda",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Valor previsto de vendas."
         },
         {
             "name": "val_real_venda",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Valor real de vendas."
         },
         {
             "name": "qtd_prev_receb",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Quantidade prevista de recebimentos."
         },
         {
             "name": "qtd_real_receb",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Quantidade real de recebimentos."
         },
         {
             "name": "val_prev_receb",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Valor previsto de recebimentos."
         },
         {
             "name": "val_real_receb",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Valor real de recebimentos."
         },
         {
             "name": "per_prev_receb",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Percentual previsto de recebimentos."
         },
         {
             "name": "per_real_receb",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Percentual real de recebimentos."
         },
         {
             "name": "per_real_receb_acm",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Percentual real acumulado de recebimentos."
         },
         {
             "name": "dth_ult_atu_so",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data e hora da \u00faltima atualiza\u00e7\u00e3o do sistema operacional."
         },
         {
             "name": "dth_inclusao_reg",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data e hora da inclus\u00e3o do registro."
         },
         {
             "name": "dat_referencia",
             "type": "DATE",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data de refer\u00eancia."
         }
     ]
 }

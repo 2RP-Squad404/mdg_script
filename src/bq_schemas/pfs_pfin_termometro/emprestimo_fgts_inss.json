@@ -1,0 +1,226 @@
+{
+    "dataset": "pfs_pfin_termometro",
+    "table": "emprestimo_fgts_inss",
+    "schema": [
+        {
+            "name": "dat_indicador",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_indicador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_indicador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_indicador_frontend",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "origem_venda",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_contrato",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_numero",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_beneficio",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_cadastro",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_venda",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_estabelecimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_estabelecimento_so",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_regional",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_regional",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_micro_regiao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_micro_regiao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_produto_financeiro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_produto_financeiro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_produto_indicador",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_status",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_ult_status",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_prev_venda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_prev_venda",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_real_venda",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_real_venda",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_real_venda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_canal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_parcelas",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_parcela",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_troco",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_chapa_vendedor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_vendedor",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_cargo_vendedor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_cargo_vendedor",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_fun_ec_pefisa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_indicador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_regra_indicador",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_regra_indicador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "obs_regra_indicador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_anomes_indicador",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

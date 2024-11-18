@@ -1,0 +1,41 @@
+{
+    "dataset": "pfs_pfin_termometro",
+    "table": "parametros_execucao_bckp",
+    "schema": [
+        {
+            "name": "nome_processo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dia_corte",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "periodicidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_inicio_vigencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_fim_vigencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "observacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        }
+    ]
+}

@@ -1,0 +1,316 @@
+{
+    "dataset": "pfs_pfin_termometro",
+    "table": "participacao_analitica",
+    "schema": [
+        {
+            "name": "dia_ano_mes_trs",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "hora_transacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_estabelecimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_regional",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_regional",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_micro_regiao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_micro_regiao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sk_ramo_produto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_ramo_produto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "codigo_forma",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "descricao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_real_calculado",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_juros",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_juros_mensal",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "storex",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tipo_cartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nome_cartao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_chapa_vendedor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_vendedor",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_vendedor",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_cargo_vendedor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_cargo_vendedor",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_depto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estab_vendedor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_admissao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_demissao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_inic_afastamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_term_afastamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nsu_transacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "numero_componente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tipo_venda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "atrib_venda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status_nfe",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "motivo_nfe",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "numero_nfe",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status_item",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tipo_operacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "codigo_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cnpj",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cnpj_fisco",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tipo_docto_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "codigo_produto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_mercad",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_liquido",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_parcelas",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "vl_rcb_part_forma",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "vl_rcb_part_nsu",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "calc_vl_rcb_part_forma",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "calc_vl_rcb_part_nsu",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "meta_pcj_loja",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_prod_fin_pernam",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_prod_fin_pernam_juros",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "partic_loja",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "meta_partic_loja",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "real_partic",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "partic_loja_juros",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "meta_partic_loja_juros",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "real_pcj",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_anomes_indicador",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

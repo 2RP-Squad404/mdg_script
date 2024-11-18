@@ -1,0 +1,163 @@
+{
+    "dataset": "pfs_raw_dock",
+    "table": "v_credit_card",
+    "schema": [
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "card_id",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "account_id",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "person_id",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pan",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "bin",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "name_on_card",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status_id",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status_description",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status_allow_approve",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "expiration_date",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "issue_date",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status_upd_date",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "stage_id",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "stage_description",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "embossing_date",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "embossing_file",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "owner",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "is_temporary_card",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "card_sequence_number",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "card_hash",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "brand",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "incorrect_password_attempts",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "properties",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "cmd_seq",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_capture",
+                    "type": "TIMESTAMP",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_publish",
+                    "type": "TIMESTAMP",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_transaction",
+                    "type": "TIMESTAMP",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_id",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_name",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "operation",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        }
+    ]
+}

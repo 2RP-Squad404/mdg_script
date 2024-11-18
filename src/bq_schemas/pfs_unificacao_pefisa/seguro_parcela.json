@@ -5,247 +5,296 @@
         {
             "name": "id_adesao_seguro",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Identificador da ades\u00e3o ao seguro."
         },
         {
             "name": "id_produto_financeiro",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Identificador do produto financeiro."
         },
         {
             "name": "nom_produto_financeiro",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Nome do produto financeiro."
         },
         {
             "name": "des_tip_origem_pfin",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Descri\u00e7\u00e3o do tipo de origem do produto financeiro."
         },
         {
             "name": "num_parcela",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero da parcela."
         },
         {
             "name": "val_parcela",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Valor da parcela."
         },
         {
             "name": "dth_vencimento_parcela",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data de vencimento da parcela."
         },
         {
             "name": "cod_tip_situacao",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo do tipo de situa\u00e7\u00e3o."
         },
         {
             "name": "des_tip_situacao",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Descri\u00e7\u00e3o do tipo de situa\u00e7\u00e3o."
         },
         {
             "name": "dth_situacao",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data da situa\u00e7\u00e3o."
         },
         {
             "name": "dth_emissao_parcela",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data de emiss\u00e3o da parcela."
         },
         {
             "name": "dth_cancelamento",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data de cancelamento."
         },
         {
             "name": "des_motivo_cancelamento",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Motivo do cancelamento."
         },
         {
             "name": "cod_tip_situacao_cobranca",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo do tipo de situa\u00e7\u00e3o de cobran\u00e7a."
         },
         {
             "name": "des_tip_situacao_cobranca",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Descri\u00e7\u00e3o do tipo de situa\u00e7\u00e3o de cobran\u00e7a."
         },
         {
             "name": "cod_tip_situacao_transferencia",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo do tipo de situa\u00e7\u00e3o de transfer\u00eancia."
         },
         {
             "name": "des_tip_situacao_transferencia",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Descri\u00e7\u00e3o do tipo de situa\u00e7\u00e3o de transfer\u00eancia."
         },
         {
             "name": "dth_liquidacao",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data de liquida\u00e7\u00e3o."
         },
         {
             "name": "dth_real_liquidacao",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data real de liquida\u00e7\u00e3o."
         },
         {
             "name": "dth_envio_cobranca",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data de envio para cobran\u00e7a."
         },
         {
             "name": "dth_postagem_parcela",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data de postagem da parcela."
         },
         {
             "name": "num_cpf_cliente",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "CPF do cliente."
         },
         {
             "name": "num_apolice_seguro",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero da ap\u00f3lice de seguro."
         },
         {
             "name": "cod_canal_venda",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo do canal de venda."
         },
         {
             "name": "des_canal_venda",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Descri\u00e7\u00e3o do canal de venda."
         },
         {
             "name": "num_seq_recebe_bau",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero sequencial do recebimento BAU."
         },
         {
             "name": "num_serie_bau",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero da s\u00e9rie BAU."
         },
         {
             "name": "num_carne_bau",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero do carne BAU."
         },
         {
             "name": "ind_serie_pnb_bau",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Indicador da s\u00e9rie PNB BAU."
         },
         {
             "name": "tipo_operacao_bau",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Tipo de opera\u00e7\u00e3o BAU."
         },
         {
             "name": "nm_local_pagamento_bau",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Nome do local de pagamento BAU."
         },
         {
             "name": "cod_estabelecimento_lote",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo do estabelecimento do lote."
         },
         {
             "name": "nm_estabelecimento_lote",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Nome do estabelecimento do lote."
         },
         {
             "name": "tip_recebimento_lote",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Tipo de recebimento do lote."
         },
         {
             "name": "dat_lote",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data do lote."
         },
         {
             "name": "num_lote",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero do lote."
         },
         {
             "name": "num_seq_lote",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero sequencial do lote."
         },
         {
             "name": "cod_operador",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo do operador."
         },
         {
             "name": "num_bordero",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero do bordero."
         },
         {
             "name": "tip_negociacao",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Tipo de negocia\u00e7\u00e3o."
         },
         {
             "name": "dat_ano_mes_apuracao",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data ano-m\u00eas de apura\u00e7\u00e3o."
         },
         {
             "name": "dth_atualizacao_so",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data de atualiza\u00e7\u00e3o do sistema."
         },
         {
             "name": "num_seq_ult_alteracao",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero sequencial da \u00faltima altera\u00e7\u00e3o."
         },
         {
             "name": "dth_inclusao_reg",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data de inclus\u00e3o do registro."
         },
         {
             "name": "dat_referencia",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data de refer\u00eancia."
         },
         {
             "name": "des_tip_origem_adesao",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Descri\u00e7\u00e3o do tipo de origem da ades\u00e3o."
         },
         {
             "name": "cod_forma_pagto",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo da forma de pagamento."
         },
         {
             "name": "des_forma_pagto",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Descri\u00e7\u00e3o da forma de pagamento."
         },
         {
             "name": "num_anomes_vencimento",
             "type": "DATE",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Ano e m\u00eas de vencimento."
         }
     ]
 }

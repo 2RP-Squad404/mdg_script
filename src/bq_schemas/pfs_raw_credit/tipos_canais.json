@@ -1,0 +1,26 @@
+{
+    "dataset": "pfs_raw_credit",
+    "table": "tipos_canais",
+    "schema": [
+        {
+            "name": "COD_CANAL",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DES_CANAL",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "FLG_COMMIT_AUTORIZADOR",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "FLG_BANDEIRADO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        }
+    ]
+}

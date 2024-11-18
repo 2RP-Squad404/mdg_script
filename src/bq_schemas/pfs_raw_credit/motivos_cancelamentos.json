@@ -1,0 +1,31 @@
+{
+    "dataset": "pfs_raw_credit",
+    "table": "motivos_cancelamentos",
+    "schema": [
+        {
+            "name": "COD_MOTIVO_CANCEL",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DESC_MOTIVO_CANCEL",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_CANCELAMENTO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_INI_VIGENCIA",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_FIM_VIGENCIA",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        }
+    ]
+}
