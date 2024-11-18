@@ -22,7 +22,7 @@ def create_output_directory(output_dir):
     """
     Cria o diretório de saída e garante a presença do arquivo __init__.py.
 
-    Args:
+    Parâmetros:
         output_dir (str): Caminho do diretório de saída.
     """
     if not os.path.exists(output_dir):
@@ -38,11 +38,11 @@ def generate_bigquery_class(table_name, schema):
     """
     Gera a definição de schema BigQuery para uma tabela.
 
-    Args:
+    Parâmetros:
         table_name (str): Nome da tabela.
         schema (list): Esquema da tabela em formato de lista de dicionários.
 
-    Returns:
+    Retorno:
         str: Definição da classe em formato de string.
     """
     def process_field(field):
@@ -68,7 +68,7 @@ def process_bigquery_folder(folder_path, folder_name, output_dir):
     """
     Processa uma pasta contendo arquivos JSON e gera um arquivo de schema BigQuery.
 
-    Args:
+    Parâmetros:
         folder_path (str): Caminho da pasta de entrada.
         folder_name (str): Nome da pasta de entrada.
         output_dir (str): Diretório de saída.
@@ -97,7 +97,7 @@ def create_bigquery_schemas(directory):
     """
     Cria schemas BigQuery para todos os datasets no diretório especificado.
 
-    Args:
+    Parâmetros:
         directory (str): Caminho do diretório de entrada.
     """
     output_dir = "py_schemas"
@@ -115,10 +115,10 @@ def create_class_code_pydantic(schema: dict) -> str:
     """
     Gera código de classe Pydantic a partir de um schema.
 
-    Args:
+    Parâmetros:
         schema (dict): Dicionário contendo nome da tabela e schema.
 
-    Returns:
+    Retorno:
         str: Código da classe Pydantic como string.
     """
     def process_field(field):
@@ -155,7 +155,7 @@ def process_pydantic_folder(folder_path, folder_name, output_dir):
     """
     Processa uma pasta com arquivos JSON e gera um arquivo de models Pydantic.
 
-    Args:
+    Parâmetros:
         folder_path (str): Caminho da pasta de entrada.
         folder_name (str): Nome da pasta de entrada.
         output_dir (str): Diretório de saída.
@@ -185,7 +185,7 @@ def create_pydantic_models(directory):
     """
     Cria classes Pydantic para todos os datasets no diretório especificado.
 
-    Args:
+    Parâmetros:
         directory (str): Caminho do diretório de entrada.
     """
     output_dir = "py_models"
@@ -197,5 +197,3 @@ def create_pydantic_models(directory):
             process_pydantic_folder(folder_path, folder_name, output_dir)
 
     logger.info("Pydantic Models criados com sucesso!")
-
-
