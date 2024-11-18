@@ -127,4 +127,4 @@ def run_gemini(project_id, model_name, dataset):
       logger.info('\033[91mGEMINI CODE: None or could not be retrieved.\033[0m')
       sys.exit(1)
 
-  save_to_file(f'datagen/{dataset}.py', code)
+  # save_to_file(f'datagen/{dataset}.py', code)
