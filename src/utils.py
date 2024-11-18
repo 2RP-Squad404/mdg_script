@@ -522,7 +522,9 @@ def load_models_and_examples(dataset: str, prompt) -> str:
 
     examples_data_str = json.dumps(examples_data, indent=2, ensure_ascii=False)
 
-    expected_return_file = 'src/example_of_expected_return/example.py'
+    # Carregar exemplo de retorno esperado (agora com o caminho fixo 'example.py')
+    logger.debug(os.getcwd())
+    expected_return_file = 'datagen/pfs_risco_raw_tivea.py'
     with open(expected_return_file, 'r', encoding='utf-8') as f:
         expected_return_code = f.read()
 
@@ -554,8 +556,9 @@ def save_code_from_gemini(dataset: str, content: str):
     ) 
     content = re.sub(r'```$', '', content)
 
-    pathdir = 'src/gm_functions'
-    os.makedirs(pathdir, exist_ok=True)
+    # Define o diretório e o caminho do arquivo
+    pathdir = 'datagen'
+    os.makedirs(pathdir, exist_ok=True)  # Cria o diretório se não existir
 
     file_path = os.path.join(pathdir, f'{dataset}.py')
 
