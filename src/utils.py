@@ -65,7 +65,7 @@ def create_tables(dataset: str):
     """
     Cria tabelas no BigQuery para o dataset especificado, aplicando particionamento onde configurado.
 
-    Args:
+    Parâmetros:
         dataset (str): Nome do dataset no qual as tabelas serão criadas.
 
     Exceções:
@@ -329,10 +329,10 @@ def gcloud_choose(
 def get_credentials(secret_name: str):
     """Retrieve service account credentials from Google Cloud Secret Manager.
 
-    Args:
+    Parâmetros::
         secret_name (str): The full resource name of the secret version.
 
-    Returns:
+    Retorno:
         tuple: A tuple containing the credentials object and the credentials dictionary.
     """
     secret_client = secretmanager.SecretManagerServiceClient()
@@ -348,11 +348,11 @@ def list_datasets_from_folder(folder_path: str, folder_file: str) -> list:
     """
     Lista arquivos de dataset ou subpastas na pasta especificada, removendo a extensão .py dos arquivos.
 
-    Args:
+    Parâmetros:
         folder_path (str): Caminho para a pasta que contém os arquivos ou subpastas.
         folder_file (str): Especifica o que listar. Use 'file' para arquivos ou 'folder' para subpastas.
 
-    Returns:
+    Retorno:
         list: Lista dos nomes dos arquivos sem a extensão .py ou das subpastas.
     """
     if folder_file == 'folder':
@@ -375,11 +375,30 @@ def list_datasets_from_bigquery() -> list:
     return [dataset.dataset_id for dataset in datasets]
 
 def list_tables_from_bigquery(dataset):
+    """
+    Lista as tabelas do BigQuery
+
+    Parâmetro:
+        dataset (str): Nome do dataset no BigQuery.
+
+    Returno:
+        list: Lista dos nomes das tabelas no dataset.
+    """
     client = bigquery.Client(project=PROJECT_ID)
     tables = client.list_tables(dataset)
     return [table.table_id for table in tables]
 
 def list_tables_from_folder(folder_path: str) -> list:
+    """
+    Lista os arquivos de dataset na pasta especificada.
+
+    Parâmetro:
+        folder_path (str): Caminho para a pasta que contém os arquivos.
+
+    Returno:
+        list: Lista dos nomes dos arquivos de dataset.
+    """
+
     return [os.path.splitext(f)[0] for f in os.listdir(folder_path)
             if os.path.isfile(os.path.join(folder_path, f)) and f.endswith('.py')]
 
@@ -387,10 +406,10 @@ def display_common_datasets(folder_path: str):
     """
     Exibe e permite a seleção opcional dos datasets que estão em comum entre a pasta local e o BigQuery.
 
-    Args:
+    Parâmetro:
         folder_path (str): Caminho para a pasta que contém os arquivos.
 
-    Returns:
+    Retorno:
         list: Lista de datasets selecionados ou todos os datasets em comum, se nenhuma seleção for feita.
     """
     local_datasets = list_datasets_from_folder(folder_path,folder_file='folder')
@@ -406,7 +425,6 @@ def display_common_datasets(folder_path: str):
     for i, dataset in enumerate(common_datasets, start=1):
         print(f"{i}. {dataset}")
 
-    # Prompt opcional para seleção de datasets
     user_input = input("\nDigite os números do dataset:").strip()
 
     if not user_input:
@@ -420,6 +438,12 @@ def display_common_datasets(folder_path: str):
     return selected_dataset[0]
 
 def commom_tables(dataset_file):
+    """
+    Exibe e permite a seleção opcional das tabelas que estão em comum entre o diretório e o BigQuery.
+
+    Parâmetros:
+        dataset_file (str): Nome do arquivo do dataset.
+    """
     from gemini_interface import run_gemini
 
     local_tables = list_tables_from_folder(f"mock_data/{dataset_file}")
@@ -454,6 +478,12 @@ def input_num_linhas():
             logger.info("Digite um valor inteiro")
 
 def send_jsonl_to_bigquery(select_dataset):
+    """
+    Envia o arquivo JSONL para o BigQuery.
+
+    Parâmetros:
+        select_dataset (str): Nome do dataset a ser enviado.
+    """
     dataset_directory = f"mock_data/{select_dataset}"
     
     if not os.path.isdir(dataset_directory):
@@ -473,7 +503,16 @@ def send_jsonl_to_bigquery(select_dataset):
                 logger.error(f"\033[91mErro ao enviar o arquivo {filename} para o BigQuery: {e}\033[0m")
 
 def load_models_and_examples(dataset: str, prompt) -> str:
-    # Carregar modelos Pydantic
+    """
+    Carrega modelos e exemplos para o dataset especificado.
+
+    Parâmetros:
+        dataset (str): Nome do dataset.
+        prompt (str): Prompt para o modelo.
+
+    Retorno:
+        str: Nome do arquivo de saída.
+    """
     models_dir = f'py_models'
     models_code = []
 
@@ -486,7 +525,6 @@ def load_models_and_examples(dataset: str, prompt) -> str:
 
     models_code_str = '\n\n'.join(models_code)
 
-    # Carregar todos os exemplos JSON do diretório
     json_files_pattern = f'src/data_sample_json/{dataset}/*.json'
     json_file_paths = glob.glob(json_files_pattern)
     examples_data = []
@@ -495,15 +533,12 @@ def load_models_and_examples(dataset: str, prompt) -> str:
         with open(json_file_path, 'r', encoding='utf-8') as f:
             examples_data.append(json.load(f))
 
-    # Converter todos os dados JSON em uma string
     examples_data_str = json.dumps(examples_data, indent=2, ensure_ascii=False)
 
-    # Carregar exemplo de retorno esperado (agora com o caminho fixo 'example.py')
     expected_return_file = 'src/example_of_expected_return/example.py'
     with open(expected_return_file, 'r', encoding='utf-8') as f:
         expected_return_code = f.read()
 
-    # Concatenar tudo
     full_prompt = prompt.replace(
         '#colocar nessa linha os modelos do py_models/{dataset}/*.py',
         models_code_str,
@@ -527,22 +562,18 @@ def save_code_from_gemini(dataset: str, content: str):
     Parâmetros:
     content (str): O código obtido do modelo.
     """
-    # Remover qualquer marcação de código extra (como ``` ou ```python) no início e final
     content = re.sub(
         r'^```(python)?\s*', '', content
-    )  # Remover ```python ou apenas ```
-    content = re.sub(r'```$', '', content)  # Remover ```
+    ) 
+    content = re.sub(r'```$', '', content)
 
-    # Define o diretório e o caminho do arquivo
     pathdir = 'src/gm_functions'
-    os.makedirs(pathdir, exist_ok=True)  # Cria o diretório se não existir
+    os.makedirs(pathdir, exist_ok=True)
 
-    # Define o caminho do arquivo
     file_path = os.path.join(pathdir, f'{dataset}.py')
 
-    # Abre o arquivo para escrita
     with open(file_path, 'a', encoding='utf-8') as file:
-        file.write(content)  # Escreve o conteúdo diretamente
+        file.write(content)
 
     return True
 
