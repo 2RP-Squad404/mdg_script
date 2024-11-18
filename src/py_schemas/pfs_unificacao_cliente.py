@@ -1,5 +1,77 @@
 from google.cloud import bigquery
 
+# Dataset: pfs_unificacao_cliente, Table: cliente
+cliente = [
+    bigquery.SchemaField('id_cliente', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('tip_pessoa', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('num_cpf_cnpj_cliente', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('nom_cliente', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dth_cadastro', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('cod_loja_cad', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_email', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dat_nascimento', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('cod_sexo', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_loja_pref', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('num_ddd_cel', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('num_tel_cel', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('num_ddd_res', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('num_tel_res', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_lograd_end_res', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('num_endereco_res', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('des_compl_end_res', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_bairro_res', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_cidade_res', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_estado_res', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_cep_res', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('des_pais_res', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('num_ddd_com', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('num_tel_com', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_lograd_end_com', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('num_endereco_com', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('des_compl_end_com', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_bairro_com', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_cidade_com', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_estado_com', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_cep_com', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('des_pais_com', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('num_ddd_cob', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('num_tel_cob', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_lograd_end_cob', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('num_endereco_cob', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('des_compl_end_cob', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_bairro_cob', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_cidade_cob', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_estado_cob', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_cep_cob', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('des_pais_cob', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('num_ddd_ent', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('num_tel_ent', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_lograd_end_ent', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('num_endereco_ent', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('des_compl_end_ent', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_bairro_ent', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_cidade_ent', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_estado_ent', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_cep_ent', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('des_pais_ent', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_estado_civil', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('val_renda_cliente', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('des_endereco_mac', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_mae_cliente', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dth_inclusao', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('dth_ult_atu_cli', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('tip_sit_telefone_res', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tip_sit_telefone_ent', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tip_sit_telefone_com', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tip_sit_telefone_cob', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tip_sit_email', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tip_sit_telefone_cel', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('id_cliente_so', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tip_origem_principal', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dat_efetivacao_crediario', 'TIMESTAMP', 'NULLABLE')
+]
+
 # Dataset: pfs_unificacao_cliente, Table: cliente_complemento
 cliente_complemento = [
     bigquery.SchemaField('id_cliente', 'STRING', 'NULLABLE', description='ID do cliente.'),
@@ -34,7 +106,6 @@ cliente_complemento = [
     bigquery.SchemaField('nom_profissao_isco08', 'STRING', 'NULLABLE', description='Nome da profissão (ISCO-08).')
 ]
 
-
 # Dataset: pfs_unificacao_cliente, Table: cliente_item_perfil
 cliente_item_perfil = [
     bigquery.SchemaField('id_cliente', 'STRING', 'NULLABLE', description='ID do cliente.'),
@@ -51,11 +122,43 @@ cliente_item_perfil = [
     bigquery.SchemaField('cod_item_perfil', 'INTEGER', 'NULLABLE', description='Código do item do perfil.')
 ]
 
-
 # Dataset: pfs_unificacao_cliente, Table: de_para_num_pfj_id_cdt_cpf
 de_para_num_pfj_id_cdt_cpf = [
     bigquery.SchemaField('num_pfj', 'INTEGER', 'NULLABLE', description='Número de pessoa física ou jurídica.'),
     bigquery.SchemaField('num_cpf', 'INTEGER', 'NULLABLE', description='Número do CPF.'),
     bigquery.SchemaField('id_pessoa_cdt', 'INTEGER', 'NULLABLE', description='ID da pessoa no CDT.'),
     bigquery.SchemaField('tip_origem_cdt', 'STRING', 'NULLABLE', description='Tipo de origem do CDT.')
+]
+
+# Dataset: pfs_unificacao_cliente, Table: v_estabelecimento
+v_estabelecimento = [
+    bigquery.SchemaField('cod_estabelecimento', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('num_cgc', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('num_digto_estabelecimento', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('flg_ind_atividade', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('flg_localizacao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('flg_tipo_estabelecimento', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_estabelecimento', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('flg_responsavel_mr', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dat_ult_atu', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('est_sgl_estado', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dat_fechamento', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('dat_ult_reforma', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('nom_fantasia', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_gerente_adm', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_gerente_comercial', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dat_abertura', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('num_inscricao_estadual', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('num_inscricao_municipal', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dat_inauguracao', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('nom_fantasia_mkt', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_corporacao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('nom_razao_social', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_regional', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_regional', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_gerente', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_micro_regiao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_micro_regiao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_estabelecimento_cdt', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('cod_estabelecimento_onefpay', 'INTEGER', 'NULLABLE')
 ]

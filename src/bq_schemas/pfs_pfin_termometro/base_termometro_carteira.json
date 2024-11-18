@@ -1,0 +1,96 @@
+{
+    "dataset": "pfs_pfin_termometro",
+    "table": "base_termometro_carteira",
+    "schema": [
+        {
+            "name": "dth_carteira",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_adesao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_cancelamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_produto_financeiro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "produto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "canal_venda",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_estabelecimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estabelecimento_adesao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_chapa_cancel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_apolice_seguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_funcionario",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_chapa_adesao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "chapa_canc_nom_funcionario",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "chapa_nom_funcionario",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tempo_casa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status_funcionario",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtde_carteira",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "anomes",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

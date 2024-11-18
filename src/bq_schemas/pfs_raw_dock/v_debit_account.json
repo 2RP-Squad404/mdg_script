@@ -1,0 +1,135 @@
+{
+    "dataset": "pfs_raw_dock",
+    "table": "v_debit_account",
+    "schema": [
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "account_id",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "person_id",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status_id",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status_description",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "create_date",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "due_day",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status_date",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "delivery_address",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "charge_date",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "properties",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "cmd_seq",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_capture",
+                    "type": "TIMESTAMP",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_publish",
+                    "type": "TIMESTAMP",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dt_transaction",
+                    "type": "TIMESTAMP",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_id",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_name",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "operation",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "product",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "product_id",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "product_description",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "product_type",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_bank_number",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_branch_number",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "issuer_account_number",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        }
+    ]
+}

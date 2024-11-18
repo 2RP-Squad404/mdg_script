@@ -87,7 +87,6 @@ conta_cartao_cliente = [
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Descrição da origem do dado.')
 ]
 
-
 # Dataset: base_operacional, Table: emprestimo_pessoal_processado
 emprestimo_pessoal_processado = [
     bigquery.SchemaField('id_evento_ep', 'STRING', 'NULLABLE', description='ID único do evento de empréstimo pessoal.'),
@@ -139,7 +138,6 @@ emprestimo_pessoal_processado = [
     bigquery.SchemaField('num_anomes_ep', 'DATE', 'NULLABLE', description='Ano e mês do empréstimo.')
 ]
 
-
 # Dataset: base_operacional, Table: faturamento_conta_digital
 faturamento_conta_digital = [
     bigquery.SchemaField('id_conta_ccred_transacao', 'INTEGER', 'NULLABLE', description='ID da conta envolvida na transação.'),
@@ -176,7 +174,6 @@ faturamento_conta_digital = [
     bigquery.SchemaField('num_anomes_transacao', 'DATE', 'NULLABLE', description='Ano e mês da transação.')
 ]
 
-
 # Dataset: base_operacional, Table: fatura_fechada
 fatura_fechada = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta.'),
@@ -210,7 +207,6 @@ fatura_fechada = [
     bigquery.SchemaField('num_anomes_vencto_fatura', 'DATE', 'NULLABLE', description='Ano e mês de vencimento da fatura.')
 ]
 
-
 # Dataset: base_operacional, Table: limite_disponibilidade_pos_mensal
 limite_disponibilidade_pos_mensal = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta.'),
@@ -242,7 +238,6 @@ limite_disponibilidade_pos_mensal = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data e hora de inclusão do registro.'),
     bigquery.SchemaField('num_anomes_posicao_limite', 'DATE', 'NULLABLE', description='Ano e mês da posição limite.')
 ]
-
 
 # Dataset: base_operacional, Table: pagamento_consolidado
 pagamento_consolidado = [

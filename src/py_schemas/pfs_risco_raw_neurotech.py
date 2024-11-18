@@ -19,7 +19,6 @@ proposta = [
     bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
 ]
 
-
 # Dataset: pfs_risco_raw_neurotech, Table: proposta_consultas
 proposta_consultas = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
@@ -39,7 +38,6 @@ proposta_consultas = [
     bigquery.SchemaField('instante_data', 'TIMESTAMP', 'NULLABLE', description='Data e hora do registro.'),
     bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
 ]
-
 
 # Dataset: pfs_risco_raw_neurotech, Table: proposta_detalhe
 proposta_detalhe = [

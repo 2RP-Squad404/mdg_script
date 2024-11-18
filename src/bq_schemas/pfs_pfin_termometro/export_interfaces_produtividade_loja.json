@@ -1,0 +1,106 @@
+{
+    "dataset": "pfs_pfin_termometro",
+    "table": "export_interfaces_produtividade_loja",
+    "schema": [
+        {
+            "name": "cod_interface",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_quota_prev",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_quota_real",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "vlr_quota_prev",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "vlr_quota_real",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_processamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_quota_prev_receb",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_quota_real_receb",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "vlr_quota_prev_receb",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "vlr_quota_real_receb",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_consolidado",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "per_quota_prev_receb",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "per_quota_real_receb",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_fechamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_processamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_processo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_anomes_incl_reg",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

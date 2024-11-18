@@ -1,0 +1,16 @@
+{
+    "dataset": "pfs_raw_credit",
+    "table": "tipos_cancelamentos",
+    "schema": [
+        {
+            "name": "COD_CANCELAMENTO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DES_CANCELAMENTO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        }
+    ]
+}

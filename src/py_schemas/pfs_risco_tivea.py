@@ -32,7 +32,6 @@ cartao = [
     bigquery.SchemaField('num_anomes_emis_cartao', 'DATE', 'NULLABLE', description='Ano e mês da emissão do cartão.')
 ]
 
-
 # Dataset: pfs_risco_tivea, Table: cobranca_acordo
 cobranca_acordo = [
     bigquery.SchemaField('id_acordo_cobranca', 'INTEGER', 'NULLABLE', description='ID único do acordo de cobrança.'),
@@ -71,7 +70,6 @@ cobranca_acordo = [
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
 ]
 
-
 # Dataset: pfs_risco_tivea, Table: cobranca_assessoria
 cobranca_assessoria = [
     bigquery.SchemaField('id_assessoria', 'STRING', 'NULLABLE', description='ID da assessoria.'),
@@ -80,7 +78,6 @@ cobranca_assessoria = [
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
 ]
 
-
 # Dataset: pfs_risco_tivea, Table: cobranca_campo_customizavel
 cobranca_campo_customizavel = [
     bigquery.SchemaField('id_cliente_cobranca', 'INTEGER', 'NULLABLE', description='ID do cliente em cobrança.'),
@@ -88,7 +85,6 @@ cobranca_campo_customizavel = [
     bigquery.SchemaField('val_campo', 'STRING', 'NULLABLE', description='Valor do campo customizável.'),
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
 ]
-
 
 # Dataset: pfs_risco_tivea, Table: cobranca_cliente
 cobranca_cliente = [
@@ -121,14 +117,12 @@ cobranca_cliente = [
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
 ]
 
-
 # Dataset: pfs_risco_tivea, Table: cobranca_email_cliente
 cobranca_email_cliente = [
     bigquery.SchemaField('id_cliente_cobranca', 'INTEGER', 'NULLABLE', description='ID do cliente em cobrança.'),
     bigquery.SchemaField('nom_email', 'STRING', 'NULLABLE', description='Email do cliente.'),
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
 ]
-
 
 # Dataset: pfs_risco_tivea, Table: cobranca_endereco_cliente
 cobranca_endereco_cliente = [
@@ -147,7 +141,6 @@ cobranca_endereco_cliente = [
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
 ]
 
-
 # Dataset: pfs_risco_tivea, Table: cobranca_liquidacao_parc_acordo
 cobranca_liquidacao_parc_acordo = [
     bigquery.SchemaField('id_liqd_parc_acordo', 'INTEGER', 'NULLABLE', description='ID da liquidação da parcela do acordo.'),
@@ -163,7 +156,6 @@ cobranca_liquidacao_parc_acordo = [
     bigquery.SchemaField('id_pagto_acordo', 'INTEGER', 'NULLABLE', description='ID do pagamento do acordo.'),
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
 ]
-
 
 # Dataset: pfs_risco_tivea, Table: cobranca_origem_acordo
 cobranca_origem_acordo = [
@@ -193,7 +185,6 @@ cobranca_origem_acordo = [
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
 ]
 
-
 # Dataset: pfs_risco_tivea, Table: cobranca_pagamento_acordo
 cobranca_pagamento_acordo = [
     bigquery.SchemaField('id_pagto_acordo', 'INTEGER', 'NULLABLE', description='ID do pagamento do acordo.'),
@@ -213,7 +204,6 @@ cobranca_pagamento_acordo = [
     bigquery.SchemaField('ind_integracao', 'STRING', 'NULLABLE', description='Integração.'),
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
 ]
-
 
 # Dataset: pfs_risco_tivea, Table: cobranca_parcela_acordo
 cobranca_parcela_acordo = [
@@ -238,7 +228,6 @@ cobranca_parcela_acordo = [
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
 ]
 
-
 # Dataset: pfs_risco_tivea, Table: cobranca_telefone
 cobranca_telefone = [
     bigquery.SchemaField('id_cliente_cobranca', 'INTEGER', 'NULLABLE', description='ID do cliente em cobrança.'),
@@ -255,7 +244,6 @@ cobranca_telefone = [
     bigquery.SchemaField('dat_inclusao_reg', 'INTEGER', 'NULLABLE', description='Data de inclusão do registro.')
 ]
 
-
 # Dataset: pfs_risco_tivea, Table: cobranca_telefone_cliente
 cobranca_telefone_cliente = [
     bigquery.SchemaField('id_cliente_cobranca', 'INTEGER', 'NULLABLE', description='ID do cliente em cobrança.'),
@@ -267,7 +255,6 @@ cobranca_telefone_cliente = [
     bigquery.SchemaField('num_tel_comercial', 'INTEGER', 'NULLABLE', description='Número do comercial.'),
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
 ]
-
 
 # Dataset: pfs_risco_tivea, Table: cobr_cliente_atraso
 cobr_cliente_atraso = [
@@ -316,7 +303,6 @@ cobr_cliente_atraso = [
     bigquery.SchemaField('cod_faixa_atraso_b', 'STRING', 'NULLABLE', description='Código da faixa de atraso B.'),
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
 ]
-
 
 # Dataset: pfs_risco_tivea, Table: conta
 conta = [

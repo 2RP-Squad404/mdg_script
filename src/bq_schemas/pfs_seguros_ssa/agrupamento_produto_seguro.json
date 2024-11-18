@@ -1,0 +1,41 @@
+{
+    "dataset": "pfs_seguros_ssa",
+    "table": "agrupamento_produto_seguro",
+    "schema": [
+        {
+            "name": "id_AgrupamentoProdutoSeguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_Agrupamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dc_TermoAceite",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "no_OrdemApresentacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_Emissor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "fl_Ativo",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "REQUIRED"
+        }
+    ]
+}
