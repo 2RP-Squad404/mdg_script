@@ -15,23 +15,6 @@ from google.cloud import bigquery
 from config import PROJECT_ID, logger
 import importlib.metadata
 
-def load_py_schema(dataset_name):
-    """
-    Carrega o schema de um dataset a partir de um arquivo Python.
-
-    Parâmetros:
-        dataset_name (str): Nome do dataset.
-
-    Retorno:
-        Módulo importado que contém o schema, ou None se o arquivo não existir.
-    """
-    py_schema_path = os.path.join('py_schemas', f"{dataset_name}.py")
-    if os.path.exists(py_schema_path):
-        spec = importlib.util.spec_from_file_location(f"{dataset_name}", py_schema_path)
-        schema_module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(schema_module)
-        return schema_module
-    return None
 def jsonl_to_bigquery(filename, table_id, dataset_id):
     """
     Carrega dados de um arquivo JSONL para o BigQuery.
@@ -74,79 +57,83 @@ def create_tables(dataset: str):
 
     client = get_bigquery_client()  # Supondo que a função para obter o cliente já está configurada
 
-    dataset_path = os.path.join("py_schemas", dataset)
-    excluded_partition_tables = ["cobranca_telefone", "acordo", "cliente"]
+    dataset_path = os.path.join("py_schemas", dataset)  # Caminho para os schemas do dataset
+    excluded_partition_tables = ["cobranca_telefone", "acordo", "cliente", "dw_funcionario", "adesoes_pfin", 
+                                 "faturas_pfin", "garantias_seguros", "motivos_cancelamentos", 
+                                 "produtos_financeiros", "tipos_canais", "tipos_cancelamentos", 
+                                 "v_credit_card", "v_credit_limit", "v_credit_person", 
+                                 "v_debit_account", "v_debit_person", "funcionarios", "v_estabelecimento"]
 
     # Verifica se o diretório do dataset existe no sistema de arquivos
     if os.path.isdir(dataset_path):
         dataset_id = f"{PROJECT_ID}.{dataset}"
-        schema_module = load_py_schema(dataset)  # Função que carrega o módulo de schema Python
+        schema_module = load_py_schema(dataset)  # Função que carrega o módulo de schema Python para o dataset
 
         if schema_module:
             # Itera sobre os arquivos no diretório do dataset
             for table_file in os.listdir(dataset_path):
-                table_name = table_file.replace('.json', '')
+                if table_file.endswith('.py'):  # Considerando que os schemas são arquivos .py
+                    table_name = table_file.replace('.py', '')
 
-                # Obtém o schema da tabela a partir do módulo de schemas Python
-                schema = getattr(schema_module, table_name, None)
+                    # Obtém o schema da tabela a partir do módulo de schemas Python
+                    schema = getattr(schema_module, table_name, None)
 
-                if schema:
-                    table_id = f"{dataset_id}.{table_name}"
-                    table = bigquery.Table(table_id, schema=schema)
+                    if schema:
+                        table_id = f"{dataset_id}.{table_name}"
+                        table = bigquery.Table(table_id, schema=schema)
 
-                    partition_field = None
-                    partition_type = None
+                        partition_field = None
+                        partition_type = None
 
-                    # Configura particionamento para tabelas que não estão na lista de exclusão
-                    if table_name not in excluded_partition_tables:
-                        for field in schema:
-                            if field.name.startswith("num_anomes") or field.name.startswith("production_date") or field.name.startswith("dat_referencia"):
-                                if field.field_type in ["TIMESTAMP", "DATE", "DATETIME"]:
-                                    partition_field = field.name
-                                    partition_type = "MONTH" if field.name.startswith("num_anomes") or field.name.startswith("production_date") else "DAY"
-                                    break
-                                else:
-                                    logger.error(f"O campo {field.name} na tabela {table_name} não é do tipo TIMESTAMP, DATE ou DATETIME. Particionamento ignorado.")
+                        # Configura particionamento para tabelas que não estão na lista de exclusão
+                        if table_name not in excluded_partition_tables:
+                            for field in schema:
+                                if field.name.startswith("num_anomes") or field.name.startswith("production_date") or field.name.startswith("dat_referencia"):
+                                    if field.field_type in ["TIMESTAMP", "DATE", "DATETIME"]:
+                                        partition_field = field.name
+                                        partition_type = "MONTH" if field.name.startswith("num_anomes") or field.name.startswith("production_date") else "DAY"
+                                        break
+                                    else:
+                                        logger.error(f"O campo {field.name} na tabela {table_name} não é do tipo TIMESTAMP, DATE ou DATETIME. Particionamento ignorado.")
 
-                        if partition_field and partition_type:
-                            table.time_partitioning = bigquery.TimePartitioning(
-                                type_=partition_type,
-                                field=partition_field
-                            )
-                            logger.info(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
-                        else:
-                            logger.warning(f"Tabela {table_name} sem campo de particionamento configurado.")
+                            if partition_field and partition_type:
+                                table.time_partitioning = bigquery.TimePartitioning(
+                                    type_=partition_type,
+                                    field=partition_field
+                                )
+                                logger.info(f"Particionamento {partition_type} configurado para {table_name} na coluna {partition_field}")
+                            else:
+                                logger.warning(f"Tabela {table_name} sem campo de particionamento configurado.")
 
-                    client.create_table(table, exists_ok=True)
-                    update_table_descriptions_from_schemas("py_schemas")
-                    logger.info(f"Tabela {table_name} criada no dataset {dataset}")
-                else:
-                    logger.error(f"Schema não encontrado para a tabela {table_name} no dataset {dataset}")
+                        client.create_table(table, exists_ok=True)
+                        update_table_descriptions_from_schemas("py_schemas")
+                        logger.info(f"Tabela {table_name} criada no dataset {dataset}")
+                    else:
+                        logger.error(f"Schema não encontrado para a tabela {table_name} no dataset {dataset}")
         else:
             logger.error(f"Arquivo de schema Python não encontrado para o dataset {dataset}")
     else:
-        logger.error(f"Dataset {dataset} não encontrado no sistema de arquivos")
+        logger.info(f"Procurando schema para o dataset: {dataset} no caminho: {dataset_path}")
 
-def load_schema_module(schema_file):
+
+def load_py_schema(dataset_name):
     """
-    Carrega um módulo de schema Python a partir de um arquivo.
+    Carrega o módulo Python do schema a partir do nome do dataset.
 
     Parâmetros:
-        schema_file (str): Caminho para o arquivo de schema.
+        dataset_name (str): Nome do dataset.
 
     Retorno:
-        Módulo importado que contém o schema.
+        module: Módulo Python carregado, ou None se não encontrado.
     """
-    if not os.path.isfile(schema_file):
-        raise FileNotFoundError(f"O arquivo `{schema_file}` não foi encontrado.")
+    module_path = os.path.join("py_schemas", dataset_name, f"{dataset_name}.py")
+    if os.path.exists(module_path):
+        spec = importlib.util.spec_from_file_location(dataset_name, module_path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+    return None
 
-    spec = importlib.util.spec_from_file_location("schema_module", schema_file)
-    if spec is None:
-        raise ImportError(f"Não foi possível criar o spec para o arquivo '{schema_file}'.")
-
-    schema_module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(schema_module)
-    return schema_module
 
 def update_table_descriptions_from_schemas(schema_directory):
     """
