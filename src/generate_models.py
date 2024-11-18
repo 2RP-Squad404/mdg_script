@@ -4,17 +4,17 @@ from config import logger
 
 
 TYPE_MAPPING = {
-    "STRING": "str",
-    "INTEGER": "int",
-    "FLOAT": "float",
-    "BOOLEAN": "bool",
-    "DATE": "date",
-    "TIMESTAMP": "datetime",
-    "RECORD": "dict",
-    "RECORD": "dict",
-    "NUMERIC": "float",
-    "ANY": "Any",
-    "JSON": "dict"
+    'STRING': 'str',
+    'INTEGER': 'int',
+    'FLOAT': 'float',
+    'BOOLEAN': 'bool',
+    'DATE': 'date',
+    'TIMESTAMP': 'datetime',
+    'RECORD': 'dict',
+    'RECORD': 'dict',
+    'NUMERIC': 'float',
+    'ANY': 'Any',
+    'JSON': 'dict',
 }
 
 
@@ -28,10 +28,10 @@ def create_output_directory(output_dir):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    init_file = os.path.join(output_dir, "__init__.py")
+    init_file = os.path.join(output_dir, '__init__.py')
     if not os.path.exists(init_file):
         with open(init_file, 'w') as init_f:
-            init_f.write(f"# Auto-generated init file for {output_dir}")
+            init_f.write(f'# Auto-generated init file for {output_dir}')
 
 
 import os
@@ -73,6 +73,7 @@ def generate_bigquery_class(table_name, schema, existing_schema=None):
     Retorno:
         str: Definição da classe em formato de string.
     """
+
     def process_field(field):
         field_type = field['type']
         description = field.get('description', '')
@@ -90,7 +91,7 @@ def generate_bigquery_class(table_name, schema, existing_schema=None):
 
     existing_field_names = {field.name: field.description for field in existing_schema} if existing_schema else {}
 
-    class_definition = f"{table_name} = [\n"
+    class_definition = f'{table_name} = [\n'
     for field in schema:
         field_description = field.get('description', existing_field_names.get(field['name'], ''))
         field['description'] = field_description  # Atualiza a descrição
@@ -125,12 +126,12 @@ def process_bigquery_folder(folder_path, folder_name, output_dir):
 
     # Processa os arquivos JSON na pasta
     for filename in os.listdir(folder_path):
-        if filename.endswith(".json"):
+        if filename.endswith('.json'):
             filepath = os.path.join(folder_path, filename)
             with open(filepath, 'r', encoding='utf-8') as json_file:
                 data = json.load(json_file)
-                table = data.get("table")
-                schema = data.get("schema")
+                table = data.get('table')
+                schema = data.get('schema')
                 schema_name = os.path.splitext(filename)[0]
 
                 # Se a tabela já existe no arquivo, mantém como está
@@ -144,8 +145,8 @@ def process_bigquery_folder(folder_path, folder_name, output_dir):
 
     # Gera o arquivo final
     with open(output_file_path, 'w', encoding='utf-8') as output_file:
-        output_file.write("from google.cloud import bigquery\n\n")
-        output_file.write("\n\n".join(schemas))
+        output_file.write('from google.cloud import bigquery\n\n')
+        output_file.write('\n\n'.join(schemas))
 
 def create_bigquery_schemas(directory):
     """
@@ -154,7 +155,7 @@ def create_bigquery_schemas(directory):
     Parâmetros:
         directory (str): Caminho do diretório de entrada.
     """
-    output_dir = "py_schemas"
+    output_dir = 'py_schemas'
     create_output_directory(output_dir)
 
     for folder_name in os.listdir(directory):
@@ -162,7 +163,7 @@ def create_bigquery_schemas(directory):
         if os.path.isdir(folder_path):
             process_bigquery_folder(folder_path, folder_name, output_dir)
 
-    logger.info("BigQuery Schemas criados com sucesso!")
+    logger.info('BigQuery Schemas criados com sucesso!')
 
 def create_class_code_pydantic(schema: dict) -> str:
     """
@@ -174,33 +175,34 @@ def create_class_code_pydantic(schema: dict) -> str:
     Retorno:
         str: Código da classe Pydantic como string.
     """
+
     def process_field(field):
         if field['type'] == 'RECORD' and 'fields' in field:
             class_name = field['name'].capitalize()
-            nested_class = f"class {class_name}(BaseModel):\n"
+            nested_class = f'class {class_name}(BaseModel):\n'
             for subfield in field['fields']:
-                subfield_type = TYPE_MAPPING.get(subfield['type'], "Any")
+                subfield_type = TYPE_MAPPING.get(subfield['type'], 'Any')
                 nested_class += f"    {subfield['name']}: {subfield_type}\n"
 
             return nested_class, f"{field['name']}: '{class_name}'"
         else:
-            field_type = TYPE_MAPPING.get(field['type'], "Any")
-            return "", f"{field['name']}: {field_type}"
+            field_type = TYPE_MAPPING.get(field['type'], 'Any')
+            return '', f"{field['name']}: {field_type}"
 
     class_name = schema['table'].capitalize()
-    class_code = f"class {class_name}(BaseModel):\n"
+    class_code = f'class {class_name}(BaseModel):\n'
     nested_classes = []
 
     for field in schema['schema']:
         nested_class, field_declaration = process_field(field)
         if nested_class:
             nested_classes.append(nested_class)
-        class_code += f"    {field_declaration}\n"
+        class_code += f'    {field_declaration}\n'
 
     if nested_classes:
-        class_code += "\n\n" + "\n\n".join(nested_classes)
+        class_code += '\n\n' + '\n\n'.join(nested_classes)
 
-    class_code += "\n\n"
+    class_code += '\n\n'
     return class_code
 
 
@@ -215,23 +217,28 @@ def process_pydantic_folder(folder_path, folder_name, output_dir):
     """
     models = []
     for filename in os.listdir(folder_path):
-        if filename.endswith(".json"):
+        if filename.endswith('.json'):
             filepath = os.path.join(folder_path, filename)
             with open(filepath, 'r', encoding='utf-8') as json_file:
                 data = json.load(json_file)
-                table = data.get("table")
-                schema = data.get("schema")
-                class_code = create_class_code_pydantic({'table': table, 'schema': schema})
-                models.append(f"# Dataset: {folder_name}, Table: {table}\n{class_code}")
+                table = data.get('table')
+                schema = data.get('schema')
+                class_code = create_class_code_pydantic({
+                    'table': table,
+                    'schema': schema,
+                })
+                models.append(
+                    f'# Dataset: {folder_name}, Table: {table}\n{class_code}'
+                )
 
-    output_file_name = f"{folder_name}_models.py"
+    output_file_name = f'{folder_name}_models.py'
     output_file_path = os.path.join(output_dir, output_file_name)
 
     with open(output_file_path, 'w', encoding='utf-8') as output_file:
-        output_file.write("from pydantic import BaseModel\n")
-        output_file.write("from datetime import date, datetime\n")
-        output_file.write("\n\n")
-        output_file.write("\n\n".join(models))
+        output_file.write('from pydantic import BaseModel\n')
+        output_file.write('from datetime import date, datetime\n')
+        output_file.write('\n\n')
+        output_file.write('\n\n'.join(models))
 
 
 def create_pydantic_models(directory):
@@ -241,7 +248,10 @@ def create_pydantic_models(directory):
     Parâmetros:
         directory (str): Caminho do diretório de entrada.
     """
-    output_dir = "py_models"
+
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    output_dir = os.path.join(root_dir, 'src', 'py_models')
     create_output_directory(output_dir)
 
     for folder_name in os.listdir(directory):
