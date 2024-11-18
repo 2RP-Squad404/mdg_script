@@ -33,16 +33,6 @@ def create_output_directory(output_dir):
         with open(init_file, 'w') as init_f:
             init_f.write(f'# Auto-generated init file for {output_dir}')
 
-
-import os
-import json
-from google.cloud import bigquery
-import logging
-
-# Configurações do logger
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
 def create_output_directory(directory):
     """
     Cria o diretório de saída se ele não existir.
