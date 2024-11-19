@@ -12,11 +12,8 @@ from utils import (
     send_jsonl_to_bigquery,
 )
 
-
 def cli_option():
     bq_schemas_path = Path(__file__).resolve().parent / 'bq_schemas'
-    # logger.debug(f'Tipo de bq_schemas_path: {type(bq_schemas_path)}')
-    # logger.debug(bq_schemas_path)
 
     create_pydantic_models(str(bq_schemas_path))
 
