@@ -1,19 +1,20 @@
+import glob
+import importlib.metadata
 import importlib.util
 import inspect
+import json
 import os
+import re
+import subprocess
 from datetime import date, datetime
 from decimal import Decimal
-import subprocess
-import json
-import glob
-import re
 
-from auth import get_bigquery_client,secretmanager
-from google.oauth2 import service_account
 from google.cloud import bigquery
+from google.oauth2 import service_account
 
+from auth import get_bigquery_client, secretmanager
 from config import PROJECT_ID, logger
-import importlib.metadata
+
 
 def jsonl_to_bigquery(filename, table_id, dataset_id):
     """
@@ -26,7 +27,7 @@ def jsonl_to_bigquery(filename, table_id, dataset_id):
     """
 
     client = get_bigquery_client()
-    jsonl_file_path = filename 
+    jsonl_file_path = filename
     project_id = PROJECT_ID
     table_ref = f"{project_id}.{dataset_id}.{table_id}"
 
@@ -41,8 +42,9 @@ def jsonl_to_bigquery(filename, table_id, dataset_id):
         load_job = client.load_table_from_file(
             source_file, table_ref, job_config=job_config
         )
-    
+
     load_job.result()
+
 
 def create_tables(dataset: str):
     """
@@ -58,10 +60,10 @@ def create_tables(dataset: str):
     client = get_bigquery_client()  # Supondo que a função para obter o cliente já está configurada
 
     dataset_path = os.path.join("py_schemas", dataset)  # Caminho para os schemas do dataset
-    excluded_partition_tables = ["cobranca_telefone", "acordo", "cliente", "dw_funcionario", "adesoes_pfin", 
-                                 "faturas_pfin", "garantias_seguros", "motivos_cancelamentos", 
-                                 "produtos_financeiros", "tipos_canais", "tipos_cancelamentos", 
-                                 "v_credit_card", "v_credit_limit", "v_credit_person", 
+    excluded_partition_tables = ["cobranca_telefone", "acordo", "cliente", "dw_funcionario", "adesoes_pfin",
+                                 "faturas_pfin", "garantias_seguros", "motivos_cancelamentos",
+                                 "produtos_financeiros", "tipos_canais", "tipos_cancelamentos",
+                                 "v_credit_card", "v_credit_limit", "v_credit_person",
                                  "v_debit_account", "v_debit_person", "funcionarios", "v_estabelecimento"]
 
     # Verifica se o diretório do dataset existe no sistema de arquivos
@@ -179,6 +181,7 @@ def update_table_descriptions_from_schemas(schema_directory):
             except Exception as e:
                 logger.error(f"Erro ao atualizar tabela '{table_ref}': {e}")
 
+
 def jsonl_data(data):
     """
     Salva dados em arquivos JSONL, convertendo automaticamente datas e decimais 
@@ -228,6 +231,7 @@ def jsonl_data(data):
 
     return data
 
+
 def run_command(command: str) -> str:
     """
     Executa um comando gcloud e retorna a saída.
@@ -242,6 +246,7 @@ def run_command(command: str) -> str:
         command, capture_output=True, text=True, shell=True, check=False
     )
     return result.stdout.strip()
+
 
 def gcloud_list(
     resource_type: str, project_id: str, credentials: str, dataset_id: str) -> list:
@@ -273,6 +278,7 @@ def gcloud_list(
         raise ValueError(f'Unknown resource type: {resource_type}')
 
     return run_command(command).splitlines()
+
 
 def gcloud_choose(
     resource_type: str,
@@ -312,7 +318,8 @@ def gcloud_choose(
         return choices[choice_index]
     else:
         return None
-    
+
+
 def get_credentials(secret_name: str):
     """Retrieve service account credentials from Google Cloud Secret Manager.
 
@@ -330,6 +337,7 @@ def get_credentials(secret_name: str):
         credentials_dict
     )
     return credentials, credentials_dict
+
 
 def list_datasets_from_folder(folder_path: str, folder_file: str) -> list:
     """
@@ -350,6 +358,7 @@ def list_datasets_from_folder(folder_path: str, folder_file: str) -> list:
     else:
         raise ValueError("Invalid value for 'folder_file'. Use 'file' or 'folder'.")
 
+
 def list_datasets_from_bigquery() -> list:
     """
     Lista os datasets disponíveis no BigQuery.
@@ -360,6 +369,7 @@ def list_datasets_from_bigquery() -> list:
     client = bigquery.Client(project=PROJECT_ID)
     datasets = client.list_datasets()
     return [dataset.dataset_id for dataset in datasets]
+
 
 def list_tables_from_bigquery(dataset):
     """
@@ -375,6 +385,7 @@ def list_tables_from_bigquery(dataset):
     tables = client.list_tables(dataset)
     return [table.table_id for table in tables]
 
+
 def list_tables_from_folder(folder_path: str) -> list:
     """
     Lista os arquivos de dataset na pasta especificada.
@@ -389,6 +400,7 @@ def list_tables_from_folder(folder_path: str) -> list:
     return [os.path.splitext(f)[0] for f in os.listdir(folder_path)
             if os.path.isfile(os.path.join(folder_path, f)) and f.endswith('.py')]
 
+
 def display_common_datasets(folder_path: str):
     """
     Exibe e permite a seleção opcional dos datasets que estão em comum entre a pasta local e o BigQuery.
@@ -399,7 +411,7 @@ def display_common_datasets(folder_path: str):
     Retorno:
         list: Lista de datasets selecionados ou todos os datasets em comum, se nenhuma seleção for feita.
     """
-    local_datasets = list_datasets_from_folder(folder_path,folder_file='folder')
+    local_datasets = list_datasets_from_folder(folder_path, folder_file='folder')
     bq_datasets = list_datasets_from_bigquery()
 
     common_datasets = sorted(set(local_datasets) & set(bq_datasets))
@@ -424,6 +436,7 @@ def display_common_datasets(folder_path: str):
 
     return selected_dataset[0]
 
+
 def commom_tables(dataset_file):
     """
     Exibe e permite a seleção opcional das tabelas que estão em comum entre o diretório e o BigQuery.
@@ -440,15 +453,16 @@ def commom_tables(dataset_file):
 
     if not tables_created:
         logger.info("\033[91mNenhuma tabela em comum encontrada.\033[0m")
-    
+
     logger.info("\033[32mDatasets em comum:\033[0m")
     for table in bigquery_tables:
         if table in tables_created:
             logger.info(f"Processando tabela existente: {table}")
         else:
             logger.info(f"Tabela não encontrada localmente, gerando dados: {table}")
-        
-        run_gemini(PROJECT_ID, model_name="gemini-1.5-flash-002",dataset=dataset_file)
+
+        run_gemini(PROJECT_ID, model_name="gemini-1.5-flash-002", dataset=dataset_file)
+
 
 def input_num_linhas():
     """
@@ -464,6 +478,7 @@ def input_num_linhas():
         except ValueError:
             logger.info("Digite um valor inteiro")
 
+
 def send_jsonl_to_bigquery(select_dataset):
     """
     Envia o arquivo JSONL para o BigQuery.
@@ -472,7 +487,7 @@ def send_jsonl_to_bigquery(select_dataset):
         select_dataset (str): Nome do dataset a ser enviado.
     """
     dataset_directory = f"mock_data/{select_dataset}"
-    
+
     if not os.path.isdir(dataset_directory):
         logger.error(f"\033[91mO diretório {dataset_directory} não existe.\033[0m")
         return
@@ -489,6 +504,7 @@ def send_jsonl_to_bigquery(select_dataset):
             except Exception as e:
                 logger.error(f"\033[91mErro ao enviar o arquivo {filename} para o BigQuery: {e}\033[0m")
 
+
 def load_models_and_examples(dataset: str, prompt) -> str:
     """
     Carrega modelos e exemplos para o dataset especificado.
@@ -500,7 +516,7 @@ def load_models_and_examples(dataset: str, prompt) -> str:
     Retorno:
         str: Nome do arquivo de saída.
     """
-    models_dir = f'py_models'
+    models_dir = 'py_models'
     models_code = []
 
     for filename in os.listdir(models_dir):
@@ -553,7 +569,7 @@ def save_code_from_gemini(dataset: str, content: str):
     """
     content = re.sub(
         r'^```(python)?\s*', '', content
-    ) 
+    )
     content = re.sub(r'```$', '', content)
 
     # Define o diretório e o caminho do arquivo
@@ -566,4 +582,3 @@ def save_code_from_gemini(dataset: str, content: str):
         file.write(content)
 
     return True
-

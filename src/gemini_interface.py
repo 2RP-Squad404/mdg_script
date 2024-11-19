@@ -1,15 +1,19 @@
 import sys
+
 from google.cloud import aiplatform
-from utils import get_credentials, load_models_and_examples, save_code_from_gemini, gcloud_choose
-from config import PROJECT_ID, SECRET_NAME, logger
 from vertexai.preview.generative_models import GenerativeModel
 
-from config import PROJECT_ID
-
+from config import PROJECT_ID, SECRET_NAME, logger
+from utils import (
+  get_credentials,
+  load_models_and_examples,
+  save_code_from_gemini,
+)
 
 credentials, credentials_dict = get_credentials(
     f'projects/{PROJECT_ID}/secrets/{SECRET_NAME}/versions/1'
 )
+
 
 def run_gemini(project_id, model_name, dataset):
   def init_gemini(project_id: str, credentials: str, model_name: str):
@@ -24,7 +28,6 @@ def run_gemini(project_id, model_name, dataset):
     aiplatform.init(project=project_id, credentials=credentials)
     return GenerativeModel(model_name)
 
-
   def generate_code(model, prompt: str):
       """
       Envia o prompt para o modelo e retorna o código de resposta.
@@ -35,7 +38,6 @@ def run_gemini(project_id, model_name, dataset):
       """
       response = model.generate_content(prompt)
       return response.text
-
 
   def save_to_file(file_path: str, content: str):
       """
@@ -49,10 +51,9 @@ def run_gemini(project_id, model_name, dataset):
           file.write('\n')
           file.write(content)
 
-    
   gemini_model = init_gemini(project_id, credentials, model_name)
 
-  prompt =  """Você é um assistente especializado em gerar código Python de alta qualidade e aderente às melhores práticas. Você segue as instruções com precisão, sem fornecer explicações ou informações extras além do código solicitado.
+  prompt = """Você é um assistente especializado em gerar código Python de alta qualidade e aderente às melhores práticas. Você segue as instruções com precisão, sem fornecer explicações ou informações extras além do código solicitado.
 
   Exemplo generico de como deve ser os dicionários que você irá gerar:
 

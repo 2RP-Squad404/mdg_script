@@ -1,6 +1,5 @@
 import sys
 
-from config import logger
 from utils_new import (
     gcloud_choose,
     gen_py_models,
@@ -13,6 +12,8 @@ from utils_new import (
     run_command,
     save_code_from_gemini,
 )
+
+from config import logger
 
 logger.info(
     '\033[33mIdentifying active Google Cloud CLI authentication...\033[0m'

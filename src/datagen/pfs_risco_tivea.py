@@ -2,6 +2,7 @@ import random
 import re
 
 from faker import Faker
+
 from datagen.jsonl_convert import jsonl_data
 from utils import input_num_linhas
 
@@ -13,7 +14,7 @@ def function_pfs_risco_tivea(num_records):
     data = {'cartao': [], 'cobranca_campo_customizavel': [], 'cobr_cliente_atraso': [], 'cobranca_acordo': [],
             'cobranca_assessoria': [], 'cobranca_cliente': [], 'Cobranca_campo_customizavel': [], 'cobranca_email_cliente': [],
             'cobranca_endereco_cliente': [], 'cobranca_liquidacao_parc_acordo': [], 'cobranca_origem_acordo': [],
-            'cobranca_pagamento_acordo': [], 'cobranca_parcela_acordo': [], 'cobranca_telefone_cliente': [],'conta': []}
+            'cobranca_pagamento_acordo': [], 'cobranca_parcela_acordo': [], 'cobranca_telefone_cliente': [], 'conta': []}
 
     for _ in range(num_records):
 
@@ -171,7 +172,7 @@ def function_pfs_risco_tivea(num_records):
             "val_saldo_total": faker.random_number(digits=5, fix_len=False),
             "val_saldo_total_atraso": faker.random_number(digits=5, fix_len=False),
             "dth_modificacao": faker.date_time_this_year().strftime('%Y-%m-%dT%H:%M:%S+00:00'),
-            "num_ddd_cel": faker.random_element(elements=(11,15)),
+            "num_ddd_cel": faker.random_element(elements=(11, 15)),
             "num_tel_cel": faker.random_number(digits=9, fix_len=True),
             "num_ddd_res": faker.random_element(elements=(62, 34, 47)),
             "num_tel_res": faker.random_number(digits=8, fix_len=True),
@@ -369,6 +370,7 @@ def function_pfs_risco_tivea(num_records):
     data['conta'].append(criar_conta_faker)
 
     jsonl_data(data=data)
+
 
 num_records = input_num_linhas()
 function_pfs_risco_tivea(num_records)

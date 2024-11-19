@@ -1,16 +1,16 @@
-from pathlib import Path
 import sys
+from pathlib import Path
 
 from config import PROJECT_ID, SECRET_NAME, logger
+from gemini_interface import run_gemini
+from generate_models import create_pydantic_models
 from utils import (
-    display_common_datasets,
     create_tables,
-    run_command,
+    display_common_datasets,
     jsonl_data,
+    run_command,
     send_jsonl_to_bigquery,
 )
-from generate_models import create_pydantic_models
-from gemini_interface import run_gemini
 
 
 def cli_option():
