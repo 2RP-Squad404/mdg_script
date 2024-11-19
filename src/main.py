@@ -3,7 +3,7 @@ from pathlib import Path
 
 from config import PROJECT_ID, SECRET_NAME, logger
 from gemini_interface import run_gemini
-from generate_models import create_pydantic_models
+from generate_models import create_pydantic_models,create_bigquery_schemas
 from utils import (
     create_tables,
     display_common_datasets,
@@ -16,6 +16,7 @@ def cli_option():
     bq_schemas_path = Path(__file__).resolve().parent / 'bq_schemas'
 
     create_pydantic_models(str(bq_schemas_path))
+    create_bigquery_schemas(str(bq_schemas_path))
 
     logger.info('Funções possiveis:')
     logger.info('1 - Criar tabelas por dataset no BigQuery')
