@@ -42,18 +42,6 @@ def create_output_directory(directory):
         os.makedirs(directory)
         logger.info(f"Diretório criado: {directory}")
 
-
-def format_schema(schema_list):
-    """
-    Formata uma lista de SchemaFields para o estilo desejado, incluindo descrições.
-    """
-    formatted = []
-    for field in schema_list:
-        description = f", description='{field.description}'" if field.description else ""
-        formatted.append(f"bigquery.SchemaField('{field.name}', '{field.field_type}', '{field.mode}'{description})")
-    return formatted
-
-
 def generate_bigquery_class(table_name, schema, existing_schema=None):
     """
     Gera a definição de schema BigQuery para uma tabela.
@@ -68,30 +56,44 @@ def generate_bigquery_class(table_name, schema, existing_schema=None):
     """
 
     def process_field(field):
+        """
+        Processa um campo do schema, incluindo subcampos no caso de RECORD.
+        """
         field_type = field['type']
         description = field.get('description', '')
         description_str = f", description='{description}'" if description else ""
 
         if field_type == 'RECORD' and 'fields' in field:
+            # Processa os subcampos
             subfields = ", ".join(
                 [process_field(subfield) for subfield in field['fields']]
             )
-            return f"bigquery.SchemaField('{field['name']}', 'RECORD', '{field.get('mode', 'NULLABLE')}'{description_str}, fields=[{subfields}])"
+            return (
+                f"bigquery.SchemaField('{field['name']}', 'RECORD', "
+                f"'{field.get('mode', 'NULLABLE')}'{description_str}, fields=[{subfields}])"
+            )
         elif field_type == 'JSON':
             return f"bigquery.SchemaField('{field['name']}', 'JSON', '{field.get('mode', 'NULLABLE')}'{description_str})"
         else:
             return f"bigquery.SchemaField('{field['name']}', '{field_type}', '{field.get('mode', 'NULLABLE')}'{description_str})"
 
-    existing_field_names = {field.name: field.description for field in existing_schema} if existing_schema else {}
+    # Mapeia campos existentes (se houver) para reutilizar descrições
+    existing_field_names = (
+        {field.name: field.description for field in existing_schema}
+        if existing_schema
+        else {}
+    )
 
+    # Constrói a definição da classe
     class_definition = f'{table_name} = [\n'
     for field in schema:
-        field_description = field.get('description', existing_field_names.get(field['name'], ''))
-        field['description'] = field_description  # Atualiza a descrição
+        field_description = field.get(
+            'description', existing_field_names.get(field['name'], '')
+        )
+        field['description'] = field_description  # Atualiza a descrição, se disponível
         class_definition += f"    {process_field(field)},\n"
     class_definition += "]\n"
     return class_definition
-
 
 def process_bigquery_folder(folder_path, folder_name, output_dir):
     """
@@ -118,6 +120,24 @@ def process_bigquery_folder(folder_path, folder_name, output_dir):
                 if isinstance(value, list):  # Apenas schemas válidos
                     existing_schemas[key] = value
 
+    def format_schema(schema_fields):
+        """
+        Formata os campos do schema para preservar subcampos de RECORD.
+        """
+        def format_field(field):
+            if field.field_type == 'RECORD':
+                subfields = format_schema(field.fields)
+                return (
+                    f"bigquery.SchemaField('{field.name}', 'RECORD', '{field.mode}', "
+                    f"description='{field.description}', fields=[{subfields}])"
+                )
+            return (
+                f"bigquery.SchemaField('{field.name}', '{field.field_type}', '{field.mode}', "
+                f"description='{field.description}')"
+            )
+
+        return ", ".join([format_field(f) for f in schema_fields])
+
     # Processa os arquivos JSON na pasta
     for filename in os.listdir(folder_path):
         if filename.endswith('.json'):
@@ -131,7 +151,9 @@ def process_bigquery_folder(folder_path, folder_name, output_dir):
                 # Se a tabela já existe no arquivo, mantém como está
                 if schema_name in existing_schemas:
                     formatted_schema = format_schema(existing_schemas[schema_name])
-                    schemas.append(f"# Dataset: {folder_name}, Table: {table}\n{schema_name} = [\n    " + ",\n    ".join(formatted_schema) + "\n]")
+                    schemas.append(
+                        f"# Dataset: {folder_name}, Table: {table}\n{schema_name} = [\n    {formatted_schema}\n]"
+                    )
                 else:
                     # Cria schema para novas tabelas
                     formatted_class = generate_bigquery_class(schema_name, schema)
@@ -141,7 +163,6 @@ def process_bigquery_folder(folder_path, folder_name, output_dir):
     with open(output_file_path, 'w', encoding='utf-8') as output_file:
         output_file.write('from google.cloud import bigquery\n\n')
         output_file.write('\n\n'.join(schemas))
-
 
 def create_bigquery_schemas(directory):
     """
@@ -256,6 +277,3 @@ def create_pydantic_models(directory):
             process_pydantic_folder(folder_path, folder_name, output_dir)
 
     logger.info("Pydantic Models criados com sucesso!")
-
-
-create_bigquery_schemas(directory='bq_schemas')
