@@ -33,15 +33,6 @@ def create_output_directory(output_dir):
         with open(init_file, 'w') as init_f:
             init_f.write(f'# Auto-generated init file for {output_dir}')
 
-
-def create_output_directory(directory):
-    """
-    Cria o diretório de saída se ele não existir.
-    """
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-        logger.info(f"Diretório criado: {directory}")
-
 def generate_bigquery_class(table_name, schema, existing_schema=None):
     """
     Gera a definição de schema BigQuery para uma tabela.
