@@ -1,5 +1,5 @@
-from config import logger
 from auth import get_bigquery_client
+from config import logger
 
 """
 Este script autentica no BigQuery usando credenciais armazenadas no Google Secret Manager

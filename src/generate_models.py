@@ -1,7 +1,7 @@
 import json
 import os
-from config import logger
 
+from config import logger
 
 TYPE_MAPPING = {
     'STRING': 'str',
@@ -33,6 +33,7 @@ def create_output_directory(output_dir):
         with open(init_file, 'w') as init_f:
             init_f.write(f'# Auto-generated init file for {output_dir}')
 
+
 def create_output_directory(directory):
     """
     Cria o diretório de saída se ele não existir.
@@ -40,6 +41,7 @@ def create_output_directory(directory):
     if not os.path.exists(directory):
         os.makedirs(directory)
         logger.info(f"Diretório criado: {directory}")
+
 
 def format_schema(schema_list):
     """
@@ -50,6 +52,7 @@ def format_schema(schema_list):
         description = f", description='{field.description}'" if field.description else ""
         formatted.append(f"bigquery.SchemaField('{field.name}', '{field.field_type}', '{field.mode}'{description})")
     return formatted
+
 
 def generate_bigquery_class(table_name, schema, existing_schema=None):
     """
@@ -88,6 +91,7 @@ def generate_bigquery_class(table_name, schema, existing_schema=None):
         class_definition += f"    {process_field(field)},\n"
     class_definition += "]\n"
     return class_definition
+
 
 def process_bigquery_folder(folder_path, folder_name, output_dir):
     """
@@ -138,6 +142,7 @@ def process_bigquery_folder(folder_path, folder_name, output_dir):
         output_file.write('from google.cloud import bigquery\n\n')
         output_file.write('\n\n'.join(schemas))
 
+
 def create_bigquery_schemas(directory):
     """
     Cria schemas BigQuery para todos os datasets no diretório especificado.
@@ -154,6 +159,7 @@ def create_bigquery_schemas(directory):
             process_bigquery_folder(folder_path, folder_name, output_dir)
 
     logger.info('BigQuery Schemas criados com sucesso!')
+
 
 def create_class_code_pydantic(schema: dict) -> str:
     """
@@ -250,5 +256,6 @@ def create_pydantic_models(directory):
             process_pydantic_folder(folder_path, folder_name, output_dir)
 
     logger.info("Pydantic Models criados com sucesso!")
+
 
 create_bigquery_schemas(directory='bq_schemas')

@@ -5,6 +5,7 @@ from google.oauth2 import service_account
 
 from config import PROJECT_ID, SECRET_NAME, logger
 
+
 def get_secret(secret_name, project_id):
     """
     Busca um segredo específico no Secret Manager do Google Cloud

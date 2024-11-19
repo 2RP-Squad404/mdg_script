@@ -1,8 +1,9 @@
 
+
 from faker import Faker
-from datetime import datetime, date
 
 faker = Faker('pt_BR')
+
 
 def criar_transacao_corrente_faker():
     return {
@@ -43,6 +44,7 @@ def criar_transacao_corrente_faker():
         "operation_sequence": faker.random_int(),
         "production_date": faker.date_this_year().strftime('%Y-%m-%d')
     }
+
 
 def datagen_cliente(num_records):
     data = {'cliente': []}
