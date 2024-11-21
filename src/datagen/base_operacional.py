@@ -6,7 +6,7 @@ faker = Faker('pt_BR')
 
 def function_base_operacional(num_records):
 
-    data = {'Conta_cartao_cliente': [], 'Emprestimo_pessoal_processado':[],'Fatura_fechada':[] ,'Faturamento_conta_digital':[], 'Limite_disponibilidade_pos_mensal':[], 'Pagamento_consolidado': []}
+    data = {'conta_cartao_cliente': [], 'emprestimo_pessoal_processado':[],'fatura_fechada':[] ,'faturamento_conta_digital':[], 'limite_disponibilidade_pos_mensal':[], 'pagamento_consolidado': []}
     
     for _ in range(num_records):
         criar_Conta_cartao_cliente = {
@@ -94,7 +94,7 @@ def function_base_operacional(num_records):
             'dth_inclusao_reg': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
             'des_origem': faker.word()
         }
-        data['Conta_cartao_cliente'].append(criar_Conta_cartao_cliente)
+        data['conta_cartao_cliente'].append(criar_Conta_cartao_cliente)
 
         criar_Emprestimo_pessoal_processado = {
             'id_evento_ep': faker.uuid4(),
@@ -145,7 +145,7 @@ def function_base_operacional(num_records):
             'des_sistema_origem': faker.word(),
             'num_anomes_ep': faker.date_this_year().strftime('%Y-%m-%d')
         }
-        data['Emprestimo_pessoal_processado'].append(criar_Emprestimo_pessoal_processado)
+        data['emprestimo_pessoal_processado'].append(criar_Emprestimo_pessoal_processado)
 
         criar_Faturamento_conta_digital = {
             'id_conta_ccred_transacao': faker.random_int(),
@@ -181,7 +181,7 @@ def function_base_operacional(num_records):
             'dat_referencia': faker.random_int(),
             'num_anomes_transacao': faker.date_this_year().strftime('%Y-%m-%d')
         }
-        data['Faturamento_conta_digital'].append(criar_Faturamento_conta_digital)
+        data['faturamento_conta_digital'].append(criar_Faturamento_conta_digital)
         
         criar_Fatura_fechada = {
             'id_conta': faker.random_int(),
@@ -214,7 +214,7 @@ def function_base_operacional(num_records):
             'des_origem': faker.word(),
             'num_anomes_vencto_fatura': faker.date_this_year().strftime('%Y-%m-%d')
         }
-        data['Fatura_fechada'].append(criar_Fatura_fechada)
+        data['fatura_fechada'].append(criar_Fatura_fechada)
 
         criar_Limite_disponibilidade_pos_mensal = {
             'id_conta': faker.random_int(),
@@ -246,7 +246,7 @@ def function_base_operacional(num_records):
             'dth_inclusao_reg': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
             'num_anomes_posicao_limite': faker.date_this_year().strftime('%Y-%m-%d')
         }
-        data['Limite_disponibilidade_pos_mensal'].append(criar_Limite_disponibilidade_pos_mensal)
+        data['limite_disponibilidade_pos_mensal'].append(criar_Limite_disponibilidade_pos_mensal)
 
         criar_Pagamento_consolidado = {
             'num_cpf_cliente': faker.random_int(digits=11, fix_len=True),
@@ -277,7 +277,7 @@ def function_base_operacional(num_records):
             'des_origem': faker.word(),
             'num_anomes_pagto': faker.date_this_year().strftime('%Y-%m-%d')
         }
-        data['Pagamento_consolidado'].append(criar_Pagamento_consolidado)
+        data['pagamento_consolidado'].append(criar_Pagamento_consolidado)
     return data
 
 num_records = input_num_linhas()
