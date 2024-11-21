@@ -7,7 +7,7 @@ faker = Faker('pt_BR')
 def function_base_operacional(num_records):
 
     data = {'conta_cartao_cliente': [], 'emprestimo_pessoal_processado':[],'fatura_fechada':[] ,'faturamento_conta_digital':[], 'limite_disponibilidade_pos_mensal':[], 'pagamento_consolidado': []}
-    
+
     for _ in range(num_records):
         criar_Conta_cartao_cliente = {
             'id_conta': faker.random_int(),
@@ -278,7 +278,8 @@ def function_base_operacional(num_records):
             'num_anomes_pagto': faker.date_this_year().strftime('%Y-%m-%d')
         }
         data['pagamento_consolidado'].append(criar_Pagamento_consolidado)
-    return data
+
+    #jsonl_data(data=data)
 
 num_records = input_num_linhas()
 function_base_operacional(num_records)
