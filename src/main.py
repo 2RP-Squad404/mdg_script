@@ -14,6 +14,7 @@ from utils import (
 
 def cli_option():
     bq_schemas_path = Path(__file__).resolve().parent / 'bq_schemas'
+    mock_data_path = Path(__file__).resolve().parent / 'mock_data'
 
     create_pydantic_models(str(bq_schemas_path))
     create_bigquery_schemas(str(bq_schemas_path))
@@ -28,21 +29,21 @@ def cli_option():
 
     match input_user:
         case '1':
-            select_dataset = display_common_datasets(folder_path='bq_schemas')
+            select_dataset = display_common_datasets(folder_path= str(bq_schemas_path))
             create_tables(select_dataset)
         case '2':
-            select_dataset = display_common_datasets(folder_path='bq_schemas')
+            select_dataset = display_common_datasets(folder_path= str(bq_schemas_path))
             run_gemini(
                 project_id=PROJECT_ID,
                 model_name='gemini-1.5-flash-002',
                 dataset=select_dataset,
             )
         case '3':
-            select_dataset = display_common_datasets(folder_path='bq_schemas')
+            select_dataset = display_common_datasets(folder_path= str(bq_schemas_path))
             data = run_command(f'python {select_dataset}.py')
             jsonl_data(data)
         case '4':
-            select_dataset = display_common_datasets(folder_path='mock_data')
+            select_dataset = display_common_datasets(folder_path= str(mock_data_path))
             send_jsonl_to_bigquery(select_dataset)
 
 

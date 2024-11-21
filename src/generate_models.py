@@ -1,7 +1,7 @@
 import json
 import os
 
-from config import logger
+from config import ROOT_DIR, logger
 
 TYPE_MAPPING = {
     'STRING': 'str',
@@ -162,7 +162,9 @@ def create_bigquery_schemas(directory):
     Parâmetros:
         directory (str): Caminho do diretório de entrada.
     """
-    output_dir = 'py_schemas'
+
+    output_dir = os.path.join(ROOT_DIR, 'src', 'py_schemas')
+
     create_output_directory(output_dir)
 
     for folder_name in os.listdir(directory):
@@ -249,7 +251,7 @@ def process_pydantic_folder(folder_path, folder_name, output_dir):
         output_file.write('\n\n'.join(models))
 
 
-def create_pydantic_models(directory):
+def create_pydantic_models(directory) -> None:
     """
     Cria classes Pydantic para todos os datasets no diretório especificado.
 
@@ -257,9 +259,8 @@ def create_pydantic_models(directory):
         directory (str): Caminho do diretório de entrada.
     """
 
-    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    output_dir = os.path.join(ROOT_DIR, 'src', 'py_models') # constroe o caminho para o arquivo passado como argumento tendo como base o diretório raiz
 
-    output_dir = os.path.join(root_dir, 'src', 'py_models')
     create_output_directory(output_dir)
 
     for folder_name in os.listdir(directory):
