@@ -46,27 +46,32 @@ def generate_bigquery_class(table_name, schema, existing_schema=None):
         str: Definição da classe em formato de string.
     """
 
-    def process_field(field):
+    def process_field(field, indent=4):
         """
         Processa um campo do schema, incluindo subcampos no caso de RECORD.
         """
         field_type = field['type']
         description = field.get('description', '')
         description_str = f", description='{description}'" if description else ""
+        current_indent = ' ' * indent
 
         if field_type == 'RECORD' and 'fields' in field:
-            # Processa os subcampos
-            subfields = ", ".join(
-                [process_field(subfield) for subfield in field['fields']]
+            # Processa subcampos de RECORD
+            subfields = ",\n".join(
+                [process_field(subfield, indent=indent + 4) for subfield in field['fields']]
             )
             return (
-                f"bigquery.SchemaField('{field['name']}', 'RECORD', "
-                f"'{field.get('mode', 'NULLABLE')}'{description_str}, fields=[{subfields}])"
+                f"{current_indent}bigquery.SchemaField(\n"
+                f"{current_indent}    '{field['name']}', 'RECORD', '{field.get('mode', 'NULLABLE')}'{description_str},\n"
+                f"{current_indent}    fields=[\n{subfields}\n{current_indent}    ]\n"
+                f"{current_indent})"
             )
-        elif field_type == 'JSON':
-            return f"bigquery.SchemaField('{field['name']}', 'JSON', '{field.get('mode', 'NULLABLE')}'{description_str})"
         else:
-            return f"bigquery.SchemaField('{field['name']}', '{field_type}', '{field.get('mode', 'NULLABLE')}'{description_str})"
+            # Processa campos normais
+            return (
+                f"{current_indent}bigquery.SchemaField("
+                f"'{field['name']}', '{field_type}', '{field.get('mode', 'NULLABLE')}'{description_str})"
+            )
 
     # Mapeia campos existentes (se houver) para reutilizar descrições
     existing_field_names = (
@@ -76,13 +81,13 @@ def generate_bigquery_class(table_name, schema, existing_schema=None):
     )
 
     # Constrói a definição da classe
-    class_definition = f'{table_name} = [\n'
+    class_definition = f"{table_name} = [\n"
     for field in schema:
         field_description = field.get(
             'description', existing_field_names.get(field['name'], '')
         )
         field['description'] = field_description  # Atualiza a descrição, se disponível
-        class_definition += f"    {process_field(field)},\n"
+        class_definition += f"{process_field(field)},\n"
     class_definition += "]\n"
     return class_definition
 
@@ -111,49 +116,34 @@ def process_bigquery_folder(folder_path, folder_name, output_dir):
                 if isinstance(value, list):  # Apenas schemas válidos
                     existing_schemas[key] = value
 
-    def format_schema(schema_fields):
-        """
-        Formata os campos do schema para preservar subcampos de RECORD.
-        """
-        def format_field(field):
-            if field.field_type == 'RECORD':
-                subfields = format_schema(field.fields)
-                return (
-                    f"bigquery.SchemaField('{field.name}', 'RECORD', '{field.mode}', "
-                    f"description='{field.description}', fields=[{subfields}])"
-                )
+def format_schema(schema_fields, indent=4):
+    """
+    Formata os campos do schema para preservar subcampos de RECORD e garantir boa formatação.
+
+    Parâmetros:
+        schema_fields (list): Lista de campos do schema.
+        indent (int): Nível de indentação.
+
+    Retorno:
+        str: Campos formatados como string.
+    """
+    def format_field(field, current_indent):
+        if field.field_type == 'RECORD':
+            subfields = format_schema(field.fields, indent=current_indent + 4)
             return (
-                f"bigquery.SchemaField('{field.name}', '{field.field_type}', '{field.mode}', "
-                f"description='{field.description}')"
+                f"{' ' * current_indent}bigquery.SchemaField(\n"
+                f"{' ' * (current_indent + 4)}'{field.name}', 'RECORD', '{field.mode}',\n"
+                f"{' ' * (current_indent + 4)}description='{field.description}',\n"
+                f"{' ' * (current_indent + 4)}fields=[\n{subfields}\n{' ' * (current_indent + 4)}]\n"
+                f"{' ' * current_indent})"
             )
+        return (
+            f"{' ' * current_indent}bigquery.SchemaField("
+            f"'{field.name}', '{field.field_type}', '{field.mode}', "
+            f"description='{field.description}')"
+        )
 
-        return ", ".join([format_field(f) for f in schema_fields])
-
-    # Processa os arquivos JSON na pasta
-    for filename in os.listdir(folder_path):
-        if filename.endswith('.json'):
-            filepath = os.path.join(folder_path, filename)
-            with open(filepath, 'r', encoding='utf-8') as json_file:
-                data = json.load(json_file)
-                table = data.get('table')
-                schema = data.get('schema')
-                schema_name = os.path.splitext(filename)[0]
-
-                # Se a tabela já existe no arquivo, mantém como está
-                if schema_name in existing_schemas:
-                    formatted_schema = format_schema(existing_schemas[schema_name])
-                    schemas.append(
-                        f"# Dataset: {folder_name}, Table: {table}\n{schema_name} = [\n    {formatted_schema}\n]"
-                    )
-                else:
-                    # Cria schema para novas tabelas
-                    formatted_class = generate_bigquery_class(schema_name, schema)
-                    schemas.append(f"# Dataset: {folder_name}, Table: {table}\n{formatted_class}")
-
-    # Gera o arquivo final
-    with open(output_file_path, 'w', encoding='utf-8') as output_file:
-        output_file.write('from google.cloud import bigquery\n\n')
-        output_file.write('\n\n'.join(schemas))
+    return ",\n".join([format_field(f, indent) for f in schema_fields])
 
 def create_bigquery_schemas(directory):
     """
