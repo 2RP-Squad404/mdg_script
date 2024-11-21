@@ -31,4 +31,4 @@ def function_di_dw_funcionarios(num_registros):
     return dados
 
 num_records = input_num_linhas()
-function_dw_funcionarios(num_records)
+function_di_dw_funcionarios(num_records)
