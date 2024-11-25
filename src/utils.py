@@ -16,7 +16,7 @@ from auth import get_bigquery_client, secretmanager
 from config import PROJECT_ID, ROOT_DIR, logger
 
 
-def jsonl_to_bigquery(filename, table_id, dataset_id):
+def jsonl_to_bigquery(filename, table_id, dataset_id,client):
     """
     Carrega dados de um arquivo JSONL para o BigQuery.
 
@@ -25,8 +25,6 @@ def jsonl_to_bigquery(filename, table_id, dataset_id):
         table_id (str): Nome da tabela no BigQuery.
         dataset_id (str): Nome do dataset no BigQuery.
     """
-
-    client = get_bigquery_client()
     jsonl_file_path = filename
     project_id = PROJECT_ID
     table_ref = f"{project_id}.{dataset_id}.{table_id}"
@@ -52,8 +50,8 @@ def create_tables(dataset):
     Parâmetros:
         dataset (str): Nome do dataset no qual as tabelas serão criadas.
     """
-    client = get_bigquery_client()  # Função para obter o cliente BigQuery
-    schema_dir = "py_schemas"  # Diretório onde estão os schemas
+    client = get_bigquery_client()
+    schema_dir = "py_schemas"
     excluded_partition_tables = [
         "cobranca_telefone", "acordo", "cliente", "dw_funcionario", "adesoes_pfin",
         "faturas_pfin", "garantias_seguros", "motivos_cancelamentos",
@@ -67,7 +65,6 @@ def create_tables(dataset):
             if schema_file.endswith('.py'):
                 dataset_name = schema_file.replace('.py', '')
 
-                # Apenas processa o dataset especificado no parâmetro
                 if dataset_name != dataset:
                     continue
 
@@ -77,7 +74,7 @@ def create_tables(dataset):
                     dataset_id = f"{PROJECT_ID}.{dataset_name}"
                     
                     for table_name, schema in schema_module.__dict__.items():
-                        if isinstance(schema, list):  # Verifica se é uma lista de SchemaField
+                        if isinstance(schema, list):
                             table_id = f"{dataset_id}.{table_name}"
                             table = bigquery.Table(table_id, schema=schema)
 
@@ -152,7 +149,7 @@ def update_table_descriptions_from_schemas(schema_directory):
         dataset_id = schema_file.replace('.py', '')
         schema_file_path = os.path.join(schema_directory, schema_file)
 
-        schema_module = load_schema_module(schema_file_path)
+        schema_module = load_py_schema(schema_file_path)
         table_schemas = {name: value for name, value in schema_module.__dict__.items() if isinstance(value, list)}
 
         for table_id, schema_fields in table_schemas.items():
@@ -417,7 +414,7 @@ def display_common_datasets(folder_path: str):
     for i, dataset in enumerate(common_datasets, start=1):
         print(f"{i}. {dataset}")
 
-    user_input = input("\nDigite os números do dataset:").strip()
+    user_input = input("\nDigite o número do dataset: ").strip()
 
     if not user_input:
         return common_datasets
@@ -456,22 +453,6 @@ def commom_tables(dataset_file):
 
         run_gemini(PROJECT_ID, model_name="gemini-1.5-flash-002", dataset=dataset_file)
 
-
-def input_num_linhas():
-    """
-    Gerar um número de linhas para o arquivo de saída.
-
-    Returno:
-        int: Número de linhas para o arquivo de saída.
-    """
-    while True:
-        try:
-            num_linhas = int(input("Quantas linhas deseja gerar?\n"))
-            return num_linhas
-        except ValueError:
-            logger.info("Digite um valor inteiro")
-
-
 def send_jsonl_to_bigquery(select_dataset):
     """
     Envia o arquivo JSONL para o BigQuery.
@@ -484,6 +465,8 @@ def send_jsonl_to_bigquery(select_dataset):
     if not os.path.isdir(dataset_directory):
         logger.error(f"\033[91mO diretório {dataset_directory} não existe.\033[0m")
         return
+    
+    client = bigquery.Client()
 
     for filename in os.listdir(dataset_directory):
         if filename.endswith(".jsonl"):
@@ -492,11 +475,10 @@ def send_jsonl_to_bigquery(select_dataset):
             try:
                 jsonl_file_path = os.path.join(dataset_directory, filename)
 
-                jsonl_to_bigquery(filename=jsonl_file_path, table_id=table_id, dataset_id=select_dataset)
+                jsonl_to_bigquery(filename=jsonl_file_path, table_id=table_id, dataset_id=select_dataset, client=client)
                 logger.info(f'\033[32mArquivo {filename} enviado para a tabela {table_id} no dataset {select_dataset}\033[0m')
             except Exception as e:
                 logger.error(f"\033[91mErro ao enviar o arquivo {filename} para o BigQuery: {e}\033[0m")
-
 
 def load_models_and_examples(dataset: str, prompt) -> str:
     """
