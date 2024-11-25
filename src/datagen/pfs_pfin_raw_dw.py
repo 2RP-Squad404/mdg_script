@@ -2,7 +2,7 @@ from faker import Faker
 from datetime import datetime
 import random
 
-from utils import input_num_linhas
+from jsonl_convert import input_num_linhas, jsonl_data
 
 faker = Faker('pt_BR')
 
@@ -111,6 +111,8 @@ def function_pfs_pfin_raw_dw(num_registros_dim_locais, num_registros_dw_funciona
             'num_rg': faker.bothify(text='########-#')
         }
         dados['dw_funcionario'].append(registro_dw_funcionarios)
+
+    jsonl_data(data=dados)
 
     return dados
 
