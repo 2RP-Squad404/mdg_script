@@ -3,6 +3,7 @@ import json
 import os
 from datetime import date, datetime
 from decimal import Decimal
+from venv import logger
 
 
 def jsonl_data(data):
@@ -47,3 +48,17 @@ def jsonl_data(data):
                 f.write('\n')
 
     return data
+
+def input_num_linhas():
+    """
+    Gerar um número de linhas para o arquivo de saída.
+
+    Returno:
+        int: Número de linhas para o arquivo de saída.
+    """
+    while True:
+        try:
+            num_linhas = int(input("Quantas linhas deseja gerar?\n"))
+            return num_linhas
+        except ValueError:
+            logger.info("Digite um valor inteiro")

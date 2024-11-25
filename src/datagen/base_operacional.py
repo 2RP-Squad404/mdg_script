@@ -1,6 +1,6 @@
 from faker import Faker
 
-from utils import input_num_linhas
+from jsonl_convert import input_num_linhas, jsonl_data
 
 faker = Faker('pt_BR')
 
@@ -12,7 +12,7 @@ def function_base_operacional(num_records):
         criar_Conta_cartao_cliente = {
             'id_conta': faker.random_int(),
             'id_produto_cartao_atual': faker.random_int(),
-            'num_cpf_cliente': faker.random_int(digits=11, fix_len=True),
+            'num_cpf_cliente': faker.random_number(digits=11, fix_len=True),
             'id_cliente_so': faker.random_int(),
             'cod_loja_ads_conta': faker.random_int(),
             'dth_ads_conta': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
@@ -38,7 +38,7 @@ def function_base_operacional(num_records):
             'flg_pl_flex': faker.random_element(elements=('S', 'N')),
             'flg_indicacao_amigo_revendedor': faker.random_element(elements=('S', 'N')),
             'flg_conta_revendedor': faker.random_element(elements=('S', 'N')),
-            'num_cpf_indicador': faker.random_int(digits=11, fix_len=True),
+            'num_cpf_indicador': faker.random_number(digits=11, fix_len=True),
             'id_cartao': faker.random_int(),
             'num_cartao': faker.credit_card_number(),
             'num_bin': faker.random_int(),
@@ -105,7 +105,7 @@ def function_base_operacional(num_records):
             'id_chapa_colab_proposta': faker.uuid4(),
             'cod_loja_ads_conta': faker.random_int(),
             'id_cliente_so': faker.random_int(),
-            'num_cpf_cliente': faker.random_int(digits=11, fix_len=True),
+            'num_cpf_cliente': faker.random_number(digits=11, fix_len=True),
             'cod_tipo_operacao': faker.bothify(text='??'),
             'des_tipo_operacao': faker.word(),
             'id_estab_so': faker.random_int(),
@@ -150,7 +150,7 @@ def function_base_operacional(num_records):
         criar_Faturamento_conta_digital = {
             'id_conta_ccred_transacao': faker.random_int(),
             'id_cliente': faker.uuid4(),
-            'num_cpf_cliente': faker.random_int(digits=11, fix_len=True),
+            'num_cpf_cliente': faker.random_number(digits=11, fix_len=True),
             'num_cartao_credito': faker.credit_card_number(),
             'flg_titularidade': faker.random_element(elements=('S', 'N')),
             'flg_pl_flex': faker.random_element(elements=('S', 'N')),
@@ -186,7 +186,7 @@ def function_base_operacional(num_records):
         criar_Fatura_fechada = {
             'id_conta': faker.random_int(),
             'id_cliente': faker.uuid4(),
-            'num_cpf_cliente': faker.random_int(digits=11, fix_len=True),
+            'num_cpf_cliente': faker.random_number(digits=11, fix_len=True),
             'cod_sit_conta': faker.random_int(),
             'des_sit_conta': faker.word(),
             'id_produto_cartao': faker.random_int(),
@@ -219,8 +219,8 @@ def function_base_operacional(num_records):
         criar_Limite_disponibilidade_pos_mensal = {
             'id_conta': faker.random_int(),
             'id_produto_cartao': faker.random_int(),
-            'num_cpf_cliente': faker.random_int(digits=11, fix_len=True),
-            'num_cpf_cliente_titular': faker.random_int(digits=11, fix_len=True),
+            'num_cpf_cliente': faker.random_number(digits=11, fix_len=True),
+            'num_cpf_cliente_titular': faker.random_number(digits=11, fix_len=True),
             'cod_tip_portador': faker.random_int(),
             'des_sit_conta': faker.word(),
             'flg_conta_cancelada': faker.random_element(elements=('S', 'N')),
@@ -249,7 +249,7 @@ def function_base_operacional(num_records):
         data['limite_disponibilidade_pos_mensal'].append(criar_Limite_disponibilidade_pos_mensal)
 
         criar_Pagamento_consolidado = {
-            'num_cpf_cliente': faker.random_int(digits=11, fix_len=True),
+            'num_cpf_cliente': faker.random_number(digits=11, fix_len=True),
             'id_conta': faker.random_int(),
             'id_produto_cartao': faker.random_int(),
             'dth_pagamento': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
@@ -279,7 +279,9 @@ def function_base_operacional(num_records):
         }
         data['pagamento_consolidado'].append(criar_Pagamento_consolidado)
 
-    #jsonl_data(data=data)
+    jsonl_data(data=data)
+
+    return data
 
 num_records = input_num_linhas()
 function_base_operacional(num_records)
