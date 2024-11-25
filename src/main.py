@@ -2,12 +2,12 @@ import sys
 from pathlib import Path
 
 from config import PROJECT_ID, SECRET_NAME, logger
+from datagen.jsonl_convert import input_num_linhas
 from gemini_interface import run_gemini
 from generate_models import create_pydantic_models,create_bigquery_schemas
 from utils import (
     create_tables,
     display_common_datasets,
-    jsonl_data,
     run_command,
     send_jsonl_to_bigquery,
 )
@@ -40,8 +40,8 @@ def cli_option():
             )
         case '3':
             select_dataset = display_common_datasets(folder_path= str(bq_schemas_path))
-            data = run_command(f'python {select_dataset}.py')
-            jsonl_data(data)
+            logger.info("Escreve o número de linhas")
+            run_command(f'python datagen/{select_dataset}.py')
         case '4':
             select_dataset = display_common_datasets(folder_path= str(mock_data_path))
             send_jsonl_to_bigquery(select_dataset)
