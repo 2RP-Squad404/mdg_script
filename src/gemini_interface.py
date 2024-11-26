@@ -15,43 +15,7 @@ credentials, credentials_dict = get_credentials(
 )
 
 
-def run_gemini(project_id, model_name, dataset):
-  def init_gemini(project_id: str, credentials: str, model_name: str):
-    """
-    Inicia a comunicação com Gemini API.
-
-    Parâmetros:
-    project_id (str): Id do projeto GCP.
-    credentials (str): Credenciais do GCP.
-    model_name (str): O nome do modelo do Vertex IA que será usado.
-    """
-    aiplatform.init(project=project_id, credentials=credentials)
-    return GenerativeModel(model_name)
-
-  def generate_code(model, prompt: str):
-      """
-      Envia o prompt para o modelo e retorna o código de resposta.
-      
-      Parâmetros:
-      model (GenerativeModel): Modelo que será usado. 
-      prompt (str): Texto do prompt que será enviado ao modelo. 
-      """
-      response = model.generate_content(prompt)
-      return response.text
-
-  def save_to_file(file_path: str, content: str):
-      """
-      Escreve a resposta obtida do modelo no arquivo 'gemini_datagen.py'.
-      
-      Parâmetros:
-      file_path (str): Caminho do arquivo para gravar a resposta do modelo.
-      content (str): O código obtido do modelo.
-      """
-      with open(file_path, 'a') as file:
-          file.write('\n')
-          file.write(content)
-
-  gemini_model = init_gemini(project_id, credentials, model_name)
+def generate_full_prompt(dataset) -> None:
 
   prompt = """Você é um assistente especializado em gerar código Python de alta qualidade e aderente às melhores práticas. Você segue as instruções com precisão, sem fornecer explicações ou informações extras além do código solicitado.
 
@@ -112,19 +76,55 @@ def run_gemini(project_id, model_name, dataset):
 
   abaixo está um exemplo de como deveria ser os dados que satisfazem cada coluna desta tabela: 
   #colocar nessa linha o json com os dados de exemplo do data_sample_json/{dataset}.json!!
-
-  abaixo está um exemplo de retorno esperado de um outro dataset para você se basear:
-  #colocar nessa linha algum py com um exemplo de retorno esperado do example_of_expected_return/example.py
   """
 
+  full_prompt = load_models_and_examples(dataset, prompt)
+
+  if not full_prompt:
+      logger.info('\033[91mErro, prompt não gerado!\033[0m')
+      sys.exit(1)
+
+  with open('src/full_prompt_output.txt', 'w', encoding='utf-8') as file:
+    file.write(full_prompt)
+
+  logger.info('\033[32mPrompt gerado com sucesso!\033[0m')  
+
+
+def generate_functions_with_gemini(project_id, model_name, dataset, full_prompt):
+
+  def init_gemini(project_id: str, credentials: str, model_name: str):
+    """
+    Inicia a comunicação com Gemini API.
+
+    Parâmetros:
+    project_id (str): Id do projeto GCP.
+    credentials (str): Credenciais do GCP.
+    model_name (str): O nome do modelo do Vertex IA que será usado.
+    """
+    aiplatform.init(project=project_id, credentials=credentials)
+    return GenerativeModel(model_name)
+  
+  gemini_model = init_gemini(project_id, credentials, model_name)
+
+  def generate_code(model, prompt: str):
+    """
+    Envia o prompt para o modelo e retorna o código de resposta.
+    
+    Parâmetros:
+    model (GenerativeModel): Modelo que será usado. 
+    prompt (str): Texto do prompt que será enviado ao modelo. 
+    """
+    response = model.generate_content(prompt)
+    return response.text
+    
   code = generate_code(
-      gemini_model, load_models_and_examples(dataset, prompt)
+      gemini_model, full_prompt
   )
 
   gemini_code = save_code_from_gemini(dataset=dataset, content=code)
+
   if gemini_code:
       logger.info('\033[32mGEMINI CODE: Generated successfully.\033[0m\n')
   else:
       logger.info('\033[91mGEMINI CODE: None or could not be retrieved.\033[0m')
       sys.exit(1)
-
