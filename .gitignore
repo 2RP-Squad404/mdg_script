@@ -32,6 +32,7 @@ MANIFEST
 secrets
 mock_data
 .vscode 
+full_prompt_output.txt
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
