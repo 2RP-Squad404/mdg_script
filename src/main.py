@@ -3,7 +3,7 @@ import time
 from pathlib import Path
 
 from config import PROJECT_ID, SECRET_NAME, logger
-from gemini_interface import run_gemini
+from gemini_interface import generate_full_prompt, generate_functions_with_gemini
 from generate_models import create_pydantic_models,create_bigquery_schemas
 from utils import (
     create_tables,
@@ -18,17 +18,19 @@ def cli_option():
 
     logger.info('Funções possiveis:')
     logger.info('1 - Criar tabelas por dataset no BigQuery')
-    logger.info('2 - Gerar funções Faker com Gemini')
-    logger.info('3 - Gerar dados em JSONL')
-    logger.info('4 - Enviar JSONL para o BigQuery')
-    logger.info('5 - Sair da aplicação')
+    logger.info('2 - Gerar o prompt completo para o Gemini')
+    logger.info('3 - Gerar funções Faker com Gemini')
+    logger.info('4 - Gerar dados em JSONL')
+    logger.info('5 - Enviar JSONL para o BigQuery')
+    logger.info('6 - Sair da aplicação')
 
     input_user = input('Escolha uma opção: ')
 
+    select_dataset = display_common_datasets(folder_path= str(bq_schemas_path))
+    logger.debug(select_dataset)
+
     match input_user:
         case '1':
-            select_dataset = display_common_datasets(folder_path= str(bq_schemas_path))
-
             start_time = time.time()
             create_tables(select_dataset)
             end_time = time.time()
@@ -38,22 +40,33 @@ def cli_option():
             cli_option()
 
         case '2':
-            select_dataset = display_common_datasets(folder_path= str(bq_schemas_path))
+            generate_full_prompt(select_dataset)     
+        case '3':
+            with open('src/full_prompt_output.txt', 'r') as arquivo:
+              full_prompt = arquivo.read()
+
+            if(select_dataset):
+                logger.info(f'\033[32mDATASET: {select_dataset}\033[0m\n')
+            else:
+                logger.info('\033[91mDATASET: None\033[0m\n')
+
+            return
 
             start_time = time.time()
-            run_gemini(
+            generate_functions_with_gemini(
                 project_id=PROJECT_ID,
                 model_name='gemini-1.5-flash-002',
                 dataset=select_dataset,
+                full_prompt=full_prompt
             )
             end_time = time.time
 
             process_time = end_time - start_time
             logger.info(f"\033[32mTempo de criação de funções Faker: {process_time:.2}segundos\033[0m\n")
             cli_option()
+            
 
-        case '3':
-            select_dataset = display_common_datasets(folder_path= str(bq_schemas_path))
+        case '4':
             logger.info("Escreve o número de linhas")
 
             start_time = time.time()
@@ -64,9 +77,7 @@ def cli_option():
             logger.info(f"\033[32mTempo de geração de dados: {process_time:.2f}segundos\033[0m\n")
             cli_option()
 
-        case '4':
-            select_dataset = display_common_datasets(folder_path= str(mock_data_path))
-
+        case '5':
             start_time = time.time()
             send_jsonl_to_bigquery(select_dataset)
             end_time = time.time()
@@ -75,7 +86,7 @@ def cli_option():
             logger.info(f"\033[32mTempo de envio dos dados: {process_time:.2f}segundos\033[0m\n")
             cli_option()
         
-        case '5':
+        case '6':
             logger.info(f"\033[32mAplicação finalizada\033[0m\n")
 
 
