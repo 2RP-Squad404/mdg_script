@@ -492,49 +492,47 @@ def load_models_and_examples(dataset: str, prompt) -> str:
         str: Nome do arquivo de saída.
     """
 
-    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    try:
+      models_dir = os.path.join(ROOT_DIR, 'src', 'py_models')
 
-    models_dir = os.path.join(root_dir, 'src', 'py_models')
-    models_code = []
+      models_code = []
 
-    for filename in os.listdir(models_dir):
+      for filename in os.listdir(models_dir):
         if filename.endswith('.py'):
             with open(
                 os.path.join(models_dir, filename), 'r', encoding='utf-8'
             ) as f:
                 models_code.append(f.read())
 
-    models_code_str = '\n\n'.join(models_code)
+      models_code_str = '\n\n'.join(models_code)
 
-    json_files_pattern = f'src/data_sample_json/{dataset}/*.json'
-    json_file_paths = glob.glob(json_files_pattern)
-    examples_data = []
+      json_files_pattern = f'src/secrets/{dataset}/*.json'
 
-    for json_file_path in json_file_paths:
+      json_file_paths = glob.glob(json_files_pattern)
+
+      examples_data = []
+
+      for json_file_path in json_file_paths:
         with open(json_file_path, 'r', encoding='utf-8') as f:
             examples_data.append(json.load(f))
 
-    examples_data_str = json.dumps(examples_data, indent=2, ensure_ascii=False)
+      examples_data_str = json.dumps(examples_data, indent=2, ensure_ascii=False)
 
-    expected_return_file = os.path.join(root_dir, 'src', 'datagen/pfs_risco_raw_tivea.py')
-    
-    with open(expected_return_file, 'r', encoding='utf-8') as f:
-        expected_return_code = f.read()
-
-    full_prompt = prompt.replace(
+      full_prompt = prompt.replace(
         '#colocar nessa linha os modelos do py_models/{dataset}/*.py',
         models_code_str,
-    )
-    full_prompt = full_prompt.replace(
-        '#colocar nessa linha o json com os dados de exemplo do data_sample_json/{dataset}/*.json',
-        examples_data_str,
-    )
-    full_prompt = full_prompt.replace(
-        '#colocar nessa linha algum py com um exemplo de retorno esperado do example_of_expected_return/{dataset}.py',
-        expected_return_code,
-    )
+      )
 
-    return full_prompt
+      full_prompt = full_prompt.replace(
+          '#colocar nessa linha o json com os dados de exemplo do data_sample_json/{dataset}.json!!',
+          examples_data_str,
+      )
+
+      return full_prompt
+
+    except FileNotFoundError as error:
+          logger.error(f"\033[91mErro ao carregar os arquivos: {error}\033[0m")
+          
 
 
 def save_code_from_gemini(dataset: str, content: str):
