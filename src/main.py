@@ -79,6 +79,8 @@ def cli_option():
                 dataset=select_dataset_to_generate_functions,
                 full_prompt=full_prompt
             )
+            
+            cli_option()
 
         case '4':
             logger.info("Escreve o número de linhas")
