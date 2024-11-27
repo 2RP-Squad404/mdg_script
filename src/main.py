@@ -69,6 +69,8 @@ def cli_option():
             generate_full_prompt(select_dataset)
             select_dataset_to_generate_functions = select_dataset
             save_persistent_data({"select_dataset_to_generate_functions": select_dataset_to_generate_functions})
+
+            cli_option()
         case '3':
             with open('src/full_prompt_output.txt', 'r') as arquivo:
               full_prompt = arquivo.read()
