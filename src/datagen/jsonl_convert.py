@@ -49,6 +49,7 @@ def jsonl_data(data):
 
     return data
 
+
 def input_num_linhas():
     """
     Gerar um número de linhas para o arquivo de saída.

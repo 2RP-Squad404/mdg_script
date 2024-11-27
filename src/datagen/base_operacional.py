@@ -1,12 +1,12 @@
 from faker import Faker
-
 from jsonl_convert import input_num_linhas, jsonl_data
 
 faker = Faker('pt_BR')
 
+
 def function_base_operacional(num_records):
 
-    data = {'conta_cartao_cliente': [], 'emprestimo_pessoal_processado':[],'fatura_fechada':[] ,'faturamento_conta_digital':[], 'limite_disponibilidade_pos_mensal':[], 'pagamento_consolidado': []}
+    data = {'conta_cartao_cliente': [], 'emprestimo_pessoal_processado': [], 'fatura_fechada': [], 'faturamento_conta_digital': [], 'limite_disponibilidade_pos_mensal': [], 'pagamento_consolidado': []}
 
     for _ in range(num_records):
         criar_Conta_cartao_cliente = {
@@ -182,7 +182,7 @@ def function_base_operacional(num_records):
             'num_anomes_transacao': faker.date_this_year().strftime('%Y-%m-%d')
         }
         data['faturamento_conta_digital'].append(criar_Faturamento_conta_digital)
-        
+
         criar_Fatura_fechada = {
             'id_conta': faker.random_int(),
             'id_cliente': faker.uuid4(),
@@ -282,6 +282,7 @@ def function_base_operacional(num_records):
     jsonl_data(data=data)
 
     return data
+
 
 num_records = input_num_linhas()
 function_base_operacional(num_records)

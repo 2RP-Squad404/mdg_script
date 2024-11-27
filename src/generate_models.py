@@ -33,6 +33,7 @@ def create_output_directory(output_dir):
         with open(init_file, 'w') as init_f:
             init_f.write(f'# Auto-generated init file for {output_dir}')
 
+
 def generate_bigquery_class(table_name, schema, existing_schema=None):
     """
     Gera a definição de schema BigQuery para uma tabela.
@@ -91,6 +92,7 @@ def generate_bigquery_class(table_name, schema, existing_schema=None):
     class_definition += "]\n"
     return class_definition
 
+
 def process_bigquery_folder(folder_path, folder_name, output_dir):
     """
     Processa uma pasta contendo arquivos JSON e gera um arquivo de schema BigQuery.
@@ -115,6 +117,7 @@ def process_bigquery_folder(folder_path, folder_name, output_dir):
             for key, value in temp_namespace.items():
                 if isinstance(value, list):  # Apenas schemas válidos
                     existing_schemas[key] = value
+
 
 def format_schema(schema_fields, indent=4):
     """
@@ -144,6 +147,7 @@ def format_schema(schema_fields, indent=4):
         )
 
     return ",\n".join([format_field(f, indent) for f in schema_fields])
+
 
 def create_bigquery_schemas(directory):
     """
@@ -249,7 +253,7 @@ def create_pydantic_models(directory) -> None:
         directory (str): Caminho do diretório de entrada.
     """
 
-    output_dir = os.path.join(ROOT_DIR, 'src', 'py_models') # constroe o caminho para o arquivo passado como argumento tendo como base o diretório raiz
+    output_dir = os.path.join(ROOT_DIR, 'src', 'py_models')  # constroe o caminho para o arquivo passado como argumento tendo como base o diretório raiz
 
     create_output_directory(output_dir)
 

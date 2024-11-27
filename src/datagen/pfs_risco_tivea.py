@@ -2,8 +2,7 @@ import random
 import re
 
 from faker import Faker
-
-from jsonl_convert import input_num_linhas,jsonl_data
+from jsonl_convert import input_num_linhas, jsonl_data
 
 faker = Faker('pt_BR')
 
@@ -371,6 +370,7 @@ def function_pfs_risco_tivea(num_records):
     jsonl_data(data=data)
 
     return data
+
 
 num_records = input_num_linhas()
 function_pfs_risco_tivea(num_records)

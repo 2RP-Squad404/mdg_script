@@ -1,10 +1,11 @@
 
-from faker import Faker
 import random
 
+from faker import Faker
 from jsonl_convert import input_num_linhas, jsonl_data
 
 faker = Faker('pt_BR')
+
 
 def function_di_dw_funcionarios(num_registros):
     dados = {'dw_funcionario': []}
@@ -30,8 +31,9 @@ def function_di_dw_funcionarios(num_registros):
         dados['dw_funcionario'].append(registro)
 
     jsonl_data(data=dados)
-    
+
     return dados
+
 
 num_records = input_num_linhas()
 function_di_dw_funcionarios(num_records)

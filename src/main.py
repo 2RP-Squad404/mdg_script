@@ -1,11 +1,14 @@
+import json
 import sys
 import time
 from pathlib import Path
-import json
 
 from config import PROJECT_ID, SECRET_NAME, logger
-from gemini_interface import generate_full_prompt, generate_functions_with_gemini
-from generate_models import create_pydantic_models,create_bigquery_schemas
+from gemini_interface import (
+    generate_full_prompt,
+    generate_functions_with_gemini,
+)
+from generate_models import create_bigquery_schemas, create_pydantic_models
 from utils import (
     create_tables,
     display_common_datasets,
@@ -15,10 +18,12 @@ from utils import (
 
 PERSISTENCE_FILE = "select_dataset.json"
 
+
 def save_persistent_data(data):
     """Save persistent data to a file."""
     with open(f'src/{PERSISTENCE_FILE}', "w") as f:
         json.dump(data, f)
+
 
 def load_persistent_data():
     """Load persistent data from a file."""
@@ -28,10 +33,11 @@ def load_persistent_data():
     except FileNotFoundError:
         return {}
 
+
 def cli_option():
-    
+
     persistent_data = load_persistent_data()
-    
+
     select_dataset_to_generate_functions = persistent_data.get("select_dataset_to_generate_functions")
 
     bq_schemas_path = Path(__file__).resolve().parent / 'bq_schemas'
@@ -46,9 +52,9 @@ def cli_option():
 
     input_user = input('Escolha uma opção: ')
 
-    if(input_user != '3'):
-        select_dataset = display_common_datasets(folder_path= str(bq_schemas_path))
-    
+    if (input_user != '3'):
+        select_dataset = display_common_datasets(folder_path=str(bq_schemas_path))
+
     match input_user:
         case '1':
             start_time = time.time()
@@ -61,13 +67,13 @@ def cli_option():
 
         case '2':
             generate_full_prompt(select_dataset)
-            select_dataset_to_generate_functions = select_dataset    
-            save_persistent_data({"select_dataset_to_generate_functions": select_dataset_to_generate_functions}) 
+            select_dataset_to_generate_functions = select_dataset
+            save_persistent_data({"select_dataset_to_generate_functions": select_dataset_to_generate_functions})
         case '3':
             with open('src/full_prompt_output.txt', 'r') as arquivo:
               full_prompt = arquivo.read()
 
-            if(select_dataset_to_generate_functions):
+            if (select_dataset_to_generate_functions):
                 logger.info(f'\033[32mDATASET: {select_dataset_to_generate_functions}\033[0m\n')
             else:
                 logger.info('\033[91mDATASET: None\033[0m\n')
@@ -79,7 +85,7 @@ def cli_option():
                 dataset=select_dataset_to_generate_functions,
                 full_prompt=full_prompt
             )
-            
+
             cli_option()
 
         case '4':
@@ -88,7 +94,7 @@ def cli_option():
             start_time = time.time()
             run_command(f'python datagen/{select_dataset}.py')
             end_time = time.time()
-            
+
             process_time = end_time - start_time
             logger.info(f"\033[32mTempo de geração de dados: {process_time:.2f}segundos\033[0m\n")
             cli_option()
@@ -98,12 +104,12 @@ def cli_option():
             send_jsonl_to_bigquery(select_dataset)
             end_time = time.time()
 
-            process_time = end_time -start_time
+            process_time = end_time - start_time
             logger.info(f"\033[32mTempo de envio dos dados: {process_time:.2f}segundos\033[0m\n")
             cli_option()
-        
+
         case '6':
-            logger.info(f"\033[32mAplicação finalizada\033[0m\n")
+            logger.info("\033[32mAplicação finalizada\033[0m\n")
 
 
 def run_cli():
