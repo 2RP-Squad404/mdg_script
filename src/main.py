@@ -1,6 +1,7 @@
 import sys
 import time
 from pathlib import Path
+import json
 
 from config import PROJECT_ID, SECRET_NAME, logger
 from gemini_interface import generate_full_prompt, generate_functions_with_gemini
@@ -12,9 +13,28 @@ from utils import (
     send_jsonl_to_bigquery,
 )
 
+PERSISTENCE_FILE = "select_dataset.json"
+
+def save_persistent_data(data):
+    """Save persistent data to a file."""
+    with open(f'src/{PERSISTENCE_FILE}', "w") as f:
+        json.dump(data, f)
+
+def load_persistent_data():
+    """Load persistent data from a file."""
+    try:
+        with open(f'src/{PERSISTENCE_FILE}', "r") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {}
+
 def cli_option():
+    
+    persistent_data = load_persistent_data()
+    
+    select_dataset_to_generate_functions = persistent_data.get("select_dataset_to_generate_functions")
+
     bq_schemas_path = Path(__file__).resolve().parent / 'bq_schemas'
-    mock_data_path = Path(__file__).resolve().parent / 'mock_data'
 
     logger.info('Funções possiveis:')
     logger.info('1 - Criar tabelas por dataset no BigQuery')
@@ -26,9 +46,9 @@ def cli_option():
 
     input_user = input('Escolha uma opção: ')
 
-    select_dataset = display_common_datasets(folder_path= str(bq_schemas_path))
-    logger.debug(select_dataset)
-
+    if(input_user != '3'):
+        select_dataset = display_common_datasets(folder_path= str(bq_schemas_path))
+    
     match input_user:
         case '1':
             start_time = time.time()
@@ -40,31 +60,25 @@ def cli_option():
             cli_option()
 
         case '2':
-            generate_full_prompt(select_dataset)     
+            generate_full_prompt(select_dataset)
+            select_dataset_to_generate_functions = select_dataset    
+            save_persistent_data({"select_dataset_to_generate_functions": select_dataset_to_generate_functions}) 
         case '3':
             with open('src/full_prompt_output.txt', 'r') as arquivo:
               full_prompt = arquivo.read()
 
-            if(select_dataset):
-                logger.info(f'\033[32mDATASET: {select_dataset}\033[0m\n')
+            if(select_dataset_to_generate_functions):
+                logger.info(f'\033[32mDATASET: {select_dataset_to_generate_functions}\033[0m\n')
             else:
                 logger.info('\033[91mDATASET: None\033[0m\n')
+                return
 
-            return
-
-            start_time = time.time()
             generate_functions_with_gemini(
                 project_id=PROJECT_ID,
                 model_name='gemini-1.5-flash-002',
-                dataset=select_dataset,
+                dataset=select_dataset_to_generate_functions,
                 full_prompt=full_prompt
             )
-            end_time = time.time
-
-            process_time = end_time - start_time
-            logger.info(f"\033[32mTempo de criação de funções Faker: {process_time:.2}segundos\033[0m\n")
-            cli_option()
-            
 
         case '4':
             logger.info("Escreve o número de linhas")
