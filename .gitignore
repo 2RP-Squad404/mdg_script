@@ -33,6 +33,7 @@ secrets
 mock_data
 .vscode 
 full_prompt_output.txt
+select_dataset.json
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
