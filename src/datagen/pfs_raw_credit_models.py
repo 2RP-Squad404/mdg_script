@@ -1,8 +1,8 @@
+
 from faker import Faker
-from datetime import datetime, date
-from pydantic import BaseModel
 
 faker = Faker('pt_BR')
+
 
 def gerar_dados_adesoes_pfin(num_registros):
     dados = {}

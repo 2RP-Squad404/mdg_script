@@ -16,7 +16,7 @@ from auth import get_bigquery_client, secretmanager
 from config import PROJECT_ID, ROOT_DIR, logger
 
 
-def jsonl_to_bigquery(filename, table_id, dataset_id,client):
+def jsonl_to_bigquery(filename, table_id, dataset_id, client):
     """
     Carrega dados de um arquivo JSONL para o BigQuery.
 
@@ -42,6 +42,7 @@ def jsonl_to_bigquery(filename, table_id, dataset_id,client):
         )
 
     load_job.result()
+
 
 def create_tables(dataset):
     """
@@ -72,7 +73,7 @@ def create_tables(dataset):
 
                 if schema_module:
                     dataset_id = f"{PROJECT_ID}.{dataset_name}"
-                    
+
                     for table_name, schema in schema_module.__dict__.items():
                         if isinstance(schema, list):
                             table_id = f"{dataset_id}.{table_name}"
@@ -126,6 +127,7 @@ def load_py_schema(schema_dir, schema_file):
         spec.loader.exec_module(module)
         return module
     return None
+
 
 def update_table_descriptions_from_schemas(schema_directory):
     """
@@ -453,6 +455,7 @@ def commom_tables(dataset_file):
 
         run_gemini(PROJECT_ID, model_name="gemini-1.5-flash-002", dataset=dataset_file)
 
+
 def send_jsonl_to_bigquery(select_dataset):
     """
     Envia o arquivo JSONL para o BigQuery.
@@ -465,7 +468,7 @@ def send_jsonl_to_bigquery(select_dataset):
     if not os.path.isdir(dataset_directory):
         logger.error(f"\033[91mO diretório {dataset_directory} não existe.\033[0m")
         return
-    
+
     client = bigquery.Client()
 
     for filename in os.listdir(dataset_directory):
@@ -513,7 +516,6 @@ def read_specific_file(file_name: str):
         return ""
 
 
-
 def load_models_and_examples(dataset: str, prompt) -> str:
     """
     Carrega modelos e exemplos para o dataset especificado.
@@ -555,7 +557,6 @@ def load_models_and_examples(dataset: str, prompt) -> str:
 
     except FileNotFoundError as error:
           logger.error(f"\033[91mErro ao carregar os arquivos: {error}\033[0m")
-          
 
 
 def save_code_from_gemini(dataset: str, content: str):

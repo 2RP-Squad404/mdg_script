@@ -1,10 +1,10 @@
-from faker import Faker
-from datetime import datetime
 import random
 
+from faker import Faker
 from jsonl_convert import input_num_linhas, jsonl_data
 
 faker = Faker('pt_BR')
+
 
 def function_pfs_pfin_raw_dw(num_registros_dim_locais, num_registros_dw_funcionarios):
     dados = {'dim_locais': [], 'dw_funcionario': []}
@@ -96,7 +96,7 @@ def function_pfs_pfin_raw_dw(num_registros_dim_locais, num_registros_dw_funciona
             'sk_funcionario': faker.random_int(),
             'num_chapa_so': faker.random_int(),
             'nom_funcionario': faker.name(),
-            'sk_local': random.choice([x['sk_local'] for x in dados['Dim_locais']]), # Seleciona um sk_local existente
+            'sk_local': random.choice([x['sk_local'] for x in dados['Dim_locais']]),  # Seleciona um sk_local existente
             'sk_cargo': faker.random_int(),
             'dat_dia_admissao': faker.date_between(start_date='-10y', end_date='today').strftime('%Y-%m-%d %H:%M:%S'),
             'dat_dia_demissao': faker.date_between(start_date='today', end_date='+1y').strftime('%Y-%m-%d %H:%M:%S') if random.random() < 0.2 else None,
@@ -115,6 +115,7 @@ def function_pfs_pfin_raw_dw(num_registros_dim_locais, num_registros_dw_funciona
     jsonl_data(data=dados)
 
     return dados
+
 
 num_records = input_num_linhas()
 function_pfs_pfin_raw_dw(num_records)

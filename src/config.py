@@ -39,6 +39,5 @@ settings = Settings()
 PROJECT_ID = settings.project_id
 SECRET_NAME = settings.secret_name
 
-#retorna a o diretório raiz onde tá sendo executado a aplicação
+# retorna a o diretório raiz onde tá sendo executado a aplicação
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-

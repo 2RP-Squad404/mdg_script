@@ -87,7 +87,7 @@ def generate_full_prompt(dataset) -> None:
   with open('src/full_prompt_output.txt', 'w', encoding='utf-8') as file:
     file.write(full_prompt)
 
-  logger.info('\033[32mPrompt gerado com sucesso!\033[0m')  
+  logger.info('\033[32mPrompt gerado com sucesso!\033[0m')
 
 
 def generate_functions_with_gemini(project_id, model_name, dataset, full_prompt):
@@ -103,7 +103,7 @@ def generate_functions_with_gemini(project_id, model_name, dataset, full_prompt)
     """
     aiplatform.init(project=project_id, credentials=credentials)
     return GenerativeModel(model_name)
-  
+
   gemini_model = init_gemini(project_id, credentials, model_name)
 
   def generate_code(model, prompt: str):
@@ -116,7 +116,7 @@ def generate_functions_with_gemini(project_id, model_name, dataset, full_prompt)
     """
     response = model.generate_content(prompt)
     return response.text
-    
+
   code = generate_code(
       gemini_model, full_prompt
   )
