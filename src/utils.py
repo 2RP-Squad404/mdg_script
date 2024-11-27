@@ -480,6 +480,40 @@ def send_jsonl_to_bigquery(select_dataset):
             except Exception as e:
                 logger.error(f"\033[91mErro ao enviar o arquivo {filename} para o BigQuery: {e}\033[0m")
 
+
+def read_specific_file(file_name: str):
+    """
+    Lê o conteúdo de um arquivo específico com base no nome fornecido.
+
+    Parâmetros:
+        file_name (str): O nome do arquivo a ser lido.
+
+    Retorno:
+        str: Conteúdo do arquivo especificado.
+    """
+    try:
+        # Define o diretório onde os arquivos estão localizados
+        models_dir = os.path.join(ROOT_DIR, 'src', 'py_models')
+
+        # Gera o caminho completo para o arquivo
+        file_path = os.path.join(models_dir, file_name)
+
+        # Verifica se o arquivo existe
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"O arquivo {file_name} não foi encontrado no diretório {models_dir}.")
+
+        # Lê o conteúdo do arquivo
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        return content
+
+    except FileNotFoundError as error:
+        logger.error(f"Erro ao tentar abrir o arquivo: {error}")
+        return ""
+
+
+
 def load_models_and_examples(dataset: str, prompt) -> str:
     """
     Carrega modelos e exemplos para o dataset especificado.
@@ -493,18 +527,7 @@ def load_models_and_examples(dataset: str, prompt) -> str:
     """
 
     try:
-      models_dir = os.path.join(ROOT_DIR, 'src', 'py_models')
-
-      models_code = []
-
-      for filename in os.listdir(models_dir):
-        if filename.endswith('.py'):
-            with open(
-                os.path.join(models_dir, filename), 'r', encoding='utf-8'
-            ) as f:
-                models_code.append(f.read())
-
-      models_code_str = '\n\n'.join(models_code)
+      models_code_str = read_specific_file(f'{dataset}_models.py')
 
       json_files_pattern = f'src/secrets/{dataset}/*.json'
 
