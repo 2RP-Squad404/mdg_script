@@ -91,7 +91,6 @@ def function_pfs_pfin_raw_dw(num_registros_dim_locais, num_registros_dw_funciona
         }
         dados['dim_locais'].append(registro_dim_locais)
 
-    for _ in range(num_registros_dw_funcionarios):
         registro_dw_funcionarios = {
             'sk_funcionario': faker.random_int(),
             'num_chapa_so': faker.random_int(),
