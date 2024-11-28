@@ -10,6 +10,7 @@ from gemini_interface import (
 )
 from generate_models import create_bigquery_schemas, create_pydantic_models
 from utils import (
+    create_directory,
     create_tables,
     display_common_datasets,
     run_command,
@@ -41,6 +42,7 @@ def cli_option():
     select_dataset_to_generate_functions = persistent_data.get("select_dataset_to_generate_functions")
 
     bq_schemas_path = Path(__file__).resolve().parent / 'bq_schemas'
+    mock_data_path = Path(__file__).resolve().parent / 'mock_data'
 
     logger.info('Funções possiveis:')
     logger.info('1 - Criar tabelas por dataset no BigQuery')
@@ -94,6 +96,7 @@ def cli_option():
             logger.info("Escreve o número de linhas")
 
             start_time = time.time()
+            create_directory(mock_data_path,select_dataset)
             run_command(f'python src/datagen/{select_dataset}.py')
             end_time = time.time()
 
