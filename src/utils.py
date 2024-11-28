@@ -581,3 +581,9 @@ def save_code_from_gemini(dataset: str, content: str):
         file.write(content)
 
     return True
+
+def create_directory(mock_data_path,dataset):
+    pathdir = os.path.join(mock_data_path,dataset)
+    if not os.path.exists(pathdir):
+        os.makedirs(pathdir)
+        return True
