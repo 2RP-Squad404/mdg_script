@@ -3,7 +3,6 @@ from jsonl_convert import input_num_linhas, jsonl_data
 
 faker = Faker('pt_BR')
 
-
 def function_base_operacional(num_records):
 
     data = {'conta_cartao_cliente': [], 'emprestimo_pessoal_processado': [], 'fatura_fechada': [], 'faturamento_conta_digital': [], 'limite_disponibilidade_pos_mensal': [], 'pagamento_consolidado': []}
