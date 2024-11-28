@@ -1,7 +1,10 @@
 import json
 import os
-
+from google.cloud.bigquery import SchemaField
 from config import ROOT_DIR, logger
+import google.cloud.bigquery as bigquery
+
+ROOT_DIR = os.getcwd()
 
 TYPE_MAPPING = {
     'STRING': 'str',
@@ -17,21 +20,9 @@ TYPE_MAPPING = {
     'JSON': 'dict',
 }
 
-
 def create_output_directory(output_dir):
-    """
-    Cria o diretório de saída e garante a presença do arquivo __init__.py.
-
-    Parâmetros:
-        output_dir (str): Caminho do diretório de saída.
-    """
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-
-    init_file = os.path.join(output_dir, '__init__.py')
-    if not os.path.exists(init_file):
-        with open(init_file, 'w') as init_f:
-            init_f.write(f'# Auto-generated init file for {output_dir}')
 
 
 def generate_bigquery_class(table_name, schema, existing_schema=None):
@@ -46,51 +37,87 @@ def generate_bigquery_class(table_name, schema, existing_schema=None):
     Retorno:
         str: Definição da classe em formato de string.
     """
-
     def process_field(field, indent=4):
         """
-        Processa um campo do schema, incluindo subcampos no caso de RECORD.
+        Processa um campo do schema para gerar código BigQuery SchemaField.
         """
-        field_type = field['type']
-        description = field.get('description', '')
-        description_str = f", description='{description}'" if description else ""
+        if isinstance(field, dict):
+            field_name = field.get('name')
+            field_type = field.get('type', 'STRING')
+            field_mode = field.get('mode', 'NULLABLE')
+            field_description = field.get('description', '')
+            subfields = field.get('fields', [])
+        elif isinstance(field, SchemaField):
+            field_name = field.name
+            field_type = field.field_type
+            field_mode = field.mode
+            field_description = field.description or ''
+            subfields = getattr(field, 'fields', [])
+        else:
+            raise TypeError(f"Tipo de campo inesperado: {type(field)}")
+
+        description_str = f", description='{field_description}'" if field_description else ""
         current_indent = ' ' * indent
 
-        if field_type == 'RECORD' and 'fields' in field:
-            # Processa subcampos de RECORD
-            subfields = ",\n".join(
-                [process_field(subfield, indent=indent + 4) for subfield in field['fields']]
+        if field_type == 'RECORD' and subfields:
+            subfields_code = ",\n".join(
+                [process_field(subfield, indent=indent + 4) for subfield in subfields]
             )
             return (
-                f"{current_indent}bigquery.SchemaField(\n"
-                f"{current_indent}    '{field['name']}', 'RECORD', '{field.get('mode', 'NULLABLE')}'{description_str},\n"
-                f"{current_indent}    fields=[\n{subfields}\n{current_indent}    ]\n"
+                f"{current_indent}bigquery.SchemaField("
+                f"'{field_name}', 'RECORD', '{field_mode}'{description_str},\n"
+                f"{current_indent}fields=[\n{subfields_code}\n{current_indent}    ]\n"
                 f"{current_indent})"
             )
         else:
-            # Processa campos normais
             return (
                 f"{current_indent}bigquery.SchemaField("
-                f"'{field['name']}', '{field_type}', '{field.get('mode', 'NULLABLE')}'{description_str})"
+                f"'{field_name}', '{field_type}', '{field_mode}'{description_str})"
             )
 
-    # Mapeia campos existentes (se houver) para reutilizar descrições
     existing_field_names = (
         {field.name: field.description for field in existing_schema}
         if existing_schema
         else {}
     )
 
-    # Constrói a definição da classe
-    class_definition = f"{table_name} = [\n"
+    unique_fields = set()
+
+    class_definition = "from google.cloud import bigquery\n\n"
+    class_definition += f"{table_name} = [\n"
+
     for field in schema:
-        field_description = field.get(
-            'description', existing_field_names.get(field['name'], '')
-        )
-        field['description'] = field_description  # Atualiza a descrição, se disponível
-        class_definition += f"{process_field(field)},\n"
+        if isinstance(field, dict):
+            field['description'] = field.get('description') or existing_field_names.get(field.get('name', ''), '')
+
+        field_name = field.get('name') if isinstance(field, dict) else field.name
+        if field_name not in unique_fields:
+            unique_fields.add(field_name)
+            class_definition += f"{process_field(field)},\n"
+
     class_definition += "]\n"
     return class_definition
+
+def validate_json_file(file_path):
+    """
+    Valida se um arquivo contém JSON válido e tem a estrutura esperada.
+
+    Parâmetros:
+        file_path (str): Caminho do arquivo.
+
+    Retorno:
+        bool: True se válido e contém a chave 'table', False caso contrário.
+    """
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        if 'table' not in data:
+            logger.error(f"Chave 'table' ausente no arquivo: {file_path}")
+            return False
+        return True
+    except json.JSONDecodeError as e:
+        logger.error(f"Erro no JSON {file_path}: {e}")
+        return False
 
 
 def process_bigquery_folder(folder_path, folder_name, output_dir):
@@ -108,45 +135,38 @@ def process_bigquery_folder(folder_path, folder_name, output_dir):
     output_file_name = f"{folder_name}.py"
     output_file_path = os.path.join(output_dir, output_file_name)
 
-    # Carrega schemas existentes, se o arquivo de saída já existe
     if os.path.exists(output_file_path):
         with open(output_file_path, 'r', encoding='utf-8') as output_file:
             content = output_file.read()
             temp_namespace = {}
-            exec(content, {}, temp_namespace)
+            exec(content, {'bigquery': bigquery}, temp_namespace)
             for key, value in temp_namespace.items():
-                if isinstance(value, list):  # Apenas schemas válidos
+                if isinstance(value, list):
                     existing_schemas[key] = value
 
+    for json_file in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, json_file)
+        if validate_json_file(file_path):
+            with open(file_path, 'r', encoding='utf-8') as f:
+                schema = json.load(f)
+                schemas.append(schema)
 
-def format_schema(schema_fields, indent=4):
-    """
-    Formata os campos do schema para preservar subcampos de RECORD e garantir boa formatação.
+    for schema in schemas:
+        table_name = schema.get('table')
+        if not table_name:
+            logger.error(f"JSON inválido. A chave 'table' está ausente no arquivo: {schema}")
+            continue
 
-    Parâmetros:
-        schema_fields (list): Lista de campos do schema.
-        indent (int): Nível de indentação.
+        if table_name in existing_schemas:
+            existing_fields = {field.name for field in existing_schemas[table_name]}
+            schema['schema'] = [field for field in schema['schema'] if field['name'] not in existing_fields]
+            existing_schemas[table_name].extend(schema['schema'])
+        else:
+            existing_schemas[table_name] = schema['schema']
 
-    Retorno:
-        str: Campos formatados como string.
-    """
-    def format_field(field, current_indent):
-        if field.field_type == 'RECORD':
-            subfields = format_schema(field.fields, indent=current_indent + 4)
-            return (
-                f"{' ' * current_indent}bigquery.SchemaField(\n"
-                f"{' ' * (current_indent + 4)}'{field.name}', 'RECORD', '{field.mode}',\n"
-                f"{' ' * (current_indent + 4)}description='{field.description}',\n"
-                f"{' ' * (current_indent + 4)}fields=[\n{subfields}\n{' ' * (current_indent + 4)}]\n"
-                f"{' ' * current_indent})"
-            )
-        return (
-            f"{' ' * current_indent}bigquery.SchemaField("
-            f"'{field.name}', '{field.field_type}', '{field.mode}', "
-            f"description='{field.description}')"
-        )
-
-    return ",\n".join([format_field(f, indent) for f in schema_fields])
+    with open(output_file_path, 'w', encoding='utf-8') as output_file:
+        for table_name, schema in existing_schemas.items():
+            output_file.write(generate_bigquery_class(table_name, schema))
 
 
 def create_bigquery_schemas(directory):
@@ -156,7 +176,6 @@ def create_bigquery_schemas(directory):
     Parâmetros:
         directory (str): Caminho do diretório de entrada.
     """
-
     output_dir = os.path.join(ROOT_DIR, 'src', 'py_schemas')
 
     create_output_directory(output_dir)
@@ -168,6 +187,46 @@ def create_bigquery_schemas(directory):
 
     logger.info('BigQuery Schemas criados com sucesso!')
 
+
+def create_class_code_pydantic(schema: dict) -> str:
+    """
+    Gera código de classe Pydantic a partir de um schema.
+
+    Parâmetros:
+        schema (dict): Dicionário contendo nome da tabela e schema.
+
+    Retorno:
+        str: Código da classe Pydantic como string.
+    """
+
+    def process_field(field):
+        if field['type'] == 'RECORD' and 'fields' in field:
+            class_name = field['name'].capitalize()
+            nested_class = f'class {class_name}(BaseModel):\n'
+            for subfield in field['fields']:
+                subfield_type = TYPE_MAPPING.get(subfield['type'], 'Any')
+                nested_class += f"    {subfield['name']}: {subfield_type}\n"
+
+            return nested_class, f"{field['name']}: '{class_name}'"
+        else:
+            field_type = TYPE_MAPPING.get(field['type'], 'Any')
+            return '', f"{field['name']}: {field_type}"
+
+    class_name = schema['table'].capitalize()
+    class_code = f'class {class_name}(BaseModel):\n'
+    nested_classes = []
+
+    for field in schema['schema']:
+        nested_class, field_declaration = process_field(field)
+        if nested_class:
+            nested_classes.append(nested_class)
+        class_code += f'    {field_declaration}\n'
+
+    if nested_classes:
+        class_code += '\n\n' + '\n\n'.join(nested_classes)
+
+    class_code += '\n\n'
+    return class_code
 
 def create_class_code_pydantic(schema: dict) -> str:
     """
