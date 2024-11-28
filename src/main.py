@@ -94,7 +94,7 @@ def cli_option():
             logger.info("Escreve o número de linhas")
 
             start_time = time.time()
-            run_command(f'python datagen/{select_dataset}.py')
+            run_command(f'python src/datagen/{select_dataset}.py')
             end_time = time.time()
 
             process_time = end_time - start_time
