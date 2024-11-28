@@ -1,6 +1,5 @@
 from google.cloud import bigquery
 
-# Dataset: di_dw_incremental, Table: dw_funcionario
 dw_funcionario = [
     bigquery.SchemaField('sk_funcionario', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('num_chapa_so', 'INTEGER', 'NULLABLE', description='None'),
@@ -17,5 +16,5 @@ dw_funcionario = [
     bigquery.SchemaField('dat_exc_dw', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('sk_situacao_funcionario', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('num_cpf', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_rg', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_rg', 'STRING', 'NULLABLE', description='None'),
 ]

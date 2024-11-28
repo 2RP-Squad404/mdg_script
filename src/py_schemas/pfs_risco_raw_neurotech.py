@@ -1,6 +1,5 @@
 from google.cloud import bigquery
 
-# Dataset: pfs_risco_raw_neurotech, Table: proposta
 proposta = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -16,10 +15,10 @@ proposta = [
     bigquery.SchemaField('tempo_execucao_msec', 'FLOAT', 'NULLABLE', description='Tempo de execução em milissegundos.'),
     bigquery.SchemaField('instantefim', 'TIMESTAMP', 'NULLABLE', description='Data e hora do fim da avaliação.'),
     bigquery.SchemaField('instanceinicio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do início da avaliação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_raw_neurotech, Table: proposta_consultas
 proposta_consultas = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -36,10 +35,10 @@ proposta_consultas = [
     bigquery.SchemaField('dhinicio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do início da consulta.'),
     bigquery.SchemaField('descricao', 'STRING', 'NULLABLE', description='Descrição da consulta.'),
     bigquery.SchemaField('instante_data', 'TIMESTAMP', 'NULLABLE', description='Data e hora do registro.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_raw_neurotech, Table: proposta_detalhe
 proposta_detalhe = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -52,5 +51,5 @@ proposta_detalhe = [
     bigquery.SchemaField('fluxo_regras', 'JSON', 'NULLABLE', description='Fluxo de regras em formato JSON.'),
     bigquery.SchemaField('banco', 'JSON', 'NULLABLE', description='Dados do banco em formato JSON.'),
     bigquery.SchemaField('instante_data', 'TIMESTAMP', 'NULLABLE', description='Data e hora do registro.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]

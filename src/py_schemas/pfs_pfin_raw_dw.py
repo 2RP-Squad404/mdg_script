@@ -1,6 +1,5 @@
 from google.cloud import bigquery
 
-# Dataset: pfs_pfin_raw_dw, Table: dim_locais
 dim_locais = [
     bigquery.SchemaField('sk_local', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_estabelecimento', 'INTEGER', 'NULLABLE', description='None'),
@@ -78,10 +77,10 @@ dim_locais = [
     bigquery.SchemaField('num_inscricao_municipal', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('num_latitude', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('num_longitude', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('sk_ger_geral_venda', 'INTEGER', 'NULLABLE', description='None')
+    bigquery.SchemaField('sk_ger_geral_venda', 'INTEGER', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_raw_dw, Table: dw_funcionario
 dw_funcionario = [
     bigquery.SchemaField('sk_funcionario', 'INTEGER', 'NULLABLE', description='Chave Surrogate do funcionário'),
     bigquery.SchemaField('num_chapa_so', 'INTEGER', 'NULLABLE', description='Número da chapa do funcionário'),
@@ -98,5 +97,5 @@ dw_funcionario = [
     bigquery.SchemaField('dat_exc_dw', 'TIMESTAMP', 'NULLABLE', description='Data de excecução no Data Warehouse'),
     bigquery.SchemaField('sk_situacao_funcionario', 'INTEGER', 'NULLABLE', description='Chave Surrogate da situação do funcionário'),
     bigquery.SchemaField('num_cpf', 'STRING', 'NULLABLE', description='Número do CPF do funcionário'),
-    bigquery.SchemaField('num_rg', 'STRING', 'NULLABLE', description='Número do RG do funcionário')
+    bigquery.SchemaField('num_rg', 'STRING', 'NULLABLE', description='Número do RG do funcionário'),
 ]

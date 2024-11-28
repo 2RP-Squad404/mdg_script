@@ -1,6 +1,5 @@
 from google.cloud import bigquery
 
-# Dataset: pfs_raw_unicom, Table: funcionarios
 funcionarios = [
     bigquery.SchemaField('num_chapa', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('func_type', 'STRING', 'NULLABLE', description='None'),
@@ -23,5 +22,5 @@ funcionarios = [
     bigquery.SchemaField('email', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('flg_ponto', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('flg_acesso', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('cod_uniorg', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('cod_uniorg', 'STRING', 'NULLABLE', description='None'),
 ]

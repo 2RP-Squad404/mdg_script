@@ -1,6 +1,5 @@
 from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: ajustes_interfaces_remuneracao
 ajustes_interfaces_remuneracao = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_indicador_original', 'TIMESTAMP', 'NULLABLE', description='None'),
@@ -29,10 +28,10 @@ ajustes_interfaces_remuneracao = [
     bigquery.SchemaField('nm_processo', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('num_anomes_indicador_atual', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_incl_registro', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: ativacao_credito
 ativacao_credito = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'STRING', 'NULLABLE', description='None'),
@@ -78,10 +77,10 @@ ativacao_credito = [
     bigquery.SchemaField('nm_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('obs_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: ativacao_credito_dock_onefpay
 ativacao_credito_dock_onefpay = [
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
@@ -125,10 +124,10 @@ ativacao_credito_dock_onefpay = [
     bigquery.SchemaField('nm_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('obs_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: ativacao_debito
 ativacao_debito = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'STRING', 'NULLABLE', description='None'),
@@ -171,10 +170,10 @@ ativacao_debito = [
     bigquery.SchemaField('des_cargo_vendedor', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('flg_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: ativacao_veloe
 ativacao_veloe = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'STRING', 'NULLABLE', description='None'),
@@ -217,10 +216,10 @@ ativacao_veloe = [
     bigquery.SchemaField('des_cargo_vendedor', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('flg_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: base_termometro_cancelamento
 base_termometro_cancelamento = [
     bigquery.SchemaField('dth_cancelamento', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('dth_adesao_cancel', 'TIMESTAMP', 'NULLABLE', description='None'),
@@ -238,10 +237,10 @@ base_termometro_cancelamento = [
     bigquery.SchemaField('val_cancelamento', 'FLOAT', 'NULLABLE', description='None'),
     bigquery.SchemaField('solicitacao', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('inadimplencia', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('anomes_cancelamento', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('anomes_cancelamento', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: base_termometro_carteira
 base_termometro_carteira = [
     bigquery.SchemaField('dth_carteira', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('dth_adesao', 'TIMESTAMP', 'NULLABLE', description='None'),
@@ -260,19 +259,19 @@ base_termometro_carteira = [
     bigquery.SchemaField('tempo_casa', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('status_funcionario', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('qtde_carteira', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('anomes', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('anomes', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: campanha_ctadig_50k
 campanha_ctadig_50k = [
     bigquery.SchemaField('id_cliente', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('num_cpf', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('nom_cliente', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_campanha', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='None')
+    bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: captacao_credito
 captacao_credito = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'STRING', 'NULLABLE', description='None'),
@@ -319,10 +318,10 @@ captacao_credito = [
     bigquery.SchemaField('nm_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('obs_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: captacao_veloe
 captacao_veloe = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'STRING', 'NULLABLE', description='None'),
@@ -365,10 +364,10 @@ captacao_veloe = [
     bigquery.SchemaField('des_cargo_vendedor', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('flg_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: emprestimo_fgts_inss
 emprestimo_fgts_inss = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'STRING', 'NULLABLE', description='None'),
@@ -413,10 +412,10 @@ emprestimo_fgts_inss = [
     bigquery.SchemaField('nm_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('obs_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: etl_transacao_adesao_multiplo
 etl_transacao_adesao_multiplo = [
     bigquery.SchemaField('dat_transacao', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_eventotransacao', 'STRING', 'NULLABLE', description='None'),
@@ -438,10 +437,10 @@ etl_transacao_adesao_multiplo = [
     bigquery.SchemaField('num_chapa_vendedor', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_ult_atu', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('des_canal', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('qtde_parcelas', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('qtde_parcelas', 'STRING', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: etl_transacao_ativacao_debito
 etl_transacao_ativacao_debito = [
     bigquery.SchemaField('dat_transacao', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_eventotransacao', 'STRING', 'NULLABLE', description='None'),
@@ -463,10 +462,10 @@ etl_transacao_ativacao_debito = [
     bigquery.SchemaField('num_chapa_vendedor', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_ult_atu', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('des_canal', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('qtde_parcelas', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('qtde_parcelas', 'STRING', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: etl_transacao_pfin_ind_cartao
 etl_transacao_pfin_ind_cartao = [
     bigquery.SchemaField('dat_transacao', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_eventotransacao', 'STRING', 'NULLABLE', description='None'),
@@ -494,10 +493,10 @@ etl_transacao_pfin_ind_cartao = [
     bigquery.SchemaField('nm_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('nm_indicador_frontend', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_incl_reg', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_incl_reg', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: etl_trans_adesao_flex_multiplo
 etl_trans_adesao_flex_multiplo = [
     bigquery.SchemaField('dat_transacao', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_eventotransacao', 'STRING', 'NULLABLE', description='None'),
@@ -519,10 +518,10 @@ etl_trans_adesao_flex_multiplo = [
     bigquery.SchemaField('num_chapa_vendedor', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_ult_atu', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('des_canal', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('qtde_parcelas', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('qtde_parcelas', 'STRING', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: etl_trans_adesao_passa_rapido_veloe
 etl_trans_adesao_passa_rapido_veloe = [
     bigquery.SchemaField('dat_transacao', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_eventotransacao', 'STRING', 'NULLABLE', description='None'),
@@ -544,10 +543,10 @@ etl_trans_adesao_passa_rapido_veloe = [
     bigquery.SchemaField('num_chapa_vendedor', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_ult_atu', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('des_canal', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('qtde_parcelas', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('qtde_parcelas', 'STRING', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: etl_trans_ativacao_passa_rapido_veloe
 etl_trans_ativacao_passa_rapido_veloe = [
     bigquery.SchemaField('dat_transacao', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_eventotransacao', 'STRING', 'NULLABLE', description='None'),
@@ -569,10 +568,10 @@ etl_trans_ativacao_passa_rapido_veloe = [
     bigquery.SchemaField('num_chapa_vendedor', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_ult_atu', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('des_canal', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('qtde_parcelas', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('qtde_parcelas', 'STRING', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: etl_trans_grade_multiplo
 etl_trans_grade_multiplo = [
     bigquery.SchemaField('dat_transacao', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_eventotransacao', 'STRING', 'NULLABLE', description='None'),
@@ -594,10 +593,10 @@ etl_trans_grade_multiplo = [
     bigquery.SchemaField('num_chapa_vendedor', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_ult_atu', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('des_canal', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('qtde_parcelas', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('qtde_parcelas', 'STRING', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: export_interfaces_produtividade_loja
 export_interfaces_produtividade_loja = [
     bigquery.SchemaField('cod_interface', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='None'),
@@ -618,10 +617,10 @@ export_interfaces_produtividade_loja = [
     bigquery.SchemaField('dat_processamento', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('nm_processo', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_incl_reg', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_incl_reg', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: export_interfaces_remuneracao
 export_interfaces_remuneracao = [
     bigquery.SchemaField('cod_interface', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_referencia', 'TIMESTAMP', 'NULLABLE', description='None'),
@@ -638,10 +637,10 @@ export_interfaces_remuneracao = [
     bigquery.SchemaField('num_tot_parcela', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('nm_processo', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_incl_reg', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_incl_reg', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: flex_multiplo
 flex_multiplo = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'STRING', 'NULLABLE', description='None'),
@@ -684,10 +683,10 @@ flex_multiplo = [
     bigquery.SchemaField('des_cargo_vendedor', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('flg_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: grade_multiplo
 grade_multiplo = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'STRING', 'NULLABLE', description='None'),
@@ -734,48 +733,24 @@ grade_multiplo = [
     bigquery.SchemaField('nm_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('obs_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: middleware_incremental_v2_propostas_adesao_app
 middleware_incremental_v2_propostas_adesao_app = [
-    bigquery.SchemaField(
-        'request', 'RECORD', 'NULLABLE',
-        description='None',
-        fields=[
-
-        ]
-    ),
-    bigquery.SchemaField(
-        'response', 'RECORD', 'NULLABLE',
-        description='None',
-        fields=[
-
-        ]
-    ),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('request', 'RECORD', 'NULLABLE', description='None'),
+    bigquery.SchemaField('response', 'RECORD', 'NULLABLE', description='None'),
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: middleware_incremental_v2_propostas_adesao_tablet
 middleware_incremental_v2_propostas_adesao_tablet = [
-    bigquery.SchemaField(
-        'request', 'RECORD', 'NULLABLE',
-        description='None',
-        fields=[
-
-        ]
-    ),
-    bigquery.SchemaField(
-        'response', 'RECORD', 'NULLABLE',
-        description='None',
-        fields=[
-
-        ]
-    ),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('request', 'RECORD', 'NULLABLE', description='None'),
+    bigquery.SchemaField('response', 'RECORD', 'NULLABLE', description='None'),
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: parametros
 parametros = [
     bigquery.SchemaField('nm_termometro', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('nm_empresa', 'STRING', 'NULLABLE', description='None'),
@@ -802,10 +777,10 @@ parametros = [
     bigquery.SchemaField('dt_inicio_vigencia_regra', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('dt_fim_vigencia_regra', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('dt_inclusao_registro', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_ini_vigencia', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_ini_vigencia', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: parametros_bckp
 parametros_bckp = [
     bigquery.SchemaField('nm_termometro', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('nm_empresa', 'STRING', 'NULLABLE', description='None'),
@@ -832,10 +807,10 @@ parametros_bckp = [
     bigquery.SchemaField('dt_inicio_vigencia_regra', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('dt_fim_vigencia_regra', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('dt_inclusao_registro', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_ini_vigencia', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_ini_vigencia', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: parametros_execucao
 parametros_execucao = [
     bigquery.SchemaField('nome_processo', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dia_corte', 'INTEGER', 'NULLABLE', description='None'),
@@ -843,10 +818,10 @@ parametros_execucao = [
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inicio_vigencia', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_fim_vigencia', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('observacao', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('observacao', 'STRING', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: parametros_execucao_bckp
 parametros_execucao_bckp = [
     bigquery.SchemaField('nome_processo', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dia_corte', 'INTEGER', 'NULLABLE', description='None'),
@@ -854,10 +829,10 @@ parametros_execucao_bckp = [
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inicio_vigencia', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_fim_vigencia', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('observacao', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('observacao', 'STRING', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: participacao_analitica
 participacao_analitica = [
     bigquery.SchemaField('dia_ano_mes_trs', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('hora_transacao', 'INTEGER', 'NULLABLE', description='None'),
@@ -920,10 +895,10 @@ participacao_analitica = [
     bigquery.SchemaField('meta_partic_loja_juros', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('real_pcj', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: participacao_indicadores
 participacao_indicadores = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'INTEGER', 'NULLABLE', description='None'),
@@ -948,10 +923,10 @@ participacao_indicadores = [
     bigquery.SchemaField('qtd_real_indicador', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_venda_ref', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: receita_pfin_parametros
 receita_pfin_parametros = [
     bigquery.SchemaField('data', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_produto', 'INTEGER', 'NULLABLE', description='None'),
@@ -968,10 +943,10 @@ receita_pfin_parametros = [
     bigquery.SchemaField('cod_variavel_real', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('tabela', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('ano_mes_particao', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('ano_mes_particao', 'STRING', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: receita_pfin_parametros_bkcp
 receita_pfin_parametros_bkcp = [
     bigquery.SchemaField('data', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_produto', 'INTEGER', 'NULLABLE', description='None'),
@@ -988,10 +963,10 @@ receita_pfin_parametros_bkcp = [
     bigquery.SchemaField('cod_variavel_real', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('tabela', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('ano_mes_particao', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('ano_mes_particao', 'STRING', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: remuneracao_ativacao_debito
 remuneracao_ativacao_debito = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'INTEGER', 'NULLABLE', description='None'),
@@ -1018,10 +993,10 @@ remuneracao_ativacao_debito = [
     bigquery.SchemaField('qtd_real_indicador', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_venda_ref', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: remuneracao_cartao
 remuneracao_cartao = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'INTEGER', 'NULLABLE', description='None'),
@@ -1071,10 +1046,10 @@ remuneracao_cartao = [
     bigquery.SchemaField('des_cargo_vendedor', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('flg_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inc_registro', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_remuneracao', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_remuneracao', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: remuneracao_emprestimo_fgts_inss
 remuneracao_emprestimo_fgts_inss = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'STRING', 'NULLABLE', description='None'),
@@ -1122,10 +1097,10 @@ remuneracao_emprestimo_fgts_inss = [
     bigquery.SchemaField('nm_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('obs_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: remuneracao_emprestimo_onidata
 remuneracao_emprestimo_onidata = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'STRING', 'NULLABLE', description='None'),
@@ -1173,10 +1148,10 @@ remuneracao_emprestimo_onidata = [
     bigquery.SchemaField('nm_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('obs_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: remuneracao_fracionada_ssa
 remuneracao_fracionada_ssa = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'INTEGER', 'NULLABLE', description='None'),
@@ -1240,10 +1215,10 @@ remuneracao_fracionada_ssa = [
     bigquery.SchemaField('nm_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('obs_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: remuneracao_pagto_grf
 remuneracao_pagto_grf = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'INTEGER', 'NULLABLE', description='None'),
@@ -1307,10 +1282,10 @@ remuneracao_pagto_grf = [
     bigquery.SchemaField('nm_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('obs_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: remuneracao_participacao_loja
 remuneracao_participacao_loja = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'INTEGER', 'NULLABLE', description='None'),
@@ -1335,10 +1310,10 @@ remuneracao_participacao_loja = [
     bigquery.SchemaField('qtd_real_indicador', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_venda_ref', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_pfin_termometro, Table: remuneracao_seguro_ssa
 remuneracao_seguro_ssa = [
     bigquery.SchemaField('dat_indicador', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_indicador', 'INTEGER', 'NULLABLE', description='None'),
@@ -1402,5 +1377,5 @@ remuneracao_seguro_ssa = [
     bigquery.SchemaField('nm_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('obs_regra_indicador', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_indicador', 'DATE', 'NULLABLE', description='None'),
 ]

@@ -1,6 +1,5 @@
 from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: adesao_debito_automatico
 adesao_debito_automatico = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -16,10 +15,10 @@ adesao_debito_automatico = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: adesao_pacote_tarifa
 adesao_pacote_tarifa = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -33,10 +32,10 @@ adesao_pacote_tarifa = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: autorizacao
 autorizacao = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -193,10 +192,10 @@ autorizacao = [
     bigquery.SchemaField('me_flagpreautorizacao', 'BOOLEAN', 'NULLABLE', description='Indicador de pré-autorização (true/false).'),
     bigquery.SchemaField('aut_taxaptax', 'FLOAT', 'NULLABLE', description='Taxa PTAX.'),
     bigquery.SchemaField('aut_taxacartao', 'FLOAT', 'NULLABLE', description='Taxa do cartão.'),
-    bigquery.SchemaField('aut_taxaiofinternacional', 'FLOAT', 'NULLABLE', description='Taxa IOF internacional.')
+    bigquery.SchemaField('aut_taxaiofinternacional', 'FLOAT', 'NULLABLE', description='Taxa IOF internacional.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: autorizacoes_detalhes
 autorizacoes_detalhes = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -218,10 +217,10 @@ autorizacoes_detalhes = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: boleto_emitido
 boleto_emitido = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -238,10 +237,10 @@ boleto_emitido = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: cartao
 cartao = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='None'),
@@ -360,10 +359,10 @@ cartao = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: cliente
 cliente = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -386,10 +385,10 @@ cliente = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: cliente_complemento
 cliente_complemento = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -602,10 +601,10 @@ cliente_complemento = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: compras_contestadas
 compras_contestadas = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -636,10 +635,10 @@ compras_contestadas = [
     bigquery.SchemaField('id_safe', 'INTEGER', 'NULLABLE', description='ID do SAFE.'),
     bigquery.SchemaField('audit_control_number', 'STRING', 'NULLABLE', description='Número de controle da auditoria.'),
     bigquery.SchemaField('dataenviocb', 'TIMESTAMP', 'NULLABLE', description='Data de envio do Chargeback.'),
-    bigquery.SchemaField('data2reapresentacao', 'TIMESTAMP', 'NULLABLE', description='Data da reapresentação.')
+    bigquery.SchemaField('data2reapresentacao', 'TIMESTAMP', 'NULLABLE', description='Data da reapresentação.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: conta
 conta = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -812,10 +811,10 @@ conta = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: controle_vencimento
 controle_vencimento = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -831,10 +830,10 @@ controle_vencimento = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: dado_bancario_conta
 dado_bancario_conta = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -848,10 +847,10 @@ dado_bancario_conta = [
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
     bigquery.SchemaField('db_id_tipocontabancaria', 'INTEGER', 'NULLABLE', description='ID do tipo de conta bancária.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: debito_recorrente
 debito_recorrente = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='None'),
@@ -924,10 +923,10 @@ debito_recorrente = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: estabelecimento
 estabelecimento = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -1014,10 +1013,10 @@ estabelecimento = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: estabelecimento_externo
 estabelecimento_externo = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -1026,10 +1025,10 @@ estabelecimento_externo = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: estado_conta
 estado_conta = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -1155,10 +1154,10 @@ estado_conta = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: evento_externo_ajuste
 evento_externo_ajuste = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -1194,10 +1193,10 @@ evento_externo_ajuste = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: evento_externo_compra_nao_processado
 evento_externo_compra_nao_processado = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -1296,10 +1295,10 @@ evento_externo_compra_nao_processado = [
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
     bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
     bigquery.SchemaField('een_transactionuuid', 'STRING', 'NULLABLE', description='UUID da transação.'),
-    bigquery.SchemaField('een_cotacao', 'FLOAT', 'NULLABLE', description='Cotação cambial.')
+    bigquery.SchemaField('een_cotacao', 'FLOAT', 'NULLABLE', description='Cotação cambial.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: evento_externo_compra_processado
 evento_externo_compra_processado = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -1405,10 +1404,10 @@ evento_externo_compra_processado = [
     bigquery.SchemaField('ee_cotacao', 'FLOAT', 'NULLABLE', description='Cotação cambial.'),
     bigquery.SchemaField('ee_flagtransacaotokenizada', 'BOOLEAN', 'NULLABLE', description='Transação tokenizada (true/false).'),
     bigquery.SchemaField('ee_datavencpadrao', 'STRING', 'NULLABLE', description='Data de vencimento padrão.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: evento_externo_pagamento
 evento_externo_pagamento = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -1461,10 +1460,10 @@ evento_externo_pagamento = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: fatura
 fatura = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -1597,10 +1596,10 @@ fatura = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: grade_produto
 GRADE_PRODUTO = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='None'),
@@ -1664,10 +1663,10 @@ GRADE_PRODUTO = [
     bigquery.SchemaField('gp_id_pessoafisica', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('gp_id_estabelecimento', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('gp_matricula', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: integracao_grade
 integracao_grade = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -1708,10 +1707,10 @@ integracao_grade = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: limite_disponibilidade
 limite_disponibilidade = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -1743,10 +1742,10 @@ limite_disponibilidade = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: limite_portador
 limite_portador = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -1759,10 +1758,10 @@ limite_portador = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: parcelamento_fatura
 parcelamento_fatura = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -1792,10 +1791,10 @@ parcelamento_fatura = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: produto
 produto = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -1869,10 +1868,10 @@ produto = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: proposta
 proposta = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='None'),
@@ -1966,10 +1965,10 @@ proposta = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: refinanciamento
 refinanciamento = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -1999,10 +1998,10 @@ refinanciamento = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: remuneracao_ativacao_conta
 remuneracao_ativacao_conta = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='None'),
@@ -2015,10 +2014,10 @@ remuneracao_ativacao_conta = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: seguro_adesao
 seguro_adesao = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='None'),
@@ -2105,10 +2104,10 @@ seguro_adesao = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: seguro_adesao_item
 seguro_adesao_item = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -2125,10 +2124,10 @@ seguro_adesao_item = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: seguro_adesao_participacao
 seguro_adesao_participacao = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='None'),
@@ -2143,10 +2142,10 @@ seguro_adesao_participacao = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: seguro_canal_venda
 seguro_canal_venda = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='None'),
@@ -2158,10 +2157,10 @@ seguro_canal_venda = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: seguro_endereco
 seguro_endereco = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -2176,10 +2175,10 @@ seguro_endereco = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: seguro_estabelecimento
 seguro_estabelecimento = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='None'),
@@ -2212,10 +2211,10 @@ seguro_estabelecimento = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: seguro_parcela
 seguro_parcela = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='None'),
@@ -2238,10 +2237,10 @@ seguro_parcela = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: seguro_pessoa
 seguro_pessoa = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -2267,10 +2266,10 @@ seguro_pessoa = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: seguro_produto
 seguro_produto = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='None'),
@@ -2329,10 +2328,10 @@ seguro_produto = [
     bigquery.SchemaField('ps_fl_calculaparcelaporitem', 'BOOLEAN', 'NULLABLE', description='None'),
     bigquery.SchemaField('ps_no_minimoitens', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('ps_fl_integracaoservicogs', 'BOOLEAN', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_conductor, Table: transacao_corrente
 transacao_corrente = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='Chave hash única para o registro.'),
     bigquery.SchemaField('source', 'STRING', 'NULLABLE', description='Origem do dado.'),
@@ -2369,5 +2368,72 @@ transacao_corrente = [
     bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE', description='Data e hora do processamento do relatório.'),
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='Tipo de operação.'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='Sequência da operação.'),
-    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.')
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='Data de produção do dado.'),
+]
+from google.cloud import bigquery
+
+grade_produto = [
+    bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('source', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('gp_id_gradeproduto', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('gp_id_conta', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('gp_id_produtoorigem', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('gp_id_origemcomercialorigem', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('gp_id_produtodestino', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('gp_id_origemcomercialdestino', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('gp_id_arquivo', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('gp_datasolicitacao', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('gp_status', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('gp_datamigracao', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('gp_limiteanterior', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('gp_limitenovo', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('gp_flagorigemws', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('gp_responsavel', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('gp_flaggradeautomatico', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('oc_id_origemcomercial', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('oc_id_emissor', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('oc_nome', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('oc_descricao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('oc_id_promotorvenda', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('oc_flagpreaprovado', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('oc_flagaprovacaoimediata', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('oc_nomefantasiaplastico', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('oc_id_estabelecimento', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('oc_flagsituacaoorigem', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('oc_flagcartaoprovisorio', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('oc_flagcartaodefinitivo', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('oc_usuario', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('oc_senha', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('oc_origemexterna', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('oc_flagmodificado', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('oc_id_tipoorigem', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('oc_tipopessoa', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('oc_responsavel', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('oc_flagenviafaturausuario', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('oc_flagcreditofaturamento', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('oc_flagconcedelimiteprovisorio', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('oc_id_grupoorigemcomercial', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('oc_flagdigitalizardoc', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('oc_flagembossingloja', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('oc_flagconsultaprevia', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('oc_flagembossacartaodefinitivo', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('oc_flagenviasms', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('gc_id_grupoorigemcomercial', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('gc_descricao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tg_id_tipoorigem', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('tg_descricao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('tg_flagrelatoriotad', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('dh_relatorio', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('operation', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('gp_dataatualizacao', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('gp_dadocriacaograde', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('gp_reprocessar', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('gp_erro', 'BOOLEAN', 'NULLABLE'),
+    bigquery.SchemaField('gp_descricaoerro', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('gp_id_statuscriacaograde', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('gp_id_pessoafisica', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('gp_id_estabelecimento', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('gp_matricula', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('production_date', 'DATE', 'NULLABLE'),
 ]

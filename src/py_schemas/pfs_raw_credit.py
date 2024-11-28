@@ -1,6 +1,5 @@
 from google.cloud import bigquery
 
-# Dataset: pfs_raw_credit, Table: adesoes_pfin
 adesoes_pfin = [
     bigquery.SchemaField('NUM_SEQ_ADESAO', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('COD_PRODUTO_FINANCEIRO', 'NUMERIC', 'NULLABLE', description='None'),
@@ -104,10 +103,10 @@ adesoes_pfin = [
     bigquery.SchemaField('TIP_DOC_FISCAL', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('NUM_DOC_FISCAL', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('NUM_ITEM_DOC_FISCAL', 'NUMERIC', 'NULLABLE', description='None'),
-    bigquery.SchemaField('COD_NIVEL_ARTIGO', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('COD_NIVEL_ARTIGO', 'STRING', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_credit, Table: faturas_pfin
 faturas_pfin = [
     bigquery.SchemaField('NUM_SEQ_ADESAO', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('PFIN_DAT_INI_VIGENCIA', 'TIMESTAMP', 'NULLABLE', description='None'),
@@ -147,10 +146,10 @@ faturas_pfin = [
     bigquery.SchemaField('NUM_SEQ_LOTE_RECEBIMENTO', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('DAT_ENVIO_DB_ROT', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('DAT_ENVIO_CR_ROT', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('COD_PROCESSADORA', 'NUMERIC', 'NULLABLE', description='None')
+    bigquery.SchemaField('COD_PROCESSADORA', 'NUMERIC', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_credit, Table: garantias_seguros
 garantias_seguros = [
     bigquery.SchemaField('num_pfj', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('num_documento', 'STRING', 'NULLABLE', description='None'),
@@ -187,19 +186,19 @@ garantias_seguros = [
     bigquery.SchemaField('des_produto', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('des_marca', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('num_chapa_vendedor', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_chapa_atu', 'INTEGER', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_chapa_atu', 'INTEGER', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_credit, Table: motivos_cancelamentos
 motivos_cancelamentos = [
     bigquery.SchemaField('COD_MOTIVO_CANCEL', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('DESC_MOTIVO_CANCEL', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('COD_CANCELAMENTO', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('DAT_INI_VIGENCIA', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('DAT_FIM_VIGENCIA', 'TIMESTAMP', 'NULLABLE', description='None')
+    bigquery.SchemaField('DAT_FIM_VIGENCIA', 'TIMESTAMP', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_credit, Table: produtos_financeiros
 produtos_financeiros = [
     bigquery.SchemaField('COD_PRODUTO_FINANCEIRO', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('DAT_INI_VIGENCIA', 'TIMESTAMP', 'NULLABLE', description='None'),
@@ -218,19 +217,19 @@ produtos_financeiros = [
     bigquery.SchemaField('COD_SEGURO', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('FLG_IND_DESCONTO', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('SEQ_OFERTA_PDV', 'NUMERIC', 'NULLABLE', description='None'),
-    bigquery.SchemaField('FLG_IND_GRUPO', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('FLG_IND_GRUPO', 'STRING', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_credit, Table: tipos_canais
 tipos_canais = [
     bigquery.SchemaField('COD_CANAL', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('DES_CANAL', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('FLG_COMMIT_AUTORIZADOR', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('FLG_BANDEIRADO', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('FLG_BANDEIRADO', 'STRING', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_raw_credit, Table: tipos_cancelamentos
 tipos_cancelamentos = [
     bigquery.SchemaField('COD_CANCELAMENTO', 'NUMERIC', 'NULLABLE', description='None'),
-    bigquery.SchemaField('DES_CANCELAMENTO', 'STRING', 'NULLABLE', description='None')
+    bigquery.SchemaField('DES_CANCELAMENTO', 'STRING', 'NULLABLE', description='None'),
 ]

@@ -1,6 +1,5 @@
 from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: cartao
 cartao = [
     bigquery.SchemaField('id_cartao', 'INTEGER', 'NULLABLE', description='ID único do cartão.'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE', description='ID do produto do cartão.'),
@@ -29,10 +28,10 @@ cartao = [
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data e hora da última atualização no sistema.'),
     bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Número sequencial da última alteração.'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data e hora de inclusão do registro.'),
-    bigquery.SchemaField('num_anomes_emis_cartao', 'DATE', 'NULLABLE', description='Ano e mês da emissão do cartão.')
+    bigquery.SchemaField('num_anomes_emis_cartao', 'DATE', 'NULLABLE', description='Ano e mês da emissão do cartão.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: cobranca_acordo
 cobranca_acordo = [
     bigquery.SchemaField('id_acordo_cobranca', 'INTEGER', 'NULLABLE', description='ID único do acordo de cobrança.'),
     bigquery.SchemaField('id_cliente_externo', 'INTEGER', 'NULLABLE', description='ID do cliente na base externa.'),
@@ -67,26 +66,26 @@ cobranca_acordo = [
     bigquery.SchemaField('id_acordo_negociacao', 'INTEGER', 'NULLABLE', description='ID da negociação do acordo.'),
     bigquery.SchemaField('nom_acordo_negociacao', 'STRING', 'NULLABLE', description='Nome da negociação do acordo.'),
     bigquery.SchemaField('tip_acordo_meio_pagto', 'STRING', 'NULLABLE', description='Tipo de meio de pagamento do acordo.'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: cobranca_assessoria
 cobranca_assessoria = [
     bigquery.SchemaField('id_assessoria', 'STRING', 'NULLABLE', description='ID da assessoria.'),
     bigquery.SchemaField('nom_assessoria', 'STRING', 'NULLABLE', description='Nome da assessoria.'),
     bigquery.SchemaField('id_cliente_cobranca', 'STRING', 'NULLABLE', description='ID do cliente em cobrança.'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: cobranca_campo_customizavel
 cobranca_campo_customizavel = [
     bigquery.SchemaField('id_cliente_cobranca', 'INTEGER', 'NULLABLE', description='ID do cliente em cobrança.'),
     bigquery.SchemaField('nom_campo', 'STRING', 'NULLABLE', description='Nome do campo customizável.'),
     bigquery.SchemaField('val_campo', 'STRING', 'NULLABLE', description='Valor do campo customizável.'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: cobranca_cliente
 cobranca_cliente = [
     bigquery.SchemaField('id_cliente_cobranca', 'INTEGER', 'NULLABLE', description='ID único do cliente em cobrança.'),
     bigquery.SchemaField('id_cliente_externo', 'STRING', 'NULLABLE', description='ID do cliente na base externa.'),
@@ -114,17 +113,17 @@ cobranca_cliente = [
     bigquery.SchemaField('num_ddd_com', 'INTEGER', 'NULLABLE', description='DDD do comercial.'),
     bigquery.SchemaField('num_tel_com', 'INTEGER', 'NULLABLE', description='Número do comercial.'),
     bigquery.SchemaField('nom_email', 'STRING', 'NULLABLE', description='Email.'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: cobranca_email_cliente
 cobranca_email_cliente = [
     bigquery.SchemaField('id_cliente_cobranca', 'INTEGER', 'NULLABLE', description='ID do cliente em cobrança.'),
     bigquery.SchemaField('nom_email', 'STRING', 'NULLABLE', description='Email do cliente.'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: cobranca_endereco_cliente
 cobranca_endereco_cliente = [
     bigquery.SchemaField('id_cliente_cobranca', 'INTEGER', 'NULLABLE', description='ID do cliente em cobrança.'),
     bigquery.SchemaField('id_cliente_externo', 'STRING', 'NULLABLE', description='ID do cliente na base externa.'),
@@ -138,10 +137,10 @@ cobranca_endereco_cliente = [
     bigquery.SchemaField('nom_cidade', 'STRING', 'NULLABLE', description='Nome da cidade.'),
     bigquery.SchemaField('nom_uf', 'STRING', 'NULLABLE', description='Sigla da UF.'),
     bigquery.SchemaField('ind_tipo', 'STRING', 'NULLABLE', description='Tipo de endereço.'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: cobranca_liquidacao_parc_acordo
 cobranca_liquidacao_parc_acordo = [
     bigquery.SchemaField('id_liqd_parc_acordo', 'INTEGER', 'NULLABLE', description='ID da liquidação da parcela do acordo.'),
     bigquery.SchemaField('id_parcela_acordo', 'INTEGER', 'NULLABLE', description='ID da parcela do acordo.'),
@@ -154,10 +153,10 @@ cobranca_liquidacao_parc_acordo = [
     bigquery.SchemaField('val_distorcao', 'NUMERIC', 'NULLABLE', description='Valor da distorção.'),
     bigquery.SchemaField('ind_tipo_liqd', 'STRING', 'NULLABLE', description='Tipo de liquidação.'),
     bigquery.SchemaField('id_pagto_acordo', 'INTEGER', 'NULLABLE', description='ID do pagamento do acordo.'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: cobranca_origem_acordo
 cobranca_origem_acordo = [
     bigquery.SchemaField('id_origem_acordo', 'STRING', 'NULLABLE', description='ID da origem do acordo.'),
     bigquery.SchemaField('id_acordo_cobranca', 'INTEGER', 'NULLABLE', description='ID do acordo de cobrança.'),
@@ -182,10 +181,10 @@ cobranca_origem_acordo = [
     bigquery.SchemaField('val_desc_multa', 'NUMERIC', 'NULLABLE', description='Valor do desconto na multa.'),
     bigquery.SchemaField('val_desc_permanencia', 'NUMERIC', 'NULLABLE', description='Valor do desconto na permanência.'),
     bigquery.SchemaField('val_desconto_total', 'NUMERIC', 'NULLABLE', description='Valor total do desconto.'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: cobranca_pagamento_acordo
 cobranca_pagamento_acordo = [
     bigquery.SchemaField('id_pagto_acordo', 'INTEGER', 'NULLABLE', description='ID do pagamento do acordo.'),
     bigquery.SchemaField('id_acordo_cobranca', 'INTEGER', 'NULLABLE', description='ID do acordo de cobrança.'),
@@ -202,10 +201,10 @@ cobranca_pagamento_acordo = [
     bigquery.SchemaField('val_distorcao', 'NUMERIC', 'NULLABLE', description='Valor da distorção.'),
     bigquery.SchemaField('ind_situacao', 'STRING', 'NULLABLE', description='Situação do pagamento.'),
     bigquery.SchemaField('ind_integracao', 'STRING', 'NULLABLE', description='Integração.'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: cobranca_parcela_acordo
 cobranca_parcela_acordo = [
     bigquery.SchemaField('id_parcela_acordo', 'INTEGER', 'NULLABLE', description='ID da parcela do acordo.'),
     bigquery.SchemaField('id_acordo_cobranca', 'INTEGER', 'NULLABLE', description='ID do acordo de cobrança.'),
@@ -225,10 +224,10 @@ cobranca_parcela_acordo = [
     bigquery.SchemaField('val_saldo_total', 'NUMERIC', 'NULLABLE', description='Saldo total.'),
     bigquery.SchemaField('val_saldo_atual', 'NUMERIC', 'NULLABLE', description='Saldo atual.'),
     bigquery.SchemaField('ind_registrado', 'STRING', 'NULLABLE', description='Registrado (S/N).'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: cobranca_telefone
 cobranca_telefone = [
     bigquery.SchemaField('id_cliente_cobranca', 'INTEGER', 'NULLABLE', description='ID do cliente em cobrança.'),
     bigquery.SchemaField('id_telefone_cobranca', 'INTEGER', 'NULLABLE', description='ID do telefone em cobrança.'),
@@ -241,10 +240,10 @@ cobranca_telefone = [
     bigquery.SchemaField('des_obsercacao', 'STRING', 'NULLABLE', description='Observação.'),
     bigquery.SchemaField('num_ranking', 'INTEGER', 'NULLABLE', description='Ranking.'),
     bigquery.SchemaField('dat_modificacao', 'INTEGER', 'NULLABLE', description='Data da modificação.'),
-    bigquery.SchemaField('dat_inclusao_reg', 'INTEGER', 'NULLABLE', description='Data de inclusão do registro.')
+    bigquery.SchemaField('dat_inclusao_reg', 'INTEGER', 'NULLABLE', description='Data de inclusão do registro.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: cobranca_telefone_cliente
 cobranca_telefone_cliente = [
     bigquery.SchemaField('id_cliente_cobranca', 'INTEGER', 'NULLABLE', description='ID do cliente em cobrança.'),
     bigquery.SchemaField('num_ddd_celular', 'INTEGER', 'NULLABLE', description='DDD do celular.'),
@@ -253,10 +252,10 @@ cobranca_telefone_cliente = [
     bigquery.SchemaField('num_tel_residencial', 'INTEGER', 'NULLABLE', description='Número do residencial.'),
     bigquery.SchemaField('num_ddd_comercial', 'INTEGER', 'NULLABLE', description='DDD do comercial.'),
     bigquery.SchemaField('num_tel_comercial', 'INTEGER', 'NULLABLE', description='Número do comercial.'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: cobr_cliente_atraso
 cobr_cliente_atraso = [
     bigquery.SchemaField('num_cpf_cnpj_cliente', 'INTEGER', 'NULLABLE', description='CPF ou CNPJ do cliente.'),
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta do cliente.'),
@@ -301,10 +300,10 @@ cobr_cliente_atraso = [
     bigquery.SchemaField('cod_fpd', 'STRING', 'NULLABLE', description='Código FPD.'),
     bigquery.SchemaField('cod_var_aux', 'STRING', 'NULLABLE', description='Código da variável auxiliar.'),
     bigquery.SchemaField('cod_faixa_atraso_b', 'STRING', 'NULLABLE', description='Código da faixa de atraso B.'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_risco_tivea, Table: conta
 conta = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID único da conta.'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE', description='ID do produto do cartão associado à conta.'),
@@ -356,5 +355,5 @@ conta = [
     bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Número sequencial da última alteração.'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência.'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data e hora de inclusão do registro.'),
-    bigquery.SchemaField('num_anomes_ads_conta', 'DATE', 'NULLABLE', description='Ano e mês de adesão à conta.')
+    bigquery.SchemaField('num_anomes_ads_conta', 'DATE', 'NULLABLE', description='Ano e mês de adesão à conta.'),
 ]

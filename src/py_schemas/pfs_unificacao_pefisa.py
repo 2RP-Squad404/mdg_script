@@ -1,6 +1,5 @@
 from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: adesao_deb_automatico
 adesao_deb_automatico = [
     bigquery.SchemaField('id_adesao_deb_automatico', 'INTEGER', 'NULLABLE', description='ID da adesão ao débito automático'),
     bigquery.SchemaField('dth_data_adesao', 'TIMESTAMP', 'NULLABLE', description='Data da adesão'),
@@ -16,10 +15,10 @@ adesao_deb_automatico = [
     bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Sequência da última alteração'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem da informação'),
-    bigquery.SchemaField('num_anomes_ads_deb_autm', 'DATE', 'NULLABLE', description='Ano e mês da adesão')
+    bigquery.SchemaField('num_anomes_ads_deb_autm', 'DATE', 'NULLABLE', description='Ano e mês da adesão'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: adesao_pacote_tarifa_hist
 adesao_pacote_tarifa_hist = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta'),
     bigquery.SchemaField('id_produto_conta', 'INTEGER', 'NULLABLE', description='ID do produto da conta'),
@@ -36,19 +35,19 @@ adesao_pacote_tarifa_hist = [
     bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Sequência da última alteração'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('num_anomes_ads_conta', 'INTEGER', 'NULLABLE', description='Ano e mês da adesão da conta'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: agpr_transacao_txn
 agpr_transacao_txn = [
     bigquery.SchemaField('cod_tipo_transacao', 'INTEGER', 'NULLABLE', description='Código do tipo de transação'),
     bigquery.SchemaField('des_tipo_transacao', 'STRING', 'NULLABLE', description='Descrição do tipo de transação'),
     bigquery.SchemaField('flg_credito', 'STRING', 'NULLABLE', description='Indicador de crédito'),
     bigquery.SchemaField('cod_agrupamento_txn', 'INTEGER', 'NULLABLE', description='Código do agrupamento da transação'),
-    bigquery.SchemaField('des_agrupamento_txn', 'STRING', 'NULLABLE', description='Descrição do agrupamento da transação')
+    bigquery.SchemaField('des_agrupamento_txn', 'STRING', 'NULLABLE', description='Descrição do agrupamento da transação'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: ajuste_debito
 ajuste_debito = [
     bigquery.SchemaField('id_conta_debito_so', 'INTEGER', 'NULLABLE', description='ID da conta de débito'),
     bigquery.SchemaField('id_ajuste_debito', 'INTEGER', 'NULLABLE', description='ID do ajuste de débito'),
@@ -70,10 +69,10 @@ ajuste_debito = [
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
-    bigquery.SchemaField('num_anomes_ajuste_debito', 'DATE', 'NULLABLE', description='Ano e mês do ajuste de débito')
+    bigquery.SchemaField('num_anomes_ajuste_debito', 'DATE', 'NULLABLE', description='Ano e mês do ajuste de débito'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: autorizacao_cartao_credito
 autorizacao_cartao_credito = [
     bigquery.SchemaField('id_autorizacao_ccred', 'INTEGER', 'NULLABLE', description='ID da autorização de cartão de crédito'),
     bigquery.SchemaField('dth_autoriz_ccred', 'TIMESTAMP', 'NULLABLE', description='Data da autorização cartão de crédito'),
@@ -123,10 +122,10 @@ autorizacao_cartao_credito = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('num_anomes_autoriz_ccred', 'DATE', 'NULLABLE', description='Ano e mês da autorização')
+    bigquery.SchemaField('num_anomes_autoriz_ccred', 'DATE', 'NULLABLE', description='Ano e mês da autorização'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: autorizacao_cartao_credito_hist
 autorizacao_cartao_credito_hist = [
     bigquery.SchemaField('id_autorizacao_ccred', 'INTEGER', 'NULLABLE', description='ID da autorização de cartão de crédito'),
     bigquery.SchemaField('dth_autoriz_ccred', 'TIMESTAMP', 'NULLABLE', description='Data da autorização'),
@@ -174,10 +173,10 @@ autorizacao_cartao_credito_hist = [
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
     bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Sequência da última alteração'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
-    bigquery.SchemaField('num_anomes_autoriz_ccred', 'INTEGER', 'NULLABLE', description='Ano e mês da autorização')
+    bigquery.SchemaField('num_anomes_autoriz_ccred', 'INTEGER', 'NULLABLE', description='Ano e mês da autorização'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: autorizacao_detalhes
 autorizacao_detalhes = [
     bigquery.SchemaField('id_aut_detalhe_so', 'INTEGER', 'NULLABLE', description='ID do detalhe da autorização'),
     bigquery.SchemaField('id_transacao_uuid', 'STRING', 'NULLABLE', description='ID da transação'),
@@ -201,10 +200,10 @@ autorizacao_detalhes = [
     bigquery.SchemaField('id_token_evento', 'INTEGER', 'NULLABLE', description='ID do token do evento'),
     bigquery.SchemaField('dth_evento_autorizacao', 'STRING', 'NULLABLE', description='Data e hora do evento de autorização'),
     bigquery.SchemaField('des_com_eletronico', 'STRING', 'NULLABLE', description='Comércio eletrônico'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: boleto
 boleto = [
     bigquery.SchemaField('id_boleto', 'STRING', 'NULLABLE', description='ID do boleto'),
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta'),
@@ -223,10 +222,10 @@ boleto = [
     bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Sequência da última alteração'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('num_anomes_emis_bol', 'DATE', 'NULLABLE', description='Ano e mês da emissão')
+    bigquery.SchemaField('num_anomes_emis_bol', 'DATE', 'NULLABLE', description='Ano e mês da emissão'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: cadastro_chave_pix
 cadastro_chave_pix = [
     bigquery.SchemaField('num_cpf_cnpj_cliente', 'INTEGER', 'NULLABLE', description='CPF/CNPJ do cliente'),
     bigquery.SchemaField('num_conta_corrente', 'STRING', 'NULLABLE', description='Número da conta corrente'),
@@ -239,10 +238,10 @@ cadastro_chave_pix = [
     bigquery.SchemaField('dth_status_chave_pix', 'TIMESTAMP', 'NULLABLE', description='Data do status da chave PIX'),
     bigquery.SchemaField('nome_cliente', 'STRING', 'NULLABLE', description='Nome do cliente'),
     bigquery.SchemaField('num_ano_mes_status', 'INTEGER', 'NULLABLE', description='Ano e mês do status'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: cartao
 cartao = [
     bigquery.SchemaField('id_cartao', 'INTEGER', 'NULLABLE', description='ID do cartão'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE', description='ID do produto do cartão'),
@@ -291,10 +290,10 @@ cartao = [
     bigquery.SchemaField('flg_cartao_migrado', 'STRING', 'NULLABLE', description='Indicador de cartão migrado'),
     bigquery.SchemaField('dth_cartao_migrado', 'TIMESTAMP', 'NULLABLE', description='Data de migração do cartão'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('num_anomes_emis_cartao', 'DATE', 'NULLABLE', description='Ano e mês da emissão do cartão')
+    bigquery.SchemaField('num_anomes_emis_cartao', 'DATE', 'NULLABLE', description='Ano e mês da emissão do cartão'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: cartao_debito
 cartao_debito = [
     bigquery.SchemaField('id_conta_debito_so', 'INTEGER', 'NULLABLE', description='ID da conta de débito'),
     bigquery.SchemaField('id_cartao_debito_so', 'INTEGER', 'NULLABLE', description='ID do cartão de débito'),
@@ -324,10 +323,10 @@ cartao_debito = [
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
-    bigquery.SchemaField('num_anomes_emiss_cartao_debito', 'DATE', 'NULLABLE', description='Ano e mês da emissão do cartão de débito')
+    bigquery.SchemaField('num_anomes_emiss_cartao_debito', 'DATE', 'NULLABLE', description='Ano e mês da emissão do cartão de débito'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: cartao_hist
 cartao_hist = [
     bigquery.SchemaField('id_cartao', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE', description='None'),
@@ -377,10 +376,10 @@ cartao_hist = [
     bigquery.SchemaField('flg_cartao_migrado', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dth_cartao_migrado', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: conta
 conta = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE', description='ID do produto do cartão'),
@@ -465,10 +464,10 @@ conta = [
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('num_anomes_ads_conta', 'DATE', 'NULLABLE', description='Ano e mês da adesão da conta')
+    bigquery.SchemaField('num_anomes_ads_conta', 'DATE', 'NULLABLE', description='Ano e mês da adesão da conta'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: conta_debito
 conta_debito = [
     bigquery.SchemaField('id_conta_multiplo', 'INTEGER', 'NULLABLE', description='ID da conta múltipla'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE', description='ID do produto do cartão'),
@@ -496,10 +495,10 @@ conta_debito = [
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
-    bigquery.SchemaField('num_anomes_ads_conta_debito', 'DATE', 'NULLABLE', description='Ano e mês da adesão da conta de débito')
+    bigquery.SchemaField('num_anomes_ads_conta_debito', 'DATE', 'NULLABLE', description='Ano e mês da adesão da conta de débito'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: conta_hist
 conta_hist = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE', description='ID do produto do cartão'),
@@ -550,10 +549,10 @@ conta_hist = [
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
     bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Sequência da última alteração'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
-    bigquery.SchemaField('num_anomes_ads_conta', 'INTEGER', 'NULLABLE', description='Ano e mês da adesão da conta')
+    bigquery.SchemaField('num_anomes_ads_conta', 'INTEGER', 'NULLABLE', description='Ano e mês da adesão da conta'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: contestacoes
 contestacoes = [
     bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE', description='CPF do cliente'),
     bigquery.SchemaField('num_cartao', 'STRING', 'NULLABLE', description='Número do cartão'),
@@ -601,10 +600,10 @@ contestacoes = [
     bigquery.SchemaField('anomesdia_alt', 'INTEGER', 'NULLABLE', description='Ano, mês e dia da alteração'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('safra_contest', 'DATE', 'NULLABLE', description='Safra da contestação')
+    bigquery.SchemaField('safra_contest', 'DATE', 'NULLABLE', description='Safra da contestação'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: contrato_emprestimo
 contrato_emprestimo = [
     bigquery.SchemaField('id_contrato_so', 'STRING', 'NULLABLE', description='ID do contrato'),
     bigquery.SchemaField('num_contrato_so', 'STRING', 'NULLABLE', description='Número do contrato'),
@@ -670,20 +669,20 @@ contrato_emprestimo = [
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
-    bigquery.SchemaField('num_ano_mes_sol_empr', 'DATE', 'NULLABLE', description='Ano e mês da solicitação do empréstimo')
+    bigquery.SchemaField('num_ano_mes_sol_empr', 'DATE', 'NULLABLE', description='Ano e mês da solicitação do empréstimo'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: estabelecimento_externo
 estabelecimento_externo = [
     bigquery.SchemaField('id_estabelecimento_externo', 'INTEGER', 'NULLABLE', description='ID do estabelecimento externo'),
     bigquery.SchemaField('nom_estabelecimento_externo', 'STRING', 'NULLABLE', description='Nome do estabelecimento externo'),
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
     bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Sequência da última alteração'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: evento_ajuste
 evento_ajuste = [
     bigquery.SchemaField('id_evento_ajuste', 'INTEGER', 'NULLABLE', description='ID do evento de ajuste'),
     bigquery.SchemaField('id_movimento_ajuste', 'INTEGER', 'NULLABLE', description='ID do movimento de ajuste'),
@@ -723,10 +722,12 @@ evento_ajuste = [
     bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Sequência da última alteração'),
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
-    bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência')
+    bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
+    bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem dos dados.'),
+    bigquery.SchemaField('num_anomes_ajuste', 'DATE', 'NULLABLE', description='Ano e mês do ajuste.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: evento_compra_saque
 evento_compra_saque = [
     bigquery.SchemaField('id_evento_compra_saque', 'INTEGER', 'NULLABLE', description='ID do evento de compra/saque'),
     bigquery.SchemaField('id_cartao_credito_so', 'INTEGER', 'NULLABLE', description='ID do cartão de crédito'),
@@ -782,10 +783,10 @@ evento_compra_saque = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('des_sistema_origem', 'STRING', 'NULLABLE', description='Descrição do sistema de origem'),
-    bigquery.SchemaField('num_anomes_compra_saque', 'DATE', 'NULLABLE', description='Ano e mês da compra/saque')
+    bigquery.SchemaField('num_anomes_compra_saque', 'DATE', 'NULLABLE', description='Ano e mês da compra/saque'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: evento_pagamento
 evento_pagamento = [
     bigquery.SchemaField('id_evento_pagamento', 'INTEGER', 'NULLABLE', description='ID do evento de pagamento'),
     bigquery.SchemaField('id_cartao_credito_so', 'INTEGER', 'NULLABLE', description='ID do cartão de crédito'),
@@ -826,10 +827,10 @@ evento_pagamento = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('des_sistema_origem', 'STRING', 'NULLABLE', description='Descrição do sistema de origem'),
-    bigquery.SchemaField('num_anomes_pagamento', 'DATE', 'NULLABLE', description='Ano e mês do pagamento')
+    bigquery.SchemaField('num_anomes_pagamento', 'DATE', 'NULLABLE', description='Ano e mês do pagamento'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: fatura_ccred
 fatura_ccred = [
     bigquery.SchemaField('id_fatura_hist', 'INTEGER', 'NULLABLE', description='ID do histórico da fatura'),
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta'),
@@ -889,10 +890,10 @@ fatura_ccred = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('num_anomes_vencto_fatura', 'DATE', 'NULLABLE', description='Ano e mês do vencimento da fatura')
+    bigquery.SchemaField('num_anomes_vencto_fatura', 'DATE', 'NULLABLE', description='Ano e mês do vencimento da fatura'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: grade_produto
 GRADE_PRODUTO = [
     bigquery.SchemaField('id_grade_produto', 'STRING', 'NULLABLE', description='Identificador da grade de produto.'),
     bigquery.SchemaField('id_conta_cartao_credito', 'INTEGER', 'NULLABLE', description='Identificador da conta do cartão de crédito.'),
@@ -916,10 +917,10 @@ GRADE_PRODUTO = [
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data e hora da última atualização.'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data e hora da inclusão.'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem dos dados.'),
-    bigquery.SchemaField('num_anomes_mig_grade', 'DATE', 'NULLABLE', description='Ano e mês da migração da grade.')
+    bigquery.SchemaField('num_anomes_mig_grade', 'DATE', 'NULLABLE', description='Ano e mês da migração da grade.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: grade_produto_hist
 grade_produto_hist = [
     bigquery.SchemaField('id_grade_produto', 'STRING', 'NULLABLE', description='ID da grade do produto'),
     bigquery.SchemaField('id_conta_cartao_credito', 'INTEGER', 'NULLABLE', description='ID da conta do cartão de crédito'),
@@ -944,10 +945,10 @@ grade_produto_hist = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('num_anomes_mig_grade', 'INTEGER', 'NULLABLE', description='Ano e mês da migração da grade'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: limite_disponibilidade
 limite_disponibilidade = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE', description='ID do produto do cartão'),
@@ -965,10 +966,10 @@ limite_disponibilidade = [
     bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Sequência da última alteração'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('num_anomes_posicao_limite', 'DATE', 'NULLABLE', description='Ano e mês da posição do limite')
+    bigquery.SchemaField('num_anomes_posicao_limite', 'DATE', 'NULLABLE', description='Ano e mês da posição do limite'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: limite_disponibilidade_hist
 limite_disponibilidade_hist = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE', description='ID do produto do cartão'),
@@ -987,10 +988,10 @@ limite_disponibilidade_hist = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('num_anomes_posicao_limite', 'DATE', 'NULLABLE', description='Ano e mês da posição do limite'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: meta_dia_pfin
 meta_dia_pfin = [
     bigquery.SchemaField('dat_dia', 'TIMESTAMP', 'NULLABLE', description='Data do dia'),
     bigquery.SchemaField('cod_estabelecimento', 'INTEGER', 'NULLABLE', description='Código do estabelecimento'),
@@ -1008,10 +1009,10 @@ meta_dia_pfin = [
     bigquery.SchemaField('per_real_receb_acm', 'FLOAT', 'NULLABLE', description='Percentual real acumulado de recebimentos'),
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: parcelamento_fatura_ccred
 parcelamento_fatura_ccred = [
     bigquery.SchemaField('id_parcelamento_fatura', 'STRING', 'NULLABLE', description='ID do parcelamento da fatura'),
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta'),
@@ -1043,10 +1044,10 @@ parcelamento_fatura_ccred = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('num_anomes_geracao_parcel', 'DATE', 'NULLABLE', description='Ano e mês da geração do parcelamento')
+    bigquery.SchemaField('num_anomes_geracao_parcel', 'DATE', 'NULLABLE', description='Ano e mês da geração do parcelamento'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: produto_cartao
 produto_cartao = [
     bigquery.SchemaField('nom_processadora', 'STRING', 'NULLABLE', description='Nome da processadora'),
     bigquery.SchemaField('nom_parceiro', 'STRING', 'NULLABLE', description='Nome do parceiro'),
@@ -1057,10 +1058,10 @@ produto_cartao = [
     bigquery.SchemaField('num_bin', 'INTEGER', 'NULLABLE', description='Número BIN'),
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
     bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Sequência da última alteração'),
-    bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro')
+    bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: produto_financeiro
 produto_financeiro = [
     bigquery.SchemaField('id_produto_financeiro', 'INTEGER', 'NULLABLE', description='ID do produto financeiro'),
     bigquery.SchemaField('cod_produto_financeiro_so', 'INTEGER', 'NULLABLE', description='Código do produto financeiro'),
@@ -1073,10 +1074,10 @@ produto_financeiro = [
     bigquery.SchemaField('des_tip_bonificacao_mensal', 'STRING', 'NULLABLE', description='Descrição do tipo de bonificação mensal'),
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: refinanciamento_fatura_ccred
 refinanciamento_fatura_ccred = [
     bigquery.SchemaField('id_refinanciamento_fatura', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='None'),
@@ -1114,10 +1115,10 @@ refinanciamento_fatura_ccred = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('num_anomes_refinanciamento', 'DATE', 'NULLABLE', description='None')
+    bigquery.SchemaField('num_anomes_refinanciamento', 'DATE', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: saldo_conta
 saldo_conta = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE', description='ID do produto do cartão'),
@@ -1129,10 +1130,10 @@ saldo_conta = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('num_anomes_posicao_saldo', 'DATE', 'NULLABLE', description='Ano e mês da posição do saldo')
+    bigquery.SchemaField('num_anomes_posicao_saldo', 'DATE', 'NULLABLE', description='Ano e mês da posição do saldo'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: saldo_conta_debito
 saldo_conta_debito = [
     bigquery.SchemaField('id_conta_debito_so', 'INTEGER', 'NULLABLE', description='ID da conta de débito'),
     bigquery.SchemaField('val_saldo_conta_debito', 'FLOAT', 'NULLABLE', description='Valor do saldo da conta de débito'),
@@ -1145,10 +1146,10 @@ saldo_conta_debito = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('num_anomes_pos_saldo_debito', 'DATE', 'NULLABLE', description='Ano e mês da posição do saldo de débito')
+    bigquery.SchemaField('num_anomes_pos_saldo_debito', 'DATE', 'NULLABLE', description='Ano e mês da posição do saldo de débito'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: saldo_conta_hist
 saldo_conta_hist = [
     bigquery.SchemaField('id_conta', 'INTEGER', 'NULLABLE', description='ID da conta'),
     bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE', description='ID do produto do cartão'),
@@ -1160,10 +1161,10 @@ saldo_conta_hist = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('num_anomes_posicao_saldo', 'DATE', 'NULLABLE', description='Ano e mês da posição do saldo'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: seguradora
 seguradora = [
     bigquery.SchemaField('id_seguradora', 'INTEGER', 'NULLABLE', description='ID da seguradora'),
     bigquery.SchemaField('nom_seguradora', 'STRING', 'NULLABLE', description='Nome da seguradora'),
@@ -1172,10 +1173,10 @@ seguradora = [
     bigquery.SchemaField('nom_seguradora_origem', 'STRING', 'NULLABLE', description='Nome da seguradora de origem'),
     bigquery.SchemaField('des_tip_origem_sgrd', 'STRING', 'NULLABLE', description='Descrição do tipo de origem da seguradora'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
-    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência')
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data de referência'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: seguro_adesao
 seguro_adesao = [
     bigquery.SchemaField('id_adesao_seguro_so', 'INTEGER', 'NULLABLE', description='ID da adesão ao seguro'),
     bigquery.SchemaField('des_tip_origem', 'STRING', 'NULLABLE', description='Descrição do tipo de origem'),
@@ -1227,10 +1228,10 @@ seguro_adesao = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('flg_conta_credito', 'STRING', 'NULLABLE', description='Flag de conta de crédito'),
-    bigquery.SchemaField('num_anomes_adesao', 'DATE', 'NULLABLE', description='Ano e mês da adesão')
+    bigquery.SchemaField('num_anomes_adesao', 'DATE', 'NULLABLE', description='Ano e mês da adesão'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: seguro_adesao_item
 seguro_adesao_item = [
     bigquery.SchemaField('id_adesao_seguro_so', 'INTEGER', 'NULLABLE', description='ID da adesão ao seguro'),
     bigquery.SchemaField('id_adesao_seguro_item_so', 'INTEGER', 'NULLABLE', description='ID do item da adesão ao seguro'),
@@ -1252,10 +1253,10 @@ seguro_adesao_item = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('des_tip_origem', 'STRING', 'NULLABLE', description='Descrição do tipo de origem'),
-    bigquery.SchemaField('num_anomes_adesao_item', 'DATE', 'NULLABLE', description='Ano e mês da adesão do item')
+    bigquery.SchemaField('num_anomes_adesao_item', 'DATE', 'NULLABLE', description='Ano e mês da adesão do item'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: seguro_dependente
 seguro_dependente = [
     bigquery.SchemaField('id_pessoa_so', 'INTEGER', 'NULLABLE', description='ID da pessoa'),
     bigquery.SchemaField('num_cpf_cnpj', 'INTEGER', 'NULLABLE', description='CPF/CNPJ'),
@@ -1287,10 +1288,10 @@ seguro_dependente = [
     bigquery.SchemaField('dt_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('des_tip_origem', 'STRING', 'NULLABLE', description='Descrição do tipo de origem'),
-    bigquery.SchemaField('num_anomes_referencia', 'DATE', 'NULLABLE', description='Ano e mês de referência')
+    bigquery.SchemaField('num_anomes_referencia', 'DATE', 'NULLABLE', description='Ano e mês de referência'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: seguro_parcela
 seguro_parcela = [
     bigquery.SchemaField('id_adesao_seguro', 'INTEGER', 'NULLABLE', description='ID da adesão ao seguro'),
     bigquery.SchemaField('id_produto_financeiro', 'INTEGER', 'NULLABLE', description='ID do produto financeiro'),
@@ -1340,10 +1341,10 @@ seguro_parcela = [
     bigquery.SchemaField('des_tip_origem_adesao', 'STRING', 'NULLABLE', description='Descrição do tipo de origem da adesão'),
     bigquery.SchemaField('cod_forma_pagto', 'INTEGER', 'NULLABLE', description='Código da forma de pagamento'),
     bigquery.SchemaField('des_forma_pagto', 'STRING', 'NULLABLE', description='Descrição da forma de pagamento'),
-    bigquery.SchemaField('num_anomes_vencimento', 'DATE', 'NULLABLE', description='Ano e mês do vencimento')
+    bigquery.SchemaField('num_anomes_vencimento', 'DATE', 'NULLABLE', description='Ano e mês do vencimento'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: transacao_contabilizada
 transacao_contabilizada = [
     bigquery.SchemaField('id_transacao', 'INTEGER', 'NULLABLE', description='ID da transação'),
     bigquery.SchemaField('id_conta_ccred_transacao', 'INTEGER', 'NULLABLE', description='ID da conta do cartão de crédito da transação'),
@@ -1389,10 +1390,10 @@ transacao_contabilizada = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem'),
-    bigquery.SchemaField('num_anomes_geracao_trans', 'DATE', 'NULLABLE', description='Ano e mês da geração da transação')
+    bigquery.SchemaField('num_anomes_geracao_trans', 'DATE', 'NULLABLE', description='Ano e mês da geração da transação'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: transacao_debito
 transacao_debito = [
     bigquery.SchemaField('id_conta_debito_so', 'INTEGER', 'NULLABLE', description='ID da conta de débito'),
     bigquery.SchemaField('id_cartao_debito_so', 'INTEGER', 'NULLABLE', description='ID do cartão de débito'),
@@ -1417,10 +1418,10 @@ transacao_debito = [
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data da última atualização'),
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data de inclusão do registro'),
     bigquery.SchemaField('dat_referencia', 'INTEGER', 'NULLABLE', description='Data de referência'),
-    bigquery.SchemaField('num_anomes_trans_debito', 'DATE', 'NULLABLE', description='Ano e mês da transação de débito')
+    bigquery.SchemaField('num_anomes_trans_debito', 'DATE', 'NULLABLE', description='Ano e mês da transação de débito'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: v_status_autorizacao_evento_externo
 v_status_autorizacao_evento_externo = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('sae_id_statusautorizacoeseventosexternos', 'INTEGER', 'NULLABLE', description='None'),
@@ -1433,10 +1434,10 @@ v_status_autorizacao_evento_externo = [
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
-    bigquery.SchemaField('seq', 'INTEGER', 'NULLABLE', description='None')
+    bigquery.SchemaField('seq', 'INTEGER', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: v_tipo_ajuste
 v_tipo_ajuste = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('ta_id_ajuste', 'INTEGER', 'NULLABLE', description='None'),
@@ -1451,10 +1452,10 @@ v_tipo_ajuste = [
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
-    bigquery.SchemaField('seq', 'INTEGER', 'NULLABLE', description='None')
+    bigquery.SchemaField('seq', 'INTEGER', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_pefisa, Table: v_tipo_operacao
 v_tipo_operacao = [
     bigquery.SchemaField('hash_key', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('tos_id_operacao', 'INTEGER', 'NULLABLE', description='None'),
@@ -1526,5 +1527,32 @@ v_tipo_operacao = [
     bigquery.SchemaField('operation', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('operation_sequence', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('production_date', 'DATE', 'NULLABLE', description='None'),
-    bigquery.SchemaField('seq', 'INTEGER', 'NULLABLE', description='None')
+    bigquery.SchemaField('seq', 'INTEGER', 'NULLABLE', description='None'),
+]
+from google.cloud import bigquery
+
+grade_produto = [
+    bigquery.SchemaField('id_grade_produto', 'STRING', 'NULLABLE', description='Identificador da grade de produto.'),
+    bigquery.SchemaField('id_conta_cartao_credito', 'INTEGER', 'NULLABLE', description='Identificador da conta do cartão de crédito.'),
+    bigquery.SchemaField('num_cpf_cliente', 'INTEGER', 'NULLABLE', description='CPF do cliente.'),
+    bigquery.SchemaField('id_produto_ccred_origem', 'INTEGER', 'NULLABLE', description='ID do produto de origem.'),
+    bigquery.SchemaField('id_produto_ccred_destino', 'INTEGER', 'NULLABLE', description='ID do produto de destino.'),
+    bigquery.SchemaField('id_estabelecimento_grade', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_estabelecimento_grade', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('id_chapa_colaborador_grade', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_colaborador_grade', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_status_grade_produto', 'INTEGER', 'NULLABLE', description='Código do status da grade de produto.'),
+    bigquery.SchemaField('des_status_grade_produto', 'STRING', 'NULLABLE', description='Descrição do status da grade de produto.'),
+    bigquery.SchemaField('dth_solicitacao_grade_produto', 'TIMESTAMP', 'NULLABLE', description='Data e hora da solicitação.'),
+    bigquery.SchemaField('dth_migracao_grade_produto', 'TIMESTAMP', 'NULLABLE', description='Data e hora da migração.'),
+    bigquery.SchemaField('val_limite_anterior_ccred', 'FLOAT', 'NULLABLE', description='Valor do limite anterior.'),
+    bigquery.SchemaField('val_limite_novo_ccred', 'FLOAT', 'NULLABLE', description='Valor do novo limite.'),
+    bigquery.SchemaField('flg_origem_web_service', 'STRING', 'NULLABLE', description='Flag de origem do web service.'),
+    bigquery.SchemaField('des_responsavel', 'STRING', 'NULLABLE', description='Responsável.'),
+    bigquery.SchemaField('flg_grade_automatico', 'STRING', 'NULLABLE', description='Flag de grade automático.'),
+    bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE', description='Número sequencial da última alteração.'),
+    bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='Data e hora da última atualização.'),
+    bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data e hora da inclusão.'),
+    bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem dos dados.'),
+    bigquery.SchemaField('num_anomes_mig_grade', 'DATE', 'NULLABLE', description='Ano e mês da migração da grade.'),
 ]
