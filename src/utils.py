@@ -358,7 +358,7 @@ def list_datasets_from_bigquery() -> list:
     Retorno:
         list: Lista dos nomes dos datasets no BigQuery.
     """
-    client = bigquery.Client(project=PROJECT_ID)
+    client = get_bigquery_client()
     datasets = client.list_datasets()
     return [dataset.dataset_id for dataset in datasets]
 
@@ -373,7 +373,7 @@ def list_tables_from_bigquery(dataset):
     Returno:
         list: Lista dos nomes das tabelas no dataset.
     """
-    client = bigquery.Client(project=PROJECT_ID)
+    client = get_bigquery_client()
     tables = client.list_tables(dataset)
     return [table.table_id for table in tables]
 
@@ -469,7 +469,7 @@ def send_jsonl_to_bigquery(select_dataset):
         logger.error(f"\033[91mO diretório {dataset_directory} não existe.\033[0m")
         return
 
-    client = bigquery.Client()
+    client = get_bigquery_client()
 
     for filename in os.listdir(dataset_directory):
         if filename.endswith(".jsonl"):
