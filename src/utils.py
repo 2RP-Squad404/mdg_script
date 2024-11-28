@@ -463,7 +463,7 @@ def send_jsonl_to_bigquery(select_dataset):
     Parâmetros:
         select_dataset (str): Nome do dataset a ser enviado.
     """
-    dataset_directory = f"mock_data/{select_dataset}"
+    dataset_directory = f"src/mock_data/{select_dataset}"
 
     if not os.path.isdir(dataset_directory):
         logger.error(f"\033[91mO diretório {dataset_directory} não existe.\033[0m")
