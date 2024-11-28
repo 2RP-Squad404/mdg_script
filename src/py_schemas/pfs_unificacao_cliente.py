@@ -1,6 +1,5 @@
 from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_cliente, Table: cliente
 cliente = [
     bigquery.SchemaField('id_cliente', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE', description='None'),
@@ -69,10 +68,10 @@ cliente = [
     bigquery.SchemaField('tip_sit_telefone_cel', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_cliente_so', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('tip_origem_principal', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('dat_efetivacao_crediario', 'TIMESTAMP', 'NULLABLE', description='None')
+    bigquery.SchemaField('dat_efetivacao_crediario', 'TIMESTAMP', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_cliente, Table: cliente_complemento
 cliente_complemento = [
     bigquery.SchemaField('id_cliente', 'STRING', 'NULLABLE', description='ID do cliente.'),
     bigquery.SchemaField('tip_pessoa', 'STRING', 'NULLABLE', description='Tipo de pessoa (Física ou Jurídica).'),
@@ -103,10 +102,10 @@ cliente_complemento = [
     bigquery.SchemaField('cod_nacionalidade_iso', 'STRING', 'NULLABLE', description='Código ISO da nacionalidade.'),
     bigquery.SchemaField('des_nacionalidade_iso', 'STRING', 'NULLABLE', description='Descrição da nacionalidade (ISO).'),
     bigquery.SchemaField('cod_profissao_isco08', 'INTEGER', 'NULLABLE', description='Código da profissão (ISCO-08).'),
-    bigquery.SchemaField('nom_profissao_isco08', 'STRING', 'NULLABLE', description='Nome da profissão (ISCO-08).')
+    bigquery.SchemaField('nom_profissao_isco08', 'STRING', 'NULLABLE', description='Nome da profissão (ISCO-08).'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_cliente, Table: cliente_item_perfil
 cliente_item_perfil = [
     bigquery.SchemaField('id_cliente', 'STRING', 'NULLABLE', description='ID do cliente.'),
     bigquery.SchemaField('dth_primeiro_evento', 'TIMESTAMP', 'NULLABLE', description='Data e hora do primeiro evento.'),
@@ -119,18 +118,18 @@ cliente_item_perfil = [
     bigquery.SchemaField('des_evento', 'STRING', 'NULLABLE', description='Descrição do evento.'),
     bigquery.SchemaField('qtd_evento', 'STRING', 'NULLABLE', description='Quantidade do evento.'),
     bigquery.SchemaField('val_evento', 'STRING', 'NULLABLE', description='Valor do evento.'),
-    bigquery.SchemaField('cod_item_perfil', 'INTEGER', 'NULLABLE', description='Código do item do perfil.')
+    bigquery.SchemaField('cod_item_perfil', 'INTEGER', 'NULLABLE', description='Código do item do perfil.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_cliente, Table: de_para_num_pfj_id_cdt_cpf
 de_para_num_pfj_id_cdt_cpf = [
     bigquery.SchemaField('num_pfj', 'INTEGER', 'NULLABLE', description='Número de pessoa física ou jurídica.'),
     bigquery.SchemaField('num_cpf', 'INTEGER', 'NULLABLE', description='Número do CPF.'),
     bigquery.SchemaField('id_pessoa_cdt', 'INTEGER', 'NULLABLE', description='ID da pessoa no CDT.'),
-    bigquery.SchemaField('tip_origem_cdt', 'STRING', 'NULLABLE', description='Tipo de origem do CDT.')
+    bigquery.SchemaField('tip_origem_cdt', 'STRING', 'NULLABLE', description='Tipo de origem do CDT.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_unificacao_cliente, Table: v_estabelecimento
 v_estabelecimento = [
     bigquery.SchemaField('cod_estabelecimento', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('num_cgc', 'STRING', 'NULLABLE', description='None'),
@@ -160,5 +159,5 @@ v_estabelecimento = [
     bigquery.SchemaField('cod_micro_regiao', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('des_micro_regiao', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_estabelecimento_cdt', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('cod_estabelecimento_onefpay', 'INTEGER', 'NULLABLE', description='None')
+    bigquery.SchemaField('cod_estabelecimento_onefpay', 'INTEGER', 'NULLABLE', description='None'),
 ]

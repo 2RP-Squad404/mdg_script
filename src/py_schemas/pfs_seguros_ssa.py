@@ -1,15 +1,14 @@
 from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: adesao_participacao
 adesao_participacao = [
     bigquery.SchemaField('id_AdesaoSeguro', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_Participante', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('tp_Operacao', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('data_cdcBI', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: adesao_seguro
 adesao_seguro = [
     bigquery.SchemaField('id_adesaoseguro', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_emissor', 'INTEGER', 'NULLABLE', description='None'),
@@ -71,10 +70,10 @@ adesao_seguro = [
     bigquery.SchemaField('id_documentosafedoc_old', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dt_emissaohorareal', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('data_cdcbi', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: adesao_seguro_item
 adesao_seguro_item = [
     bigquery.SchemaField('id_AdesaoSeguroItem', 'INTEGER', 'NULLABLE', description='ID único do item da adesão ao seguro.'),
     bigquery.SchemaField('id_AdesaoSeguro', 'INTEGER', 'NULLABLE', description='ID da adesão ao seguro.'),
@@ -88,10 +87,10 @@ adesao_seguro_item = [
     bigquery.SchemaField('dt_Adesao', 'TIMESTAMP', 'NULLABLE', description='Data e hora da adesão ao item do seguro.'),
     bigquery.SchemaField('id_IntegracaoParceiro', 'STRING', 'NULLABLE', description='ID da integração com o parceiro.'),
     bigquery.SchemaField('data_cdcBI', 'TIMESTAMP', 'NULLABLE', description='Data e hora do CDC BI.'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='Data de produção do registro.')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='Data de produção do registro.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: agrupamento_produto_seguro
 agrupamento_produto_seguro = [
     bigquery.SchemaField('id_AgrupamentoProdutoSeguro', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('nm_Agrupamento', 'STRING', 'NULLABLE', description='None'),
@@ -99,20 +98,20 @@ agrupamento_produto_seguro = [
     bigquery.SchemaField('no_OrdemApresentacao', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_Emissor', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('fl_Ativo', 'BOOLEAN', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: canal_venda
 canal_venda = [
     bigquery.SchemaField('id_CanalVenda', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('cd_CanalVenda', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('nm_CanalVenda', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('fl_CanalPadrao', 'BOOLEAN', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_Emissor', 'INTEGER', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: cliente
 cliente = [
     bigquery.SchemaField('id_cliente', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_emissor', 'INTEGER', 'NULLABLE', description='None'),
@@ -126,10 +125,10 @@ cliente = [
     bigquery.SchemaField('fl_contacredito', 'BOOLEAN', 'NULLABLE', description='None'),
     bigquery.SchemaField('fl_grade', 'BOOLEAN', 'NULLABLE', description='None'),
     bigquery.SchemaField('data_cdcbi', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: endereco
 endereco = [
     bigquery.SchemaField('id_Endereco', 'INTEGER', 'NULLABLE', description='ID único do endereço.'),
     bigquery.SchemaField('nm_Logradouro', 'STRING', 'NULLABLE', description='Nome do logradouro (ex: Rua, Avenida).'),
@@ -140,10 +139,10 @@ endereco = [
     bigquery.SchemaField('cd_UF', 'STRING', 'NULLABLE', description='Sigla da UF.'),
     bigquery.SchemaField('no_CEP', 'STRING', 'NULLABLE', description='CEP.'),
     bigquery.SchemaField('data_cdcBI', 'TIMESTAMP', 'NULLABLE', description='Data e hora do CDC BI.'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='Data de produção do registro.')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='Data de produção do registro.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: estabelecimento
 estabelecimento = [
     bigquery.SchemaField('id_Estabelecimento', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_Emissor', 'INTEGER', 'NULLABLE', description='None'),
@@ -155,10 +154,10 @@ estabelecimento = [
     bigquery.SchemaField('fl_Ativo', 'BOOLEAN', 'NULLABLE', description='None'),
     bigquery.SchemaField('no_SerieNFE', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('cd_Servico', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: objeto_seguro
 objeto_seguro = [
     bigquery.SchemaField('id_ObjetoSeguro', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_PlanoSeguro', 'INTEGER', 'NULLABLE', description='None'),
@@ -174,10 +173,10 @@ objeto_seguro = [
     bigquery.SchemaField('pc_Franquia', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('vl_ProLabore', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('data_cdcBI', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: parcela_seguro
 parcela_seguro = [
     bigquery.SchemaField('id_ParcelaSeguro', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_AdesaoSeguro', 'INTEGER', 'NULLABLE', description='None'),
@@ -205,10 +204,10 @@ parcela_seguro = [
     bigquery.SchemaField('tp_AjusteLancado', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('dt_LiquidacaoHoraReal', 'TIMESTAMP', 'NULLABLE', description='None'),
     bigquery.SchemaField('data_cdcBI', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: participante
 participante = [
     bigquery.SchemaField('id_Participante', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('tp_Participante', 'INTEGER', 'NULLABLE', description='None'),
@@ -216,10 +215,10 @@ participante = [
     bigquery.SchemaField('id_Estabelecimento', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('nm_Participante', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('data_cdcBI', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: pessoa
 pessoa = [
     bigquery.SchemaField('id_Pessoa', 'INTEGER', 'NULLABLE', description='ID único da pessoa.'),
     bigquery.SchemaField('nm_Pessoa', 'STRING', 'NULLABLE', description='Nome completo da pessoa.'),
@@ -241,10 +240,10 @@ pessoa = [
     bigquery.SchemaField('fl_ApenasResponsavelFinanceiro', 'BOOLEAN', 'NULLABLE', description='Apenas responsável financeiro (true/false).'),
     bigquery.SchemaField('id_IntegracaoParceiro', 'INTEGER', 'NULLABLE', description='ID da integração com o parceiro.'),
     bigquery.SchemaField('data_cdcBI', 'TIMESTAMP', 'NULLABLE', description='Data e hora do CDC BI.'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='Data de produção do registro.')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='Data de produção do registro.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: plano_seguro
 plano_seguro = [
     bigquery.SchemaField('id_PlanoSeguro', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_ProdutoSeguro', 'INTEGER', 'NULLABLE', description='None'),
@@ -301,10 +300,10 @@ plano_seguro = [
     bigquery.SchemaField('dc_OperacaoEstorno', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dc_AjusteCobranca', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('dc_AjusteEstorno', 'STRING', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: produto_seguro
 produto_seguro = [
     bigquery.SchemaField('id_ProdutoSeguro', 'INTEGER', 'NULLABLE', description='ID único do produto de seguro.'),
     bigquery.SchemaField('id_Emissor', 'INTEGER', 'NULLABLE', description='ID do emissor do seguro.'),
@@ -355,10 +354,10 @@ produto_seguro = [
     bigquery.SchemaField('fl_PermiteEstCancSolicitacao', 'BOOLEAN', 'NULLABLE', description='Permite estorno/cancelamento da solicitação (true/false).'),
     bigquery.SchemaField('id_Parceiro', 'INTEGER', 'NULLABLE', description='ID do parceiro.'),
     bigquery.SchemaField('fl_ProdutoNovo', 'BOOLEAN', 'NULLABLE', description='Produto novo (true/false).'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='Data de produção do registro.')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='Data de produção do registro.'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: produto_venda
 produto_venda = [
     bigquery.SchemaField('id_ProdutoVenda', 'INTEGER', 'NULLABLE', description='None'),
     bigquery.SchemaField('id_Emissor', 'INTEGER', 'NULLABLE', description='None'),
@@ -371,15 +370,15 @@ produto_venda = [
     bigquery.SchemaField('nm_Modelo', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('vl_PremioRisco', 'NUMERIC', 'NULLABLE', description='None'),
     bigquery.SchemaField('data_cdcBI', 'TIMESTAMP', 'NULLABLE', description='None'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='None'),
 ]
+from google.cloud import bigquery
 
-# Dataset: pfs_seguros_ssa, Table: seguradora
 seguradora = [
     bigquery.SchemaField('id_Seguradora', 'INTEGER', 'NULLABLE', description='ID único da seguradora.'),
     bigquery.SchemaField('nm_Seguradora', 'STRING', 'NULLABLE', description='Nome da seguradora.'),
     bigquery.SchemaField('id_Endereco', 'INTEGER', 'NULLABLE', description='ID do endereço da seguradora.'),
     bigquery.SchemaField('fl_Ativo', 'BOOLEAN', 'NULLABLE', description='Ativa (true/false).'),
     bigquery.SchemaField('no_CNPJ', 'STRING', 'NULLABLE', description='CNPJ da seguradora.'),
-    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='Data de produção do registro.')
+    bigquery.SchemaField('production_date', 'DATE', 'REQUIRED', description='Data de produção do registro.'),
 ]
