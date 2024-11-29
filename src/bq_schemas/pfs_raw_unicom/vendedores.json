@@ -1,0 +1,71 @@
+{
+    "dataset": "pfs_raw_unicom",
+    "table": "vendedores",
+    "schema": [
+        {
+            "name": "COD_ESTABELECIMENTO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_VENDEDOR",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOM_VENDEDOR",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "STA_ATIVO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_INCL",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_CARGO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_ULT_ATU",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOM_USER_ATU",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_CHAPA",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_VENDEDOR_CHEFE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_ESTABELECIMENTO_CHEFE",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_EXCL",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inc",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        }
+    ]
+}

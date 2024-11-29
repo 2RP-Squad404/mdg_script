@@ -1,0 +1,81 @@
+{
+    "dataset": "varejo_mkt_segmento_estrategico",
+    "table": "segmentacao_cliente",
+    "schema": [
+        {
+            "name": "data_processamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ind_comprou_03m",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ind_comprou_06m",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ind_comprou_12m",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ind_comprou_24m",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_compras_ult_24m",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ticket_medio_ult_24m",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "r",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "f",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "v",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_segmento_rfv",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "segmento_rfv",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "mes_processamento",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

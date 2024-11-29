@@ -1,0 +1,611 @@
+{
+    "dataset": "pfs_raw_funcao",
+    "table": "v_contrato",
+    "schema": [
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "codigo_do_produto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "numero_operacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "numero_pedido",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "numero_proposta",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tipo_operacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "banco_portabilidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "numero_carteira",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "produto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "descricao_convenio",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "modalidade_produto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "login_chapa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "data_base",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "data_emissao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "data_vencimento_operacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status_contrato",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "estornado_em",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status_pagamento_funcao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_troco",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tipo_de_pagamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "empresa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "matriz",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "regional",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "promotora",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "empregador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "orgao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "a1O2",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "seguro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "agente_certificado_chapa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "agente_certificado_cpf",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "representante_legal_cpf",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "representante_legal_nome",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "correspondente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "digitador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtde_parcelas_em_aberto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtde_parcelas_pagas",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtde_parcelas_em_atraso",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_juros_cl_ano",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_juros_cl_mes",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_apropriacao_ano",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_apropriacao_mes",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_cet_mes",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_iof",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_iof_complementar",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_principal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_juros_contratado",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_TAC",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_bruto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_IOF",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_mora",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_perc_mora",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_multa",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_perc_multa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_do_iof_vencido",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_saldo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dados_cliente",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "nome",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "documento_cliente",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "matricula",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "email",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "sexo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "ddd_celular",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "telefone_celular",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "data_nascimento",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "banco_pagamento",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "agencia_pagamento",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "conta_corrente_pagamento",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "digito_conta_corrente",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "parcelas_abertas",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "data_vencimento",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "movimentacoes",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "baixa_parcela_sn",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "data_movimentacao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "mes_referencia",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "tipo_de_movimentacao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valor_iof_atraso_pago",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valor_juros_pago",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valor_mora_pago",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valor_multa_pago",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "id_pagamento",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valor_principal_pago",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valor_total_pago",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                },
+                {
+                    "name": "numero_parcela",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "qtde_atraso",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dias_cobranca_multa",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "desconto_antecipacao_concedido",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "cancelado",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "saldo_devedor",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valor_despesa",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valor_iof_atraso",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valor_juros_parcela",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valor_mora",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valor_multa",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valor_parcela",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valor_presente",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valor_principal_parcela",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valor_tarifa",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "parcelas_liquidadas",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "data_liquidacao",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "data_vencimento",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "dias_cobranca_multa",
+                    "type": "INTEGER",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "desconto_antecipacao_concedido",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "cancelado",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "movimentacoes",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "baixa_parcela_sn",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "data_movimentacao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "mes_referencia",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "tipo_de_movimentacao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valor_iof_atraso_pago",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valor_juros_pago",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valor_mora_pago",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valor_multa_pago",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valor_principal_pago",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "id_pagamento",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "valor_total_pago",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                },
+                {
+                    "name": "numero_parcela",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valor_juros_parcela",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valor_parcela",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "valor_principal_parcela",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                }
+            ]
+        }
+    ]
+}

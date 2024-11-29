@@ -1,0 +1,46 @@
+{
+    "dataset": "pfs_raw_rh",
+    "table": "rh_func_gerente_loja",
+    "schema": [
+        {
+            "name": "COD_UNIORG_CGC",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_FUNC",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_INICIO",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_FIM",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "PER_INDICE_COMPART",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "FLG_LOJA_BASE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOM_USER_ATU",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_ULT_ATU",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        }
+    ]
+}

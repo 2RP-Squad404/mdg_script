@@ -1,0 +1,196 @@
+{
+    "dataset": "base_operacional",
+    "table": "faturamento_cartao",
+    "schema": [
+        {
+            "name": "id_conta_ccred_transacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cpf_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_cartao_credito",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_titularidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_produto_cartao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_pl_flex",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_cartao_mutiplo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_faturamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_anomes_faturamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_status_transacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_status_transacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tipo_trans_cred_deb",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estab_transacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_estab_transacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_mcc_estab_exter",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_mcc_estab_exter",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tipo_trans_on_off_us",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_transacao",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_juros_transacao",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_tipo_transacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tipo_transacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_agrupamento_faturamento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_agrupamento_faturamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_parcelas_transacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_parcela_transacao",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "per_taxa_juro",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_limite_total",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_limite_disponivel",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_carteira_digital",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_qr_code",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_tag",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_transacao_evento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_origem_informacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao_reg",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_anomes_transacao",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

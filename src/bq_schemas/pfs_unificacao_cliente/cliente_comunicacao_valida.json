@@ -1,0 +1,61 @@
+{
+    "dataset": "pfs_unificacao_cliente",
+    "table": "cliente_comunicacao_valida",
+    "schema": [
+        {
+            "name": "num_cpf_cnpj_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_ddd_cel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_tel_cel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_origem_cel",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "score_tel_mod",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so_cel",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_email",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_origem_email",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "score_email_mod",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so_email",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        }
+    ]
+}

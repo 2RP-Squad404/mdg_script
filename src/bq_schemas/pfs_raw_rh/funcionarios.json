@@ -1,0 +1,651 @@
+{
+    "dataset": "pfs_raw_rh",
+    "table": "funcionarios",
+    "schema": [
+        {
+            "name": "ID",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOME",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOME_USUAL",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ENDERECO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NRO_END",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COMPLEMENTO_END",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "BAIRRO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CIDADE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ESTADO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CEP",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TELEFONE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CODIGO_DDD",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "RAMAL",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ESTADO_CIVIL",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "SEXO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DATA_NASCIMENTO",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CIDADE_NASCIMENTO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ESTADO_NASCIMENTO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "PAIS_NASCIMENTO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NACIONALIDADE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NATURALIZADO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DATA_CHEGADA_PAIS",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NRO_CARTEIRA_MODELO_19",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CART_PROFISSIONAL_NRO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CART_PROFISSIONAL_SERIE",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CART_PROFISSIONAL_LETRA",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CART_PROFISSIONAL_EST_EMISSOR",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "PIS_NRO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "RG_NRO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "RG_COMPLEMENTO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "RG_ESTADO_EMISSOR",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "RG_ORGAO_EMISSOR",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CIC_NRO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COMPLEMENTO_CIC_NRO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TITULO_ELEITOR_NRO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TITULO_ELEITOR_SECAO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TITULO_ELEITOR_ZONA",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CERT_RESERVISTA_NRO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COMPLEMENTO_CERT_RESERVISTA",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CART_HABILITACAO_NRO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CART_HABILITACAO_CATEGORIA",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "GRAU_ESCOLARIDADE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DATA_ADMISSAO",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NRO_LEGAL",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CONTA_FGTS_NRO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CONTA_FGTS_DIGITO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DATA_OPC_FGTS",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DATA_ESTABILIDADE",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ID_HORARIO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOME_PAI",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOME_MAE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NACIONALIDADE_PAI",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NACIONALIDADE_MAE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOME_TUTOR",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "RECEBE_CREDITO_BANCO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CODIGO_BANCO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CODIGO_AGENCIA",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CONTA_NUMERO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CONTA_DIGITO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NRO_DEPENDENTES_IR",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NRO_DEPENDENTES_SALFAMI",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VALOR_INSS_FIXO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ATIVO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NRO_CHAPEIRA",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "SINDICALIZADO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_UNIORG",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ID_REGIAO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CIC_PROPRIO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "APOSENTADO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "SEGUNDO_EMPREGO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "UNIORG_CGC",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ID_CARGO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ID_DESCRICAO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "REGIME",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ID_TIPO_FOLHA",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "BASE_ORIGEM",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ORGAO_CLASSE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "REGIAO_CLASSE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NRO_REG_CLASSE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TIPO_COLAB",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "BASE_ORIGEM_MUNICIPIO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_TIPO_SANGUE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "FATOR_RH",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_LOCALIZACAO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NRO_BENEFICIO_INSS",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CTR_PONTO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "SIND_CATEGORIA",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "MOTIVO_CONTRATACAO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TIPO_PAGTO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "SIND_PREDOMINANTE",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "FLG_HORARIO_FLEXIVEL",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_VIA_CRACHA",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_EMISSAO_CRACHA",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOM_USER_ATU",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_ULT_ATU",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ID_CIEE",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_BOLSA_TRANSPORTE",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COR_PESSOA",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DEFICIENCIA_FISICA",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DATA_CASAMENTO",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TIPO_VISTO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "APOSENTADO_DATA",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "CART_PROFISSIONAL_DATA",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "RG_DATA",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TITULO_ELEITOR_DATA",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "PIS_DATA",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DATA_VALIDADE_RNE",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "EMAIL",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "USUARIO_REDE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_UNIORG_AREA",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "OBSERVACOES",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "EMAIL_PESSOAL",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_CCUSTO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "USUARIO_PORTAL",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "PRIMEIRO_EMPREGO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_MOTIVO_ESTABILIDADE",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_ESTABILIDADE_FINAL",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_DDD_CELULAR",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_CELULAR",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_PRESTADORA",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_TIP_DEFICIENCIA",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "FLG_LIB_DOC",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "FLG_RELOGIO_BIOMETRICO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOM_FUNC_ESOCIAL",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOM_MAE_ESOCIAL",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_CNS",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOM_PAI_ESOCIAL",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_EXPED_ORGAO_CLASSE",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_VALID_ORGAO_CLASSE",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        }
+    ]
+}

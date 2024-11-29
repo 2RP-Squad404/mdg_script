@@ -6,13 +6,13 @@
             "name": "id_grade_produto",
             "type": "STRING",
             "mode": "NULLABLE",
-            "description": "Identificador da grade de produto."
+            "description": "Identificador \u00fanico do grade de produto."
         },
         {
             "name": "id_conta_cartao_credito",
             "type": "INTEGER",
             "mode": "NULLABLE",
-            "description": "Identificador da conta do cart\u00e3o de cr\u00e9dito."
+            "description": "Identificador da conta do cart\u00e3o de cr\u00e9dito que sofreu o grade de produto."
         },
         {
             "name": "num_cpf_cliente",
@@ -24,87 +24,91 @@
             "name": "id_produto_ccred_origem",
             "type": "INTEGER",
             "mode": "NULLABLE",
-            "description": "ID do produto de origem."
+            "description": "ID do produto origem."
         },
         {
             "name": "id_produto_ccred_destino",
             "type": "INTEGER",
             "mode": "NULLABLE",
-            "description": "ID do produto de destino."
+            "description": "ID do produto destino."
         },
         {
             "name": "id_estabelecimento_grade",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Identificador \u00fanico da loja onde foi realizado o grade da conta do cliente."
         },
         {
             "name": "nom_estabelecimento_grade",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Nome da loja onde foi realizado o grade da conta do cliente."
         },
         {
             "name": "id_chapa_colaborador_grade",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero da chapa do colaborador respons\u00e1vel pelo grade da conta do cliente."
         },
         {
             "name": "nom_colaborador_grade",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Nome do colaborador respons\u00e1vel pelo grade da conta do cliente."
         },
         {
             "name": "cod_status_grade_produto",
             "type": "INTEGER",
             "mode": "NULLABLE",
-            "description": "C\u00f3digo do status da grade de produto."
+            "description": "C\u00f3digo do status do grade de produto."
         },
         {
             "name": "des_status_grade_produto",
             "type": "STRING",
             "mode": "NULLABLE",
-            "description": "Descri\u00e7\u00e3o do status da grade de produto."
+            "description": "Descri\u00e7\u00e3o do status do grade de produto."
         },
         {
             "name": "dth_solicitacao_grade_produto",
             "type": "TIMESTAMP",
             "mode": "NULLABLE",
-            "description": "Data e hora da solicita\u00e7\u00e3o."
+            "description": "Data e hora da solicita\u00e7\u00e3o do grade de produto."
         },
         {
             "name": "dth_migracao_grade_produto",
             "type": "TIMESTAMP",
             "mode": "NULLABLE",
-            "description": "Data e hora da migra\u00e7\u00e3o."
+            "description": "Data e hora da migra\u00e7\u00e3o do produto."
         },
         {
             "name": "val_limite_anterior_ccred",
             "type": "FLOAT",
             "mode": "NULLABLE",
-            "description": "Valor do limite anterior."
+            "description": "Valor do limite do cart\u00e3o de cr\u00e9dito anterior ao grade de produto."
         },
         {
             "name": "val_limite_novo_ccred",
             "type": "FLOAT",
             "mode": "NULLABLE",
-            "description": "Valor do novo limite."
+            "description": "Valor do novo limite do cart\u00e3o de cr\u00e9dito ap\u00f3s o grade de produto."
         },
         {
             "name": "flg_origem_web_service",
             "type": "STRING",
             "mode": "NULLABLE",
-            "description": "Flag de origem do web service."
+            "description": "Flag que indica se origem \u00e9 o web service."
         },
         {
             "name": "des_responsavel",
             "type": "STRING",
             "mode": "NULLABLE",
-            "description": "Respons\u00e1vel."
+            "description": "descri\u00e7\u00e3o do respons\u00e1vel."
         },
         {
             "name": "flg_grade_automatico",
             "type": "STRING",
             "mode": "NULLABLE",
-            "description": "Flag de grade autom\u00e1tico."
+            "description": "Flag que indica se \u00e9 um  grade autom\u00e1tico."
         },
         {
             "name": "num_seq_ult_alteracao",
@@ -122,19 +126,25 @@
             "name": "dth_inclusao_reg",
             "type": "TIMESTAMP",
             "mode": "NULLABLE",
-            "description": "Data e hora da inclus\u00e3o."
+            "description": "Data e hora da inclus\u00e3o do registro na tabela."
         },
         {
             "name": "des_origem",
             "type": "STRING",
             "mode": "NULLABLE",
-            "description": "Origem dos dados."
+            "description": "Nome da processadora origem dos dados. Coluna utilizada para clusteriza\u00e7\u00e3o da tabela."
         },
         {
             "name": "num_anomes_mig_grade",
             "type": "DATE",
             "mode": "NULLABLE",
-            "description": "Ano e m\u00eas da migra\u00e7\u00e3o da grade."
+            "description": "Ano e m\u00eas da migra\u00e7\u00e3o do grade.Coluna utilizada para particioanmento da tabela."
+        },
+        {
+            "name": "dat_referencia",
+            "type": "DATE",
+            "mode": "NULLABLE",
+            "description": "Data da ingest\u00e3o dos dados de grade no ambiente Pefisa.Equivale a coluna production_date na tabela raw data."
         }
     ]
 }
