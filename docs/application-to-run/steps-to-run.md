@@ -33,9 +33,6 @@ gcloud auth application-default login
 ## Passo 3: Schemas em JSON
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Precisará de arquivos JSON com os schemas de origem das tabelas que deseja-se criar no Big Query. Pois o código principal usa como base a pasta local `bq_schemas` como repositório do Big Query.
 
-* **Criar novo Dataset:** As pastas dentro de `bq_schemas` devem conter o nome exato do dataset que deseja criar no big query.
-* **Criar nova Tabela:** Para cada arquivo json dentro de uma pasta que esteja no `bq_schemas` será criado uma tabela no dataset.
-
 ## Passo 4: Schemas JSON para Schemas Pydantic e SchemasFields
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Já tendo os schemas extraidos das pastas no `bq_schemas` execute o main usando o `poetry` ou o `python` que será criado os modelos em pydantic e big query schemas. 
 
