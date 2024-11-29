@@ -1,0 +1,36 @@
+{
+    "dataset": "pfs_raw_credit",
+    "table": "exclusoes_chapa_loja_pfin",
+    "schema": [
+        {
+            "name": "COD_ESTABELECIMENTO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_CHAPA_FUNCIONARIO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_REFERENCIA_INI",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_REFERENCIA_FIM",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_ULT_ATU",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOM_USER_ATU",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        }
+    ]
+}

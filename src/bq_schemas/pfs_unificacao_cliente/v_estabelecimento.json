@@ -146,6 +146,11 @@
             "name": "cod_estabelecimento_onefpay",
             "type": "INTEGER",
             "mode": "NULLABLE"
+        },
+        {
+            "name": "des_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
         }
     ]
 }

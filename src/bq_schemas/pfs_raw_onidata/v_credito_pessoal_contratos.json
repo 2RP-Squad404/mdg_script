@@ -1,0 +1,929 @@
+{
+    "dataset": "pfs_raw_onidata",
+    "table": "v_credito_pessoal_contratos",
+    "schema": [
+        {
+            "name": "production_date",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_inclusao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "assinatura_info",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "browser",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "data",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "ip",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "canal",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nome",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "canal_atendimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cargo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ccb_original_html",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ccb_original_pdf",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cliente_info_no_contrato",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "cargo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "conjuge",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "cpf",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "data_nascimento",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "documento",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "data_emissao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "emissor",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "foto",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "numero",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "tipo",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "uf",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                },
+                {
+                    "name": "email",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "endereco",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "bairro",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "cep",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "cidade",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "complemento",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "foto",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "logradouro",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "numero",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "pais",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "residencia_tempo",
+                            "type": "INTEGER",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "residencia_tipo",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "uf",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                },
+                {
+                    "name": "escolaridade",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "estado_civil",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nacionalidade",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nascimento_uf",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nome",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nome_mae",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nome_pai",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "pagamento",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "agencia",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "agencia_dac",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "banco",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "banco_nome",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "cliente_desde",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "cnpj_responsavel",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "conta",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "conta_dac",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "cpf_responsavel",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "individual_ou_conjunta",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "nome_gerente",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "nome_titular",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "praca",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "telefone",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "tipo",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                },
+                {
+                    "name": "resourcetype",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "salario",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "salario_bruto",
+                    "type": "FLOAT",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "salario_liquido",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "sexo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "sobrenome",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "telefone_celular",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "telefone_fixo",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "cpf",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cpf_operador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "data_efetivacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "data_nascimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "data_pagamento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "data_primeiro_vencimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "data_solicitacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "data_ultimo_vencimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dias_cobranca_multa",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "documentacao_comprovacao",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "identidade_frente",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "alterado_em",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "data_aprovacao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "documento",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "id",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "motivo_negado",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "status_documento",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "tipo",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                },
+                {
+                    "name": "identidade_verso",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "alterado_em",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "data_aprovacao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "documento",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "id",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "motivo_negado",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "status_documento",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "tipo",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                },
+                {
+                    "name": "renda",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "alterado_em",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "data_aprovacao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "documento",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "id",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "motivo_negado",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "status_documento",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "tipo",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                },
+                {
+                    "name": "residencia",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "alterado_em",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "data_aprovacao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "documento",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "id",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "motivo_negado",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "status_documento",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "tipo",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "email",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "escolaridade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "estado_civil",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "financeira",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "cnpj",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "nome_fantasia",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "razao_social",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                }
+            ]
+        },
+        {
+            "name": "financeira_valor_a_pagar",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "gerado_em",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "localizador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "METADADOS",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "PEFISA",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "codigoProduto",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "codigoLoja",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "idContaCredito",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "idPessoa",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        },
+                        {
+                            "name": "usuarioLogado",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                },
+                {
+                    "name": "PEFISA_FGTS",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "operador_comissao",
+                            "type": "STRING",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "modalidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nacionalidade",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nascimento_uf",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nome",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nome_mae",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nome_operador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nome_pai",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "parcelas_info",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+                {
+                    "name": "em_atraso",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "recebiveis",
+                            "type": "JSON",
+                            "mode": "REPEATED"
+                        },
+                        {
+                            "name": "total",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                },
+                {
+                    "name": "pagas",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "recebiveis",
+                            "type": "JSON",
+                            "mode": "REPEATED"
+                        },
+                        {
+                            "name": "total",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                },
+                {
+                    "name": "pendentes",
+                    "type": "RECORD",
+                    "mode": "NULLABLE",
+                    "fields": [
+                        {
+                            "name": "recebiveis",
+                            "type": "JSON",
+                            "mode": "REPEATED"
+                        },
+                        {
+                            "name": "total",
+                            "type": "FLOAT",
+                            "mode": "NULLABLE"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "prazo",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "proposta",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "salario_bruto",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "salario_liquido",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "saldo_devedor",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sexo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sobrenome",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "status_alterado_em",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_cet_mes",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_contrato",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_iof",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_iof_complementar",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_irr",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_multa",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "taxa_permanencia",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "telefone_celular",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "telefone_fixo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_financiado",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_iof",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_juros",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_liberado",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_parcela",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_recebivel",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_seguro",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "valor_tarifas",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        }
+    ]
+}

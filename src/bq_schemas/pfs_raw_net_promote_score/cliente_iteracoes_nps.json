@@ -1,0 +1,46 @@
+{
+    "dataset": "pfs_raw_net_promote_score",
+    "table": "cliente_iteracoes_nps",
+    "schema": [
+        {
+            "name": "NUM_SEQ_ITERACAO",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_SEQ_PESQUISA",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ID_TIPO_ITERACAO",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_ITERACAO",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TIP_ITERACAO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DES_RESPOSTA",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_SCORE",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ID_REGISTRO_WHATSAPP",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        }
+    ]
+}

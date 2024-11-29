@@ -1,0 +1,26 @@
+{
+    "dataset": "pfs_raw_unicom",
+    "table": "gerencia_geral_vendas",
+    "schema": [
+        {
+            "name": "cod_regional",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_corporacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_ger_geral_venda_so",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_ger_geral_venda",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        }
+    ]
+}

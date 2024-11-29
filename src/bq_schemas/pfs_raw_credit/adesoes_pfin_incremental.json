@@ -1,0 +1,521 @@
+{
+    "dataset": "pfs_raw_credit",
+    "table": "adesoes_pfin_incremental",
+    "schema": [
+        {
+            "name": "num_seq_adesao",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_produto_financeiro",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "pfin_dat_ini_vigencia",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_tipo_adesao",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_adesao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_ini_vigencia",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_adesao",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_ult_atu",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_user_atu",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_adesao",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_certificado",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_fim_vigencia",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_repasse",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_chapa_adesao",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_com_gerente",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_com_vendedor",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_parcelas",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_parcela",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_prim_vencto",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_prim_pagto",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_documento",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_documento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estab_adesao",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estab_venda",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estab_atrib",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_tipo_cancelamento",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_cancelamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estab_cancel",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_chapa_cancel",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_pfj_adesao",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_pfj_tit",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_cartao",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_contrato",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_tax_financiamento",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_plano_financiamento",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_venda_financiada",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_artigo",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_cor",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_tamanho",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_sortimento",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_trib_recolhido",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_trib_retido",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_devolucao",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_dev_perdas",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_dev_cliente",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_dev_cliente",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_iof",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_iss",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_irrf",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_seq_movto",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_pdv",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_nsu_autorizador",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_canal_venda",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_nota",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_serie",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_item",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_marca",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_produto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_pedido",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_pedido",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_aprovacao_pedido",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_corporacao",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sk_contrato",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_envio_admin",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_envio_cancel",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_nascto",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_cliente",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_renda",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sgl_sexo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_logradouro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_logradouro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_compl_logradouro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_cep",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_bairro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_municipio",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sgl_estado",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_ddd_res",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_fone_res",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_ddd_com",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_fone_com",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_ddd_cel",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_fone_cel",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_email",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_seq_item_envio",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_seq_item_receb",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_observacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_motivo_cancel",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_seq_ccpf",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_tipo_logradouro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_comissao",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_dev_repasse",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_bilhete",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_contrato_pfin",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_calc_cob_dano",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_calc_cob_roubo",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_calc_franquia",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_val_grp_fx",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_venda_artigo",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_comercial_artigo",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_doc_fiscal",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_doc_fiscal",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_item_doc_fiscal",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_nivel_artigo",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        }
+    ]
+}

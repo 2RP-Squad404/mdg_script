@@ -1,0 +1,321 @@
+{
+    "dataset": "pfs_pfin_termometro",
+    "table": "remuneracao_pagto_adesao",
+    "schema": [
+        {
+            "name": "dat_indicador",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_indicador",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "grp_indicador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_empresa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_indicador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_indicador_frontend",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_indicador_venda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_interface_loja_rh",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cd_interface_colab_rh",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_produto_valor_pfin",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "numero_bilhete",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tip_origem",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_cliente_so",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_fatura",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ind_titular",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_ger_geral_venda",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_ger_geral_venda",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_estabelecimento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_estabelecimento",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_regional",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_regional",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_produto_financeiro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_produto_financeiro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_produto_seguro_so",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_produto_seguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_produto_seguro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_agrupamento_produto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_agrupamento_produto",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_plano_seguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_plano_seguro",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_seguro_mensal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_seguradora",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_seguradora",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_prev_indicador",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_prev_indicador",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_real_indicador",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "val_real_indicador",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "qtd_real_indicador",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_canal",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_chapa_vendedor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nom_vendedor",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "cod_cargo_vendedor",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_cargo_vendedor",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_adesao_seguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_adesao_seguro",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_parcela_seguro",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_parcela",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "vl_parcela",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tp_situacao",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_tip_situacao",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_situacao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_vencimento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_cancelamento",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_cancelamento_adesao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_postagem_parcela",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_liquidacao",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_fun_ec_pefisa",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "flg_indicador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "id_regra_indicador",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "nm_regra_indicador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "obs_regra_indicador",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_inclusao_reg",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_anomes_indicador",
+            "type": "DATE",
+            "mode": "NULLABLE"
+        }
+    ]
+}

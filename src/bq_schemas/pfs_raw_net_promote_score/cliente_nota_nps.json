@@ -1,0 +1,26 @@
+{
+    "dataset": "pfs_raw_net_promote_score",
+    "table": "cliente_nota_nps",
+    "schema": [
+        {
+            "name": "NUM_SEQ_NOTA",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_SEQ_ITERACAO",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_NOTA",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_NOTA",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        }
+    ]
+}

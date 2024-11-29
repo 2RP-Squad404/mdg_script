@@ -1,0 +1,221 @@
+{
+    "dataset": "pfs_raw_credit",
+    "table": "valores_pfin",
+    "schema": [
+        {
+            "name": "NUM_SEQ",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_TIPO_ADESAO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_PRODUTO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_VENDA",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_INI_VIGENCIA",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_FIM_VIGENCIA",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_COMISSAO_ALTSA",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_REPASSE",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_PERC_COM_ALTSA",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_PERC_REPASSE",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_PRODUTO_FINANCEIRO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "PFIN_DAT_INI_VIGENCIA",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_ULT_ATU",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOM_USER_ATU",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_IOF_PRODUTO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_PLANO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_FAIXA",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_INI_FAIXA",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_FIM_FAIXA",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TIP_COBERTURA_01",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "QTD_DIAS_CARENCIA_01",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "QTD_DIAS_FRANQUIA_01",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_MAX_INDENIZACAO_01",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_COBERTURA_01",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_IOF_COBERTURA_01",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TIP_COBERTURA_02",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "QTD_DIAS_CARENCIA_02",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "QTD_DIAS_FRANQUIA_02",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_MAX_INDENIZACAO_02",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_COBERTURA_02",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_IOF_COBERTURA_02",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TIP_COBERTURA_03",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "QTD_DIAS_CARENCIA_03",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "QTD_DIAS_FRANQUIA_03",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_MAX_INDENIZACAO_03",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_COBERTURA_03",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_IOF_COBERTURA_03",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TIP_COBERTURA_04",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "QTD_DIAS_CARENCIA_04",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "QTD_DIAS_FRANQUIA_04",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_MAX_INDENIZACAO_04",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_COBERTURA_04",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "VAL_IOF_COBERTURA_04",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        }
+    ]
+}

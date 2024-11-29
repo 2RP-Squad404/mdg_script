@@ -5,137 +5,164 @@
         {
             "name": "num_cpf_cliente",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero do CPF do cliente."
         },
         {
             "name": "id_conta",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "ID da conta."
         },
         {
             "name": "id_produto_cartao",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "ID do produto do cart\u00e3o."
         },
         {
             "name": "dth_pagamento",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data e hora do pagamento."
         },
         {
             "name": "val_pagamento",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Valor do pagamento."
         },
         {
             "name": "des_tipo_pagamento",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Descri\u00e7\u00e3o do tipo de pagamento."
         },
         {
             "name": "des_canal_pagamento",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Descri\u00e7\u00e3o do canal de pagamento."
         },
         {
             "name": "des_meio_pagamento",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Descri\u00e7\u00e3o do meio de pagamento."
         },
         {
             "name": "cod_loja_pagamento",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo da loja do pagamento."
         },
         {
             "name": "qtde_dias_atraso_padrao",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Quantidade de dias de atraso padr\u00e3o."
         },
         {
             "name": "qtde_dias_atraso_real",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Quantidade de dias de atraso real."
         },
         {
             "name": "id_fatura",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "ID da fatura."
         },
         {
             "name": "dth_vencto_padrao_fatura",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data e hora de vencimento padr\u00e3o da fatura."
         },
         {
             "name": "dth_vencto_real_fatura",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data e hora de vencimento real da fatura."
         },
         {
             "name": "val_min_fatura",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Valor m\u00ednimo da fatura."
         },
         {
             "name": "val_tot_fatura",
             "type": "FLOAT",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Valor total da fatura."
         },
         {
             "name": "flg_adesao_parcelamento",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Indicador de ades\u00e3o ao parcelamento."
         },
         {
             "name": "des_tipo_parcelamento",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Descri\u00e7\u00e3o do tipo de parcelamento."
         },
         {
             "name": "flg_estorno",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Indicador de estorno."
         },
         {
             "name": "dth_estorno",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data e hora do estorno."
         },
         {
             "name": "id_pagamento",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "ID do pagamento."
         },
         {
             "name": "des_origem_informacao",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Origem da informa\u00e7\u00e3o."
         },
         {
             "name": "flg_emite_extrato",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Indicador de emiss\u00e3o de extrato."
         },
         {
             "name": "dth_inclusao_reg",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data e hora de inclus\u00e3o do registro."
         },
         {
             "name": "dat_referencia",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data de refer\u00eancia."
         },
         {
             "name": "des_origem",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Origem dos dados."
         },
         {
             "name": "num_anomes_pagto",
             "type": "DATE",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Ano e m\u00eas do pagamento."
         }
     ]
 }

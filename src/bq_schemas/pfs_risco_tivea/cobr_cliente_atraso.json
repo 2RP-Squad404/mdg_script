@@ -5,222 +5,266 @@
         {
             "name": "num_cpf_cnpj_cliente",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero de CPF ou CNPJ do cliente."
         },
         {
             "name": "id_conta",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "ID da conta do cliente."
         },
         {
             "name": "id_cliente_so",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "ID do cliente no sistema operacional."
         },
         {
             "name": "num_cartao",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero do cart\u00e3o do cliente."
         },
         {
             "name": "id_produto_cartao",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "ID do produto do cart\u00e3o."
         },
         {
             "name": "nom_cliente",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Nome do cliente."
         },
         {
             "name": "tip_pessoa",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Tipo de pessoa (f\u00edsica ou jur\u00eddica)."
         },
         {
             "name": "tip_situacao",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Situa\u00e7\u00e3o do cliente."
         },
         {
             "name": "nom_uf",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Nome da unidade federativa."
         },
         {
             "name": "cod_rating",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo de rating do cliente."
         },
         {
             "name": "des_marcador",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Descri\u00e7\u00e3o do marcador."
         },
         {
             "name": "val_saldo_atual",
             "type": "NUMERIC",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Saldo atual do cliente."
         },
         {
             "name": "val_saldo_atraso",
             "type": "NUMERIC",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Saldo em atraso do cliente."
         },
         {
             "name": "val_saldo_contabil",
             "type": "NUMERIC",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Saldo cont\u00e1bil do cliente."
         },
         {
             "name": "val_saldo_provisao",
             "type": "NUMERIC",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Saldo de provis\u00e3o do cliente."
         },
         {
             "name": "val_saldo_total",
             "type": "NUMERIC",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Saldo total do cliente."
         },
         {
             "name": "val_saldo_total_atraso",
             "type": "NUMERIC",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Saldo total em atraso do cliente."
         },
         {
             "name": "qtd_dias_atraso",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Quantidade de dias em atraso."
         },
         {
             "name": "qtd_parcela_aberta",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Quantidade de parcelas abertas."
         },
         {
             "name": "dth_modificacao",
             "type": "TIMESTAMP",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data e hora da \u00faltima modifica\u00e7\u00e3o."
         },
         {
             "name": "nom_assessoria",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Nome da assessoria."
         },
         {
             "name": "num_ddd_cel",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "DDD do telefone celular."
         },
         {
             "name": "num_tel_cel",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero do telefone celular."
         },
         {
             "name": "num_ddd_res",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "DDD do telefone residencial."
         },
         {
             "name": "num_tel_res",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero do telefone residencial."
         },
         {
             "name": "num_ddd_com",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "DDD do telefone comercial."
         },
         {
             "name": "num_tel_com",
             "type": "INTEGER",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "N\u00famero do telefone comercial."
         },
         {
             "name": "nom_email",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Endere\u00e7o de e-mail."
         },
         {
             "name": "cod_loja",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo da loja."
         },
         {
             "name": "cod_colmar",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo do Colmar."
         },
         {
             "name": "cod_colchao",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo do Colch\u00e3o."
         },
         {
             "name": "cod_contr_orig",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo do contrato original."
         },
         {
             "name": "cod_dist_assessoria",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo da distribui\u00e7\u00e3o da assessoria."
         },
         {
             "name": "cod_dist_assess_mar",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo da distribui\u00e7\u00e3o da assessoria MAR."
         },
         {
             "name": "cod_dist_escob",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo da distribui\u00e7\u00e3o da Escob."
         },
         {
             "name": "cod_estrategia1",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo da estrat\u00e9gia 1."
         },
         {
             "name": "cod_estrategia2",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo da estrat\u00e9gia 2."
         },
         {
             "name": "cod_estrategia3",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo da estrat\u00e9gia 3."
         },
         {
             "name": "cod_estrategia4",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo da estrat\u00e9gia 4."
         },
         {
             "name": "cod_estrategia5",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo da estrat\u00e9gia 5."
         },
         {
             "name": "cod_fpd",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo do FPD."
         },
         {
             "name": "cod_var_aux",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo da vari\u00e1vel auxiliar."
         },
         {
             "name": "cod_faixa_atraso_b",
             "type": "STRING",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "C\u00f3digo da faixa de atraso."
         },
         {
             "name": "dat_referencia",
             "type": "DATE",
-            "mode": "NULLABLE"
+            "mode": "NULLABLE",
+            "description": "Data de refer\u00eancia."
         }
     ]
 }

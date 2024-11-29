@@ -1,0 +1,541 @@
+{
+    "dataset": "pfs_unificacao_cliente",
+    "table": "qualidade_comunic_cliente_score",
+    "schema": [
+        {
+            "name": "num_cpf_cnpj_cliente",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_ddd_cel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "num_tel_cel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_origem_cel",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "score_mod_tel",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so_cel",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "des_email",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "tip_origem_email",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "score_mod_email",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dth_ult_atu_so_email",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "dat_referencia",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_eva_tel_bom",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_eva_tel_ruim",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_eva_tel_incerto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_adesao_pfin_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_adesao_pfin_cdt_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_app_varejo_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_conta_digital_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_crediario_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_garantia_seg_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_troca_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_whatsapp_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_wifi_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_eva_valido_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_fatura_eva_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_eva_contato_errado_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_pix_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_ultimo_whatsapp_valido",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "max_flg_num_tel_whats_8dig",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_tel_atu_ecomm_magento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_optin_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "max_flg_num_tel_optin_8dig",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_nps_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_nps_nota_6_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_cobranca_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_cobranca_rank_5_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vtex_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_telemarketing",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_telemarketing_grade",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_0_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_1_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_2_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_3_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_4_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_5_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_6_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_7_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_cartonista_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_cartonista_normal_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_idade_18_25_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_idade_25_35_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_idade_18_35_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_idade_35_50_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_idade_50_mais_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_cadastro_app_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_0_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_1_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_2_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_3_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_4_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_5_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_6_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_888_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_999_tel",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_eva_email_bom",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_eva_email_ruim",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_eva_email_incerto",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_adesao_pfin_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_adesao_pfin_cdt_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_app_varejo_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_conta_digital_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_crediario_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_garantia_seg_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_troca_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_whatsapp_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_origem_wifi_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_email_ecomm",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_email_ultimo_pedido",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_email_pix",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_email_atu_ecomm_magento",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_fatura_eva_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vtex_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_0_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_1_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_2_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_3_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_4_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_5_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_6_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_rfv_7_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_cartonista_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_cartonista_normal_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_idade_18_25_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_idade_25_35_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_idade_18_35_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_idade_35_50_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_idade_50_mais_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_cadastro_app_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_0_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_1_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_2_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_3_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_4_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_5_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_6_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_888_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "sum_flg_vinc_999_email",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        }
+    ]
+}

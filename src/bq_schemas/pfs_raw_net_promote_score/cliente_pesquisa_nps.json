@@ -1,0 +1,61 @@
+{
+    "dataset": "pfs_raw_net_promote_score",
+    "table": "cliente_pesquisa_nps",
+    "schema": [
+        {
+            "name": "NUM_SEQ_PESQUISA",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "ID_PESQUISA",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_CPF",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_ESTABELECIMENTO",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DES_EMAIL",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_CELULAR",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_CRIACAO",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_FINALIZACAO",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "FLG_STATUS",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_REGISTRO_EVENTO",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "FLG_PRIM_ITERACAO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        }
+    ]
+}

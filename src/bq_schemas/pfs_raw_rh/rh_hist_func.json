@@ -1,0 +1,156 @@
+{
+    "dataset": "pfs_raw_rh",
+    "table": "rh_hist_func",
+    "schema": [
+        {
+            "name": "DAT_MES_REF",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_ANO_REF",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_FUNC",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NOM_FUNC",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_SITUACAO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "DAT_SITUACAO",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_UNIORG_CGC",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_UNIORG",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_CARGO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_REGIME",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_HORARIO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TIP_FOLHA",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TIP_COLAB",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "TIP_PAGTO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_BANCO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_AGENCIA",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_CONTA_CORR",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_DIG_CONTA_CORR",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_DEP_IR",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_DEP_SAL_FAMILIA",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_SIND_CATEG",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_SIND_PREDOM",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_LOJA_GERENTE",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "PER_AJUDA_CUSTO",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_UNIORG_AREA",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "COD_CCUSTO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "FLG_CONFIDENCIAL",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_CPF",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "NUM_COMPL_CPF",
+            "type": "NUMERIC",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "FLG_CPF_PROPRIO",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        }
+    ]
+}
