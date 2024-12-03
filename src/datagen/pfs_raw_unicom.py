@@ -46,10 +46,8 @@ def datagen_funcionarios(num_records):
         dados['funcionarios'].append(criar_funcionarios)
 
     jsonl_data(data=dados)
-    print('dadossssss', dados)
 
     return dados
-
 
 num_records = input_num_linhas()
 datagen_funcionarios(num_records)
