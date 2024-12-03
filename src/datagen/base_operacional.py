@@ -3,9 +3,13 @@ from jsonl_convert import input_num_linhas, jsonl_data
 
 faker = Faker('pt_BR')
 
+def clean_value(value):
+    """Remove caracteres não numéricos de um valor e retorna como inteiro."""
+    return int("".join(filter(str.isdigit, value)))
+
 def function_base_operacional(num_records):
 
-    data = {'conta_cartao_cliente': [], 'emprestimo_pessoal_processado': [], 'fatura_fechada': [], 'faturamento_conta_digital': [], 'limite_disponibilidade_pos_mensal': [], 'pagamento_consolidado': []}
+    data = {'conta_cartao_cliente': [], 'emprestimo_pessoal_processado': [], 'faturamento_cartao':[], 'fatura_fechada': [],'faturamento_conta_digital': [], 'limite_disponibilidade_pos_mensal': [], 'pagamento_consolidado': []}
 
     for _ in range(num_records):
         criar_Conta_cartao_cliente = {
@@ -278,10 +282,50 @@ def function_base_operacional(num_records):
         }
         data['pagamento_consolidado'].append(criar_Pagamento_consolidado)
 
+        criar_faturamento_cartao = {
+            'id_conta_ccred_transacao': faker.random_int(min=1, max=1000),
+            'id_cliente': faker.uuid4(),
+            'num_cpf_cliente': clean_value(faker.cpf()),
+            'num_cartao_credito': faker.credit_card_number(),
+            'flg_titularidade': faker.random_element(elements=('T', 'N')),
+            'id_produto_cartao': faker.random_int(min=1, max=100),
+            'flg_pl_flex': faker.random_element(elements=('S', 'N')),
+            'flg_cartao_mutiplo': faker.random_element(elements=('S', 'N')),
+            'dth_faturamento': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
+            'num_anomes_faturamento': clean_value(faker.date_this_year().strftime('%Y-%m-%d')),
+            'cod_status_transacao': faker.random_int(min=1, max=10),
+            'des_status_transacao': faker.word(),
+            'des_tipo_trans_cred_deb': faker.random_element(elements=('Credito', 'Debito')),
+            'cod_estab_transacao': faker.random_int(min=1, max=1000),
+            'des_estab_transacao': faker.company(),
+            'cod_mcc_estab_exter': faker.random_int(min=1, max=999),
+            'des_mcc_estab_exter': faker.word(),
+            'des_tipo_trans_on_off_us': faker.random_element(elements=('Online', 'Offline')),
+            'val_transacao': faker.pyfloat(min_value=0, max_value=10000, right_digits=2),
+            'val_juros_transacao': faker.pyfloat(min_value=0, max_value=1000, right_digits=2),
+            'cod_tipo_transacao': faker.random_int(min=1, max=10),
+            'des_tipo_transacao': faker.word(),
+            'cod_agrupamento_faturamento': faker.random_int(min=1, max=10),
+            'des_agrupamento_faturamento': faker.word(),
+            'qtd_parcelas_transacao': faker.random_int(min=1, max=12),
+            'val_parcela_transacao': faker.pyfloat(min_value=0, max_value=10000, right_digits=2),
+            'per_taxa_juro': faker.pyfloat(min_value=0, max_value=100, right_digits=2),
+            'val_limite_total': faker.pyfloat(min_value=0, max_value=100000, right_digits=2),
+            'val_limite_disponivel': faker.pyfloat(min_value=0, max_value=100000, right_digits=2),
+            'flg_carteira_digital': faker.random_element(elements=('S', 'N')),
+            'flg_qr_code': faker.random_element(elements=('S', 'N')),
+            'flg_tag': faker.random_element(elements=('S', 'N')),
+            'id_transacao_evento': faker.random_int(min=1, max=1000),
+            'des_origem_informacao': faker.word(),
+            'dth_inclusao_reg': faker.date_time().strftime('%Y-%m-%d %H:%M:%S'),
+            'dat_referencia': faker.year(),
+            'des_origem': faker.word(),
+            'num_anomes_transacao': faker.date_this_year().strftime('%Y-%m-%d')
+        }
+        data['faturamento_cartao'].append(criar_faturamento_cartao)
+
     jsonl_data(data=data)
-
     return data
-
 
 num_records = input_num_linhas()
 function_base_operacional(num_records)
