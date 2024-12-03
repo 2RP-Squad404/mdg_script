@@ -28,5 +28,3 @@ def function_raw_facilita_whatsapp(num_records):
 
 num_records = input_num_linhas()
 function_raw_facilita_whatsapp(num_records)
-
-
