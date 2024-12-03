@@ -52,7 +52,7 @@ def create_tables(dataset):
         dataset (str): Nome do dataset no qual as tabelas serão criadas.
     """
     client = get_bigquery_client()
-    schema_dir = "py_schemas"
+    schema_dir = "src/py_schemas"
     excluded_partition_tables = [
         "cobranca_telefone", "acordo", "cliente", "dw_funcionario", "adesoes_pfin",
         "faturas_pfin", "garantias_seguros", "motivos_cancelamentos",
