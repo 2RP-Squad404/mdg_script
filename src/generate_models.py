@@ -190,7 +190,7 @@ def create_bigquery_schemas(directory):
 
 def create_class_code_pydantic(schema: dict) -> str:
     """
-    Gera código de classe Pydantic a partir de um schema.
+    Gera código de classe Pydantic a partir de um schema BigQuery.
 
     Parâmetros:
         schema (dict): Dicionário contendo nome da tabela e schema.
@@ -198,19 +198,29 @@ def create_class_code_pydantic(schema: dict) -> str:
     Retorno:
         str: Código da classe Pydantic como string.
     """
-
     def process_field(field):
         if field['type'] == 'RECORD' and 'fields' in field:
             class_name = field['name'].capitalize()
             nested_class = f'class {class_name}(BaseModel):\n'
             for subfield in field['fields']:
                 subfield_type = TYPE_MAPPING.get(subfield['type'], 'Any')
-                nested_class += f"    {subfield['name']}: {subfield_type}\n"
+                is_list = subfield.get('mode') == 'REPEATED'
+                subfield_declaration = (
+                    f"    {subfield['name']}: List[{subfield_type}]"
+                    if is_list else
+                    f"    {subfield['name']}: {subfield_type}"
+                )
+                nested_class += subfield_declaration + "\n"
 
-            return nested_class, f"{field['name']}: '{class_name}'"
+            return nested_class, f"{field['name']}: Optional[{class_name}]"
         else:
             field_type = TYPE_MAPPING.get(field['type'], 'Any')
-            return '', f"{field['name']}: {field_type}"
+            is_list = field.get('mode') == 'REPEATED'
+            return '', (
+                f"{field['name']}: List[{field_type}]"
+                if is_list else
+                f"{field['name']}: {field_type}"
+            )
 
     class_name = schema['table'].capitalize()
     class_code = f'class {class_name}(BaseModel):\n'
@@ -220,47 +230,7 @@ def create_class_code_pydantic(schema: dict) -> str:
         nested_class, field_declaration = process_field(field)
         if nested_class:
             nested_classes.append(nested_class)
-        class_code += f'    {field_declaration}\n'
-
-    if nested_classes:
-        class_code += '\n\n' + '\n\n'.join(nested_classes)
-
-    class_code += '\n\n'
-    return class_code
-
-def create_class_code_pydantic(schema: dict) -> str:
-    """
-    Gera código de classe Pydantic a partir de um schema.
-
-    Parâmetros:
-        schema (dict): Dicionário contendo nome da tabela e schema.
-
-    Retorno:
-        str: Código da classe Pydantic como string.
-    """
-
-    def process_field(field):
-        if field['type'] == 'RECORD' and 'fields' in field:
-            class_name = field['name'].capitalize()
-            nested_class = f'class {class_name}(BaseModel):\n'
-            for subfield in field['fields']:
-                subfield_type = TYPE_MAPPING.get(subfield['type'], 'Any')
-                nested_class += f"    {subfield['name']}: {subfield_type}\n"
-
-            return nested_class, f"{field['name']}: '{class_name}'"
-        else:
-            field_type = TYPE_MAPPING.get(field['type'], 'Any')
-            return '', f"{field['name']}: {field_type}"
-
-    class_name = schema['table'].capitalize()
-    class_code = f'class {class_name}(BaseModel):\n'
-    nested_classes = []
-
-    for field in schema['schema']:
-        nested_class, field_declaration = process_field(field)
-        if nested_class:
-            nested_classes.append(nested_class)
-        class_code += f'    {field_declaration}\n'
+        class_code += f"    {field_declaration}\n"
 
     if nested_classes:
         class_code += '\n\n' + '\n\n'.join(nested_classes)
@@ -282,17 +252,21 @@ def process_pydantic_folder(folder_path, folder_name, output_dir):
     for filename in os.listdir(folder_path):
         if filename.endswith('.json'):
             filepath = os.path.join(folder_path, filename)
-            with open(filepath, 'r', encoding='utf-8') as json_file:
-                data = json.load(json_file)
-                table = data.get('table')
-                schema = data.get('schema')
-                class_code = create_class_code_pydantic({
-                    'table': table,
-                    'schema': schema,
-                })
-                models.append(
-                    f'# Dataset: {folder_name}, Table: {table}\n{class_code}'
-                )
+            try:
+                with open(filepath, 'r', encoding='utf-8') as json_file:
+                    data = json.load(json_file)
+                    table = data.get('table')
+                    schema = data.get('schema')
+                    if table and schema:
+                        class_code = create_class_code_pydantic({
+                            'table': table,
+                            'schema': schema,
+                        })
+                        models.append(
+                            f'# Dataset: {folder_name}, Table: {table}\n{class_code}'
+                        )
+            except Exception as e:
+                print(f"Erro ao processar {filename}: {e}")
 
     output_file_name = f'{folder_name}_models.py'
     output_file_path = os.path.join(output_dir, output_file_name)
@@ -311,14 +285,14 @@ def create_pydantic_models(directory) -> None:
     Parâmetros:
         directory (str): Caminho do diretório de entrada.
     """
+    output_dir = os.path.join(ROOT_DIR, 'src', 'py_models')
 
-    output_dir = os.path.join(ROOT_DIR, 'src', 'py_models')  # constroe o caminho para o arquivo passado como argumento tendo como base o diretório raiz
-
-    create_output_directory(output_dir)
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
 
     for folder_name in os.listdir(directory):
         folder_path = os.path.join(directory, folder_name)
         if os.path.isdir(folder_path):
             process_pydantic_folder(folder_path, folder_name, output_dir)
 
-    logger.info("Pydantic Models criados com sucesso!")
+    print("Pydantic Models criados com sucesso!")
