@@ -1555,4 +1555,43 @@ grade_produto = [
     bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE', description='Data e hora da inclusão.'),
     bigquery.SchemaField('des_origem', 'STRING', 'NULLABLE', description='Origem dos dados.'),
     bigquery.SchemaField('num_anomes_mig_grade', 'DATE', 'NULLABLE', description='Ano e mês da migração da grade.'),
+    bigquery.SchemaField('dat_referencia', 'DATE', 'NULLABLE', description='Data da ingestão dos dados de grade no ambiente Pefisa.Equivale a coluna production_date na tabela raw data.'),
+]
+from google.cloud import bigquery
+
+v_cota_produto_financeiro = [
+    bigquery.SchemaField('dat_dia', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('cod_estabelecimento', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('nom_estabelecimento', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('dat_inauguracao', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('nom_fantasia_mkt', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_corporacao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('nom_razao_social', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_regional', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_regional', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('nom_gerente', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_micro_regiao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_micro_regiao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('cod_produto_financeiro', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_produto_financeiro', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('qtd_cota_venda', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('val_cota_venda', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('qtd_cota_recebimento', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('val_cota_recebimento', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('per_cota_recebimento', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('per_cota_recb_acum', 'FLOAT', 'NULLABLE'),
+    bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE'),
+]
+from google.cloud import bigquery
+
+v_produto_cartao = [
+    bigquery.SchemaField('id_produto_cartao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('nom_produto_cartao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('id_band_produto_cartao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_band_produto_cartao', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('num_bin', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('dth_ult_atu_so', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('num_seq_ult_alteracao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('dth_inclusao_reg', 'TIMESTAMP', 'NULLABLE'),
 ]

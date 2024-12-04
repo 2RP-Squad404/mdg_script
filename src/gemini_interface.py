@@ -33,7 +33,11 @@ def generate_full_prompt(dataset) -> None:
 
   Observação 5: se a tabela tiver coluna que se relaciona com outra tabela passar a referência da tabela exemplo: 'id': criar_produto_acordo['id']
 
-  datagen_<nome_do_modelo>(num_records):
+  Observação 6: sem colocar funções ou entre outras como:
+  def fake_string():
+    return faker.word()
+
+  function_<nome_do_modelo>(num_records):
     data = {'acordo': [], 'cliente': [], 'contrato': []}
 
       for _ in range(num_records):

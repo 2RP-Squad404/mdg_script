@@ -1,51 +1,5 @@
 from google.cloud import bigquery
 
-rh_func_gerente_loja = [
-    bigquery.SchemaField('COD_UNIORG_CGC', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('COD_FUNC', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('DAT_INICIO', 'TIMESTAMP', 'NULLABLE'),
-    bigquery.SchemaField('DAT_FIM', 'TIMESTAMP', 'NULLABLE'),
-    bigquery.SchemaField('PER_INDICE_COMPART', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('FLG_LOJA_BASE', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('NOM_USER_ATU', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('DAT_ULT_ATU', 'TIMESTAMP', 'NULLABLE'),
-]
-from google.cloud import bigquery
-
-rh_hist_func = [
-    bigquery.SchemaField('DAT_MES_REF', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('DAT_ANO_REF', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('COD_FUNC', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('NOM_FUNC', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('COD_SITUACAO', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('DAT_SITUACAO', 'TIMESTAMP', 'NULLABLE'),
-    bigquery.SchemaField('COD_UNIORG_CGC', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('COD_UNIORG', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('COD_CARGO', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('COD_REGIME', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('COD_HORARIO', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('TIP_FOLHA', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('TIP_COLAB', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('TIP_PAGTO', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('COD_BANCO', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('COD_AGENCIA', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('NUM_CONTA_CORR', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('NUM_DIG_CONTA_CORR', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('NUM_DEP_IR', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('NUM_DEP_SAL_FAMILIA', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('COD_SIND_CATEG', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('COD_SIND_PREDOM', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('COD_LOJA_GERENTE', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('PER_AJUDA_CUSTO', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('COD_UNIORG_AREA', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('COD_CCUSTO', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('FLG_CONFIDENCIAL', 'STRING', 'NULLABLE'),
-    bigquery.SchemaField('NUM_CPF', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('NUM_COMPL_CPF', 'NUMERIC', 'NULLABLE'),
-    bigquery.SchemaField('FLG_CPF_PROPRIO', 'STRING', 'NULLABLE'),
-]
-from google.cloud import bigquery
-
 funcionarios = [
     bigquery.SchemaField('ID', 'NUMERIC', 'NULLABLE'),
     bigquery.SchemaField('NOME', 'STRING', 'NULLABLE'),
@@ -176,4 +130,50 @@ funcionarios = [
     bigquery.SchemaField('NOM_PAI_ESOCIAL', 'STRING', 'NULLABLE'),
     bigquery.SchemaField('DAT_EXPED_ORGAO_CLASSE', 'TIMESTAMP', 'NULLABLE'),
     bigquery.SchemaField('DAT_VALID_ORGAO_CLASSE', 'TIMESTAMP', 'NULLABLE'),
+]
+from google.cloud import bigquery
+
+rh_func_gerente_loja = [
+    bigquery.SchemaField('COD_UNIORG_CGC', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('COD_FUNC', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('DAT_INICIO', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('DAT_FIM', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('PER_INDICE_COMPART', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('FLG_LOJA_BASE', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('NOM_USER_ATU', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('DAT_ULT_ATU', 'TIMESTAMP', 'NULLABLE'),
+]
+from google.cloud import bigquery
+
+rh_hist_func = [
+    bigquery.SchemaField('DAT_MES_REF', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('DAT_ANO_REF', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('COD_FUNC', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('NOM_FUNC', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('COD_SITUACAO', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('DAT_SITUACAO', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('COD_UNIORG_CGC', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('COD_UNIORG', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('COD_CARGO', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('COD_REGIME', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('COD_HORARIO', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('TIP_FOLHA', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('TIP_COLAB', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('TIP_PAGTO', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('COD_BANCO', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('COD_AGENCIA', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('NUM_CONTA_CORR', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('NUM_DIG_CONTA_CORR', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('NUM_DEP_IR', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('NUM_DEP_SAL_FAMILIA', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('COD_SIND_CATEG', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('COD_SIND_PREDOM', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('COD_LOJA_GERENTE', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('PER_AJUDA_CUSTO', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('COD_UNIORG_AREA', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('COD_CCUSTO', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('FLG_CONFIDENCIAL', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('NUM_CPF', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('NUM_COMPL_CPF', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('FLG_CPF_PROPRIO', 'STRING', 'NULLABLE'),
 ]
