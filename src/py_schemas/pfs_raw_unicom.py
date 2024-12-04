@@ -24,3 +24,28 @@ funcionarios = [
     bigquery.SchemaField('flg_acesso', 'STRING', 'NULLABLE', description='None'),
     bigquery.SchemaField('cod_uniorg', 'STRING', 'NULLABLE', description='None'),
 ]
+from google.cloud import bigquery
+
+gerencia_geral_vendas = [
+    bigquery.SchemaField('cod_regional', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('cod_corporacao', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('cod_ger_geral_venda_so', 'INTEGER', 'NULLABLE'),
+    bigquery.SchemaField('des_ger_geral_venda', 'STRING', 'NULLABLE'),
+]
+from google.cloud import bigquery
+
+vendedores = [
+    bigquery.SchemaField('COD_ESTABELECIMENTO', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('COD_VENDEDOR', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('NOM_VENDEDOR', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('STA_ATIVO', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('DAT_INCL', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('COD_CARGO', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('DAT_ULT_ATU', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('NOM_USER_ATU', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('NUM_CHAPA', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('COD_VENDEDOR_CHEFE', 'STRING', 'NULLABLE'),
+    bigquery.SchemaField('COD_ESTABELECIMENTO_CHEFE', 'NUMERIC', 'NULLABLE'),
+    bigquery.SchemaField('DAT_EXCL', 'TIMESTAMP', 'NULLABLE'),
+    bigquery.SchemaField('dth_inc', 'TIMESTAMP', 'NULLABLE'),
+]
